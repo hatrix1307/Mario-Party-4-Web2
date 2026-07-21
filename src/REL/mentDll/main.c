@@ -3411,6 +3411,27 @@ void fn_1_1368C(omObjData *arg0, s32 arg1)
     var_r31->unk_6C = var_r31->unk_58;
 }
 
+#ifdef TARGET_PC
+// GWPlayerCfg[n].pad_idx/character (both s16) are meant to already be valid
+// controller/character indices by the time this runs -- set at boot and
+// refreshed from a save file. When entering here without ever going through
+// either of those (e.g. no save file present), they can carry an out-of-range
+// value that fn_1_15CB4 and CharModelCreate then use as an unchecked array
+// index into HuPadBtnDown/HuPadStkX/HuPadBtn or the character table, which
+// traps as a wasm out-of-bounds access instead of the harmless GC-hardware
+// read a bad-but-in-range value would have been. Clamp to known-valid ranges
+// here rather than upstream in the save/boot code, since that's shared with
+// every other REL that reads GWPlayerCfg.
+static void ment_ClampPlayerCfg(MentDllUnkBss3114Struct *cfg) {
+    if (cfg->unk_6C < 0 || cfg->unk_6C > 3) {
+        cfg->unk_6C = 0;
+    }
+    if (cfg->unk_68 < 0 || cfg->unk_68 > 7) {
+        cfg->unk_68 = 0;
+    }
+}
+#endif
+
 void fn_1_136F0(omObjData *arg0, s32 arg1)
 {
     MentDllUnkBss3114Struct *var_r31;
@@ -3422,6 +3443,9 @@ void fn_1_136F0(omObjData *arg0, s32 arg1)
     var_r31->unk_64 = GWPlayerCfg[var_r31->unk_58].diff;
     var_r31->unk_68 = GWPlayerCfg[var_r31->unk_58].character;
     var_r31->unk_6C = GWPlayerCfg[var_r31->unk_58].pad_idx;
+#ifdef TARGET_PC
+    ment_ClampPlayerCfg(var_r31);
+#endif
 }
 
 void fn_1_137A4(omObjData *arg0, s32 arg1)
@@ -3435,6 +3459,9 @@ void fn_1_137A4(omObjData *arg0, s32 arg1)
     var_r31->unk_64 = GWPlayerCfg[var_r31->unk_58].diff;
     var_r31->unk_68 = GWPlayerCfg[var_r31->unk_58].character;
     var_r31->unk_6C = GWPlayerCfg[var_r31->unk_58].pad_idx;
+#ifdef TARGET_PC
+    ment_ClampPlayerCfg(var_r31);
+#endif
     arg0->model[1] = CharModelCreate(var_r31->unk_68, 1);
     arg0->motion[1] = CharModelMotionCreate(var_r31->unk_68, DATA_MAKE_NUM(DATADIR_MARIOMOT, 0));
     arg0->motion[2] = Hu3DJointMotionFile(arg0->model[1], var_r31->unk_68 + DATA_MAKE_NUM(DATADIR_MENT, 0x00));
