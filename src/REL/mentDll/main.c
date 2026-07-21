@@ -3429,6 +3429,15 @@ static void ment_ClampPlayerCfg(MentDllUnkBss3114Struct *cfg) {
     if (cfg->unk_68 < 0 || cfg->unk_68 > 7) {
         cfg->unk_68 = 0;
     }
+    // iscom: garbage here reads as "this slot is CPU-controlled", which
+    // silently disables the human confirm-with-A check further down (see
+    // e.g. the `unk_60 == 0` guard around line 1013) while leaving
+    // confirm-with-B unaffected -- exactly the "X backs out, Z does
+    // nothing" symptom this was hit by. Treat anything but exactly 1 as
+    // "not COM", i.e. human-controlled.
+    if (cfg->unk_60 != 1) {
+        cfg->unk_60 = 0;
+    }
 }
 #endif
 
