@@ -198,6 +198,14 @@ if (EMSCRIPTEN)
     target_link_options(partyboard PRIVATE -sASSERTIONS=1 -sASYNCIFY_STACK_SIZE=1048576
             -sEXPORTED_RUNTIME_METHODS=dynCall
             -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=268435456
+            # Without an explicit cap, Emscripten defaults MAXIMUM_MEMORY to
+            # 2GB even with growth enabled. This game's asset set (a 273MB
+            # preloaded .data blob, ~90 REL modules, plus runtime texture/
+            # shader-pipeline allocations for screens that load many models
+            # at once, e.g. character select) can approach that ceiling, so
+            # malloc starts failing with plenty of real memory still
+            # unused. Raise the cap to the practical wasm32 maximum instead.
+            -sMAXIMUM_MEMORY=4294901760
             -sMAIN_MODULE=1
             # Emscripten's own -sEXPORT_ALL setting actively disables its
             # normal --export-dynamic pass for MAIN_MODULE builds (see
