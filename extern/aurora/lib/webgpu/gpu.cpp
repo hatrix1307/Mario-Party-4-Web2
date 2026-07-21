@@ -517,6 +517,22 @@ bool initialize(AuroraBackend auroraBackend) {
     });
     deviceDescriptor.SetUncapturedErrorCallback(
         [](const wgpu::Device& device, wgpu::ErrorType type, wgpu::StringView message) {
+#ifdef EMSCRIPTEN
+          // Under Emscripten, begin_frame() can yield back to the browser's
+          // event loop for multiple turns (waiting on a staging buffer's
+          // MapAsync) after already acquiring the swapchain's current
+          // texture; the browser is free to invalidate that texture before
+          // control returns. The resulting submit-time validation error is
+          // recoverable -- this frame's present just gets dropped -- so
+          // don't take the whole tab down over it like every other
+          // uncaptured error here; skip past it and let the next frame
+          // acquire a fresh texture normally.
+          const std::string_view messageView(message.data, message.length);
+          if (messageView.find("Destroyed texture") != std::string_view::npos) {
+            Log.warn("WebGPU error {}: {}", underlying(type), message);
+            return;
+          }
+#endif
           FATAL("WebGPU error {}: {}", underlying(type), message);
         });
     deviceDescriptor.SetDeviceLostCallback(wgpu::CallbackMode::AllowSpontaneous,

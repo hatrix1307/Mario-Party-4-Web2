@@ -624,21 +624,24 @@ void map_staging_buffer() {
       });
 }
 
+void wait_for_buffer_map() {
+  ZoneScoped;
+  ZoneScopedN("Wait for buffer map");
+  while (!bufferMapped) {
+    g_instance.ProcessEvents();
+#ifdef EMSCRIPTEN
+    // The buffer-map completion callback only fires once the browser's own
+    // event loop gets a turn; ProcessEvents() alone can't force that the
+    // way it can with native Dawn. Yield via Asyncify so pending promises
+    // actually get a chance to resolve.
+    emscripten_sleep(0);
+#endif
+  }
+}
+
 void begin_frame() {
   ZoneScoped;
-  {
-    ZoneScopedN("Wait for buffer map");
-    while (!bufferMapped) {
-      g_instance.ProcessEvents();
-#ifdef EMSCRIPTEN
-      // The buffer-map completion callback only fires once the browser's own
-      // event loop gets a turn; ProcessEvents() alone can't force that the
-      // way it can with native Dawn. Yield via Asyncify so pending promises
-      // actually get a chance to resolve.
-      emscripten_sleep(0);
-#endif
-    }
-  }
+  wait_for_buffer_map();
   size_t bufferOffset = 0;
   const auto& stagingBuf = g_stagingBuffers[currentStagingBuffer];
   const auto mapBuffer = [&](ByteBuffer& buf, uint64_t size) {

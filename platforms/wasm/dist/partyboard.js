@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpt_x9_wlk.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpjgdqdb5h.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -210,21 +210,21 @@ Module['FS_createPath']("/", "rel", true, true);
 
   })();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmpt_x9_wlk.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmp912qeug_.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmpjgdqdb5h.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpzksaan7o.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\Sonic\AppData\Local\Temp\tmp912qeug_.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmp0q19ytun.js
+  // end include: C:\Users\Sonic\AppData\Local\Temp\tmpzksaan7o.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpgq_jnwzb.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\Sonic\AppData\Local\Temp\tmp0q19ytun.js
+  // end include: C:\Users\Sonic\AppData\Local\Temp\tmpgq_jnwzb.js
 
 
 var arguments_ = [];
@@ -32204,6 +32204,7 @@ var __ZN6aurora3gfx18map_staging_bufferEv = Module['__ZN6aurora3gfx18map_staging
 var __ZN6aurora3gfx8shutdownEv = Module['__ZN6aurora3gfx8shutdownEv'] = makeInvalidEarlyAccess('__ZN6aurora3gfx8shutdownEv');
 var __ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv = Module['__ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv'] = makeInvalidEarlyAccess('__ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv');
 var __ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_ = Module['__ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_'] = makeInvalidEarlyAccess('__ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_');
+var __ZN6aurora3gfx19wait_for_buffer_mapEv = Module['__ZN6aurora3gfx19wait_for_buffer_mapEv'] = makeInvalidEarlyAccess('__ZN6aurora3gfx19wait_for_buffer_mapEv');
 var __ZN6aurora3gfx11begin_frameEv = Module['__ZN6aurora3gfx11begin_frameEv'] = makeInvalidEarlyAccess('__ZN6aurora3gfx11begin_frameEv');
 var __ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE = Module['__ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE'] = makeInvalidEarlyAccess('__ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE');
 var __ZN6aurora3gfx13current_frameEv = Module['__ZN6aurora3gfx13current_frameEv'] = makeInvalidEarlyAccess('__ZN6aurora3gfx13current_frameEv');
@@ -44263,6 +44264,7 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['_ZN6aurora3gfx8shutdownEv'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx8shutdownEv');
   assert(typeof wasmExports['_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv'] != 'undefined', 'missing Wasm export: _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv');
   assert(typeof wasmExports['_ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_'] != 'undefined', 'missing Wasm export: _ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_');
+  assert(typeof wasmExports['_ZN6aurora3gfx19wait_for_buffer_mapEv'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx19wait_for_buffer_mapEv');
   assert(typeof wasmExports['_ZN6aurora3gfx11begin_frameEv'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx11begin_frameEv');
   assert(typeof wasmExports['_ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE');
   assert(typeof wasmExports['_ZN6aurora3gfx13current_frameEv'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx13current_frameEv');
@@ -56318,6 +56320,7 @@ function assignWasmExports(wasmExports) {
   __ZN6aurora3gfx8shutdownEv = Module['__ZN6aurora3gfx8shutdownEv'] = createExportWrapper('_ZN6aurora3gfx8shutdownEv', 0);
   __ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv = Module['__ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv'] = createExportWrapper('_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv', 1);
   __ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_ = Module['__ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_'] = createExportWrapper('_ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_', 2);
+  __ZN6aurora3gfx19wait_for_buffer_mapEv = Module['__ZN6aurora3gfx19wait_for_buffer_mapEv'] = createExportWrapper('_ZN6aurora3gfx19wait_for_buffer_mapEv', 0);
   __ZN6aurora3gfx11begin_frameEv = Module['__ZN6aurora3gfx11begin_frameEv'] = createExportWrapper('_ZN6aurora3gfx11begin_frameEv', 0);
   __ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE = Module['__ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE'] = createExportWrapper('_ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE', 1);
   __ZN6aurora3gfx13current_frameEv = Module['__ZN6aurora3gfx13current_frameEv'] = createExportWrapper('_ZN6aurora3gfx13current_frameEv', 0);
