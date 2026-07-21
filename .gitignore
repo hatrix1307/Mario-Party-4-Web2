@@ -37,3 +37,11 @@ compile_commands.json
 # Miscellaneous
 /*.txt
 *.exe
+.vercel
+.env*
+
+# Served from Vercel Blob storage instead (see platforms/wasm/dist/index.html's
+# Module.locateFile) -- too large to reliably deploy via git/LFS on Vercel.
+# Kept locally for testing; rebuild via CMake if missing.
+platforms/wasm/dist/partyboard.wasm
+platforms/wasm/dist/partyboard.data

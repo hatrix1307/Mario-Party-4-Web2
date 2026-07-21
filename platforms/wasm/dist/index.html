@@ -164,9 +164,25 @@
   var statusEl = document.getElementById('status');
   var stageEl = document.getElementById('stage');
   var canvasEl = document.getElementById('canvas');
+  // partyboard.wasm/.data are too large to reliably serve straight out of
+  // the git repo on Vercel: they're Git LFS-tracked, and Vercel's build
+  // doesn't reliably run `git lfs pull`, so the deployed files ended up
+  // being the raw LFS pointer text instead of the real binaries. GitHub
+  // Release assets were tried next, but those redirect through a chain
+  // that doesn't carry CORS headers, so cross-origin fetch() from this
+  // page fails outright. Vercel Blob storage works: plain public HTTP
+  // GET with proper CORS, meant exactly for this kind of large static
+  // asset.
+  var BLOB_ASSET_BASE = 'https://nmaajxnhtqriuzhf.public.blob.vercel-storage.com/';
   var Module = {
     canvas: canvasEl,
     printErr: function(text) { console.error(text); },
+    locateFile: function(path) {
+      if (path === 'partyboard.wasm' || path === 'partyboard.data') {
+        return BLOB_ASSET_BASE + path;
+      }
+      return path;
+    },
     setStatus: function(text) {
       if (text) statusEl.textContent = text;
       else statusEl.style.display = 'none';

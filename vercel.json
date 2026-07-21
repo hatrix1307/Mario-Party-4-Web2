@@ -1,7 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "git lfs install && git lfs pull",
-  "buildCommand": "npm run build",
   "outputDirectory": "platforms/wasm/dist",
   "trailingSlash": false,
   "headers": [
