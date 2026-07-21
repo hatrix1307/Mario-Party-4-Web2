@@ -21,8 +21,9 @@
   }
   canvas {
     display: block;
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     background: #000;
     image-rendering: pixelated;
   }
@@ -146,14 +147,14 @@
     <h2>Controls</h2>
     <p class="hint">No gamepad? Here's the default keyboard mapping (click the canvas first so it has focus).</p>
     <table>
-      <tr><td class="key"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> <kbd>&larr;</kbd> <kbd>&rarr;</kbd></td><td>Move / navigate menus</td></tr>
-      <tr><td class="key"><kbd>Z</kbd></td><td>A button (confirm)</td></tr>
-      <tr><td class="key"><kbd>X</kbd></td><td>B button (cancel)</td></tr>
-      <tr><td class="key"><kbd>A</kbd></td><td>X button</td></tr>
-      <tr><td class="key"><kbd>S</kbd></td><td>Y button</td></tr>
-      <tr><td class="key"><kbd>Q</kbd></td><td>L trigger</td></tr>
-      <tr><td class="key"><kbd>E</kbd></td><td>R trigger</td></tr>
-      <tr><td class="key"><kbd>Space</kbd></td><td>Z trigger</td></tr>
+      <tr><td class="key"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> <kbd>&larr;</kbd> <kbd>&rarr;</kbd></td><td>Stick / D-pad</td></tr>
+      <tr><td class="key"><kbd>Z</kbd></td><td>A</td></tr>
+      <tr><td class="key"><kbd>X</kbd></td><td>B</td></tr>
+      <tr><td class="key"><kbd>A</kbd></td><td>X</td></tr>
+      <tr><td class="key"><kbd>S</kbd></td><td>Y</td></tr>
+      <tr><td class="key"><kbd>Q</kbd></td><td>L</td></tr>
+      <tr><td class="key"><kbd>E</kbd></td><td>R</td></tr>
+      <tr><td class="key"><kbd>Space</kbd></td><td>Z</td></tr>
       <tr><td class="key"><kbd>Enter</kbd></td><td>Start</td></tr>
     </table>
     <button id="controlsClose" type="button">Got it</button>
@@ -184,8 +185,19 @@
       return path;
     },
     setStatus: function(text) {
-      if (text) statusEl.textContent = text;
-      else statusEl.style.display = 'none';
+      if (!text) {
+        statusEl.style.display = 'none';
+        return;
+      }
+      // partyboard.js reports download progress as "Downloading data...
+      // (loadedBytes/totalBytes)"; show that as a percentage instead.
+      var match = text.match(/^(.*)\((\d+)\/(\d+)\)$/);
+      if (match && Number(match[3]) > 0) {
+        var pct = Math.floor((Number(match[2]) / Number(match[3])) * 100);
+        statusEl.textContent = match[1].trim() + ' ' + pct + '%';
+      } else {
+        statusEl.textContent = text;
+      }
     },
     monitorRunDependencies: function(left) {
       if (left) statusEl.textContent = 'Loading data files... (' + left + ' remaining)';
