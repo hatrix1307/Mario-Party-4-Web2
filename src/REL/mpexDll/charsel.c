@@ -131,6 +131,15 @@ s32 fn_1_126EC(s32 arg0)
             var_r29 = var_r30;
             fn_1_1BA78(var_r30 + 0x1A001B, -1, 1);
         }
+#ifdef TARGET_PC
+        {
+            static s32 sLogFrame126EC = 0;
+            if ((sLogFrame126EC++ % 30) == 0) {
+                OSReport("fn_1_126EC: unk_28(wipe/transition)=%d HuPadBtnDown[0]=%04x activeCount=%d HuPadStatGet(0)=%d\n",
+                         lbl_1_bss_5DC.unk_28, (u32)HuPadBtnDown[0], var_r30, HuPadStatGet(0));
+            }
+        }
+#endif
         if (lbl_1_bss_5DC.unk_28 != 0) {
             continue;
         }
@@ -455,6 +464,15 @@ s32 fn_1_13184(void)
             var_r26 = var_r30;
             fn_1_1BA78(var_r30 + 0x330093, -1, 1);
         }
+#ifdef TARGET_PC
+        {
+            static s32 sLogFrame126EC = 0;
+            if ((sLogFrame126EC++ % 30) == 0) {
+                OSReport("fn_1_126EC: unk_28(wipe/transition)=%d HuPadBtnDown[0]=%04x activeCount=%d HuPadStatGet(0)=%d\n",
+                         lbl_1_bss_5DC.unk_28, (u32)HuPadBtnDown[0], var_r30, HuPadStatGet(0));
+            }
+        }
+#endif
         if (lbl_1_bss_5DC.unk_28 != 0) {
             continue;
         }
@@ -1903,6 +1921,15 @@ void fn_1_17B04(omObjData *arg0, MpexDllUnkStruct4 *arg1)
         var_r29 = arg1->unk_5C / 4;
         var_r22 = var_r29;
     }
+#ifdef TARGET_PC
+    {
+        static s32 sLogFrame17B04 = 0;
+        if ((sLogFrame17B04++ % 30) == 0) {
+            OSReport("fn_1_17B04: unk_48(pad)=%d unk_50(com)=%d unk_08(confirmed)=%d HuPadBtnDown[pad]=%04x HuPadStatGet(pad)=%d\n",
+                     arg1->unk_48, arg1->unk_50, arg1->unk_08, (u32)HuPadBtnDown[arg1->unk_48], HuPadStatGet(arg1->unk_48));
+        }
+    }
+#endif
     if (arg1->unk_08 == 0) {
         if (HuPadBtnDown[arg1->unk_48] & PAD_BUTTON_A) {
             arg1->unk_08 = 1;
