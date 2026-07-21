@@ -2,8 +2,11 @@
 #include "game/dvd.h"
 #include "game/memory.h"
 
-#if defined(__linux__) || defined(__APPLE__)
+#if defined(__linux__) || defined(__APPLE__) || defined(EMSCRIPTEN)
 #include <dlfcn.h>
+#endif
+#ifdef EMSCRIPTEN
+#include <emscripten.h>
 #endif
 
 typedef s32 (*DLLProlog)(void);
@@ -115,10 +118,18 @@ omDllData *omDLLLink(omDllData **dll_ptr, s16 overlay, s16 flag)
 	if (dll->hModule == NULL) {
 		OSReport("objdll>++++++++++++++++ DLL Link Failed\n");
 	}
-#elif defined(__linux__) || defined(__APPLE__) || defined(__ANDROID__)
+#elif defined(__linux__) || defined(__APPLE__) || defined(__ANDROID__) || defined(EMSCRIPTEN)
 	{
 		// RPATH has to be set properly in CMake
+#ifdef EMSCRIPTEN
+		// RTLD_NOW forces full, eager symbol resolution during dlopen() itself
+		// rather than deferring it to first use, so by the time dlopen()
+		// returns the module's exports (including ObjectSetup) are fully
+		// populated in the table.
+		dll->handle = dlopen(dllFile->name, RTLD_NOW);
+#else
 		dll->handle = dlopen(dllFile->name, RTLD_LAZY);
+#endif
 		if (dll->handle == NULL) {
 			OSReport("objdll>++++++++++++++++ DLL Link Failed %s\n", dlerror());
 		}
@@ -142,6 +153,15 @@ omDllData *omDLLLink(omDllData **dll_ptr, s16 overlay, s16 flag)
 		DLLObjectSetup objectSetup = (DLLObjectSetup)GetProcAddress(dll->hModule, "ObjectSetup");
 		objectSetup();
 		}
+#elif defined(EMSCRIPTEN)
+		{
+			DLLObjectSetup objectSetup = (DLLObjectSetup)dlsym(dll->handle, "ObjectSetup");
+			if (objectSetup == NULL) {
+				OSReport("objdll>++++++++++++++++ DLL Link Failed %s\n", dlerror());
+			} else {
+				objectSetup();
+			}
+		}
 #elif defined(__linux__) || defined(__APPLE__)
 		DLLObjectSetup objectSetup = (DLLObjectSetup)dlsym(dll->handle, "ObjectSetup");
 		objectSetup();
@@ -158,7 +178,7 @@ void omDLLUnlink(omDllData *dll_ptr, s16 flag)
 	OSReport("odjdll>Unlink DLL:%s\n", dll_ptr->name);
 #ifdef _WIN32
     FreeLibrary(dll_ptr->hModule);
-#elif defined(__linux__) || defined(__APPLE__)
+#elif defined(__linux__) || defined(__APPLE__) || defined(EMSCRIPTEN)
 	dlclose(dll_ptr->handle);
 #else
 	if(flag == 1) {

@@ -14,6 +14,12 @@ u32 OSGetConsoleSimulatedMemSize(void)
 }
 
 
+#ifndef EMSCRIPTEN
+// aurora::os (extern/aurora/lib/dolphin/os/OSAlloc.cpp) already provides this
+// heap allocator. Native builds only avoid duplicate-symbol errors here by
+// accident of static archive link order; Emscripten's MAIN_MODULE linking is
+// stricter and needs the duplicate actually removed.
+
 #define ALIGNMENT 32
 
 #define InRange(cell, arenaStart, arenaEnd) ((uintptr_t)arenaStart <= (uintptr_t)cell) && ((uintptr_t)cell < (uintptr_t)arenaEnd)
@@ -452,6 +458,7 @@ void OSVisitAllocated(void (*visitor)(void *, u32))
         }
     }
 }
+#endif // !EMSCRIPTEN
 
 
 void OSInitStopwatch(struct OSStopwatch *sw, char *name)

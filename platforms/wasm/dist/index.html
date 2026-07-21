@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Party Board</title>
+<style>
+  html, body { margin: 0; background: #111; height: 100%; overflow: hidden; }
+  canvas { display: block; margin: 0 auto; background: #000; image-rendering: pixelated; }
+  #status { position: fixed; top: 0; left: 0; right: 0; color: #0f0; font-family: monospace;
+            font-size: 13px; padding: 4px 8px; background: rgba(0,0,0,0.6); }
+</style>
+</head>
+<body>
+<div id="status">Loading&hellip;</div>
+<canvas id="canvas" width="640" height="480" oncontextmenu="event.preventDefault()"></canvas>
+<script>
+  var statusEl = document.getElementById('status');
+  var Module = {
+    canvas: document.getElementById('canvas'),
+    printErr: function(text) { console.error(text); },
+    setStatus: function(text) {
+      if (text) statusEl.textContent = text;
+      else statusEl.style.display = 'none';
+    },
+    monitorRunDependencies: function(left) {
+      if (left) statusEl.textContent = 'Loading data files... (' + left + ' remaining)';
+    }
+  };
+</script>
+<script src="partyboard.js"></script>
+</body>
+</html>

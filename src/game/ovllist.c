@@ -7,6 +7,8 @@
 #define OVL_DEFINE(name, path) { path ".dll", 0 },
 #elif defined(__APPLE__)
 #define OVL_DEFINE(name, path) { path ".dylib", 0 },
+#elif defined(EMSCRIPTEN)
+#define OVL_DEFINE(name, path) { "rel/" path ".wasm", 0 },
 #else
 #define OVL_DEFINE(name, path) { path ".so", 0 },
 #endif

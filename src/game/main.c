@@ -17,6 +17,10 @@
 #include "game/wipe.h"
 #include "version.h"
 
+#ifdef EMSCRIPTEN
+#include <emscripten.h>
+#endif
+
 #ifdef TARGET_PC
 #include "port/imgui.h"
 #include "aurora/dvd.h"
@@ -100,15 +104,25 @@ void main(void)
         &(AuroraConfig) {
             .appName = "Party Board",
             .logCallback = &aurora_log_callback,
+#ifdef EMSCRIPTEN
+            .logLevel = LOG_WARNING,
+#endif
             .desiredBackend = BACKEND_AUTO,
             .windowPosX = 100,
             .windowPosY = 100,
             .windowWidth = 640,
             .windowHeight = 480,
+#ifdef EMSCRIPTEN
+            .mem1Size = 128 * 1024 * 1024,
+            .mem2Size = 32 * 1024 * 1024,
+#else
             .mem1Size = 64 * 1024 * 1024,
             .mem2Size =  16 * 1024 * 1024,
+#endif
         });
+#ifndef EMSCRIPTEN
     aurora_dvd_open(imgui_get_image_path_from_popup());
+#endif
 #endif
     u32 met0;
     u32 met1;
@@ -174,6 +188,11 @@ void main(void)
         if (exiting) {
             break;
         }
+#endif
+#ifdef EMSCRIPTEN
+        // Yield to the browser event loop once per frame; without this the
+        // native blocking loop never returns control to the tab.
+        emscripten_sleep(0);
 #endif
         retrace = VIGetRetraceCount();
         if (HuSoftResetButtonCheck() != 0 || HuDvdErrWait != 0) {

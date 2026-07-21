@@ -99,7 +99,10 @@ option(SKIP_HU_ALLOC "Skip the game's built in allocator" OFF)
 option(RUNTIME_SANITIZE "Runtime (stack) sanitization" OFF)
 
 set(USE_ASAN OFF CACHE BOOL "Disable ASan" FORCE)
-set(AURORA_ENABLE_DVD ON)
+if (NOT EMSCRIPTEN)
+    # nod (Rust) doesn't have a wasm32 target wired up for disc reading yet.
+    set(AURORA_ENABLE_DVD ON)
+endif ()
 set(RUNTIME_SANITIZE OFF)
 set(SKIP_HU_ALLOC OFF CACHE BOOL "Skip the built in allocator" FORCE)
 
@@ -123,13 +126,29 @@ include(extern/aurora/cmake/AuroraCopyRuntimeDLLs.cmake)
 configure_file(${CMAKE_SOURCE_DIR}/version.h.in ${CMAKE_BINARY_DIR}/version.h)
 include(files.cmake)
 
+if (EMSCRIPTEN)
+    # No aurora::dvd/nod on wasm32 yet; this provides the same DVD entrypoints
+    # via plain POSIX file I/O against Emscripten's virtual filesystem.
+    list(APPEND PORT_FILES src/port/dvd.c)
+endif ()
+
 source_group("Game" FILES ${GAME_FILES})
 source_group("Port" FILES ${PORT_FILES})
 
-add_library(dol SHARED ${GAME_FILES} ${PORT_FILES} extern/libco/libco.c)
+if (EMSCRIPTEN)
+    # Dynamic REL loading via dlopen isn't wired up for wasm yet; link everything
+    # statically into a single module for now.
+    add_library(dol STATIC ${GAME_FILES} ${PORT_FILES} extern/libco/libco.c)
+else ()
+    add_library(dol SHARED ${GAME_FILES} ${PORT_FILES} extern/libco/libco.c)
+endif ()
 target_compile_definitions(dol PRIVATE TARGET_PC NON_MATCHING OPTIMIZED_TEXTURE_LOADING BYTESWAPPING TARGET_DOL VERSION=${VERSION} MUSY_VERSION_MAJOR=1 MUSY_VERSION_MINOR=5 MUSY_VERSION_PATCH=4)
 target_include_directories(dol PRIVATE include extern/aurora/include extern/aurora/include/dolphin build/GMPE01_00/include extern/libco)
-target_link_libraries(dol PUBLIC aurora::core aurora::card aurora::dvd aurora::gx aurora::mtx aurora::os aurora::si aurora::vi aurora::pad musyx)
+if (EMSCRIPTEN)
+    target_link_libraries(dol PUBLIC aurora::core aurora::card aurora::gx aurora::mtx aurora::os aurora::si aurora::vi aurora::pad musyx)
+else ()
+    target_link_libraries(dol PUBLIC aurora::core aurora::card aurora::dvd aurora::gx aurora::mtx aurora::os aurora::si aurora::vi aurora::pad musyx)
+endif ()
 # TODO it doesn't work on Linux yet
 if (WIN32)
     if(USE_ASAN)
@@ -175,6 +194,57 @@ target_compile_definitions(partyboard PRIVATE TARGET_PC NON_MATCHING VERSION=${V
 target_include_directories(partyboard PRIVATE include)
 target_link_libraries(partyboard PRIVATE dol aurora::main)
 aurora_copy_runtime_dlls(partyboard dol)
+if (EMSCRIPTEN)
+    target_link_options(partyboard PRIVATE -sASSERTIONS=1 -sASYNCIFY_STACK_SIZE=1048576
+            -sEXPORTED_RUNTIME_METHODS=dynCall
+            -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=268435456
+            -sMAIN_MODULE=1
+            # Emscripten's own -sEXPORT_ALL setting actively disables its
+            # normal --export-dynamic pass for MAIN_MODULE builds (see
+            # link.py: "if settings.LINKABLE and not settings.EXPORT_ALL"),
+            # so it ends up exporting *fewer* symbols, not more. These are
+            # the raw wasm-ld flags instead: export literally everything and
+            # disable dead-code elimination so nothing a REL might dlsym()
+            # for gets silently dropped.
+            "LINKER:--export-all" "LINKER:--no-gc-sections"
+            "--post-js=${CMAKE_SOURCE_DIR}/platforms/wasm/fiber_entry_fix.js")
+    set(PARTY_BOARD_DISC_FILES "${CMAKE_SOURCE_DIR}/extracted_disc/files" CACHE PATH "Extracted GC disc filesystem to preload into the wasm build")
+    if (EXISTS "${PARTY_BOARD_DISC_FILES}")
+        target_link_options(partyboard PRIVATE
+                "--preload-file=${PARTY_BOARD_DISC_FILES}@GMPE01_00/files"
+                "--exclude-file=${PARTY_BOARD_DISC_FILES}/movie/*")
+    else ()
+        message(WARNING "PARTY_BOARD_DISC_FILES not found at ${PARTY_BOARD_DISC_FILES}; game data won't be preloaded")
+    endif ()
+    # Preload the REL side modules into the virtual filesystem so dlopen()
+    # finds them already resident instead of needing an async fetch. That
+    # async fetch competes with the fiber-swap machinery (both use
+    # Asyncify's single global unwind/rewind state) for the same Asyncify
+    # state, causing dlopen to intermittently return before the module has
+    # actually finished linking (dlsym() then resolves a still-empty table
+    # slot). Preloading removes the network fetch from the equation entirely.
+    target_link_options(partyboard PRIVATE "--preload-file=${CMAKE_BINARY_DIR}/rel@rel")
+
+    # See platforms/wasm/fix_dyncalls.py: Emscripten's JS glue hardcodes an
+    # abort() for any dynCall_<sig> wrapper it doesn't believe survived the
+    # MAIN_MODULE link (browser event callbacks, Fibers' fiber-entry
+    # dispatch, ...), even though --export-all/--no-gc-sections above mean
+    # they actually do. Rewrite those dead-end aborts into real calls once
+    # the .wasm/.js are both on disk.
+    find_package(Python3 COMPONENTS Interpreter REQUIRED)
+    # Not always on PATH even though emcc.bat is (that's upstream/emscripten,
+    # a different directory from upstream/bin where the binaryen tools
+    # live); fall back to the emsdk layout relative to the compiler we're
+    # already using.
+    get_filename_component(_emsdk_upstream_dir "${CMAKE_C_COMPILER}" DIRECTORY)
+    find_program(WASM_DIS_EXECUTABLE wasm-dis HINTS "${_emsdk_upstream_dir}/../bin" REQUIRED)
+    add_custom_command(TARGET partyboard POST_BUILD
+            COMMAND ${Python3_EXECUTABLE} "${CMAKE_SOURCE_DIR}/platforms/wasm/fix_dyncalls.py"
+                    "${WASM_DIS_EXECUTABLE}"
+                    "$<TARGET_FILE_DIR:partyboard>/partyboard.wasm"
+                    "$<TARGET_FILE_DIR:partyboard>/partyboard.js"
+            VERBATIM)
+endif ()
 
 file(GLOB REL_DIRS RELATIVE ${CMAKE_SOURCE_DIR}/src/REL ${CMAKE_SOURCE_DIR}/src/REL/*)
 set(EXCLUDED_RELS "nisDll" "safDll")
@@ -182,6 +252,7 @@ set(EXCLUDED_RELS "nisDll" "safDll")
 list(APPEND BINARY_TARGETS partyboard dol)
 
 # Add RELs
+if (NOT EMSCRIPTEN)
 foreach (dir ${REL_DIRS})
     if (IS_DIRECTORY ${CMAKE_SOURCE_DIR}/src/REL/${dir})
         if (dir IN_LIST EXCLUDED_RELS)
@@ -236,6 +307,85 @@ endif()
         endif ()
     endif ()
 endforeach ()
+else ()
+    # RELs are loaded dynamically via dlopen() at runtime (see src/game/objdll.c),
+    # so each is built as an Emscripten SIDE_MODULE (.wasm) that resolves game
+    # engine/aurora/musyx symbols dynamically against partyboard.wasm (built as
+    # MAIN_MODULE) instead of statically re-linking them, which would duplicate
+    # ~30MB of engine code into every one of the ~100 REL modules.
+    foreach (dir ${REL_DIRS})
+        if (IS_DIRECTORY ${CMAKE_SOURCE_DIR}/src/REL/${dir})
+            if (dir IN_LIST EXCLUDED_RELS)
+                continue()
+            endif()
+            file(GLOB_RECURSE REL_FILES src/REL/${dir}/*.c)
+
+            if (REL_FILES)
+                # add_library(... MODULE ...) isn't usable here: CMake's Emscripten
+                # toolchain reports shared libs as unsupported and silently downgrades
+                # MODULE to STATIC (an .a archive, never invoking the real link step).
+                # add_executable always goes through the full link driver, and
+                # -sSIDE_MODULE=1 controls the actual output shape instead.
+                add_executable(${dir} ${REL_FILES})
+                list(APPEND BINARY_TARGETS ${dir})
+                if (dir MATCHES "^w..Dll")
+                    target_sources(${dir} PRIVATE src/REL/board_executor.c)
+                endif()
+                target_compile_definitions(${dir} PRIVATE TARGET_PC OPTIMIZED_TEXTURE_LOADING BYTESWAPPING NON_MATCHING VERSION=${VERSION}
+                        MUSY_TARGET=MUSY_TARGET_PC MUSY_VERSION_MAJOR=1 MUSY_VERSION_MINOR=5 MUSY_VERSION_PATCH=4)
+                target_include_directories(${dir} PRIVATE include extern/aurora/include extern/aurora/include/dolphin build/GMPE01_00/include extern/libco extern/musyx/include)
+                # SIDE_MODULE needs to be a compile flag too, not just a link
+                # flag: side modules must be position-independent since they
+                # can be loaded at any address at runtime, and PIC codegen
+                # (relocatable addressing for globals) happens at compile
+                # time. Only setting it at link time works until a module
+                # has enough static/global data to hit a relocation type
+                # that requires PIC.
+                target_compile_options(${dir} PRIVATE -sSIDE_MODULE=1)
+                # wasm-ld doesn't support --version-script (silently ignored,
+                # despite the LINKER: prefix "succeeding"), so nothing marked
+                # ObjectSetup as a required export; with nothing in the static
+                # link graph calling it (only runtime dlsym() does), wasm-ld's
+                # dead-code elimination stripped it and everything it reaches,
+                # leaving an almost-empty module. --export= is the actual
+                # wasm-ld mechanism for this: it both exports the symbol and
+                # keeps it (and its dependencies) live.
+                #
+                # -sASYNCIFY=1 is required here even though aurora_gx/aurora_core
+                # already set it PUBLIC (which should propagate transitively via
+                # the aurora::gx/aurora::mtx PRIVATE links below, but empirically
+                # does not end up in this target's link command -- verified via
+                # `cmake --build ... --target bootDll --verbose`). Without it,
+                # Binaryen's Asyncify pass never runs on REL modules, so REL
+                # functions (e.g. BootExec) get no unwind/rewind instrumentation
+                # at all. A REL function calling into a main-module function that
+                # starts an Asyncify unwind (e.g. HuPrcVSleep -> co_switch) then
+                # can't itself early-return to propagate that unwind further up;
+                # it keeps executing as if the call completed synchronously,
+                # corrupting the fiber-swap state machine on the next call.
+                #
+                # -sASYNCIFY=1 alone isn't sufficient though: Binaryen's Asyncify
+                # pass prunes instrumentation from functions that (as far as it
+                # can tell from *this module's own* call graph) never reach an
+                # async import. A REL only ever sees process.c's scheduler
+                # entry points (HuPrcVSleep, HuPrcSleep, HuPrcChildWatch,
+                # HuPrcEnd, ...) as opaque cross-module imports with no visible
+                # body, so it has no way to know they eventually call
+                # co_switch/emscripten_fiber_swap (a real async import) inside
+                # the main module. ASYNCIFY_IMPORTS tells it explicitly; the
+                # 'HuPrc*' wildcard covers the whole process/scheduler API so
+                # any REL calling any of these gets properly instrumented,
+                # without having to enumerate every individual yield point.
+                target_link_options(${dir} PRIVATE -sSIDE_MODULE=1 -sASYNCIFY=1 "-sASYNCIFY_IMPORTS=HuPrc*" "LINKER:--export=ObjectSetup")
+                set_target_properties(${dir} PROPERTIES
+                        SUFFIX ".wasm"
+                        PREFIX ""
+                        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/rel")
+                add_dependencies(partyboard ${dir})
+            endif ()
+        endif ()
+    endforeach ()
+endif ()
 
 if (ANDROID)
     # SDLActivity loads SDL_main via dlsym on Android. Since aurora::main is a static

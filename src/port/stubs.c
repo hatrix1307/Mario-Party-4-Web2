@@ -13,11 +13,18 @@ static VIRetraceCallback sVIRetraceCallback = NULL;
 
 void OSReport(const char *msg, ...)
 {
+#ifdef EMSCRIPTEN
+    // Called extremely frequently (multiple times per frame); each call is
+    // expensive under wasm (console I/O crosses the JS/wasm boundary), so
+    // stay silent here instead of flooding devtools every frame.
+    (void)msg;
+#else
     va_list args;
     va_start(args, msg);
     vprintf(msg, args);
     fflush(stdout);
     va_end(args);
+#endif
 }
 
 u32 OSGetConsoleType()

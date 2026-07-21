@@ -28,6 +28,18 @@
 #define SHARED_SYM __declspec(dllimport)
 #endif
 
+#elif defined(EMSCRIPTEN)
+// On native ELF platforms (Linux/macOS), a plain non-static global is
+// exported from the executable/shared-lib by default, so this REL<->main
+// shared-globals mechanism needs no annotation there. Emscripten's
+// MAIN_MODULE build doesn't export data symbols by default the way it does
+// functions; without this, wasm-ld silently drops these globals from the
+// module's export table (and can even rename/strip them within the main
+// module itself), leaving REL side modules unable to resolve them at
+// dlopen time ("undefined symbol" aborts).
+#include <emscripten/em_macros.h>
+#define SHARED_SYM EMSCRIPTEN_KEEPALIVE
+
 #else
     #define SHARED_SYM
 #endif

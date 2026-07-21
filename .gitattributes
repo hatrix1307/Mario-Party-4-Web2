@@ -11,3 +11,9 @@
 
 # decomp-toolkit writes files with LF
 config/**/*.txt  text eol=lf
+
+# Prebuilt Emscripten browser-port output (see platforms/wasm/dist/) — large
+# binaries committed so Vercel (or any static host) can serve them directly
+# without needing the Emscripten toolchain in the build environment.
+platforms/wasm/dist/*.wasm filter=lfs diff=lfs merge=lfs -text
+platforms/wasm/dist/*.data filter=lfs diff=lfs merge=lfs -text

@@ -23,6 +23,9 @@ build/
 .ninja_*
 build.ninja
 
+# Extracted disc filesystem for wasm asset preloading (regenerate with nodtool)
+extracted_disc/
+
 # decompctx output
 ctx.*
 *.ctx

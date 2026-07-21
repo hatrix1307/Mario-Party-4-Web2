@@ -353,6 +353,43 @@
       }
     },
     {
+      "name": "wasm-default",
+      "displayName": "WebAssembly (Emscripten)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install-wasm",
+        "CMAKE_C_FLAGS": "-include stdlib.h",
+        "CMAKE_CXX_FLAGS": "-include cstdlib",
+        "AURORA_SDL3_PROVIDER": "vendor",
+        "AURORA_ENABLE_DVD": {
+          "type": "BOOL",
+          "value": false
+        },
+        "BUILD_SHARED_LIBS": {
+          "type": "BOOL",
+          "value": false
+        }
+      }
+    },
+    {
+      "name": "wasm-default-debug",
+      "displayName": "WebAssembly (Emscripten) Debug",
+      "inherits": [
+        "debug",
+        "wasm-default"
+      ]
+    },
+    {
+      "name": "wasm-default-relwithdebinfo",
+      "displayName": "WebAssembly (Emscripten) RelWithDebInfo",
+      "inherits": [
+        "relwithdebinfo",
+        "wasm-default"
+      ]
+    },
+    {
       "name": "x-linux-ci",
       "hidden": true,
       "inherits": [
@@ -566,6 +603,24 @@
       "configurePreset": "windows-clang-relwithdebinfo",
       "description": "Windows (Clang) release build with debug info",
       "displayName": "Windows (Clang) RelWithDebInfo"
+    },
+    {
+      "name": "wasm-default-debug",
+      "configurePreset": "wasm-default-debug",
+      "description": "WebAssembly (Emscripten) debug build",
+      "displayName": "WebAssembly (Emscripten) Debug",
+      "targets": [
+        "partyboard"
+      ]
+    },
+    {
+      "name": "wasm-default-relwithdebinfo",
+      "configurePreset": "wasm-default-relwithdebinfo",
+      "description": "WebAssembly (Emscripten) release build with debug info",
+      "displayName": "WebAssembly (Emscripten) RelWithDebInfo",
+      "targets": [
+        "partyboard"
+      ]
     },
     {
       "name": "x-linux-ci-gcc",

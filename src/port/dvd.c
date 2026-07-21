@@ -17,6 +17,14 @@
 #define PATH_MAX 256
 #endif
 
+#ifdef EMSCRIPTEN
+// These file ops run many times per frame in the browser (e.g. the boot
+// overlay's per-file existence checks); tracing each one is expensive.
+#define DVD_TRACE(...) ((void)0)
+#else
+#define DVD_TRACE(...) printf(__VA_ARGS__)
+#endif
+
 static char (*s_pathEntries)[PATH_MAX] = NULL;
 static int s_pathEntriesCount = 0;
 static char s_rootDir[PATH_MAX];
@@ -30,7 +38,7 @@ void DVDInit(void)
 
 BOOL DVDChangeDir(const char *dir)
 {
-    printf("DVDChangeDir: %s\n", dir);
+    DVD_TRACE("DVDChangeDir: %s\n", dir);
     if (dir[0] == '/') {
         char path[PATH_MAX];
         if (snprintf(path, sizeof(path), "%s/%s", s_rootDir, dir) >= PATH_MAX)
@@ -47,7 +55,7 @@ s32 DVDConvertPathToEntrynum(const char *pathPtr)
     FILE *f;
     char absolute[PATH_MAX];
 
-    printf("DVDConvertPathToEntrynum: %s\n", pathPtr);
+    DVD_TRACE("DVDConvertPathToEntrynum: %s\n", pathPtr);
 #ifdef _WIN32
     if (GetFullPathNameA(pathPtr, sizeof(absolute), absolute, NULL) == 0)
         return -1;
@@ -70,7 +78,7 @@ s32 DVDConvertPathToEntrynum(const char *pathPtr)
     fclose(f);
 
     // add new entry
-    printf("size = %i\n", (int)sizeof(*s_pathEntries));
+    DVD_TRACE("size = %i\n", (int)sizeof(*s_pathEntries));
     s_pathEntries = realloc(s_pathEntries, (s_pathEntriesCount + 1) * sizeof(*s_pathEntries));
     strcpy(s_pathEntries[s_pathEntriesCount], absolute);
     return s_pathEntriesCount++;
@@ -80,7 +88,7 @@ BOOL DVDOpen(const char *fileName, DVDFileInfo *fileInfo)
 {
     FILE *f;
 
-    printf("DVDOpen: %s\n", fileName);
+    DVD_TRACE("DVDOpen: %s\n", fileName);
     f = fopen(fileName, "rb");
     if (f == NULL) {
         puts("open failed\n");
@@ -94,7 +102,7 @@ BOOL DVDOpen(const char *fileName, DVDFileInfo *fileInfo)
 
 BOOL DVDFastOpen(s32 entrynum, DVDFileInfo *fileInfo)
 {
-    printf("DVDFastOpen: %li\n", entrynum);
+    DVD_TRACE("DVDFastOpen: %li\n", entrynum);
     if (entrynum < s_pathEntriesCount)
         return DVDOpen(s_pathEntries[entrynum], fileInfo);
     return FALSE;
@@ -115,7 +123,7 @@ BOOL DVDReadPrio(DVDFileInfo *fileInfo, void *addr, s32 length, s32 offset, s32 
     FILE *f = fileInfo->cb.addr;
     BOOL success;
 
-    printf("DVDReadPrio: length %li, offset %li\n", length, offset);
+    DVD_TRACE("DVDReadPrio: length %li, offset %li\n", length, offset);
     fseek(f, offset, SEEK_SET);
     success = (fread(addr, length, 1, f) == 1) || feof(f);
     if (!success)
@@ -128,7 +136,7 @@ BOOL DVDReadAsyncPrio(DVDFileInfo *fileInfo, void *addr, s32 length, s32 offset,
     FILE *f = fileInfo->cb.addr;
     BOOL success;
 
-    printf("DVDReadAsyncPrio: length %li, offset %li\n", length, offset);
+    DVD_TRACE("DVDReadAsyncPrio: length %li, offset %li\n", length, offset);
     fseek(f, offset, SEEK_SET);
     success = (fread(addr, length, 1, f) == 1) || feof(f);
     if (!success)

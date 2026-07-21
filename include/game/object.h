@@ -68,7 +68,7 @@ typedef struct om_dll_data {
 	char *name;
 #ifdef _WIN32
     HMODULE hModule;
-#elif defined (__linux__) || defined(__APPLE__)
+#elif defined (__linux__) || defined(__APPLE__) || defined(EMSCRIPTEN)
     void *handle;
 #else
 	OSModuleHeader *module;

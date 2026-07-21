@@ -16,6 +16,9 @@
 #if _WIN32
 #include "Windows.h"
 #endif
+#ifdef EMSCRIPTEN
+#include <emscripten.h>
+#endif
 
 static bool m_frameRate = true;
 static bool m_pipelineInfo = false;
@@ -352,6 +355,16 @@ class Limiter
         {
             QueryPerformanceCounter(&count);
         } while (count.QuadPart < end);
+    }
+#elif defined(EMSCRIPTEN)
+    void NanoSleep(const duration_t duration)
+    {
+        // std::this_thread::sleep_for busy-spins without -pthread, blocking the
+        // tab entirely; emscripten_sleep actually yields to the browser.
+        auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(duration).count();
+        if (ms > 0) {
+            emscripten_sleep(static_cast<unsigned int>(ms));
+        }
     }
 #else
     void NanoSleep(const duration_t duration)
