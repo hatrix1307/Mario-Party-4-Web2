@@ -68,7 +68,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\Sonic\AppData\Local\Temp\tmphemoysq2.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpwmbt4j4y.js
 if (!Module["expectedDataFileDownloads"]) Module["expectedDataFileDownloads"] = 0;
 
 Module["expectedDataFileDownloads"]++;
@@ -1856,109 +1856,109 @@ Module["expectedDataFileDownloads"]++;
     }, {
       "filename": "/rel/mpexDll.wasm",
       "start": 268866187,
-      "end": 269311481
+      "end": 269312908
     }, {
       "filename": "/rel/mstory2Dll.wasm",
-      "start": 269311481,
-      "end": 269719910
+      "start": 269312908,
+      "end": 269721337
     }, {
       "filename": "/rel/mstory3Dll.wasm",
-      "start": 269719910,
-      "end": 270151147
+      "start": 269721337,
+      "end": 270152574
     }, {
       "filename": "/rel/mstory4Dll.wasm",
-      "start": 270151147,
-      "end": 270183316
+      "start": 270152574,
+      "end": 270184743
     }, {
       "filename": "/rel/mstoryDll.wasm",
-      "start": 270183316,
-      "end": 270471564
+      "start": 270184743,
+      "end": 270472991
     }, {
       "filename": "/rel/option.wasm",
-      "start": 270471564,
-      "end": 270684383
+      "start": 270472991,
+      "end": 270685810
     }, {
       "filename": "/rel/present.wasm",
-      "start": 270684383,
-      "end": 270784993
+      "start": 270685810,
+      "end": 270786420
     }, {
       "filename": "/rel/resultDll.wasm",
-      "start": 270784993,
-      "end": 270954389
+      "start": 270786420,
+      "end": 270955816
     }, {
       "filename": "/rel/selmenuDll.wasm",
-      "start": 270954389,
-      "end": 271003109
+      "start": 270955816,
+      "end": 271004536
     }, {
       "filename": "/rel/staffDll.wasm",
-      "start": 271003109,
-      "end": 271036219
+      "start": 271004536,
+      "end": 271037646
     }, {
       "filename": "/rel/subchrselDll.wasm",
-      "start": 271036219,
-      "end": 271047547
+      "start": 271037646,
+      "end": 271048974
     }, {
       "filename": "/rel/w01Dll.wasm",
-      "start": 271047547,
-      "end": 271317320
+      "start": 271048974,
+      "end": 271318747
     }, {
       "filename": "/rel/w02Dll.wasm",
-      "start": 271317320,
-      "end": 271616834
+      "start": 271318747,
+      "end": 271618261
     }, {
       "filename": "/rel/w03Dll.wasm",
-      "start": 271616834,
-      "end": 271915497
+      "start": 271618261,
+      "end": 271916924
     }, {
       "filename": "/rel/w04Dll.wasm",
-      "start": 271915497,
-      "end": 272235141
+      "start": 271916924,
+      "end": 272236568
     }, {
       "filename": "/rel/w05Dll.wasm",
-      "start": 272235141,
-      "end": 272509164
+      "start": 272236568,
+      "end": 272510591
     }, {
       "filename": "/rel/w06Dll.wasm",
-      "start": 272509164,
-      "end": 272753459
+      "start": 272510591,
+      "end": 272754886
     }, {
       "filename": "/rel/w10Dll.wasm",
-      "start": 272753459,
-      "end": 272816809
+      "start": 272754886,
+      "end": 272818236
     }, {
       "filename": "/rel/w20Dll.wasm",
-      "start": 272816809,
-      "end": 272830755
+      "start": 272818236,
+      "end": 272832182
     }, {
       "filename": "/rel/w21Dll.wasm",
-      "start": 272830755,
-      "end": 272841670
+      "start": 272832182,
+      "end": 272843097
     }, {
       "filename": "/rel/ztardll.wasm",
-      "start": 272841670,
-      "end": 273134746
+      "start": 272843097,
+      "end": 273136173
     } ],
-    "remote_package_size": 273134746
+    "remote_package_size": 273136173
   });
 })();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmphemoysq2.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmp15xhpmbi.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmpwmbt4j4y.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmp34lzg9q6.js
 // All the pre-js content up to here must remain later on, we need to run
 // it.
 if ((typeof ENVIRONMENT_IS_WASM_WORKER != "undefined" && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != "undefined" && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != "undefined" && ENVIRONMENT_IS_AUDIO_WORKLET)) Module["preRun"] = [];
 
 var necessaryPreJSTasks = Module["preRun"].slice();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmp15xhpmbi.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpnshsw2wu.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmp34lzg9q6.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpbh5u_efp.js
 if (!Module["preRun"]) throw "Module.preRun should exist because file support used it; did a pre-js delete it?";
 
 necessaryPreJSTasks.forEach(task => {
   if (Module["preRun"].indexOf(task) < 0) throw "All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?";
 });
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmpnshsw2wu.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmpbh5u_efp.js
 var arguments_ = [];
 
 var thisProgram = "./this.program";
@@ -35988,6 +35988,8 @@ var _puts = Module["_puts"] = makeInvalidEarlyAccess("_puts");
 
 var _OSDumpStopwatch = Module["_OSDumpStopwatch"] = makeInvalidEarlyAccess("_OSDumpStopwatch");
 
+var _vprintf = Module["_vprintf"] = makeInvalidEarlyAccess("_vprintf");
+
 var _DEMOUpdateStats = Module["_DEMOUpdateStats"] = makeInvalidEarlyAccess("_DEMOUpdateStats");
 
 var _DEMOPrintStats = Module["_DEMOPrintStats"] = makeInvalidEarlyAccess("_DEMOPrintStats");
@@ -58528,6 +58530,7 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["_ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc"] != "undefined", "missing Wasm export: _ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc");
   assert(typeof wasmExports["puts"] != "undefined", "missing Wasm export: puts");
   assert(typeof wasmExports["OSDumpStopwatch"] != "undefined", "missing Wasm export: OSDumpStopwatch");
+  assert(typeof wasmExports["vprintf"] != "undefined", "missing Wasm export: vprintf");
   assert(typeof wasmExports["DEMOUpdateStats"] != "undefined", "missing Wasm export: DEMOUpdateStats");
   assert(typeof wasmExports["DEMOPrintStats"] != "undefined", "missing Wasm export: DEMOPrintStats");
   assert(typeof wasmExports["EXIDeselect"] != "undefined", "missing Wasm export: EXIDeselect");
@@ -70584,6 +70587,7 @@ function assignWasmExports(wasmExports) {
   __ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc = Module["__ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc"] = createExportWrapper("_ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc", 2);
   _puts = Module["_puts"] = createExportWrapper("puts", 1);
   _OSDumpStopwatch = Module["_OSDumpStopwatch"] = createExportWrapper("OSDumpStopwatch", 1);
+  _vprintf = Module["_vprintf"] = createExportWrapper("vprintf", 2);
   _DEMOUpdateStats = Module["_DEMOUpdateStats"] = createExportWrapper("DEMOUpdateStats", 1);
   _DEMOPrintStats = Module["_DEMOPrintStats"] = createExportWrapper("DEMOPrintStats", 0);
   _EXIDeselect = Module["_EXIDeselect"] = createExportWrapper("EXIDeselect", 1);
