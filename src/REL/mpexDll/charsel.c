@@ -211,6 +211,23 @@ s32 fn_1_12910(s32 arg0, s32 arg1)
         fn_1_1BA78(0x1A0009, -1, -1);
     }
     fn_1_1BF1C(0x330092);
+#ifdef TARGET_PC
+    // unk_50 (iscom) is meant to already be correctly set for every slot by
+    // this point -- either fn_1_126EC (the "how many players" pad-detection
+    // screen) ran first and set it per-slot, or arg1==1 above forced slots
+    // 1-3 to COM directly. But some entry paths into this state machine
+    // reach here without either happening, leaving unk_50==0 ("human") on
+    // every slot by BSS default -- and a slot with no real connected input
+    // source can never press A to confirm, so the wait-for-all-confirms
+    // loop below waits forever. Backstop it: a "human" slot with nothing
+    // actually plugged into it isn't controllable by anyone, so treat it
+    // as COM instead of leaving it stuck.
+    for (var_r31 = 0; var_r31 < var_r30; var_r31++) {
+        if (lbl_1_bss_45C[var_r31].unk_50 == 0 && HuPadStatGet(var_r31) == -1) {
+            lbl_1_bss_45C[var_r31].unk_50 = 1;
+        }
+    }
+#endif
     for (var_r31 = 0; var_r31 < var_r30; var_r31++) {
         if (lbl_1_bss_45C[var_r31].unk_50 == 0) {
             lbl_1_bss_45C[var_r31].unk_04 = (MpexDllUnkFunc2)fn_1_17B04;
@@ -534,6 +551,23 @@ s32 fn_1_13474(s32 arg0)
     fn_1_1B7D0(1);
     fn_1_1BA78(0x1A0009, -1, -1);
     fn_1_1BF1C(0x330092);
+#ifdef TARGET_PC
+    // unk_50 (iscom) is meant to already be correctly set for every slot by
+    // this point -- either fn_1_126EC (the "how many players" pad-detection
+    // screen) ran first and set it per-slot, or arg1==1 above forced slots
+    // 1-3 to COM directly. But some entry paths into this state machine
+    // reach here without either happening, leaving unk_50==0 ("human") on
+    // every slot by BSS default -- and a slot with no real connected input
+    // source can never press A to confirm, so the wait-for-all-confirms
+    // loop below waits forever. Backstop it: a "human" slot with nothing
+    // actually plugged into it isn't controllable by anyone, so treat it
+    // as COM instead of leaving it stuck.
+    for (var_r31 = 0; var_r31 < var_r30; var_r31++) {
+        if (lbl_1_bss_45C[var_r31].unk_50 == 0 && HuPadStatGet(var_r31) == -1) {
+            lbl_1_bss_45C[var_r31].unk_50 = 1;
+        }
+    }
+#endif
     for (var_r31 = 0; var_r31 < var_r30; var_r31++) {
         if (lbl_1_bss_45C[var_r31].unk_50 == 0) {
             lbl_1_bss_45C[var_r31].unk_04 = (MpexDllUnkFunc2)fn_1_17B04;
