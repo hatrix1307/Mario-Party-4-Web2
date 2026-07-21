@@ -624,9 +624,10 @@ void map_staging_buffer() {
       });
 }
 
-void wait_for_buffer_map() {
+bool wait_for_buffer_map() {
   ZoneScoped;
   ZoneScopedN("Wait for buffer map");
+  bool yielded = false;
   while (!bufferMapped) {
     g_instance.ProcessEvents();
 #ifdef EMSCRIPTEN
@@ -635,13 +636,18 @@ void wait_for_buffer_map() {
     // way it can with native Dawn. Yield via Asyncify so pending promises
     // actually get a chance to resolve.
     emscripten_sleep(0);
+    yielded = true;
 #endif
   }
+  return yielded;
 }
 
 void begin_frame() {
   ZoneScoped;
-  wait_for_buffer_map();
+  // wait_for_buffer_map() is called by aurora::begin_frame() before this,
+  // not here -- it needs to know whether the wait actually yielded, to
+  // decide whether the swapchain texture it already acquired needs
+  // refreshing. See that call site for the full explanation.
   size_t bufferOffset = 0;
   const auto& stagingBuf = g_stagingBuffers[currentStagingBuffer];
   const auto mapBuffer = [&](ByteBuffer& buf, uint64_t size) {

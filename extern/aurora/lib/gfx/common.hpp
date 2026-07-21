@@ -234,14 +234,14 @@ enum class ShaderType : uint8_t {
 void initialize();
 void shutdown();
 
-// The part of begin_frame() that may need to yield back to the browser's
-// event loop under Emscripten (waiting for the staging buffer's MapAsync to
-// complete). Split out mainly for clarity; see webgpu/gpu.cpp's
-// SetUncapturedErrorCallback for why this yield is allowed to happen while
-// already holding the surface's current swapchain texture rather than
-// avoiding it (re-acquiring a texture mid-frame instead of doing that
-// turned out much slower under Emscripten's WebGPU implementation).
-void wait_for_buffer_map();
+// Waits for the staging buffer's MapAsync to complete, which under
+// Emscripten may need to yield back to the browser's event loop one or more
+// times. Called by aurora::begin_frame() *before* gfx::begin_frame(), not
+// internally by it, because the caller needs to know whether it actually had
+// to yield at all -- see that call site for why. Returns true if it yielded
+// at least once, false if the buffer was already mapped (the common case,
+// resolved without giving control back to the browser).
+bool wait_for_buffer_map();
 void begin_frame();
 void end_frame(const wgpu::CommandEncoder& cmd);
 uint32_t current_frame() noexcept;

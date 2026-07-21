@@ -367,16 +367,27 @@ else ()
                 # -sASYNCIFY=1 alone isn't sufficient though: Binaryen's Asyncify
                 # pass prunes instrumentation from functions that (as far as it
                 # can tell from *this module's own* call graph) never reach an
-                # async import. A REL only ever sees process.c's scheduler
-                # entry points (HuPrcVSleep, HuPrcSleep, HuPrcChildWatch,
-                # HuPrcEnd, ...) as opaque cross-module imports with no visible
-                # body, so it has no way to know they eventually call
-                # co_switch/emscripten_fiber_swap (a real async import) inside
-                # the main module. ASYNCIFY_IMPORTS tells it explicitly; the
-                # 'HuPrc*' wildcard covers the whole process/scheduler API so
-                # any REL calling any of these gets properly instrumented,
-                # without having to enumerate every individual yield point.
-                target_link_options(${dir} PRIVATE -sSIDE_MODULE=1 -sASYNCIFY=1 "-sASYNCIFY_IMPORTS=HuPrc*" "LINKER:--export=ObjectSetup")
+                # async import. A REL only ever sees main-module functions
+                # (HuPrcVSleep, SLSaveFlagGet, ...) as opaque cross-module
+                # imports with no visible body, so it has no way to know any
+                # given one of them eventually calls co_switch/
+                # emscripten_fiber_swap (a real async import) inside the main
+                # module. ASYNCIFY_IMPORTS tells it explicitly which ones to
+                # treat as async-capable.
+                #
+                # This started out narrowly scoped to 'HuPrc*' (the
+                # process/scheduler API -- the first, and most obvious, case
+                # found: BootExec's own HuPrcVSleep call), but that undersells
+                # the actual problem: practically *any* engine call a REL
+                # makes can end up on a path that reaches co_switch, and
+                # missing just one still produces the exact same failure mode
+                # (an "unreachable" trap from Binaryen's own Asyncify safety
+                # net, triggered when an unwind-in-progress falls through code
+                # that assumed it would already have returned by that point).
+                # Chasing these one function at a time each time a new REL
+                # exercises a new code path isn't sustainable, so instead treat
+                # every cross-module import as potentially async-capable.
+                target_link_options(${dir} PRIVATE -sSIDE_MODULE=1 -sASYNCIFY=1 "-sASYNCIFY_IMPORTS=*" "LINKER:--export=ObjectSetup")
                 set_target_properties(${dir} PROPERTIES
                         SUFFIX ".wasm"
                         PREFIX ""

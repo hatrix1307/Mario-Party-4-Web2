@@ -254,6 +254,23 @@ bool begin_frame() noexcept {
     return false;
   }
 
+  // gfx::wait_for_buffer_map() can yield back to the browser's event loop
+  // for one or more turns under Emscripten (waiting on the staging buffer's
+  // MapAsync); the swapchain texture acquired just above is only guaranteed
+  // valid until control returns to the browser, so a yield here risks the
+  // browser invalidating it before end_frame()'s later submit. WebGPU
+  // reports that as "Destroyed texture ... used in a submit", which is
+  // downgraded from fatal to a dropped/black frame in gpu.cpp's error
+  // callback. Two different attempts at actually avoiding the race --
+  // reordering this wait to happen before texture acquisition, and
+  // conditionally re-acquiring a fresh texture only on frames that yielded
+  // -- both caused severe stalls/regressions in practice under this
+  // Emscripten WebGPU implementation for reasons not fully understood
+  // (something about how it paces MapAsync completion around
+  // GetCurrentTexture() calls). Living with the occasional dropped frame is
+  // the safer tradeoff until that's better understood.
+  gfx::wait_for_buffer_map();
+
   imgui::new_frame(window::get_window_size());
   gfx::begin_frame();
 #endif
