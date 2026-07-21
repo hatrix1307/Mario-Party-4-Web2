@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpjgdqdb5h.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmplu8e_1vv.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -210,21 +210,21 @@ Module['FS_createPath']("/", "rel", true, true);
 
   })();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmpjgdqdb5h.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpzksaan7o.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmplu8e_1vv.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmp9deckf_u.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\Sonic\AppData\Local\Temp\tmpzksaan7o.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpgq_jnwzb.js
+  // end include: C:\Users\Sonic\AppData\Local\Temp\tmp9deckf_u.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpzuuaok6y.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\Sonic\AppData\Local\Temp\tmpgq_jnwzb.js
+  // end include: C:\Users\Sonic\AppData\Local\Temp\tmpzuuaok6y.js
 
 
 var arguments_ = [];
@@ -31602,6 +31602,9 @@ var _HuSprPauseSet = Module['_HuSprPauseSet'] = makeInvalidEarlyAccess('_HuSprPa
 var _HuAudFXPauseAll = Module['_HuAudFXPauseAll'] = makeInvalidEarlyAccess('_HuAudFXPauseAll');
 var _HuAudSeqPauseAll = Module['_HuAudSeqPauseAll'] = makeInvalidEarlyAccess('_HuAudSeqPauseAll');
 var _PADSetSpec = Module['_PADSetSpec'] = makeInvalidEarlyAccess('_PADSetSpec');
+var _PADSetKeyButtonBinding = Module['_PADSetKeyButtonBinding'] = makeInvalidEarlyAccess('_PADSetKeyButtonBinding');
+var _PADSetKeyAxisBinding = Module['_PADSetKeyAxisBinding'] = makeInvalidEarlyAccess('_PADSetKeyAxisBinding');
+var _PADSetKeyboardActive = Module['_PADSetKeyboardActive'] = makeInvalidEarlyAccess('_PADSetKeyboardActive');
 var _OSDisableInterrupts = Module['_OSDisableInterrupts'] = makeInvalidEarlyAccess('_OSDisableInterrupts');
 var _VISetPostRetraceCallback = Module['_VISetPostRetraceCallback'] = makeInvalidEarlyAccess('_VISetPostRetraceCallback');
 var _OSRestoreInterrupts = Module['_OSRestoreInterrupts'] = makeInvalidEarlyAccess('_OSRestoreInterrupts');
@@ -32852,13 +32855,10 @@ var _PADGetButtonMappings = Module['_PADGetButtonMappings'] = makeInvalidEarlyAc
 var _PADSetAxisMapping = Module['_PADSetAxisMapping'] = makeInvalidEarlyAccess('_PADSetAxisMapping');
 var _PADSetAllAxisMappings = Module['_PADSetAllAxisMappings'] = makeInvalidEarlyAccess('_PADSetAllAxisMappings');
 var _PADGetAxisMappings = Module['_PADGetAxisMappings'] = makeInvalidEarlyAccess('_PADGetAxisMappings');
-var _PADSetKeyButtonBinding = Module['_PADSetKeyButtonBinding'] = makeInvalidEarlyAccess('_PADSetKeyButtonBinding');
 var _PADSetKeyButtonBindings = Module['_PADSetKeyButtonBindings'] = makeInvalidEarlyAccess('_PADSetKeyButtonBindings');
 var _PADGetKeyButtonBindings = Module['_PADGetKeyButtonBindings'] = makeInvalidEarlyAccess('_PADGetKeyButtonBindings');
-var _PADSetKeyAxisBinding = Module['_PADSetKeyAxisBinding'] = makeInvalidEarlyAccess('_PADSetKeyAxisBinding');
 var _PADSetKeyAxisBindings = Module['_PADSetKeyAxisBindings'] = makeInvalidEarlyAccess('_PADSetKeyAxisBindings');
 var _PADGetKeyAxisBindings = Module['_PADGetKeyAxisBindings'] = makeInvalidEarlyAccess('_PADGetKeyAxisBindings');
-var _PADSetKeyboardActive = Module['_PADSetKeyboardActive'] = makeInvalidEarlyAccess('_PADSetKeyboardActive');
 var _PADClearKeyBindings = Module['_PADClearKeyBindings'] = makeInvalidEarlyAccess('_PADClearKeyBindings');
 var __Z19__PADWriteDeadZonesP8_IO_FILERN6aurora5input14GameControllerE = Module['__Z19__PADWriteDeadZonesP8_IO_FILERN6aurora5input14GameControllerE'] = makeInvalidEarlyAccess('__Z19__PADWriteDeadZonesP8_IO_FILERN6aurora5input14GameControllerE');
 var _PADSerializeMappings = Module['_PADSerializeMappings'] = makeInvalidEarlyAccess('_PADSerializeMappings');
@@ -43662,6 +43662,9 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['HuAudFXPauseAll'] != 'undefined', 'missing Wasm export: HuAudFXPauseAll');
   assert(typeof wasmExports['HuAudSeqPauseAll'] != 'undefined', 'missing Wasm export: HuAudSeqPauseAll');
   assert(typeof wasmExports['PADSetSpec'] != 'undefined', 'missing Wasm export: PADSetSpec');
+  assert(typeof wasmExports['PADSetKeyButtonBinding'] != 'undefined', 'missing Wasm export: PADSetKeyButtonBinding');
+  assert(typeof wasmExports['PADSetKeyAxisBinding'] != 'undefined', 'missing Wasm export: PADSetKeyAxisBinding');
+  assert(typeof wasmExports['PADSetKeyboardActive'] != 'undefined', 'missing Wasm export: PADSetKeyboardActive');
   assert(typeof wasmExports['OSDisableInterrupts'] != 'undefined', 'missing Wasm export: OSDisableInterrupts');
   assert(typeof wasmExports['VISetPostRetraceCallback'] != 'undefined', 'missing Wasm export: VISetPostRetraceCallback');
   assert(typeof wasmExports['OSRestoreInterrupts'] != 'undefined', 'missing Wasm export: OSRestoreInterrupts');
@@ -44912,13 +44915,10 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['PADSetAxisMapping'] != 'undefined', 'missing Wasm export: PADSetAxisMapping');
   assert(typeof wasmExports['PADSetAllAxisMappings'] != 'undefined', 'missing Wasm export: PADSetAllAxisMappings');
   assert(typeof wasmExports['PADGetAxisMappings'] != 'undefined', 'missing Wasm export: PADGetAxisMappings');
-  assert(typeof wasmExports['PADSetKeyButtonBinding'] != 'undefined', 'missing Wasm export: PADSetKeyButtonBinding');
   assert(typeof wasmExports['PADSetKeyButtonBindings'] != 'undefined', 'missing Wasm export: PADSetKeyButtonBindings');
   assert(typeof wasmExports['PADGetKeyButtonBindings'] != 'undefined', 'missing Wasm export: PADGetKeyButtonBindings');
-  assert(typeof wasmExports['PADSetKeyAxisBinding'] != 'undefined', 'missing Wasm export: PADSetKeyAxisBinding');
   assert(typeof wasmExports['PADSetKeyAxisBindings'] != 'undefined', 'missing Wasm export: PADSetKeyAxisBindings');
   assert(typeof wasmExports['PADGetKeyAxisBindings'] != 'undefined', 'missing Wasm export: PADGetKeyAxisBindings');
-  assert(typeof wasmExports['PADSetKeyboardActive'] != 'undefined', 'missing Wasm export: PADSetKeyboardActive');
   assert(typeof wasmExports['PADClearKeyBindings'] != 'undefined', 'missing Wasm export: PADClearKeyBindings');
   assert(typeof wasmExports['_Z19__PADWriteDeadZonesP8_IO_FILERN6aurora5input14GameControllerE'] != 'undefined', 'missing Wasm export: _Z19__PADWriteDeadZonesP8_IO_FILERN6aurora5input14GameControllerE');
   assert(typeof wasmExports['PADSerializeMappings'] != 'undefined', 'missing Wasm export: PADSerializeMappings');
@@ -55718,6 +55718,9 @@ function assignWasmExports(wasmExports) {
   _HuAudFXPauseAll = Module['_HuAudFXPauseAll'] = createExportWrapper('HuAudFXPauseAll', 1);
   _HuAudSeqPauseAll = Module['_HuAudSeqPauseAll'] = createExportWrapper('HuAudSeqPauseAll', 1);
   _PADSetSpec = Module['_PADSetSpec'] = createExportWrapper('PADSetSpec', 1);
+  _PADSetKeyButtonBinding = Module['_PADSetKeyButtonBinding'] = createExportWrapper('PADSetKeyButtonBinding', 2);
+  _PADSetKeyAxisBinding = Module['_PADSetKeyAxisBinding'] = createExportWrapper('PADSetKeyAxisBinding', 2);
+  _PADSetKeyboardActive = Module['_PADSetKeyboardActive'] = createExportWrapper('PADSetKeyboardActive', 2);
   _OSDisableInterrupts = Module['_OSDisableInterrupts'] = createExportWrapper('OSDisableInterrupts', 0);
   _VISetPostRetraceCallback = Module['_VISetPostRetraceCallback'] = createExportWrapper('VISetPostRetraceCallback', 1);
   _OSRestoreInterrupts = Module['_OSRestoreInterrupts'] = createExportWrapper('OSRestoreInterrupts', 1);
@@ -56968,13 +56971,10 @@ function assignWasmExports(wasmExports) {
   _PADSetAxisMapping = Module['_PADSetAxisMapping'] = createExportWrapper('PADSetAxisMapping', 2);
   _PADSetAllAxisMappings = Module['_PADSetAllAxisMappings'] = createExportWrapper('PADSetAllAxisMappings', 2);
   _PADGetAxisMappings = Module['_PADGetAxisMappings'] = createExportWrapper('PADGetAxisMappings', 2);
-  _PADSetKeyButtonBinding = Module['_PADSetKeyButtonBinding'] = createExportWrapper('PADSetKeyButtonBinding', 2);
   _PADSetKeyButtonBindings = Module['_PADSetKeyButtonBindings'] = createExportWrapper('PADSetKeyButtonBindings', 2);
   _PADGetKeyButtonBindings = Module['_PADGetKeyButtonBindings'] = createExportWrapper('PADGetKeyButtonBindings', 2);
-  _PADSetKeyAxisBinding = Module['_PADSetKeyAxisBinding'] = createExportWrapper('PADSetKeyAxisBinding', 2);
   _PADSetKeyAxisBindings = Module['_PADSetKeyAxisBindings'] = createExportWrapper('PADSetKeyAxisBindings', 2);
   _PADGetKeyAxisBindings = Module['_PADGetKeyAxisBindings'] = createExportWrapper('PADGetKeyAxisBindings', 2);
-  _PADSetKeyboardActive = Module['_PADSetKeyboardActive'] = createExportWrapper('PADSetKeyboardActive', 2);
   _PADClearKeyBindings = Module['_PADClearKeyBindings'] = createExportWrapper('PADClearKeyBindings', 1);
   __Z19__PADWriteDeadZonesP8_IO_FILERN6aurora5input14GameControllerE = Module['__Z19__PADWriteDeadZonesP8_IO_FILERN6aurora5input14GameControllerE'] = createExportWrapper('_Z19__PADWriteDeadZonesP8_IO_FILERN6aurora5input14GameControllerE', 2);
   _PADSerializeMappings = Module['_PADSerializeMappings'] = createExportWrapper('PADSerializeMappings', 0);

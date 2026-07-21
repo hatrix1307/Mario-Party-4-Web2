@@ -4,19 +4,168 @@
 <meta charset="utf-8">
 <title>Party Board</title>
 <style>
-  html, body { margin: 0; background: #111; height: 100%; overflow: hidden; }
-  canvas { display: block; margin: 0 auto; background: #000; image-rendering: pixelated; }
-  #status { position: fixed; top: 0; left: 0; right: 0; color: #0f0; font-family: monospace;
-            font-size: 13px; padding: 4px 8px; background: rgba(0,0,0,0.6); }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #111;
+    overflow: hidden;
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  #stage {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+  }
+  canvas {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    background: #000;
+    image-rendering: pixelated;
+  }
+  #status {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: #0f0;
+    font-family: monospace;
+    font-size: 13px;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    z-index: 20;
+  }
+  #toolbar {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 20;
+  }
+  #toolbar button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.7);
+    color: #eee;
+    font-size: 14px;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+  }
+  #toolbar button:hover {
+    background: rgba(40, 40, 40, 0.85);
+    border-color: rgba(255, 255, 255, 0.45);
+  }
+  #controlsOverlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 30;
+  }
+  #controlsOverlay.open { display: flex; }
+  #controlsPanel {
+    background: #1b1b1f;
+    color: #eee;
+    border-radius: 12px;
+    padding: 24px 28px;
+    max-width: 420px;
+    width: calc(100% - 48px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  }
+  #controlsPanel h2 {
+    margin: 0 0 4px;
+    font-size: 18px;
+  }
+  #controlsPanel p.hint {
+    margin: 0 0 16px;
+    font-size: 13px;
+    color: #999;
+  }
+  #controlsPanel table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  #controlsPanel td {
+    padding: 6px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  #controlsPanel td.key {
+    width: 40%;
+  }
+  kbd {
+    display: inline-block;
+    min-width: 18px;
+    text-align: center;
+    padding: 2px 7px;
+    border-radius: 5px;
+    background: #2e2e35;
+    border: 1px solid #45454f;
+    border-bottom-width: 2px;
+    font-family: monospace;
+    font-size: 13px;
+  }
+  #controlsClose {
+    margin-top: 18px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #3a6df0;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  #controlsClose:hover { background: #4a7bff; }
 </style>
 </head>
 <body>
 <div id="status">Loading&hellip;</div>
-<canvas id="canvas" width="640" height="480" oncontextmenu="event.preventDefault()"></canvas>
+<div id="stage">
+  <canvas id="canvas" width="640" height="480" oncontextmenu="event.preventDefault()"></canvas>
+</div>
+
+<div id="toolbar">
+  <button id="controlsBtn" type="button">🎮 Controls</button>
+  <button id="fullscreenBtn" type="button">⛶ Fullscreen</button>
+</div>
+
+<div id="controlsOverlay">
+  <div id="controlsPanel">
+    <h2>Controls</h2>
+    <p class="hint">No gamepad? Here's the default keyboard mapping (click the canvas first so it has focus).</p>
+    <table>
+      <tr><td class="key"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> <kbd>&larr;</kbd> <kbd>&rarr;</kbd></td><td>Move / navigate menus</td></tr>
+      <tr><td class="key"><kbd>Z</kbd></td><td>A button (confirm)</td></tr>
+      <tr><td class="key"><kbd>X</kbd></td><td>B button (cancel)</td></tr>
+      <tr><td class="key"><kbd>A</kbd></td><td>X button</td></tr>
+      <tr><td class="key"><kbd>S</kbd></td><td>Y button</td></tr>
+      <tr><td class="key"><kbd>Q</kbd></td><td>L trigger</td></tr>
+      <tr><td class="key"><kbd>E</kbd></td><td>R trigger</td></tr>
+      <tr><td class="key"><kbd>Space</kbd></td><td>Z trigger</td></tr>
+      <tr><td class="key"><kbd>Enter</kbd></td><td>Start</td></tr>
+    </table>
+    <button id="controlsClose" type="button">Got it</button>
+  </div>
+</div>
+
 <script>
   var statusEl = document.getElementById('status');
+  var stageEl = document.getElementById('stage');
+  var canvasEl = document.getElementById('canvas');
   var Module = {
-    canvas: document.getElementById('canvas'),
+    canvas: canvasEl,
     printErr: function(text) { console.error(text); },
     setStatus: function(text) {
       if (text) statusEl.textContent = text;
@@ -26,6 +175,40 @@
       if (left) statusEl.textContent = 'Loading data files... (' + left + ' remaining)';
     }
   };
+
+  var fullscreenBtn = document.getElementById('fullscreenBtn');
+  fullscreenBtn.addEventListener('click', function () {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+      return;
+    }
+    var target = stageEl.requestFullscreen ? stageEl : canvasEl;
+    var request = target.requestFullscreen || target.webkitRequestFullscreen;
+    if (request) {
+      request.call(target).catch(function (err) {
+        console.error('Failed to enter fullscreen: ' + err);
+      });
+    }
+  });
+  document.addEventListener('fullscreenchange', function () {
+    fullscreenBtn.textContent = document.fullscreenElement ? '⤢ Exit fullscreen' : '⛶ Fullscreen';
+    canvasEl.focus();
+  });
+
+  var controlsOverlay = document.getElementById('controlsOverlay');
+  document.getElementById('controlsBtn').addEventListener('click', function () {
+    controlsOverlay.classList.add('open');
+  });
+  document.getElementById('controlsClose').addEventListener('click', function () {
+    controlsOverlay.classList.remove('open');
+    canvasEl.focus();
+  });
+  controlsOverlay.addEventListener('click', function (e) {
+    if (e.target === controlsOverlay) {
+      controlsOverlay.classList.remove('open');
+      canvasEl.focus();
+    }
+  });
 </script>
 <script src="partyboard.js"></script>
 </body>

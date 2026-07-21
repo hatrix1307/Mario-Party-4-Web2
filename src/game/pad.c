@@ -6,6 +6,38 @@
 #include <stdlib.h>
 #endif
 
+#ifdef EMSCRIPTEN
+#include <SDL3/SDL.h>
+
+// Web visitors won't have a real GameCube-compatible controller, and there's
+// no config UI to bind keys themselves (PADRead()'s lazy load_keyboard_bindings()
+// only loads a previously-saved keyboard_bindings.dat, which won't exist on a
+// fresh browser visit), so without this keyboard input never drives the pad
+// at all -- PADInit() leaves every binding at PAD_KEY_INVALID.
+static void SetupDefaultKeyboardBindings(void)
+{
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_Z, PAD_BUTTON_A});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_X, PAD_BUTTON_B});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_A, PAD_BUTTON_X});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_S, PAD_BUTTON_Y});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_RETURN, PAD_BUTTON_START});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_SPACE, PAD_TRIGGER_Z});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_Q, PAD_TRIGGER_L});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_E, PAD_TRIGGER_R});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_UP, PAD_BUTTON_UP});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_DOWN, PAD_BUTTON_DOWN});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_LEFT, PAD_BUTTON_LEFT});
+    PADSetKeyButtonBinding(PAD_CHAN0, (PADKeyButtonBinding){SDL_SCANCODE_RIGHT, PAD_BUTTON_RIGHT});
+
+    PADSetKeyAxisBinding(PAD_CHAN0, (PADKeyAxisBinding){SDL_SCANCODE_UP, PAD_AXIS_LEFT_Y_POS, 0});
+    PADSetKeyAxisBinding(PAD_CHAN0, (PADKeyAxisBinding){SDL_SCANCODE_DOWN, PAD_AXIS_LEFT_Y_NEG, 0});
+    PADSetKeyAxisBinding(PAD_CHAN0, (PADKeyAxisBinding){SDL_SCANCODE_LEFT, PAD_AXIS_LEFT_X_NEG, 0});
+    PADSetKeyAxisBinding(PAD_CHAN0, (PADKeyAxisBinding){SDL_SCANCODE_RIGHT, PAD_AXIS_LEFT_X_POS, 0});
+
+    PADSetKeyboardActive(PAD_CHAN0, TRUE);
+}
+#endif
+
 typedef struct pad_rumble {
     s16 duration;
     s16 off;
@@ -58,6 +90,9 @@ void HuPadInit(void)
     BOOL int_level;
     PADSetSpec(PAD_SPEC_5);
     PADInit();
+#ifdef EMSCRIPTEN
+    SetupDefaultKeyboardBindings();
+#endif
 #ifndef TARGET_PC
     SISetSamplingRate(0);
 #endif

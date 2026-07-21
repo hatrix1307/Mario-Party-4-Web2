@@ -172,6 +172,13 @@ void main(void)
                 exiting = true;
                 break;
             }
+#ifndef EMSCRIPTEN
+            // Space is bound to the Z trigger for web players (see
+            // SetupDefaultKeyboardBindings in src/game/pad.c); disabling the
+            // frame limiter is a native-debug-build convenience, not
+            // something a public web build should expose (an uncapped frame
+            // rate also made the swapchain-texture race in aurora's
+            // WebGPU backend much more visible as flicker).
             if (event->type == AURORA_SDL_EVENT) {
                 if (event->sdl.type == SDL_EVENT_KEY_DOWN) {
                     if (event->sdl.key.scancode == SDL_SCANCODE_SPACE) {
@@ -183,6 +190,7 @@ void main(void)
                     }
                 }
             }
+#endif
             ++event;
         }
         if (exiting) {
