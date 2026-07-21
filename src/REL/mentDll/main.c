@@ -46,7 +46,21 @@ typedef struct MentDllUnkBss16C4Struct {
     /* 0x2C */ float unk_2C;
 } MentDllUnkBss16C4Struct; /* size = 0x30 */
 
-typedef void (*MentDllUnkFunc)(omObjData *, ...);
+// This used to be `(omObjData *, ...)` -- variadic, reused as a generic
+// callback across several different second-argument struct types
+// (MentDllUnkBss3114Struct*, MentDllUnkBss35BCStruct*, etc.). That's
+// harmless on real PowerPC hardware, where any pointer occupies the same
+// ABI slot regardless of type. On wasm it's a real signature mismatch:
+// calling a normal fixed-argument function (e.g. fn_1_15CB4) through a
+// variadic function-pointer type doesn't share the same wasm function
+// type, and indirect calls require an exact match. Emscripten's dynCall
+// patching papers over the mismatch instead of trapping, which corrupts
+// argument passing -- the struct fields read back as garbage (looking
+// like leftover heap addresses) even though the call "succeeds". `void *`
+// keeps the same "any pointer type" genericity (a plain fixed second
+// pointer argument, same wasm type for every callback assigned here)
+// without the variadic machinery that causes the mismatch.
+typedef void (*MentDllUnkFunc)(omObjData *, void *);
 
 typedef struct MentDllUnkBss3114Struct {
     /* 0x00 */ omObjData *unk_00;
@@ -922,11 +936,6 @@ s32 fn_1_8B68(void)
                         }
                     }
                 }
-#ifdef TARGET_PC
-                OSReport("fn_1_8B68: player count confirmed. unk_60(com)=[%d,%d,%d,%d] HuPadStatGet=[%d,%d,%d,%d]\n",
-                         lbl_1_bss_3114[0].unk_60, lbl_1_bss_3114[1].unk_60, lbl_1_bss_3114[2].unk_60, lbl_1_bss_3114[3].unk_60,
-                         HuPadStatGet(0), HuPadStatGet(1), HuPadStatGet(2), HuPadStatGet(3));
-#endif
                 break;
             }
             else if (HuPadBtnDown[lbl_1_bss_3114->unk_6C] & PAD_BUTTON_B) {
@@ -1257,11 +1266,11 @@ s32 fn_1_99CC(void)
 
         for (i = 0; i < 6; i++) {
             lbl_1_bss_33AC[i].unk_08 = 0;
-            lbl_1_bss_33AC[i].unk_04 = (void (*)(omObjData *, ...))fn_1_127FC;
+            lbl_1_bss_33AC[i].unk_04 = (MentDllUnkFunc)fn_1_127FC;
         }
 
         lbl_1_bss_33AC[sp8[var_r30]].unk_08 = 1;
-        lbl_1_bss_35BC->unk_04 = (void (*)(omObjData *, ...))fn_1_18F74;
+        lbl_1_bss_35BC->unk_04 = (MentDllUnkFunc)fn_1_18F74;
         while (1) {
             fn_1_4D8();
             for (i = 0; i < 6; i++) {
@@ -3428,7 +3437,6 @@ void fn_1_1368C(omObjData *arg0, s32 arg1)
 // here rather than upstream in the save/boot code, since that's shared with
 // every other REL that reads GWPlayerCfg.
 static void ment_ClampPlayerCfg(MentDllUnkBss3114Struct *cfg) {
-    OSReport("ment_ClampPlayerCfg: raw pad_idx=%d character=%d iscom=%d\n", cfg->unk_6C, cfg->unk_68, cfg->unk_60);
     if (cfg->unk_6C < 0 || cfg->unk_6C > 3) {
         cfg->unk_6C = 0;
     }
@@ -4031,17 +4039,6 @@ void fn_1_15CB4(omObjData *arg0, MentDllUnkBss3114Struct *arg1)
     var_r24 = var_r30;
     var_r29 = arg1->unk_68 / 4;
     var_r23 = var_r29;
-#ifdef TARGET_PC
-    {
-        static s32 sLogFrame = 0;
-        if ((sLogFrame++ % 30) == 0) {
-            OSReport("fn_1_15CB4: unk_6C(pad)=%d unk_60(com)=%d unk_70[0](confirmed)=%d unk_68(char)=%d "
-                     "HuPadBtnDown[pad]=%04x HuPadStatGet(pad)=%d\n",
-                     arg1->unk_6C, arg1->unk_60, arg1->unk_70[0], arg1->unk_68,
-                     (u32)HuPadBtnDown[arg1->unk_6C], HuPadStatGet(arg1->unk_6C));
-        }
-    }
-#endif
     if (arg1->unk_70[0] == 0) {
         if ((HuPadBtnDown[arg1->unk_6C] & PAD_BUTTON_A) != 0) {
             arg1->unk_70[0] = 1;

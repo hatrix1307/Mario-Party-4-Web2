@@ -24,7 +24,10 @@
 
 #include "REL/mpexDll.h"
 
-typedef void (*MpexDllUnkFunc2)(omObjData *, ...);
+// See the matching typedef in charsel.c for why this isn't variadic
+// anymore -- it's a wasm indirect-call signature mismatch, not a stylistic
+// change.
+typedef void (*MpexDllUnkFunc2)(omObjData *, void *);
 
 typedef struct MpexDllUnkStruct3 {
     /* 0x00 */ s32 unk_00;

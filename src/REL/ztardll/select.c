@@ -14,7 +14,13 @@
 
 #include "REL/ztardll.h"
 
-typedef void (*ZtarUnkFunc)(omObjData *, ...);
+// `...` used to be the generic "callback with any second-pointer-type"
+// signature reused across several structs. Harmless on real PowerPC
+// hardware (uniform ABI for any pointer), but a genuine wasm indirect-call
+// signature mismatch when calling a normal fixed-argument function through
+// a variadic function-pointer type -- corrupts argument passing instead of
+// failing cleanly. `void *` keeps the same genericity without the mismatch.
+typedef void (*ZtarUnkFunc)(omObjData *, void *);
 
 typedef struct ZtarDllUnkStruct2 {
     /* 0x00 */ omObjData *unk_00;

@@ -8,7 +8,13 @@ extern s32 rand8(void);
 
 typedef struct {
     /* 0x00 */ omObjData *unk00;
-    /* 0x04 */ void (*unk04)(omObjData *, ...);
+    // `...` used to be the generic "callback with any second-pointer-type"
+    // signature. Harmless on real PowerPC hardware (uniform ABI for any
+    // pointer), but a genuine wasm indirect-call signature mismatch when
+    // calling a normal fixed-argument function through a variadic
+    // function-pointer type -- corrupts argument passing instead of
+    // failing cleanly. `void *` keeps the same genericity without it.
+    /* 0x04 */ void (*unk04)(omObjData *, void *);
     /* 0x08 */ s32 unk08[4];
     /* 0x18 */ char unk18[4];
     /* 0x1C */ s32 unk1C[4];
