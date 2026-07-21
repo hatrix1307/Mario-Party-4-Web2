@@ -633,9 +633,21 @@ bool wait_for_buffer_map() {
 #ifdef EMSCRIPTEN
     // The buffer-map completion callback only fires once the browser's own
     // event loop gets a turn; ProcessEvents() alone can't force that the
-    // way it can with native Dawn. Yield via Asyncify so pending promises
-    // actually get a chance to resolve.
-    emscripten_sleep(0);
+    // way it can with native Dawn. emscripten_sleep(0) (a plain
+    // setTimeout(fn, 0)) used to be the yield here, but WebGPU's MapAsync
+    // completion appears to get dispatched in step with
+    // requestAnimationFrame timing rather than arbitrary timers -- a 0ms
+    // timeout can fire several times before an actual animation frame
+    // happens, meaning several loop iterations (and several trips through
+    // the invalidation-risk window below) before the callback we're
+    // actually waiting on ever gets a chance to run. A ~1-frame delay
+    // gives the browser enough real time that the callback has usually
+    // already fired by the time we resume, cutting this down to one
+    // iteration instead of several. It's an approximation (not a real
+    // animation-frame sync -- EM_ASYNC_JS would give that, but its
+    // required em_js custom section doesn't survive this MAIN_MODULE
+    // build's linking), but a much closer one than 0ms.
+    emscripten_sleep(16);
     yielded = true;
 #endif
   }
