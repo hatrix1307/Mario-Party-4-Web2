@@ -1,0 +1,9 @@
+{
+  "name": "marioparty4-web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static Emscripten/WebGPU browser build output, hosted as-is. No actual Node dependencies -- this file exists so Vercel detects a project and runs vercel.json's installCommand (git lfs pull), which it otherwise skips for a plain static deploy with no package.json.",
+  "scripts": {
+    "build": "echo 'no build step; platforms/wasm/dist is served as-is'"
+  }
+}
