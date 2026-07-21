@@ -234,14 +234,13 @@ enum class ShaderType : uint8_t {
 void initialize();
 void shutdown();
 
-// Waits for the staging buffer's MapAsync to complete, which under
-// Emscripten may need to yield back to the browser's event loop one or more
-// times. Called by aurora::begin_frame() *before* gfx::begin_frame(), not
-// internally by it, because the caller needs to know whether it actually had
-// to yield at all -- see that call site for why. Returns true if it yielded
-// at least once, false if the buffer was already mapped (the common case,
-// resolved without giving control back to the browser).
-bool wait_for_buffer_map();
+// Waits for the staging buffer's MapAsync to complete. Under Emscripten this
+// is a no-op: begin_frame()/end_frame() write frame data via queue.WriteBuffer()
+// there instead of the MapAsync-based staging ring, specifically so nothing
+// ever needs to yield back to the browser's event loop mid-frame -- doing so
+// used to race the swapchain texture's validity window (see gpu.cpp's
+// "Destroyed texture" handling).
+void wait_for_buffer_map();
 void begin_frame();
 void end_frame(const wgpu::CommandEncoder& cmd);
 uint32_t current_frame() noexcept;

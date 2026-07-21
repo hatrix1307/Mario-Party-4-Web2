@@ -486,12 +486,16 @@ void initialize() {
                "Shared Index Buffer");
   createBuffer(g_storageBuffer, wgpu::BufferUsage::Storage | wgpu::BufferUsage::CopyDst, StorageBufferSize,
                "Shared Storage Buffer");
+#ifndef EMSCRIPTEN
+  // Emscripten never maps these -- see wait_for_buffer_map() -- so skip
+  // allocating the (rather large) staging ring for it entirely.
   for (int i = 0; i < g_stagingBuffers.size(); ++i) {
     const auto label = fmt::format("Staging Buffer {}", i);
     createBuffer(g_stagingBuffers[i], wgpu::BufferUsage::MapWrite | wgpu::BufferUsage::CopySrc, StagingBufferSize,
                  label.c_str());
   }
   map_staging_buffer();
+#endif
 
   {
     constexpr std::array layoutEntries{
@@ -624,42 +628,26 @@ void map_staging_buffer() {
       });
 }
 
-bool wait_for_buffer_map() {
+void wait_for_buffer_map() {
   ZoneScoped;
   ZoneScopedN("Wait for buffer map");
-  bool yielded = false;
+#ifndef EMSCRIPTEN
   while (!bufferMapped) {
     g_instance.ProcessEvents();
-#ifdef EMSCRIPTEN
-    // The buffer-map completion callback only fires once the browser's own
-    // event loop gets a turn; ProcessEvents() alone can't force that the
-    // way it can with native Dawn. emscripten_sleep(0) (a plain
-    // setTimeout(fn, 0)) used to be the yield here, but WebGPU's MapAsync
-    // completion appears to get dispatched in step with
-    // requestAnimationFrame timing rather than arbitrary timers -- a 0ms
-    // timeout can fire several times before an actual animation frame
-    // happens, meaning several loop iterations (and several trips through
-    // the invalidation-risk window below) before the callback we're
-    // actually waiting on ever gets a chance to run. A ~1-frame delay
-    // gives the browser enough real time that the callback has usually
-    // already fired by the time we resume, cutting this down to one
-    // iteration instead of several. It's an approximation (not a real
-    // animation-frame sync -- EM_ASYNC_JS would give that, but its
-    // required em_js custom section doesn't survive this MAIN_MODULE
-    // build's linking), but a much closer one than 0ms.
-    emscripten_sleep(16);
-    yielded = true;
-#endif
   }
-  return yielded;
+#endif
+  // Under Emscripten there's deliberately nothing to wait for -- see the
+  // declaration in common.hpp.
 }
 
 void begin_frame() {
   ZoneScoped;
-  // wait_for_buffer_map() is called by aurora::begin_frame() before this,
-  // not here -- it needs to know whether the wait actually yielded, to
-  // decide whether the swapchain texture it already acquired needs
-  // refreshing. See that call site for the full explanation.
+#ifdef EMSCRIPTEN
+  // Emscripten's g_verts/g_uniforms/g_indices/g_storage are plain owned
+  // CPU buffers (see end_frame()), reused frame to frame -- clear() just
+  // resets their length, keeping the allocation from last frame.
+  const auto mapBuffer = [](ByteBuffer& buf, uint64_t) { buf.clear(); };
+#else
   size_t bufferOffset = 0;
   const auto& stagingBuf = g_stagingBuffers[currentStagingBuffer];
   const auto mapBuffer = [&](ByteBuffer& buf, uint64_t size) {
@@ -669,6 +657,7 @@ void begin_frame() {
     buf = ByteBuffer{static_cast<u8*>(stagingBuf.GetMappedRange(bufferOffset, size)), static_cast<size_t>(size)};
     bufferOffset += size;
   };
+#endif
   mapBuffer(g_verts, VertexBufferSize);
   mapBuffer(g_uniforms, UniformBufferSize);
   mapBuffer(g_indices, IndexBufferSize);
@@ -702,13 +691,22 @@ void end_frame(const wgpu::CommandEncoder& cmd) {
   const auto writeBuffer = [&](ByteBuffer& buf, wgpu::Buffer& out, uint64_t size, std::string_view label) {
     const auto writeSize = buf.size(); // Only need to copy this many bytes
     if (writeSize > 0) {
+#ifdef EMSCRIPTEN
+      const auto alignedSize = AURORA_ALIGN(writeSize, 4);
+      buf.append_zeroes(alignedSize - writeSize); // guarantee capacity covers the aligned read below
+      g_queue.WriteBuffer(out, 0, buf.data(), alignedSize);
+      buf.clear(); // keep the allocation for next frame's begin_frame()
+#else
       cmd.CopyBufferToBuffer(g_stagingBuffers[currentStagingBuffer], bufferOffset, out, 0, AURORA_ALIGN(writeSize, 4));
       buf.release();
+#endif
     }
     bufferOffset += size;
     return writeSize;
   };
+#ifndef EMSCRIPTEN
   g_stagingBuffers[currentStagingBuffer].Unmap();
+#endif
   g_stats.lastVertSize = writeBuffer(g_verts, g_vertexBuffer, VertexBufferSize, "Vertex");
   g_stats.lastUniformSize = writeBuffer(g_uniforms, g_uniformBuffer, UniformBufferSize, "Uniform");
   g_stats.lastIndexSize = writeBuffer(g_indices, g_indexBuffer, IndexBufferSize, "Index");
@@ -733,8 +731,10 @@ void end_frame(const wgpu::CommandEncoder& cmd) {
       g_textureUpload.release();
     }
   }
+#ifndef EMSCRIPTEN
   currentStagingBuffer = (currentStagingBuffer + 1) % g_stagingBuffers.size();
   map_staging_buffer();
+#endif
   g_currentRenderPass = UINT32_MAX;
   for (auto& array : gx::g_gxState.arrays) {
     array.cachedRange = {};

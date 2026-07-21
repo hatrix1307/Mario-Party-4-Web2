@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpgjnbydsz.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmp4sqndsfp.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -210,21 +210,21 @@ Module['FS_createPath']("/", "rel", true, true);
 
   })();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmpgjnbydsz.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmprmeiwe81.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmp4sqndsfp.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpgonssf9e.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: C:\Users\Sonic\AppData\Local\Temp\tmprmeiwe81.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpg9y5dfwq.js
+  // end include: C:\Users\Sonic\AppData\Local\Temp\tmpgonssf9e.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpou12vn6c.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: C:\Users\Sonic\AppData\Local\Temp\tmpg9y5dfwq.js
+  // end include: C:\Users\Sonic\AppData\Local\Temp\tmpou12vn6c.js
 
 
 var arguments_ = [];
@@ -32203,10 +32203,10 @@ var __ZNSt3__26vectorIN6aurora3gfx10RenderPassENS_9allocatorIS3_EEE24__emplace_b
 var __ZN6aurora3gfx17push_draw_commandINS_2gx8DrawDataEEEvT_ = Module['__ZN6aurora3gfx17push_draw_commandINS_2gx8DrawDataEEEvT_'] = makeInvalidEarlyAccess('__ZN6aurora3gfx17push_draw_commandINS_2gx8DrawDataEEEvT_');
 var __ZN6aurora3gfx12pipeline_refINS_2gx14PipelineConfigEEEjRKT_ = Module['__ZN6aurora3gfx12pipeline_refINS_2gx14PipelineConfigEEEjRKT_'] = makeInvalidEarlyAccess('__ZN6aurora3gfx12pipeline_refINS_2gx14PipelineConfigEEEjRKT_');
 var __ZN6aurora3gfx10initializeEv = Module['__ZN6aurora3gfx10initializeEv'] = makeInvalidEarlyAccess('__ZN6aurora3gfx10initializeEv');
-var __ZN6aurora3gfx18map_staging_bufferEv = Module['__ZN6aurora3gfx18map_staging_bufferEv'] = makeInvalidEarlyAccess('__ZN6aurora3gfx18map_staging_bufferEv');
 var __ZN6aurora3gfx8shutdownEv = Module['__ZN6aurora3gfx8shutdownEv'] = makeInvalidEarlyAccess('__ZN6aurora3gfx8shutdownEv');
 var __ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv = Module['__ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv'] = makeInvalidEarlyAccess('__ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv');
 var __ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_ = Module['__ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_'] = makeInvalidEarlyAccess('__ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_');
+var __ZN6aurora3gfx18map_staging_bufferEv = Module['__ZN6aurora3gfx18map_staging_bufferEv'] = makeInvalidEarlyAccess('__ZN6aurora3gfx18map_staging_bufferEv');
 var __ZN6aurora3gfx19wait_for_buffer_mapEv = Module['__ZN6aurora3gfx19wait_for_buffer_mapEv'] = makeInvalidEarlyAccess('__ZN6aurora3gfx19wait_for_buffer_mapEv');
 var __ZN6aurora3gfx11begin_frameEv = Module['__ZN6aurora3gfx11begin_frameEv'] = makeInvalidEarlyAccess('__ZN6aurora3gfx11begin_frameEv');
 var __ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE = Module['__ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE'] = makeInvalidEarlyAccess('__ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE');
@@ -32671,7 +32671,6 @@ var __ZNKSt3__210filesystem4path6__stemEv = Module['__ZNKSt3__210filesystem4path
 var __ZNSt3__210filesystem28recursive_directory_iteratorC2ERKNS0_4pathENS0_17directory_optionsEPNS_10error_codeE = Module['__ZNSt3__210filesystem28recursive_directory_iteratorC2ERKNS0_4pathENS0_17directory_optionsEPNS_10error_codeE'] = makeInvalidEarlyAccess('__ZNSt3__210filesystem28recursive_directory_iteratorC2ERKNS0_4pathENS0_17directory_optionsEPNS_10error_codeE');
 var __ZNKSt3__210filesystem28recursive_directory_iterator13__dereferenceEv = Module['__ZNKSt3__210filesystem28recursive_directory_iterator13__dereferenceEv'] = makeInvalidEarlyAccess('__ZNKSt3__210filesystem28recursive_directory_iterator13__dereferenceEv');
 var __ZNSt3__210filesystem28recursive_directory_iterator11__incrementEPNS_10error_codeE = Module['__ZNSt3__210filesystem28recursive_directory_iterator11__incrementEPNS_10error_codeE'] = makeInvalidEarlyAccess('__ZNSt3__210filesystem28recursive_directory_iterator11__incrementEPNS_10error_codeE');
-var _wgpuBufferGetMappedRange = Module['_wgpuBufferGetMappedRange'] = makeInvalidEarlyAccess('_wgpuBufferGetMappedRange');
 var __ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev = Module['__ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev'] = makeInvalidEarlyAccess('__ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev');
 var _GXSetIndTexMtx = Module['_GXSetIndTexMtx'] = makeInvalidEarlyAccess('_GXSetIndTexMtx');
 var _GXSetTevIndirect = Module['_GXSetTevIndirect'] = makeInvalidEarlyAccess('_GXSetTevIndirect');
@@ -37614,6 +37613,7 @@ var __ZNSt3__2eqB8nn210108IPK23WGPUInstanceFeatureNameEEbRKNS_11__wrap_iterIT_EE
 var __ZNKSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEdeB8nn210108Ev = Module['__ZNKSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEdeB8nn210108Ev'] = makeInvalidEarlyAccess('__ZNKSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEdeB8nn210108Ev');
 var __ZNSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEppB8nn210108Ev = Module['__ZNSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEppB8nn210108Ev'] = makeInvalidEarlyAccess('__ZNSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEppB8nn210108Ev');
 var _wgpuBufferGetMapState = Module['_wgpuBufferGetMapState'] = makeInvalidEarlyAccess('_wgpuBufferGetMapState');
+var _wgpuBufferGetMappedRange = Module['_wgpuBufferGetMappedRange'] = makeInvalidEarlyAccess('_wgpuBufferGetMappedRange');
 var _wgpuBufferWriteMappedRange = Module['_wgpuBufferWriteMappedRange'] = makeInvalidEarlyAccess('_wgpuBufferWriteMappedRange');
 var _wgpuBufferReadMappedRange = Module['_wgpuBufferReadMappedRange'] = makeInvalidEarlyAccess('_wgpuBufferReadMappedRange');
 var _wgpuDeviceCreateComputePipelineAsync = Module['_wgpuDeviceCreateComputePipelineAsync'] = makeInvalidEarlyAccess('_wgpuDeviceCreateComputePipelineAsync');
@@ -44263,10 +44263,10 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['_ZN6aurora3gfx17push_draw_commandINS_2gx8DrawDataEEEvT_'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx17push_draw_commandINS_2gx8DrawDataEEEvT_');
   assert(typeof wasmExports['_ZN6aurora3gfx12pipeline_refINS_2gx14PipelineConfigEEEjRKT_'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx12pipeline_refINS_2gx14PipelineConfigEEEjRKT_');
   assert(typeof wasmExports['_ZN6aurora3gfx10initializeEv'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx10initializeEv');
-  assert(typeof wasmExports['_ZN6aurora3gfx18map_staging_bufferEv'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx18map_staging_bufferEv');
   assert(typeof wasmExports['_ZN6aurora3gfx8shutdownEv'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx8shutdownEv');
   assert(typeof wasmExports['_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv'] != 'undefined', 'missing Wasm export: _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv');
   assert(typeof wasmExports['_ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_'] != 'undefined', 'missing Wasm export: _ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_');
+  assert(typeof wasmExports['_ZN6aurora3gfx18map_staging_bufferEv'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx18map_staging_bufferEv');
   assert(typeof wasmExports['_ZN6aurora3gfx19wait_for_buffer_mapEv'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx19wait_for_buffer_mapEv');
   assert(typeof wasmExports['_ZN6aurora3gfx11begin_frameEv'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx11begin_frameEv');
   assert(typeof wasmExports['_ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE'] != 'undefined', 'missing Wasm export: _ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE');
@@ -44731,7 +44731,6 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['_ZNSt3__210filesystem28recursive_directory_iteratorC2ERKNS0_4pathENS0_17directory_optionsEPNS_10error_codeE'] != 'undefined', 'missing Wasm export: _ZNSt3__210filesystem28recursive_directory_iteratorC2ERKNS0_4pathENS0_17directory_optionsEPNS_10error_codeE');
   assert(typeof wasmExports['_ZNKSt3__210filesystem28recursive_directory_iterator13__dereferenceEv'] != 'undefined', 'missing Wasm export: _ZNKSt3__210filesystem28recursive_directory_iterator13__dereferenceEv');
   assert(typeof wasmExports['_ZNSt3__210filesystem28recursive_directory_iterator11__incrementEPNS_10error_codeE'] != 'undefined', 'missing Wasm export: _ZNSt3__210filesystem28recursive_directory_iterator11__incrementEPNS_10error_codeE');
-  assert(typeof wasmExports['wgpuBufferGetMappedRange'] != 'undefined', 'missing Wasm export: wgpuBufferGetMappedRange');
   assert(typeof wasmExports['_ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev'] != 'undefined', 'missing Wasm export: _ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev');
   assert(typeof wasmExports['GXSetIndTexMtx'] != 'undefined', 'missing Wasm export: GXSetIndTexMtx');
   assert(typeof wasmExports['GXSetTevIndirect'] != 'undefined', 'missing Wasm export: GXSetTevIndirect');
@@ -49674,6 +49673,7 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['_ZNKSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEdeB8nn210108Ev'] != 'undefined', 'missing Wasm export: _ZNKSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEdeB8nn210108Ev');
   assert(typeof wasmExports['_ZNSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEppB8nn210108Ev'] != 'undefined', 'missing Wasm export: _ZNSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEppB8nn210108Ev');
   assert(typeof wasmExports['wgpuBufferGetMapState'] != 'undefined', 'missing Wasm export: wgpuBufferGetMapState');
+  assert(typeof wasmExports['wgpuBufferGetMappedRange'] != 'undefined', 'missing Wasm export: wgpuBufferGetMappedRange');
   assert(typeof wasmExports['wgpuBufferWriteMappedRange'] != 'undefined', 'missing Wasm export: wgpuBufferWriteMappedRange');
   assert(typeof wasmExports['wgpuBufferReadMappedRange'] != 'undefined', 'missing Wasm export: wgpuBufferReadMappedRange');
   assert(typeof wasmExports['wgpuDeviceCreateComputePipelineAsync'] != 'undefined', 'missing Wasm export: wgpuDeviceCreateComputePipelineAsync');
@@ -56319,10 +56319,10 @@ function assignWasmExports(wasmExports) {
   __ZN6aurora3gfx17push_draw_commandINS_2gx8DrawDataEEEvT_ = Module['__ZN6aurora3gfx17push_draw_commandINS_2gx8DrawDataEEEvT_'] = createExportWrapper('_ZN6aurora3gfx17push_draw_commandINS_2gx8DrawDataEEEvT_', 1);
   __ZN6aurora3gfx12pipeline_refINS_2gx14PipelineConfigEEEjRKT_ = Module['__ZN6aurora3gfx12pipeline_refINS_2gx14PipelineConfigEEEjRKT_'] = createExportWrapper('_ZN6aurora3gfx12pipeline_refINS_2gx14PipelineConfigEEEjRKT_', 1);
   __ZN6aurora3gfx10initializeEv = Module['__ZN6aurora3gfx10initializeEv'] = createExportWrapper('_ZN6aurora3gfx10initializeEv', 0);
-  __ZN6aurora3gfx18map_staging_bufferEv = Module['__ZN6aurora3gfx18map_staging_bufferEv'] = createExportWrapper('_ZN6aurora3gfx18map_staging_bufferEv', 0);
   __ZN6aurora3gfx8shutdownEv = Module['__ZN6aurora3gfx8shutdownEv'] = createExportWrapper('_ZN6aurora3gfx8shutdownEv', 0);
   __ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv = Module['__ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv'] = createExportWrapper('_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjN4wgpu7SamplerEEENS0_13hash_internal4HashIjEENSt3__28equal_toIjEENSA_9allocatorINSA_4pairIKjS5_EEEEE5clearEv', 1);
   __ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_ = Module['__ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_'] = createExportWrapper('_ZNSt3__25arrayIN4wgpu6BufferELm3EE4fillB8ne210108ERKS2_', 2);
+  __ZN6aurora3gfx18map_staging_bufferEv = Module['__ZN6aurora3gfx18map_staging_bufferEv'] = createExportWrapper('_ZN6aurora3gfx18map_staging_bufferEv', 0);
   __ZN6aurora3gfx19wait_for_buffer_mapEv = Module['__ZN6aurora3gfx19wait_for_buffer_mapEv'] = createExportWrapper('_ZN6aurora3gfx19wait_for_buffer_mapEv', 0);
   __ZN6aurora3gfx11begin_frameEv = Module['__ZN6aurora3gfx11begin_frameEv'] = createExportWrapper('_ZN6aurora3gfx11begin_frameEv', 0);
   __ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE = Module['__ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE'] = createExportWrapper('_ZN6aurora3gfx9end_frameERKN4wgpu14CommandEncoderE', 1);
@@ -56787,7 +56787,6 @@ function assignWasmExports(wasmExports) {
   __ZNSt3__210filesystem28recursive_directory_iteratorC2ERKNS0_4pathENS0_17directory_optionsEPNS_10error_codeE = Module['__ZNSt3__210filesystem28recursive_directory_iteratorC2ERKNS0_4pathENS0_17directory_optionsEPNS_10error_codeE'] = createExportWrapper('_ZNSt3__210filesystem28recursive_directory_iteratorC2ERKNS0_4pathENS0_17directory_optionsEPNS_10error_codeE', 4);
   __ZNKSt3__210filesystem28recursive_directory_iterator13__dereferenceEv = Module['__ZNKSt3__210filesystem28recursive_directory_iterator13__dereferenceEv'] = createExportWrapper('_ZNKSt3__210filesystem28recursive_directory_iterator13__dereferenceEv', 1);
   __ZNSt3__210filesystem28recursive_directory_iterator11__incrementEPNS_10error_codeE = Module['__ZNSt3__210filesystem28recursive_directory_iterator11__incrementEPNS_10error_codeE'] = createExportWrapper('_ZNSt3__210filesystem28recursive_directory_iterator11__incrementEPNS_10error_codeE', 2);
-  _wgpuBufferGetMappedRange = Module['_wgpuBufferGetMappedRange'] = createExportWrapper('wgpuBufferGetMappedRange', 3);
   __ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev = Module['__ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev'] = createExportWrapper('_ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev', 1);
   _GXSetIndTexMtx = Module['_GXSetIndTexMtx'] = createExportWrapper('GXSetIndTexMtx', 3);
   _GXSetTevIndirect = Module['_GXSetTevIndirect'] = createExportWrapper('GXSetTevIndirect', 10);
@@ -61730,6 +61729,7 @@ function assignWasmExports(wasmExports) {
   __ZNKSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEdeB8nn210108Ev = Module['__ZNKSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEdeB8nn210108Ev'] = createExportWrapper('_ZNKSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEdeB8nn210108Ev', 1);
   __ZNSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEppB8nn210108Ev = Module['__ZNSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEppB8nn210108Ev'] = createExportWrapper('_ZNSt3__211__wrap_iterIPK23WGPUInstanceFeatureNameEppB8nn210108Ev', 1);
   _wgpuBufferGetMapState = Module['_wgpuBufferGetMapState'] = createExportWrapper('wgpuBufferGetMapState', 1);
+  _wgpuBufferGetMappedRange = Module['_wgpuBufferGetMappedRange'] = createExportWrapper('wgpuBufferGetMappedRange', 3);
   _wgpuBufferWriteMappedRange = Module['_wgpuBufferWriteMappedRange'] = createExportWrapper('wgpuBufferWriteMappedRange', 4);
   _wgpuBufferReadMappedRange = Module['_wgpuBufferReadMappedRange'] = createExportWrapper('wgpuBufferReadMappedRange', 4);
   _wgpuDeviceCreateComputePipelineAsync = Module['_wgpuDeviceCreateComputePipelineAsync'] = createExportWrapper('wgpuDeviceCreateComputePipelineAsync', 3);
