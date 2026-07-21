@@ -17,6 +17,35 @@ typedef void (*DLLEpilog)(void);
 typedef void (*DLLObjectSetup)(void);
 #endif
 
+#ifdef EMSCRIPTEN
+// Mirrors the private `struct dso` Emscripten's libc uses internally
+// (system/lib/libc/musl/src/internal/dynlink.h). dlopen()'s return value is
+// actually a pointer to one of these; mem_addr/mem_size describe the side
+// module's entire writable data+bss region, allocated once the first time a
+// given .wasm is ever dlopen()'d and then reused verbatim (Emscripten's
+// dlopen/dlclose never truly unload a module or re-zero its memory, unlike
+// OSLink on real hardware, which always relinks into a freshly zeroed bss).
+// We read mem_addr/mem_size here to snapshot each module's pristine
+// post-link state once, then restore it before every re-entry -- see
+// omDLLLink -- so REL globals that assume a zeroed bss on (re)load (e.g.
+// mentDll's child-process slot counter) don't carry over stale values from
+// a previous visit to the same screen and walk off the end of an array.
+typedef struct {
+	void *event;
+	int flags;
+	unsigned char mem_allocated;
+	void *mem_addr;
+	size_t mem_size;
+	void *table_addr;
+	size_t table_size;
+	unsigned char *file_data;
+	size_t file_data_size;
+} EmDsoLayout;
+
+static void *sDllStateSnapshot[OVL_COUNT];
+static size_t sDllStateSize[OVL_COUNT];
+#endif
+
 omDllData *omDLLinfoTbl[OM_DLL_MAX];
 
 static FileListEntry *omDLLFileList;
@@ -133,6 +162,18 @@ omDllData *omDLLLink(omDllData **dll_ptr, s16 overlay, s16 flag)
 		if (dll->handle == NULL) {
 			OSReport("objdll>++++++++++++++++ DLL Link Failed %s\n", dlerror());
 		}
+#ifdef EMSCRIPTEN
+		else {
+			EmDsoLayout *dso = (EmDsoLayout *)dll->handle;
+			if (sDllStateSnapshot[overlay] == NULL) {
+				sDllStateSize[overlay] = dso->mem_size;
+				sDllStateSnapshot[overlay] = HuMemDirectMalloc(HEAP_SYSTEM, dso->mem_size);
+				memcpy(sDllStateSnapshot[overlay], dso->mem_addr, dso->mem_size);
+			} else {
+				memcpy(dso->mem_addr, sDllStateSnapshot[overlay], sDllStateSize[overlay]);
+			}
+		}
+#endif
 	}
 #elif defined(__MWERKS__)
 	dll->module = HuDvdDataReadDirect(dllFile->name, HEAP_SYSTEM);

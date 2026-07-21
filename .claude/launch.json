@@ -6,6 +6,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8123", "--directory", "build/wasm-default-debug"],
       "port": 8123
+    },
+    {
+      "name": "dist-server",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8456", "--directory", "platforms/wasm/dist"],
+      "port": 8456
     }
   ]
 }

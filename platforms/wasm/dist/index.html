@@ -179,7 +179,8 @@
     canvas: canvasEl,
     printErr: function(text) { console.error(text); },
     locateFile: function(path) {
-      if (path === 'partyboard.wasm' || path === 'partyboard.data') {
+      if ((path === 'partyboard.wasm' || path === 'partyboard.data') &&
+          location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
         return BLOB_ASSET_BASE + path;
       }
       return path;
