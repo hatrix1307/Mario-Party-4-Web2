@@ -1,6 +1,7 @@
 #include "msm/msmse.h"
 #include "msm/msmfio.h"
 #include "msm/msmmem.h"
+#include <string.h>
 
 #define SE_PLAYER_EMIT (1 << 0)
 

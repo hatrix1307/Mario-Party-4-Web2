@@ -547,6 +547,20 @@
       canvasEl.focus();
     }
   });
+  // Browsers refuse to start real audio output before a user gesture, and
+  // opening the SDL audio device from deep inside the C boot sequence (an
+  // Asyncify-driven fiber) is asking for trouble -- so AudioOutputInit() is
+  // exported and triggered here instead, on the first click/keypress/touch
+  // after the wasm module is ready.
+  var audioStarted = false;
+  function tryStartAudio() {
+    if (audioStarted || !Module._AudioOutputInit) return;
+    audioStarted = true;
+    Module._AudioOutputInit();
+  }
+  ['pointerdown', 'keydown', 'touchstart'].forEach(function (evt) {
+    window.addEventListener(evt, tryStartAudio, { passive: true });
+  });
 </script>
 <script src="partyboard.js"></script>
 </body>

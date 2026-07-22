@@ -79,6 +79,11 @@ u32 ARInit(u32* stack_index_addr, u32 num_entries) {
 
 u32 ARGetSize(void) { return aurora::g_config.mem2Size; }
 
+// Base address of the general-purpose ARAM heap, i.e. the offset the next
+// ARAlloc() call would return -- matches real hardware semantics (base of
+// ARAM available for use, past whatever ARInit's stack region reserved).
+u32 ARGetBaseAddress(void) { return AR_StackPointer; }
+
 #pragma mark ARQ
 void ARQPostRequest(ARQRequest* request, u32 owner, u32 type, u32 priority, uintptr_t source, uintptr_t dest,
                     u32 length, ARQCallback callback) {

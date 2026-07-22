@@ -1,4 +1,5 @@
 #include "msm/msmmus.h"
+#include "msm/msmfio.h"
 #include "msm/msmmem.h"
 
 typedef struct MusPlayer_s {

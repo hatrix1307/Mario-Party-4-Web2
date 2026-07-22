@@ -1,6 +1,8 @@
 #include "msm/msmstream.h"
+#include "msm/msmfio.h"
 #include "msm/msmmem.h"
 #include "msm/msmsys.h"
+#include <string.h>
 
 typedef struct {
     /* 0x00 */ SND_STREAMID stid;

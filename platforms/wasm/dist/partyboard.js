@@ -68,7 +68,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\Sonic\AppData\Local\Temp\tmp4ognq5_m.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmprwblrpx8.js
 if (!Module["expectedDataFileDownloads"]) Module["expectedDataFileDownloads"] = 0;
 
 Module["expectedDataFileDownloads"]++;
@@ -1942,23 +1942,23 @@ Module["expectedDataFileDownloads"]++;
   });
 })();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmp4ognq5_m.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmp9yf6om5s.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmprwblrpx8.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpc3yklvym.js
 // All the pre-js content up to here must remain later on, we need to run
 // it.
 if ((typeof ENVIRONMENT_IS_WASM_WORKER != "undefined" && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != "undefined" && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != "undefined" && ENVIRONMENT_IS_AUDIO_WORKLET)) Module["preRun"] = [];
 
 var necessaryPreJSTasks = Module["preRun"].slice();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmp9yf6om5s.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpbvrtwa1s.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmpc3yklvym.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpnrvks_w4.js
 if (!Module["preRun"]) throw "Module.preRun should exist because file support used it; did a pre-js delete it?";
 
 necessaryPreJSTasks.forEach(task => {
   if (Module["preRun"].indexOf(task) < 0) throw "All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?";
 });
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmpbvrtwa1s.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmpnrvks_w4.js
 var arguments_ = [];
 
 var thisProgram = "./this.program";
@@ -31836,8 +31836,8 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  1081180: () => (typeof wasmOffsetConverter !== "undefined"),
-  1081237: () => {
+  1081724: () => (typeof wasmOffsetConverter !== "undefined"),
+  1081781: () => {
     if (typeof (Module["SDL3"]) === "undefined") {
       Module["SDL3"] = {};
     }
@@ -31853,7 +31853,7 @@ var ASM_CONSTS = {
       };
     }
   },
-  1081551: $0 => {
+  1082095: $0 => {
     var str = UTF8ToString($0) + "\n\n" + "Abort/Retry/Ignore/AlwaysIgnore? [ariA] :";
     var reply = window.prompt(str, "i");
     if (reply === null) {
@@ -31861,13 +31861,13 @@ var ASM_CONSTS = {
     }
     return reply.length === 1 ? reply.charCodeAt(0) : -1;
   },
-  1081766: () => {
+  1082310: () => {
     Module["SDL3"].dummy_audio = {};
     Module["SDL3"].dummy_audio.timers = [];
     Module["SDL3"].dummy_audio.timers[0] = undefined;
     Module["SDL3"].dummy_audio.timers[1] = undefined;
   },
-  1081943: ($0, $1, $2, $3, $4) => {
+  1082487: ($0, $1, $2, $3, $4) => {
     var a = Module["SDL3"].dummy_audio;
     if (a.timers[$0] !== undefined) {
       clearInterval(a.timers[$0]);
@@ -31876,14 +31876,14 @@ var ASM_CONSTS = {
       dynCall("vi", $3, [ $4 ]);
     }, ($1 / $2) * 1e3);
   },
-  1082135: $0 => {
+  1082679: $0 => {
     var a = Module["SDL3"].dummy_audio;
     if (a.timers[$0] !== undefined) {
       clearInterval(a.timers[$0]);
     }
     a.timers[$0] = undefined;
   },
-  1082266: $0 => {
+  1082810: $0 => {
     var parms = new URLSearchParams(window.location.search);
     for (const [key, value] of parms) {
       if (key.startsWith("SDL_")) {
@@ -31897,10 +31897,10 @@ var ASM_CONSTS = {
       }
     }
   },
-  1082607: $0 => {
+  1083151: $0 => {
     window.open(UTF8ToString($0), "_blank");
   },
-  1082647: () => {
+  1083191: () => {
     if (typeof (AudioContext) !== "undefined") {
       return true;
     } else if (typeof (webkitAudioContext) !== "undefined") {
@@ -31908,7 +31908,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  1082794: () => {
+  1083338: () => {
     if ((typeof (navigator.mediaDevices) !== "undefined") && (typeof (navigator.mediaDevices.getUserMedia) !== "undefined")) {
       return true;
     } else if (typeof (navigator.webkitGetUserMedia) !== "undefined") {
@@ -31916,7 +31916,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  1083028: () => {
+  1083572: () => {
     var SDL3 = Module["SDL3"];
     if (typeof (SDL3.audio_playback) === "undefined") {
       SDL3.audio_playback = {};
@@ -31938,8 +31938,8 @@ var ASM_CONSTS = {
     }
     return (SDL3.audioContext !== undefined);
   },
-  1083607: () => Module["SDL3"].audioContext.sampleRate,
-  1083658: ($0, $1, $2, $3) => {
+  1084151: () => Module["SDL3"].audioContext.sampleRate,
+  1084202: ($0, $1, $2, $3) => {
     var SDL3 = Module["SDL3"];
     var have_microphone = function(stream) {
       if (SDL3.audio_recording.silenceTimer !== undefined) {
@@ -31981,7 +31981,7 @@ var ASM_CONSTS = {
       }, have_microphone, no_microphone);
     }
   },
-  1085499: ($0, $1, $2, $3) => {
+  1086043: ($0, $1, $2, $3) => {
     var SDL3 = Module["SDL3"];
     SDL3.audio_playback.scriptProcessorNode = SDL3.audioContext["createScriptProcessor"]($1, 0, $0);
     SDL3.audio_playback.scriptProcessorNode["onaudioprocess"] = function(e) {
@@ -32013,7 +32013,7 @@ var ASM_CONSTS = {
       SDL3.audio_playback.silenceTimer = setInterval(silence_callback, ($1 / SDL3.audioContext.sampleRate) * 1e3);
     }
   },
-  1086815: $0 => {
+  1087359: $0 => {
     var SDL3 = Module["SDL3"];
     if ($0) {
       if (SDL3.audio_recording.silenceTimer !== undefined) {
@@ -32047,7 +32047,7 @@ var ASM_CONSTS = {
       SDL3.audioContext = undefined;
     }
   },
-  1087971: ($0, $1) => {
+  1088515: ($0, $1) => {
     var SDL3 = Module["SDL3"];
     var buf = SDL3.CPtrToHeap32Index($0);
     var numChannels = SDL3.audio_playback.currentPlaybackBuffer["numberOfChannels"];
@@ -32061,7 +32061,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  1088504: ($0, $1) => {
+  1089048: ($0, $1) => {
     var SDL3 = Module["SDL3"];
     var numChannels = SDL3.audio_recording.currentRecordingBuffer.numberOfChannels;
     for (var c = 0; c < numChannels; ++c) {
@@ -32080,11 +32080,11 @@ var ASM_CONSTS = {
       }
     }
   },
-  1089131: () => {
+  1089675: () => {
     Module["SDL3"].camera = {};
   },
-  1089163: () => (navigator.mediaDevices === undefined) ? 0 : 1,
-  1089222: ($0, $1, $2, $3, $4) => {
+  1089707: () => (navigator.mediaDevices === undefined) ? 0 : 1,
+  1089766: ($0, $1, $2, $3, $4) => {
     const device = $0;
     const w = $1;
     const h = $2;
@@ -32158,7 +32158,7 @@ var ASM_CONSTS = {
       outcome(device, 0, 0, 0, 0);
     });
   },
-  1091528: () => {
+  1092072: () => {
     const SDL3 = Module["SDL3"];
     if ((typeof (SDL3) === "undefined") || (typeof (SDL3.camera) === "undefined") || (typeof (SDL3.camera.stream) === "undefined")) {
       return;
@@ -32166,7 +32166,7 @@ var ASM_CONSTS = {
     SDL3.camera.stream.getTracks().forEach(track => track.stop());
     SDL3.camera = {};
   },
-  1091779: ($0, $1, $2) => {
+  1092323: ($0, $1, $2) => {
     const w = $0;
     const h = $1;
     const rgba = $2;
@@ -32179,12 +32179,12 @@ var ASM_CONSTS = {
     HEAPU8.set(imgrgba, rgba >>> 0);
     return 1;
   },
-  1092157: () => {
+  1092701: () => {
     if (typeof (Module["SDL3"]) !== "undefined") {
       Module["SDL3"].camera = undefined;
     }
   },
-  1092244: $0 => {
+  1092788: $0 => {
     let gamepad = navigator["getGamepads"]()[$0];
     if (!gamepad) {
       return 0;
@@ -32200,7 +32200,7 @@ var ASM_CONSTS = {
     }
     return 0;
   },
-  1092709: $0 => {
+  1093253: $0 => {
     let gamepad = navigator["getGamepads"]()[$0];
     if (!gamepad) {
       return 0;
@@ -32216,14 +32216,14 @@ var ASM_CONSTS = {
     }
     return 0;
   },
-  1093181: $0 => {
+  1093725: $0 => {
     let gamepad = navigator["getGamepads"]()[$0];
     if (!gamepad) {
       return 0;
     }
     return gamepad["id"]["toLowerCase"]()["indexOf"]("xinput") >= 0;
   },
-  1093324: $0 => {
+  1093868: $0 => {
     let gamepads = navigator["getGamepads"]();
     if (!gamepads) {
       return 0;
@@ -32234,7 +32234,7 @@ var ASM_CONSTS = {
     }
     return 1;
   },
-  1093499: ($0, $1, $2) => {
+  1094043: ($0, $1, $2) => {
     let gamepads = navigator["getGamepads"]();
     if (!gamepads) {
       return 0;
@@ -32251,7 +32251,7 @@ var ASM_CONSTS = {
     });
     return 1;
   },
-  1093835: ($0, $1) => {
+  1094379: ($0, $1) => {
     var buf = $0;
     var buflen = $1;
     var list = undefined;
@@ -32285,7 +32285,7 @@ var ASM_CONSTS = {
       setValue(buf + i, str.charCodeAt(i), "i8");
     }
   },
-  1094543: $0 => {
+  1095087: $0 => {
     var data = $0;
     document.sdlEventHandlerLockKeysCheck = function(event) {
       if ((event.key != "CapsLock") && (event.key != "NumLock") && (event.key != "ScrollLock")) {
@@ -32294,10 +32294,10 @@ var ASM_CONSTS = {
     };
     document.addEventListener("keydown", document.sdlEventHandlerLockKeysCheck);
   },
-  1094970: () => {
+  1095514: () => {
     document.removeEventListener("keydown", document.sdlEventHandlerLockKeysCheck);
   },
-  1095054: $0 => {
+  1095598: $0 => {
     var target = document;
     if (target) {
       target.sdlEventHandlerMouseButtonUpGlobal = function(event) {
@@ -32311,7 +32311,7 @@ var ASM_CONSTS = {
       target.addEventListener("pointerup", target.sdlEventHandlerMouseButtonUpGlobal);
     }
   },
-  1095415: $0 => {
+  1095959: $0 => {
     var SDL3 = Module["SDL3"];
     if (SDL3.makePointerEventCStruct === undefined) {
       SDL3.makePointerEventCStruct = function(left, top, event) {
@@ -32349,7 +32349,7 @@ var ASM_CONSTS = {
       };
     }
   },
-  1096407: $0 => {
+  1096951: $0 => {
     var id = UTF8ToString($0);
     try {
       var canvas = document.querySelector(id);
@@ -32359,23 +32359,23 @@ var ASM_CONSTS = {
     } catch (e) {}
     return false;
   },
-  1096573: () => document.hasFocus(),
-  1096605: () => {
+  1097117: () => document.hasFocus(),
+  1097149: () => {
     var target = document;
     if (target) {
       target.removeEventListener("pointerup", target.sdlEventHandlerMouseButtonUpGlobal);
       target.sdlEventHandlerMouseButtonUpGlobal = undefined;
     }
   },
-  1096787: () => document.body.clientWidth,
-  1096825: () => document.body.clientHeight,
-  1096864: () => window.innerWidth,
-  1096894: () => window.innerHeight,
-  1096925: () => window.outerWidth,
-  1096955: () => window.outerHeight,
-  1096986: () => window.pageXOffset,
-  1097017: () => window.pageYOffset,
-  1097048: ($0, $1) => {
+  1097331: () => document.body.clientWidth,
+  1097369: () => document.body.clientHeight,
+  1097408: () => window.innerWidth,
+  1097438: () => window.innerHeight,
+  1097469: () => window.outerWidth,
+  1097499: () => window.outerHeight,
+  1097530: () => window.pageXOffset,
+  1097561: () => window.pageYOffset,
+  1097592: ($0, $1) => {
     var target = document.querySelector(UTF8ToString($1));
     if (target) {
       var SDL3 = Module["SDL3"];
@@ -32413,7 +32413,7 @@ var ASM_CONSTS = {
       target.addEventListener("pointerup", target.sdlEventHandlerPointerGeneric);
     }
   },
-  1098436: ($0, $1, $2) => {
+  1098980: ($0, $1, $2) => {
     var target = document.querySelector(UTF8ToString($1));
     if (target) {
       var data = $0;
@@ -32493,7 +32493,7 @@ var ASM_CONSTS = {
       target.addEventListener("dragleave", SDL3.eventHandlerDropDragend);
     }
   },
-  1100803: $0 => {
+  1101347: $0 => {
     var target = document.querySelector(UTF8ToString($0));
     if (target) {
       var SDL3 = Module["SDL3"];
@@ -32521,7 +32521,7 @@ var ASM_CONSTS = {
       SDL3.eventHandlerDropDragend = undefined;
     }
   },
-  1101633: $0 => {
+  1102177: $0 => {
     var target = document.querySelector(UTF8ToString($0));
     if (target) {
       target.removeEventListener("pointerenter", target.sdlEventHandlerPointerEnter);
@@ -32536,7 +32536,7 @@ var ASM_CONSTS = {
       target.sdlEventHandlerPointerGeneric = undefined;
     }
   },
-  1102367: ($0, $1, $2, $3) => {
+  1102911: ($0, $1, $2, $3) => {
     var w = $0;
     var h = $1;
     var pixels = $2;
@@ -32567,7 +32567,7 @@ var ASM_CONSTS = {
     SDL3.ctx.putImageData(SDL3.image, 0, 0);
     return true;
   },
-  1103116: () => {
+  1103660: () => {
     var SDL3 = Module["SDL3"];
     SDL3["mouse_x"] = 0;
     SDL3["mouse_y"] = 0;
@@ -32593,7 +32593,7 @@ var ASM_CONSTS = {
       }
     });
   },
-  1103804: ($0, $1, $2, $3, $4) => {
+  1104348: ($0, $1, $2, $3, $4) => {
     var w = $0;
     var h = $1;
     var hot_x = $2;
@@ -32614,20 +32614,20 @@ var ASM_CONSTS = {
     stringToUTF8(url, urlBuf, url.length + 1);
     return urlBuf;
   },
-  1104462: $0 => {
+  1105006: $0 => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = UTF8ToString($0);
     }
   },
-  1104545: () => {
+  1105089: () => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = "none";
     }
   },
-  1104614: () => Module["SDL3"]["mouse_x"],
-  1104652: () => Module["SDL3"]["mouse_y"],
-  1104690: $0 => Module["SDL3"]["mouse_buttons"][$0],
-  1104738: () => {
+  1105158: () => Module["SDL3"]["mouse_x"],
+  1105196: () => Module["SDL3"]["mouse_y"],
+  1105234: $0 => Module["SDL3"]["mouse_buttons"][$0],
+  1105282: () => {
     if (!window.matchMedia) {
       return -1;
     }
@@ -32639,7 +32639,7 @@ var ASM_CONSTS = {
     }
     return -1;
   },
-  1104947: () => {
+  1105491: () => {
     if (typeof (Module["SDL3"]) !== "undefined") {
       var SDL3 = Module["SDL3"];
       SDL3.themeChangedMatchMedia.removeEventListener("change", SDL3.eventHandlerThemeChanged);
@@ -32647,14 +32647,14 @@ var ASM_CONSTS = {
       SDL3.eventHandlerThemeChanged = undefined;
     }
   },
-  1105200: () => window.innerWidth,
-  1105230: () => window.innerHeight,
-  1105261: $0 => {
+  1105744: () => window.innerWidth,
+  1105774: () => window.innerHeight,
+  1105805: $0 => {
     Module["requestFullscreen"] = function(lockPointer, resizeCanvas) {
       _requestFullscreenThroughSDL($0);
     };
   },
-  1105370: ($0, $1) => {
+  1105914: ($0, $1) => {
     var pngData = HEAPU8.buffer instanceof ArrayBuffer ? HEAPU8.subarray($0 >>> 0, $0 + $1 >>> 0) : HEAPU8.slice($0, $0 + $1);
     var blob = new Blob([ pngData ], {
       type: "image/png"
@@ -32672,12 +32672,12 @@ var ASM_CONSTS = {
     }
     link.href = url;
   },
-  1105863: () => {
+  1106407: () => {
     Module["requestFullscreen"] = function(lockPointer, resizeCanvas) {};
   },
-  1105937: () => window.innerWidth,
-  1105967: () => window.innerHeight,
-  1105998: $0 => {
+  1106481: () => window.innerWidth,
+  1106511: () => window.innerHeight,
+  1106542: $0 => {
     var canvas = document.querySelector(UTF8ToString($0));
     canvas.SDL3_original_position = canvas.style.position;
     canvas.SDL3_original_top = canvas.style.top;
@@ -32698,7 +32698,7 @@ var ASM_CONSTS = {
     canvas.style.top = "0";
     canvas.style.left = "0";
   },
-  1106696: () => {
+  1107240: () => {
     var div = document.getElementById("SDL3_fill_document_background_elements");
     if (div) {
       if (div.SDL3_canvas_nextsib) {
@@ -32715,7 +32715,7 @@ var ASM_CONSTS = {
       div.remove();
     }
   },
-  1107255: () => {
+  1107799: () => {
     if (window.matchMedia) {
       var SDL3 = Module["SDL3"];
       SDL3.eventHandlerThemeChanged = function(event) {
@@ -32725,7 +32725,7 @@ var ASM_CONSTS = {
       SDL3.themeChangedMatchMedia.addEventListener("change", SDL3.eventHandlerThemeChanged);
     }
   },
-  1107577: ($0, $1, $2, $3, $4) => {
+  1108121: ($0, $1, $2, $3, $4) => {
     var title = UTF8ToString($0);
     var message = UTF8ToString($1);
     var background = UTF8ToString($2);
@@ -32745,7 +32745,7 @@ var ASM_CONSTS = {
     dialog.append(p);
     dialog.showModal();
   },
-  1108118: ($0, $1, $2, $3, $4, $5, $6, $7) => {
+  1108662: ($0, $1, $2, $3, $4, $5, $6, $7) => {
     var dialog_id = UTF8ToString($0);
     var text = UTF8ToString($1);
     var responseId = $2;
@@ -32786,7 +32786,7 @@ var ASM_CONSTS = {
     dialog.append(button);
     return true;
   },
-  1109127: $0 => {
+  1109671: $0 => {
     var dialog_id = UTF8ToString($0);
     var dialog = document.getElementById(dialog_id);
     if (!dialog) {
@@ -32794,7 +32794,7 @@ var ASM_CONSTS = {
     }
     return dialog.open;
   },
-  1109265: $0 => {
+  1109809: $0 => {
     var dialog_id = UTF8ToString($0);
     var dialog = document.getElementById(dialog_id);
     if (!dialog) {
@@ -32806,16 +32806,16 @@ var ASM_CONSTS = {
       return 0;
     }
   },
-  1109447: ($0, $1) => {
+  1109991: ($0, $1) => {
     alert(UTF8ToString($0) + "\n\n" + UTF8ToString($1));
   },
-  1109504: $0 => {
+  1110048: $0 => {
     if (!$0) {
       AL.alcErr = 40964;
       return 1;
     }
   },
-  1109552: $0 => {
+  1110096: $0 => {
     if (!AL.currentCtx) {
       err("alGetProcAddress() called without a valid context");
       return 1;
@@ -35814,7 +35814,247 @@ var _HuAudSStreamFadeOut = Module["_HuAudSStreamFadeOut"] = makeInvalidEarlyAcce
 
 var _GXGetTexBufferSize = Module["_GXGetTexBufferSize"] = makeInvalidEarlyAccess("_GXGetTexBufferSize");
 
+var _msmFioClose = Module["_msmFioClose"] = makeInvalidEarlyAccess("_msmFioClose");
+
+var _msmFioRead = Module["_msmFioRead"] = makeInvalidEarlyAccess("_msmFioRead");
+
+var _msmFioOpen = Module["_msmFioOpen"] = makeInvalidEarlyAccess("_msmFioOpen");
+
+var _msmFioInit = Module["_msmFioInit"] = makeInvalidEarlyAccess("_msmFioInit");
+
+var _msmMemFree = Module["_msmMemFree"] = makeInvalidEarlyAccess("_msmMemFree");
+
+var _msmMemAlloc = Module["_msmMemAlloc"] = makeInvalidEarlyAccess("_msmMemAlloc");
+
+var _msmMemInit = Module["_msmMemInit"] = makeInvalidEarlyAccess("_msmMemInit");
+
+var _msmMusPeriodicProc = Module["_msmMusPeriodicProc"] = makeInvalidEarlyAccess("_msmMusPeriodicProc");
+
+var _sndSeqGetValid = Module["_sndSeqGetValid"] = makeInvalidEarlyAccess("_sndSeqGetValid");
+
+var _msmSysCheckBaseGroup = Module["_msmSysCheckBaseGroup"] = makeInvalidEarlyAccess("_msmSysCheckBaseGroup");
+
+var _sndSeqPause = Module["_sndSeqPause"] = makeInvalidEarlyAccess("_sndSeqPause");
+
+var _sndSeqVolume = Module["_sndSeqVolume"] = makeInvalidEarlyAccess("_sndSeqVolume");
+
+var _sndSeqStop = Module["_sndSeqStop"] = makeInvalidEarlyAccess("_sndSeqStop");
+
+var _msmMusGetMidiCtrl = Module["_msmMusGetMidiCtrl"] = makeInvalidEarlyAccess("_msmMusGetMidiCtrl");
+
+var _sndSeqGetMidiCtrl = Module["_sndSeqGetMidiCtrl"] = makeInvalidEarlyAccess("_sndSeqGetMidiCtrl");
+
+var _msmMusGetNumPlay = Module["_msmMusGetNumPlay"] = makeInvalidEarlyAccess("_msmMusGetNumPlay");
+
+var _msmMusSetMasterVolume = Module["_msmMusSetMasterVolume"] = makeInvalidEarlyAccess("_msmMusSetMasterVolume");
+
+var _sndMasterVolume = Module["_sndMasterVolume"] = makeInvalidEarlyAccess("_sndMasterVolume");
+
+var _sndSeqSpeed = Module["_sndSeqSpeed"] = makeInvalidEarlyAccess("_sndSeqSpeed");
+
+var _msmMusPauseAll = Module["_msmMusPauseAll"] = makeInvalidEarlyAccess("_msmMusPauseAll");
+
+var _sndSeqContinue = Module["_sndSeqContinue"] = makeInvalidEarlyAccess("_sndSeqContinue");
+
+var _msmMusPause = Module["_msmMusPause"] = makeInvalidEarlyAccess("_msmMusPause");
+
+var _msmMusStopAll = Module["_msmMusStopAll"] = makeInvalidEarlyAccess("_msmMusStopAll");
+
+var _msmMusStop = Module["_msmMusStop"] = makeInvalidEarlyAccess("_msmMusStop");
+
+var _msmSysCheckLoadGroupID = Module["_msmSysCheckLoadGroupID"] = makeInvalidEarlyAccess("_msmSysCheckLoadGroupID");
+
+var _msmSysGetGroupDataPtr = Module["_msmSysGetGroupDataPtr"] = makeInvalidEarlyAccess("_msmSysGetGroupDataPtr");
+
+var _sndSeqPlayEx = Module["_sndSeqPlayEx"] = makeInvalidEarlyAccess("_sndSeqPlayEx");
+
+var _msmMusInit = Module["_msmMusInit"] = makeInvalidEarlyAccess("_msmMusInit");
+
+var _msmSePeriodicProc = Module["_msmSePeriodicProc"] = makeInvalidEarlyAccess("_msmSePeriodicProc");
+
+var _msmSeGetIndexPtr = Module["_msmSeGetIndexPtr"] = makeInvalidEarlyAccess("_msmSeGetIndexPtr");
+
+var _msmSeDelListener = Module["_msmSeDelListener"] = makeInvalidEarlyAccess("_msmSeDelListener");
+
+var _msmSeUpdataListener = Module["_msmSeUpdataListener"] = makeInvalidEarlyAccess("_msmSeUpdataListener");
+
+var _msmSeSetListener = Module["_msmSeSetListener"] = makeInvalidEarlyAccess("_msmSeSetListener");
+
+var _msmSeGetEntryID = Module["_msmSeGetEntryID"] = makeInvalidEarlyAccess("_msmSeGetEntryID");
+
+var _msmSeGetNumPlay = Module["_msmSeGetNumPlay"] = makeInvalidEarlyAccess("_msmSeGetNumPlay");
+
+var _msmSeGetStatus = Module["_msmSeGetStatus"] = makeInvalidEarlyAccess("_msmSeGetStatus");
+
+var _msmSeSetMasterVolume = Module["_msmSeSetMasterVolume"] = makeInvalidEarlyAccess("_msmSeSetMasterVolume");
+
+var _sndCheckEmitter = Module["_sndCheckEmitter"] = makeInvalidEarlyAccess("_sndCheckEmitter");
+
+var _sndFXCheck = Module["_sndFXCheck"] = makeInvalidEarlyAccess("_sndFXCheck");
+
+var _sndUpdateEmitter = Module["_sndUpdateEmitter"] = makeInvalidEarlyAccess("_sndUpdateEmitter");
+
+var _sndFXCtrl = Module["_sndFXCtrl"] = makeInvalidEarlyAccess("_sndFXCtrl");
+
+var _sndRemoveEmitter = Module["_sndRemoveEmitter"] = makeInvalidEarlyAccess("_sndRemoveEmitter");
+
+var _sndFXKeyOff = Module["_sndFXKeyOff"] = makeInvalidEarlyAccess("_sndFXKeyOff");
+
+var _sndRemoveListener = Module["_sndRemoveListener"] = makeInvalidEarlyAccess("_sndRemoveListener");
+
+var _sndUpdateListener = Module["_sndUpdateListener"] = makeInvalidEarlyAccess("_sndUpdateListener");
+
+var _sndAddListenerEx = Module["_sndAddListenerEx"] = makeInvalidEarlyAccess("_sndAddListenerEx");
+
+var _sndFXCtrl14 = Module["_sndFXCtrl14"] = makeInvalidEarlyAccess("_sndFXCtrl14");
+
+var _sndEmitterVoiceID = Module["_sndEmitterVoiceID"] = makeInvalidEarlyAccess("_sndEmitterVoiceID");
+
+var _sndSendMessage = Module["_sndSendMessage"] = makeInvalidEarlyAccess("_sndSendMessage");
+
+var _msmSePauseAll = Module["_msmSePauseAll"] = makeInvalidEarlyAccess("_msmSePauseAll");
+
+var _msmSeStopAll = Module["_msmSeStopAll"] = makeInvalidEarlyAccess("_msmSeStopAll");
+
+var _msmSeStop = Module["_msmSeStop"] = makeInvalidEarlyAccess("_msmSeStop");
+
+var _msmSePlay = Module["_msmSePlay"] = makeInvalidEarlyAccess("_msmSePlay");
+
+var _sndAddEmitterParaEx = Module["_sndAddEmitterParaEx"] = makeInvalidEarlyAccess("_sndAddEmitterParaEx");
+
+var _sndFXStartParaInfo = Module["_sndFXStartParaInfo"] = makeInvalidEarlyAccess("_sndFXStartParaInfo");
+
+var _msmSeInit = Module["_msmSeInit"] = makeInvalidEarlyAccess("_msmSeInit");
+
+var _msmStreamSetMasterVolume = Module["_msmStreamSetMasterVolume"] = makeInvalidEarlyAccess("_msmStreamSetMasterVolume");
+
+var _sndStreamMixParameterEx = Module["_sndStreamMixParameterEx"] = makeInvalidEarlyAccess("_sndStreamMixParameterEx");
+
+var _msmStreamStopAll = Module["_msmStreamStopAll"] = makeInvalidEarlyAccess("_msmStreamStopAll");
+
+var _msmSysIrqDisable = Module["_msmSysIrqDisable"] = makeInvalidEarlyAccess("_msmSysIrqDisable");
+
+var _msmSysIrqEnable = Module["_msmSysIrqEnable"] = makeInvalidEarlyAccess("_msmSysIrqEnable");
+
+var _msmStreamStop = Module["_msmStreamStop"] = makeInvalidEarlyAccess("_msmStreamStop");
+
+var _msmStreamPlay = Module["_msmStreamPlay"] = makeInvalidEarlyAccess("_msmStreamPlay");
+
+var _msmStreamPeriodicProc = Module["_msmStreamPeriodicProc"] = makeInvalidEarlyAccess("_msmStreamPeriodicProc");
+
+var _msmStreamSetOutputMode = Module["_msmStreamSetOutputMode"] = makeInvalidEarlyAccess("_msmStreamSetOutputMode");
+
+var _msmStreamAmemFree = Module["_msmStreamAmemFree"] = makeInvalidEarlyAccess("_msmStreamAmemFree");
+
+var _sndStreamFree = Module["_sndStreamFree"] = makeInvalidEarlyAccess("_sndStreamFree");
+
+var _msmStreamAmemAlloc = Module["_msmStreamAmemAlloc"] = makeInvalidEarlyAccess("_msmStreamAmemAlloc");
+
+var _sndStreamAllocEx = Module["_sndStreamAllocEx"] = makeInvalidEarlyAccess("_sndStreamAllocEx");
+
+var _msmStreamInit = Module["_msmStreamInit"] = makeInvalidEarlyAccess("_msmStreamInit");
+
+var _sndStreamARAMUpdate = Module["_sndStreamARAMUpdate"] = makeInvalidEarlyAccess("_sndStreamARAMUpdate");
+
+var _sndStreamDeactivate = Module["_sndStreamDeactivate"] = makeInvalidEarlyAccess("_sndStreamDeactivate");
+
+var _sndStreamFrq = Module["_sndStreamFrq"] = makeInvalidEarlyAccess("_sndStreamFrq");
+
+var _sndStreamADPCMParameter = Module["_sndStreamADPCMParameter"] = makeInvalidEarlyAccess("_sndStreamADPCMParameter");
+
+var _sndStreamActivate = Module["_sndStreamActivate"] = makeInvalidEarlyAccess("_sndStreamActivate");
+
+var _msmSysSearchGroupStack = Module["_msmSysSearchGroupStack"] = makeInvalidEarlyAccess("_msmSysSearchGroupStack");
+
+var _msmSysGroupInit = Module["_msmSysGroupInit"] = makeInvalidEarlyAccess("_msmSysGroupInit");
+
+var _msmSysGetOutputMode = Module["_msmSysGetOutputMode"] = makeInvalidEarlyAccess("_msmSysGetOutputMode");
+
+var _msmSysSetOutputMode = Module["_msmSysSetOutputMode"] = makeInvalidEarlyAccess("_msmSysSetOutputMode");
+
+var _sndOutputMode = Module["_sndOutputMode"] = makeInvalidEarlyAccess("_sndOutputMode");
+
+var _OSSetSoundMode = Module["_OSSetSoundMode"] = makeInvalidEarlyAccess("_OSSetSoundMode");
+
+var _msmSysSetAux = Module["_msmSysSetAux"] = makeInvalidEarlyAccess("_msmSysSetAux");
+
+var _sndSetAuxProcessingCallbacks = Module["_sndSetAuxProcessingCallbacks"] = makeInvalidEarlyAccess("_sndSetAuxProcessingCallbacks");
+
+var _sndAuxCallbackShutdownReverbHI = Module["_sndAuxCallbackShutdownReverbHI"] = makeInvalidEarlyAccess("_sndAuxCallbackShutdownReverbHI");
+
+var _sndAuxCallbackShutdownReverbSTD = Module["_sndAuxCallbackShutdownReverbSTD"] = makeInvalidEarlyAccess("_sndAuxCallbackShutdownReverbSTD");
+
+var _sndAuxCallbackShutdownChorus = Module["_sndAuxCallbackShutdownChorus"] = makeInvalidEarlyAccess("_sndAuxCallbackShutdownChorus");
+
+var _sndAuxCallbackShutdownDelay = Module["_sndAuxCallbackShutdownDelay"] = makeInvalidEarlyAccess("_sndAuxCallbackShutdownDelay");
+
+var _sndAuxCallbackReverbSTD = Module["_sndAuxCallbackReverbSTD"] = makeInvalidEarlyAccess("_sndAuxCallbackReverbSTD");
+
+var _sndAuxCallbackPrepareReverbSTD = Module["_sndAuxCallbackPrepareReverbSTD"] = makeInvalidEarlyAccess("_sndAuxCallbackPrepareReverbSTD");
+
+var _sndAuxCallbackChorus = Module["_sndAuxCallbackChorus"] = makeInvalidEarlyAccess("_sndAuxCallbackChorus");
+
+var _sndAuxCallbackPrepareChorus = Module["_sndAuxCallbackPrepareChorus"] = makeInvalidEarlyAccess("_sndAuxCallbackPrepareChorus");
+
+var _sndAuxCallbackDelay = Module["_sndAuxCallbackDelay"] = makeInvalidEarlyAccess("_sndAuxCallbackDelay");
+
+var _sndAuxCallbackPrepareDelay = Module["_sndAuxCallbackPrepareDelay"] = makeInvalidEarlyAccess("_sndAuxCallbackPrepareDelay");
+
+var _sndAuxCallbackReverbHI = Module["_sndAuxCallbackReverbHI"] = makeInvalidEarlyAccess("_sndAuxCallbackReverbHI");
+
+var _sndAuxCallbackPrepareReverbHI = Module["_sndAuxCallbackPrepareReverbHI"] = makeInvalidEarlyAccess("_sndAuxCallbackPrepareReverbHI");
+
+var _msmSysGetSampSize = Module["_msmSysGetSampSize"] = makeInvalidEarlyAccess("_msmSysGetSampSize");
+
+var _msmSysDelGroupAll = Module["_msmSysDelGroupAll"] = makeInvalidEarlyAccess("_msmSysDelGroupAll");
+
+var _sndPopGroup = Module["_sndPopGroup"] = makeInvalidEarlyAccess("_sndPopGroup");
+
+var _msmSysDelGroupBase = Module["_msmSysDelGroupBase"] = makeInvalidEarlyAccess("_msmSysDelGroupBase");
+
+var _msmSysLoadGroupBase = Module["_msmSysLoadGroupBase"] = makeInvalidEarlyAccess("_msmSysLoadGroupBase");
+
+var _sndPushGroup = Module["_sndPushGroup"] = makeInvalidEarlyAccess("_sndPushGroup");
+
+var _msmSysLoadGroupSet = Module["_msmSysLoadGroupSet"] = makeInvalidEarlyAccess("_msmSysLoadGroupSet");
+
+var _msmSysLoadGroup = Module["_msmSysLoadGroup"] = makeInvalidEarlyAccess("_msmSysLoadGroup");
+
+var _msmSysCheckInit = Module["_msmSysCheckInit"] = makeInvalidEarlyAccess("_msmSysCheckInit");
+
+var _sndIsInstalled = Module["_sndIsInstalled"] = makeInvalidEarlyAccess("_sndIsInstalled");
+
+var _msmSysInit = Module["_msmSysInit"] = makeInvalidEarlyAccess("_msmSysInit");
+
+var _ARAlloc = Module["_ARAlloc"] = makeInvalidEarlyAccess("_ARAlloc");
+
+var _ARGetBaseAddress = Module["_ARGetBaseAddress"] = makeInvalidEarlyAccess("_ARGetBaseAddress");
+
+var _AIInit = Module["_AIInit"] = makeInvalidEarlyAccess("_AIInit");
+
+var _sndSetHooks = Module["_sndSetHooks"] = makeInvalidEarlyAccess("_sndSetHooks");
+
+var _sndInit = Module["_sndInit"] = makeInvalidEarlyAccess("_sndInit");
+
+var _AIRegisterDMACallback = Module["_AIRegisterDMACallback"] = makeInvalidEarlyAccess("_AIRegisterDMACallback");
+
+var _sndQuit = Module["_sndQuit"] = makeInvalidEarlyAccess("_sndQuit");
+
 var _OSGetSoundMode = Module["_OSGetSoundMode"] = makeInvalidEarlyAccess("_OSGetSoundMode");
+
+var _sndVolume = Module["_sndVolume"] = makeInvalidEarlyAccess("_sndVolume");
+
+var _AIInitDMA = Module["_AIInitDMA"] = makeInvalidEarlyAccess("_AIInitDMA");
+
+var _AITick = Module["_AITick"] = makeInvalidEarlyAccess("_AITick");
+
+var _fopen = Module["_fopen"] = makeInvalidEarlyAccess("_fopen");
+
+var _fseek = Module["_fseek"] = makeInvalidEarlyAccess("_fseek");
+
+var _fread = Module["_fread"] = makeInvalidEarlyAccess("_fread");
+
+var _fclose = Module["_fclose"] = makeInvalidEarlyAccess("_fclose");
 
 var _HuAudStreamPlay = Module["_HuAudStreamPlay"] = makeInvalidEarlyAccess("_HuAudStreamPlay");
 
@@ -36072,18 +36312,6 @@ var _SISetSamplingRate = Module["_SISetSamplingRate"] = makeInvalidEarlyAccess("
 
 var _GXUnknownu16 = Module["_GXUnknownu16"] = makeInvalidEarlyAccess("_GXUnknownu16");
 
-var _msmMusSetMasterVolume = Module["_msmMusSetMasterVolume"] = makeInvalidEarlyAccess("_msmMusSetMasterVolume");
-
-var _msmSysGetOutputMode = Module["_msmSysGetOutputMode"] = makeInvalidEarlyAccess("_msmSysGetOutputMode");
-
-var _msmSeSetListener = Module["_msmSeSetListener"] = makeInvalidEarlyAccess("_msmSeSetListener");
-
-var _msmSeStopAll = Module["_msmSeStopAll"] = makeInvalidEarlyAccess("_msmSeStopAll");
-
-var _msmSysSetOutputMode = Module["_msmSysSetOutputMode"] = makeInvalidEarlyAccess("_msmSysSetOutputMode");
-
-var _OSSetSoundMode = Module["_OSSetSoundMode"] = makeInvalidEarlyAccess("_OSSetSoundMode");
-
 var _HuTHPSprCreateVol = Module["_HuTHPSprCreateVol"] = makeInvalidEarlyAccess("_HuTHPSprCreateVol");
 
 var _HuTHPSprCreate = Module["_HuTHPSprCreate"] = makeInvalidEarlyAccess("_HuTHPSprCreate");
@@ -36116,17 +36344,9 @@ var _snprintf = Module["_snprintf"] = makeInvalidEarlyAccess("_snprintf");
 
 var _realpath = Module["_realpath"] = makeInvalidEarlyAccess("_realpath");
 
-var _fopen = Module["_fopen"] = makeInvalidEarlyAccess("_fopen");
-
-var _fclose = Module["_fclose"] = makeInvalidEarlyAccess("_fclose");
-
 var _realloc = makeInvalidEarlyAccess("_realloc");
 
-var _fseek = Module["_fseek"] = makeInvalidEarlyAccess("_fseek");
-
 var _ftell = Module["_ftell"] = makeInvalidEarlyAccess("_ftell");
-
-var _fread = Module["_fread"] = makeInvalidEarlyAccess("_fread");
 
 var _feof = Module["_feof"] = makeInvalidEarlyAccess("_feof");
 
@@ -37859,8 +38079,6 @@ var _OSUncachedToPhysical = Module["_OSUncachedToPhysical"] = makeInvalidEarlyAc
 var _OSCachedToUncached = Module["_OSCachedToUncached"] = makeInvalidEarlyAccess("_OSCachedToUncached");
 
 var _OSUncachedToCached = Module["_OSUncachedToCached"] = makeInvalidEarlyAccess("_OSUncachedToCached");
-
-var _ARAlloc = Module["_ARAlloc"] = makeInvalidEarlyAccess("_ARAlloc");
 
 var _ARFree = Module["_ARFree"] = makeInvalidEarlyAccess("_ARFree");
 
@@ -43813,6 +44031,678 @@ var __ZN4absl12lts_2024072213hash_internal18CityHash64WithSeedEPKcmy = Module["_
 var __ZN4absl12lts_2024072213hash_internal19CityHash64WithSeedsEPKcmyy = Module["__ZN4absl12lts_2024072213hash_internal19CityHash64WithSeedsEPKcmyy"] = makeInvalidEarlyAccess("__ZN4absl12lts_2024072213hash_internal19CityHash64WithSeedsEPKcmyy");
 
 var __ZN4absl12lts_2024072213hash_internal12LowLevelHashEPKvmyPKy = Module["__ZN4absl12lts_2024072213hash_internal12LowLevelHashEPKvmyPKy"] = makeInvalidEarlyAccess("__ZN4absl12lts_2024072213hash_internal12LowLevelHashEPKvmyPKy");
+
+var _seqGetPrivateId = Module["_seqGetPrivateId"] = makeInvalidEarlyAccess("_seqGetPrivateId");
+
+var _seqStartPlay = Module["_seqStartPlay"] = makeInvalidEarlyAccess("_seqStartPlay");
+
+var _seqPause = Module["_seqPause"] = makeInvalidEarlyAccess("_seqPause");
+
+var _seqStop = Module["_seqStop"] = makeInvalidEarlyAccess("_seqStop");
+
+var _seqKillAllInstances = Module["_seqKillAllInstances"] = makeInvalidEarlyAccess("_seqKillAllInstances");
+
+var _seqKillInstancesByGroupID = Module["_seqKillInstancesByGroupID"] = makeInvalidEarlyAccess("_seqKillInstancesByGroupID");
+
+var _seqSpeed = Module["_seqSpeed"] = makeInvalidEarlyAccess("_seqSpeed");
+
+var _seqContinue = Module["_seqContinue"] = makeInvalidEarlyAccess("_seqContinue");
+
+var _seqMute = Module["_seqMute"] = makeInvalidEarlyAccess("_seqMute");
+
+var _seqVolume = Module["_seqVolume"] = makeInvalidEarlyAccess("_seqVolume");
+
+var _seqCrossFade = Module["_seqCrossFade"] = makeInvalidEarlyAccess("_seqCrossFade");
+
+var _seqHandle = Module["_seqHandle"] = makeInvalidEarlyAccess("_seqHandle");
+
+var _seqInit = Module["_seqInit"] = makeInvalidEarlyAccess("_seqInit");
+
+var _synthSetBpm = Module["_synthSetBpm"] = makeInvalidEarlyAccess("_synthSetBpm");
+
+var _synthGetTicksPerSecond = Module["_synthGetTicksPerSecond"] = makeInvalidEarlyAccess("_synthGetTicksPerSecond");
+
+var _synthInitPortamento = Module["_synthInitPortamento"] = makeInvalidEarlyAccess("_synthInitPortamento");
+
+var _synthStartSound = Module["_synthStartSound"] = makeInvalidEarlyAccess("_synthStartSound");
+
+var _synthStartSynthJobHandling = Module["_synthStartSynthJobHandling"] = makeInvalidEarlyAccess("_synthStartSynthJobHandling");
+
+var _synthForceLowPrecisionUpdate = Module["_synthForceLowPrecisionUpdate"] = makeInvalidEarlyAccess("_synthForceLowPrecisionUpdate");
+
+var _synthKeyStateUpdate = Module["_synthKeyStateUpdate"] = makeInvalidEarlyAccess("_synthKeyStateUpdate");
+
+var _synthHandle = Module["_synthHandle"] = makeInvalidEarlyAccess("_synthHandle");
+
+var _synthFXGetMaxVoices = Module["_synthFXGetMaxVoices"] = makeInvalidEarlyAccess("_synthFXGetMaxVoices");
+
+var _synthFXStart = Module["_synthFXStart"] = makeInvalidEarlyAccess("_synthFXStart");
+
+var _synthFXSetCtrl = Module["_synthFXSetCtrl"] = makeInvalidEarlyAccess("_synthFXSetCtrl");
+
+var _synthFXSetCtrl14 = Module["_synthFXSetCtrl14"] = makeInvalidEarlyAccess("_synthFXSetCtrl14");
+
+var _synthFXCloneMidiSetup = Module["_synthFXCloneMidiSetup"] = makeInvalidEarlyAccess("_synthFXCloneMidiSetup");
+
+var _synthSendKeyOff = Module["_synthSendKeyOff"] = makeInvalidEarlyAccess("_synthSendKeyOff");
+
+var _synthGetVolume = Module["_synthGetVolume"] = makeInvalidEarlyAccess("_synthGetVolume");
+
+var _synthVolume = Module["_synthVolume"] = makeInvalidEarlyAccess("_synthVolume");
+
+var _synthIsFadeOutActive = Module["_synthIsFadeOutActive"] = makeInvalidEarlyAccess("_synthIsFadeOutActive");
+
+var _synthPauseVolume = Module["_synthPauseVolume"] = makeInvalidEarlyAccess("_synthPauseVolume");
+
+var _synthSetMusicVolumeType = Module["_synthSetMusicVolumeType"] = makeInvalidEarlyAccess("_synthSetMusicVolumeType");
+
+var _synthInit = Module["_synthInit"] = makeInvalidEarlyAccess("_synthInit");
+
+var _synthExit = Module["_synthExit"] = makeInvalidEarlyAccess("_synthExit");
+
+var _sndSeqCrossFade = Module["_sndSeqCrossFade"] = makeInvalidEarlyAccess("_sndSeqCrossFade");
+
+var _sndSeqCrossFadeDone = Module["_sndSeqCrossFadeDone"] = makeInvalidEarlyAccess("_sndSeqCrossFadeDone");
+
+var _sndSeqGetLoopCnt = Module["_sndSeqGetLoopCnt"] = makeInvalidEarlyAccess("_sndSeqGetLoopCnt");
+
+var _sndSeqGetLoopCntEx = Module["_sndSeqGetLoopCntEx"] = makeInvalidEarlyAccess("_sndSeqGetLoopCntEx");
+
+var _hwDisableIrq = Module["_hwDisableIrq"] = makeInvalidEarlyAccess("_hwDisableIrq");
+
+var _macStart = Module["_macStart"] = makeInvalidEarlyAccess("_macStart");
+
+var _vidGetInternalId = Module["_vidGetInternalId"] = makeInvalidEarlyAccess("_vidGetInternalId");
+
+var _inpGetMidiCtrl = Module["_inpGetMidiCtrl"] = makeInvalidEarlyAccess("_inpGetMidiCtrl");
+
+var _hwIsActive = Module["_hwIsActive"] = makeInvalidEarlyAccess("_hwIsActive");
+
+var _vidRemoveVoiceReferences = Module["_vidRemoveVoiceReferences"] = makeInvalidEarlyAccess("_vidRemoveVoiceReferences");
+
+var _vidMakeNew = Module["_vidMakeNew"] = makeInvalidEarlyAccess("_vidMakeNew");
+
+var _voiceSetLastStarted = Module["_voiceSetLastStarted"] = makeInvalidEarlyAccess("_voiceSetLastStarted");
+
+var _inpSetMidiLastNote = Module["_inpSetMidiLastNote"] = makeInvalidEarlyAccess("_inpSetMidiLastNote");
+
+var _dataGetKeymap = Module["_dataGetKeymap"] = makeInvalidEarlyAccess("_dataGetKeymap");
+
+var _dataGetLayer = Module["_dataGetLayer"] = makeInvalidEarlyAccess("_dataGetLayer");
+
+var _vidMakeRoot = Module["_vidMakeRoot"] = makeInvalidEarlyAccess("_vidMakeRoot");
+
+var _macHandle = Module["_macHandle"] = makeInvalidEarlyAccess("_macHandle");
+
+var _sndSin = Module["_sndSin"] = makeInvalidEarlyAccess("_sndSin");
+
+var _adsrHandleLowPrecision = Module["_adsrHandleLowPrecision"] = makeInvalidEarlyAccess("_adsrHandleLowPrecision");
+
+var _inpGetPitchBend = Module["_inpGetPitchBend"] = makeInvalidEarlyAccess("_inpGetPitchBend");
+
+var _inpGetModulation = Module["_inpGetModulation"] = makeInvalidEarlyAccess("_inpGetModulation");
+
+var _sndGetPitch = Module["_sndGetPitch"] = makeInvalidEarlyAccess("_sndGetPitch");
+
+var _sndPitchUpOne = Module["_sndPitchUpOne"] = makeInvalidEarlyAccess("_sndPitchUpOne");
+
+var _inpGetDoppler = Module["_inpGetDoppler"] = makeInvalidEarlyAccess("_inpGetDoppler");
+
+var _hwSetPitch = Module["_hwSetPitch"] = makeInvalidEarlyAccess("_hwSetPitch");
+
+var _inpGetPedal = Module["_inpGetPedal"] = makeInvalidEarlyAccess("_inpGetPedal");
+
+var _macSetPedalState = Module["_macSetPedalState"] = makeInvalidEarlyAccess("_macSetPedalState");
+
+var _hwStart = Module["_hwStart"] = makeInvalidEarlyAccess("_hwStart");
+
+var _hwKeyOff = Module["_hwKeyOff"] = makeInvalidEarlyAccess("_hwKeyOff");
+
+var _adsrRelease = Module["_adsrRelease"] = makeInvalidEarlyAccess("_adsrRelease");
+
+var _inpGetTremolo = Module["_inpGetTremolo"] = makeInvalidEarlyAccess("_inpGetTremolo");
+
+var _inpGetPanning = Module["_inpGetPanning"] = makeInvalidEarlyAccess("_inpGetPanning");
+
+var _inpGetSurPanning = Module["_inpGetSurPanning"] = makeInvalidEarlyAccess("_inpGetSurPanning");
+
+var _inpGetVolume = Module["_inpGetVolume"] = makeInvalidEarlyAccess("_inpGetVolume");
+
+var _inpGetPreAuxA = Module["_inpGetPreAuxA"] = makeInvalidEarlyAccess("_inpGetPreAuxA");
+
+var _inpGetReverb = Module["_inpGetReverb"] = makeInvalidEarlyAccess("_inpGetReverb");
+
+var _inpGetPreAuxB = Module["_inpGetPreAuxB"] = makeInvalidEarlyAccess("_inpGetPreAuxB");
+
+var _inpGetPostAuxB = Module["_inpGetPostAuxB"] = makeInvalidEarlyAccess("_inpGetPostAuxB");
+
+var _hwSetVolume = Module["_hwSetVolume"] = makeInvalidEarlyAccess("_hwSetVolume");
+
+var _hwSetPriority = Module["_hwSetPriority"] = makeInvalidEarlyAccess("_hwSetPriority");
+
+var _hwGetTimeOffset = Module["_hwGetTimeOffset"] = makeInvalidEarlyAccess("_hwGetTimeOffset");
+
+var _inpGetAuxA = Module["_inpGetAuxA"] = makeInvalidEarlyAccess("_inpGetAuxA");
+
+var _inpGetAuxB = Module["_inpGetAuxB"] = makeInvalidEarlyAccess("_inpGetAuxB");
+
+var _hwFrameDone = Module["_hwFrameDone"] = makeInvalidEarlyAccess("_hwFrameDone");
+
+var _dataGetFX = Module["_dataGetFX"] = makeInvalidEarlyAccess("_dataGetFX");
+
+var _inpSetMidiCtrl = Module["_inpSetMidiCtrl"] = makeInvalidEarlyAccess("_inpSetMidiCtrl");
+
+var _inpSetMidiCtrl14 = Module["_inpSetMidiCtrl14"] = makeInvalidEarlyAccess("_inpSetMidiCtrl14");
+
+var _inpFXCopyCtrl = Module["_inpFXCopyCtrl"] = makeInvalidEarlyAccess("_inpFXCopyCtrl");
+
+var _macSetExternalKeyoff = Module["_macSetExternalKeyoff"] = makeInvalidEarlyAccess("_macSetExternalKeyoff");
+
+var _sndConvertMs = Module["_sndConvertMs"] = makeInvalidEarlyAccess("_sndConvertMs");
+
+var _salMalloc = Module["_salMalloc"] = makeInvalidEarlyAccess("_salMalloc");
+
+var _inpInit = Module["_inpInit"] = makeInvalidEarlyAccess("_inpInit");
+
+var _macInit = Module["_macInit"] = makeInvalidEarlyAccess("_macInit");
+
+var _vidInit = Module["_vidInit"] = makeInvalidEarlyAccess("_vidInit");
+
+var _synthInitAllocationAids = Module["_synthInitAllocationAids"] = makeInvalidEarlyAccess("_synthInitAllocationAids");
+
+var _voiceInitLastStarted = Module["_voiceInitLastStarted"] = makeInvalidEarlyAccess("_voiceInitLastStarted");
+
+var _hwSetMesgCallback = Module["_hwSetMesgCallback"] = makeInvalidEarlyAccess("_hwSetMesgCallback");
+
+var _hwGetVirtualSampleID = Module["_hwGetVirtualSampleID"] = makeInvalidEarlyAccess("_hwGetVirtualSampleID");
+
+var _vsSampleEndNotify = Module["_vsSampleEndNotify"] = makeInvalidEarlyAccess("_vsSampleEndNotify");
+
+var _macSampleEndNotify = Module["_macSampleEndNotify"] = makeInvalidEarlyAccess("_macSampleEndNotify");
+
+var _voiceKill = Module["_voiceKill"] = makeInvalidEarlyAccess("_voiceKill");
+
+var _vsSampleStartNotify = Module["_vsSampleStartNotify"] = makeInvalidEarlyAccess("_vsSampleStartNotify");
+
+var _salFree = Module["_salFree"] = makeInvalidEarlyAccess("_salFree");
+
+var _inpResetMidiCtrl = Module["_inpResetMidiCtrl"] = makeInvalidEarlyAccess("_inpResetMidiCtrl");
+
+var _inpResetChannelDefaults = Module["_inpResetChannelDefaults"] = makeInvalidEarlyAccess("_inpResetChannelDefaults");
+
+var _voiceKillSound = Module["_voiceKillSound"] = makeInvalidEarlyAccess("_voiceKillSound");
+
+var _seqPlaySong = Module["_seqPlaySong"] = makeInvalidEarlyAccess("_seqPlaySong");
+
+var _sndSeqMute = Module["_sndSeqMute"] = makeInvalidEarlyAccess("_sndSeqMute");
+
+var _hwEnableIrq = Module["_hwEnableIrq"] = makeInvalidEarlyAccess("_hwEnableIrq");
+
+var _sndSeqLoop = Module["_sndSeqLoop"] = makeInvalidEarlyAccess("_sndSeqLoop");
+
+var _sndSeqLoopEx = Module["_sndSeqLoopEx"] = makeInvalidEarlyAccess("_sndSeqLoopEx");
+
+var _sndSeqGetVolGroup = Module["_sndSeqGetVolGroup"] = makeInvalidEarlyAccess("_sndSeqGetVolGroup");
+
+var _sndSeqAssignVolGroup2Track = Module["_sndSeqAssignVolGroup2Track"] = makeInvalidEarlyAccess("_sndSeqAssignVolGroup2Track");
+
+var _sndSeqGetMidiCtrl14 = Module["_sndSeqGetMidiCtrl14"] = makeInvalidEarlyAccess("_sndSeqGetMidiCtrl14");
+
+var _sndSeqSetMidiCtrl = Module["_sndSeqSetMidiCtrl"] = makeInvalidEarlyAccess("_sndSeqSetMidiCtrl");
+
+var _sndSeqSetMidiCtrl14 = Module["_sndSeqSetMidiCtrl14"] = makeInvalidEarlyAccess("_sndSeqSetMidiCtrl14");
+
+var _seqGetMIDIPriority = Module["_seqGetMIDIPriority"] = makeInvalidEarlyAccess("_seqGetMIDIPriority");
+
+var _sndFXStartEx = Module["_sndFXStartEx"] = makeInvalidEarlyAccess("_sndFXStartEx");
+
+var _sndFXStartPara = Module["_sndFXStartPara"] = makeInvalidEarlyAccess("_sndFXStartPara");
+
+var _sndReadFlag = Module["_sndReadFlag"] = makeInvalidEarlyAccess("_sndReadFlag");
+
+var _sndWriteFlag = Module["_sndWriteFlag"] = makeInvalidEarlyAccess("_sndWriteFlag");
+
+var _macPostMessage = Module["_macPostMessage"] = makeInvalidEarlyAccess("_macPostMessage");
+
+var _sndSetReceiveMessageCallback = Module["_sndSetReceiveMessageCallback"] = makeInvalidEarlyAccess("_sndSetReceiveMessageCallback");
+
+var _sndSilence = Module["_sndSilence"] = makeInvalidEarlyAccess("_sndSilence");
+
+var _s3dKillAllEmitter = Module["_s3dKillAllEmitter"] = makeInvalidEarlyAccess("_s3dKillAllEmitter");
+
+var _synthKillAllVoices = Module["_synthKillAllVoices"] = makeInvalidEarlyAccess("_synthKillAllVoices");
+
+var _sndIsIdle = Module["_sndIsIdle"] = makeInvalidEarlyAccess("_sndIsIdle");
+
+var _hwGlobalActivity = Module["_hwGlobalActivity"] = makeInvalidEarlyAccess("_hwGlobalActivity");
+
+var _sndFXAssignVolGroup2FXId = Module["_sndFXAssignVolGroup2FXId"] = makeInvalidEarlyAccess("_sndFXAssignVolGroup2FXId");
+
+var _sndPauseVolume = Module["_sndPauseVolume"] = makeInvalidEarlyAccess("_sndPauseVolume");
+
+var _hwDisableHRTF = Module["_hwDisableHRTF"] = makeInvalidEarlyAccess("_hwDisableHRTF");
+
+var _streamOutputModeChanged = Module["_streamOutputModeChanged"] = makeInvalidEarlyAccess("_streamOutputModeChanged");
+
+var _hwSetAUXProcessingCallbacks = Module["_hwSetAUXProcessingCallbacks"] = makeInvalidEarlyAccess("_hwSetAUXProcessingCallbacks");
+
+var _sndUpdateAuxParameter = Module["_sndUpdateAuxParameter"] = makeInvalidEarlyAccess("_sndUpdateAuxParameter");
+
+var _sndSetITDDefault = Module["_sndSetITDDefault"] = makeInvalidEarlyAccess("_sndSetITDDefault");
+
+var _synthActivateStudio = Module["_synthActivateStudio"] = makeInvalidEarlyAccess("_synthActivateStudio");
+
+var _hwActivateStudio = Module["_hwActivateStudio"] = makeInvalidEarlyAccess("_hwActivateStudio");
+
+var _sndActivateStudioEx = Module["_sndActivateStudioEx"] = makeInvalidEarlyAccess("_sndActivateStudioEx");
+
+var _synthDeactivateStudio = Module["_synthDeactivateStudio"] = makeInvalidEarlyAccess("_synthDeactivateStudio");
+
+var _hwOff = Module["_hwOff"] = makeInvalidEarlyAccess("_hwOff");
+
+var _hwDeactivateStudio = Module["_hwDeactivateStudio"] = makeInvalidEarlyAccess("_hwDeactivateStudio");
+
+var _sndDeactivateStudio = Module["_sndDeactivateStudio"] = makeInvalidEarlyAccess("_sndDeactivateStudio");
+
+var _synthChangeStudioMasterMix = Module["_synthChangeStudioMasterMix"] = makeInvalidEarlyAccess("_synthChangeStudioMasterMix");
+
+var _hwChangeStudioMix = Module["_hwChangeStudioMix"] = makeInvalidEarlyAccess("_hwChangeStudioMix");
+
+var _sndChangeStudioMasterMix = Module["_sndChangeStudioMasterMix"] = makeInvalidEarlyAccess("_sndChangeStudioMasterMix");
+
+var _synthAddStudioInput = Module["_synthAddStudioInput"] = makeInvalidEarlyAccess("_synthAddStudioInput");
+
+var _hwAddInput = Module["_hwAddInput"] = makeInvalidEarlyAccess("_hwAddInput");
+
+var _sndAddStudioInput = Module["_sndAddStudioInput"] = makeInvalidEarlyAccess("_sndAddStudioInput");
+
+var _synthRemoveStudioInput = Module["_synthRemoveStudioInput"] = makeInvalidEarlyAccess("_synthRemoveStudioInput");
+
+var _hwRemoveInput = Module["_hwRemoveInput"] = makeInvalidEarlyAccess("_hwRemoveInput");
+
+var _sndRemoveStudioInput = Module["_sndRemoveStudioInput"] = makeInvalidEarlyAccess("_sndRemoveStudioInput");
+
+var _sndDbgGetActiveVoices = Module["_sndDbgGetActiveVoices"] = makeInvalidEarlyAccess("_sndDbgGetActiveVoices");
+
+var _streamInit = Module["_streamInit"] = makeInvalidEarlyAccess("_streamInit");
+
+var _streamHandle = Module["_streamHandle"] = makeInvalidEarlyAccess("_streamHandle");
+
+var _streamCorrectLoops = Module["_streamCorrectLoops"] = makeInvalidEarlyAccess("_streamCorrectLoops");
+
+var _streamKill = Module["_streamKill"] = makeInvalidEarlyAccess("_streamKill");
+
+var _sndStreamCallbackFrq = Module["_sndStreamCallbackFrq"] = makeInvalidEarlyAccess("_sndStreamCallbackFrq");
+
+var _hwGetStreamPlayBuffer = Module["_hwGetStreamPlayBuffer"] = makeInvalidEarlyAccess("_hwGetStreamPlayBuffer");
+
+var _hwSetStreamLoopPS = Module["_hwSetStreamLoopPS"] = makeInvalidEarlyAccess("_hwSetStreamLoopPS");
+
+var _hwInitSamplePlayback = Module["_hwInitSamplePlayback"] = makeInvalidEarlyAccess("_hwInitSamplePlayback");
+
+var _hwFlushStream = Module["_hwFlushStream"] = makeInvalidEarlyAccess("_hwFlushStream");
+
+var _hwGetPos = Module["_hwGetPos"] = makeInvalidEarlyAccess("_hwGetPos");
+
+var _voiceUnblock = Module["_voiceUnblock"] = makeInvalidEarlyAccess("_voiceUnblock");
+
+var _hwInitStream = Module["_hwInitStream"] = makeInvalidEarlyAccess("_hwInitStream");
+
+var _sndStreamAllocLength = Module["_sndStreamAllocLength"] = makeInvalidEarlyAccess("_sndStreamAllocLength");
+
+var _voiceBlock = Module["_voiceBlock"] = makeInvalidEarlyAccess("_voiceBlock");
+
+var _sndStreamAllocStereo = Module["_sndStreamAllocStereo"] = makeInvalidEarlyAccess("_sndStreamAllocStereo");
+
+var _hwExitStream = Module["_hwExitStream"] = makeInvalidEarlyAccess("_hwExitStream");
+
+var _sndStreamMixParameter = Module["_sndStreamMixParameter"] = makeInvalidEarlyAccess("_sndStreamMixParameter");
+
+var _dataInsertKeymap = Module["_dataInsertKeymap"] = makeInvalidEarlyAccess("_dataInsertKeymap");
+
+var _dataRemoveKeymap = Module["_dataRemoveKeymap"] = makeInvalidEarlyAccess("_dataRemoveKeymap");
+
+var _dataInsertLayer = Module["_dataInsertLayer"] = makeInvalidEarlyAccess("_dataInsertLayer");
+
+var _dataRemoveLayer = Module["_dataRemoveLayer"] = makeInvalidEarlyAccess("_dataRemoveLayer");
+
+var _dataInsertCurve = Module["_dataInsertCurve"] = makeInvalidEarlyAccess("_dataInsertCurve");
+
+var _dataRemoveCurve = Module["_dataRemoveCurve"] = makeInvalidEarlyAccess("_dataRemoveCurve");
+
+var _dataInsertSDir = Module["_dataInsertSDir"] = makeInvalidEarlyAccess("_dataInsertSDir");
+
+var _dataRemoveSDir = Module["_dataRemoveSDir"] = makeInvalidEarlyAccess("_dataRemoveSDir");
+
+var _dataAddSampleReference = Module["_dataAddSampleReference"] = makeInvalidEarlyAccess("_dataAddSampleReference");
+
+var _dataRemoveSampleReference = Module["_dataRemoveSampleReference"] = makeInvalidEarlyAccess("_dataRemoveSampleReference");
+
+var _dataInsertFX = Module["_dataInsertFX"] = makeInvalidEarlyAccess("_dataInsertFX");
+
+var _dataRemoveFX = Module["_dataRemoveFX"] = makeInvalidEarlyAccess("_dataRemoveFX");
+
+var _dataInsertMacro = Module["_dataInsertMacro"] = makeInvalidEarlyAccess("_dataInsertMacro");
+
+var _dataRemoveMacro = Module["_dataRemoveMacro"] = makeInvalidEarlyAccess("_dataRemoveMacro");
+
+var _dataGetMacro = Module["_dataGetMacro"] = makeInvalidEarlyAccess("_dataGetMacro");
+
+var _dataGetSample = Module["_dataGetSample"] = makeInvalidEarlyAccess("_dataGetSample");
+
+var _dataGetCurve = Module["_dataGetCurve"] = makeInvalidEarlyAccess("_dataGetCurve");
+
+var _hwSaveSample = Module["_hwSaveSample"] = makeInvalidEarlyAccess("_hwSaveSample");
+
+var _hwRemoveSample = Module["_hwRemoveSample"] = makeInvalidEarlyAccess("_hwRemoveSample");
+
+var _sndBSearch = Module["_sndBSearch"] = makeInvalidEarlyAccess("_sndBSearch");
+
+var _dataInit = Module["_dataInit"] = makeInvalidEarlyAccess("_dataInit");
+
+var _hwInitSampleMem = Module["_hwInitSampleMem"] = makeInvalidEarlyAccess("_hwInitSampleMem");
+
+var _dataExit = Module["_dataExit"] = makeInvalidEarlyAccess("_dataExit");
+
+var _hwExitSampleMem = Module["_hwExitSampleMem"] = makeInvalidEarlyAccess("_hwExitSampleMem");
+
+var _sndConvert32BitSDIRTo64BitSDIR = Module["_sndConvert32BitSDIRTo64BitSDIR"] = makeInvalidEarlyAccess("_sndConvert32BitSDIRTo64BitSDIR");
+
+var _varGet32 = Module["_varGet32"] = makeInvalidEarlyAccess("_varGet32");
+
+var _varGet = Module["_varGet"] = makeInvalidEarlyAccess("_varGet");
+
+var _varSet32 = Module["_varSet32"] = makeInvalidEarlyAccess("_varSet32");
+
+var _varSet = Module["_varSet"] = makeInvalidEarlyAccess("_varSet");
+
+var _inpGetExCtrl = Module["_inpGetExCtrl"] = makeInvalidEarlyAccess("_inpGetExCtrl");
+
+var _inpSetExCtrl = Module["_inpSetExCtrl"] = makeInvalidEarlyAccess("_inpSetExCtrl");
+
+var _hwBreak = Module["_hwBreak"] = makeInvalidEarlyAccess("_hwBreak");
+
+var _inpGetMidiLastNote = Module["_inpGetMidiLastNote"] = makeInvalidEarlyAccess("_inpGetMidiLastNote");
+
+var _inpGetChannelDefaults = Module["_inpGetChannelDefaults"] = makeInvalidEarlyAccess("_inpGetChannelDefaults");
+
+var _sndRand = Module["_sndRand"] = makeInvalidEarlyAccess("_sndRand");
+
+var _hwSetADSR = Module["_hwSetADSR"] = makeInvalidEarlyAccess("_hwSetADSR");
+
+var _voiceIsLastStarted = Module["_voiceIsLastStarted"] = makeInvalidEarlyAccess("_voiceIsLastStarted");
+
+var _sndConvertTicks = Module["_sndConvertTicks"] = makeInvalidEarlyAccess("_sndConvertTicks");
+
+var _hwFrq2Pitch = Module["_hwFrq2Pitch"] = makeInvalidEarlyAccess("_hwFrq2Pitch");
+
+var _adsrConvertTimeCents = Module["_adsrConvertTimeCents"] = makeInvalidEarlyAccess("_adsrConvertTimeCents");
+
+var _adsrSetup = Module["_adsrSetup"] = makeInvalidEarlyAccess("_adsrSetup");
+
+var _voiceSetPriority = Module["_voiceSetPriority"] = makeInvalidEarlyAccess("_voiceSetPriority");
+
+var _inpAddCtrl = Module["_inpAddCtrl"] = makeInvalidEarlyAccess("_inpAddCtrl");
+
+var _inpSetGlobalMIDIDirtyFlag = Module["_inpSetGlobalMIDIDirtyFlag"] = makeInvalidEarlyAccess("_inpSetGlobalMIDIDirtyFlag");
+
+var _hwSetSRCType = Module["_hwSetSRCType"] = makeInvalidEarlyAccess("_hwSetSRCType");
+
+var _hwSetPolyPhaseFilter = Module["_hwSetPolyPhaseFilter"] = makeInvalidEarlyAccess("_hwSetPolyPhaseFilter");
+
+var _voiceFree = Module["_voiceFree"] = makeInvalidEarlyAccess("_voiceFree");
+
+var _macMakeActive = Module["_macMakeActive"] = makeInvalidEarlyAccess("_macMakeActive");
+
+var _macMakeInactive = Module["_macMakeInactive"] = makeInvalidEarlyAccess("_macMakeInactive");
+
+var _voiceAllocate = Module["_voiceAllocate"] = makeInvalidEarlyAccess("_voiceAllocate");
+
+var _sndConvert2Ms = Module["_sndConvert2Ms"] = makeInvalidEarlyAccess("_sndConvert2Ms");
+
+var _voiceResetLastStarted = Module["_voiceResetLastStarted"] = makeInvalidEarlyAccess("_voiceResetLastStarted");
+
+var _voiceRemovePriority = Module["_voiceRemovePriority"] = makeInvalidEarlyAccess("_voiceRemovePriority");
+
+var _synthKillVoicesByMacroReferences = Module["_synthKillVoicesByMacroReferences"] = makeInvalidEarlyAccess("_synthKillVoicesByMacroReferences");
+
+var _exp2f = Module["_exp2f"] = makeInvalidEarlyAccess("_exp2f");
+
+var _salChangeADSRState = Module["_salChangeADSRState"] = makeInvalidEarlyAccess("_salChangeADSRState");
+
+var _adsrStartRelease = Module["_adsrStartRelease"] = makeInvalidEarlyAccess("_adsrStartRelease");
+
+var _adsrHandle = Module["_adsrHandle"] = makeInvalidEarlyAccess("_adsrHandle");
+
+var _vsInit = Module["_vsInit"] = makeInvalidEarlyAccess("_vsInit");
+
+var _vsNewInstanceID = Module["_vsNewInstanceID"] = makeInvalidEarlyAccess("_vsNewInstanceID");
+
+var _vsAllocateBuffer = Module["_vsAllocateBuffer"] = makeInvalidEarlyAccess("_vsAllocateBuffer");
+
+var _vsFreeBuffer = Module["_vsFreeBuffer"] = makeInvalidEarlyAccess("_vsFreeBuffer");
+
+var _aramGetStreamBufferAddress = Module["_aramGetStreamBufferAddress"] = makeInvalidEarlyAccess("_aramGetStreamBufferAddress");
+
+var _hwSetVirtualSampleLoopBuffer = Module["_hwSetVirtualSampleLoopBuffer"] = makeInvalidEarlyAccess("_hwSetVirtualSampleLoopBuffer");
+
+var _hwGetSampleID = Module["_hwGetSampleID"] = makeInvalidEarlyAccess("_hwGetSampleID");
+
+var _hwGetSampleType = Module["_hwGetSampleType"] = makeInvalidEarlyAccess("_hwGetSampleType");
+
+var _vsUpdateBuffer = Module["_vsUpdateBuffer"] = makeInvalidEarlyAccess("_vsUpdateBuffer");
+
+var _vsSampleUpdates = Module["_vsSampleUpdates"] = makeInvalidEarlyAccess("_vsSampleUpdates");
+
+var _hwGetVirtualSampleState = Module["_hwGetVirtualSampleState"] = makeInvalidEarlyAccess("_hwGetVirtualSampleState");
+
+var _hwVoiceInStartup = Module["_hwVoiceInStartup"] = makeInvalidEarlyAccess("_hwVoiceInStartup");
+
+var _sndVirtualSampleAllocateBuffers = Module["_sndVirtualSampleAllocateBuffers"] = makeInvalidEarlyAccess("_sndVirtualSampleAllocateBuffers");
+
+var _aramAllocateStreamBuffer = Module["_aramAllocateStreamBuffer"] = makeInvalidEarlyAccess("_aramAllocateStreamBuffer");
+
+var _aramFreeStreamBuffer = Module["_aramFreeStreamBuffer"] = makeInvalidEarlyAccess("_aramFreeStreamBuffer");
+
+var _sndVirtualSampleFreeBuffers = Module["_sndVirtualSampleFreeBuffers"] = makeInvalidEarlyAccess("_sndVirtualSampleFreeBuffers");
+
+var _sndVirtualSampleSetCallback = Module["_sndVirtualSampleSetCallback"] = makeInvalidEarlyAccess("_sndVirtualSampleSetCallback");
+
+var _vsARAMDMACallback = Module["_vsARAMDMACallback"] = makeInvalidEarlyAccess("_vsARAMDMACallback");
+
+var _sndVirtualSampleARAMUpdate = Module["_sndVirtualSampleARAMUpdate"] = makeInvalidEarlyAccess("_sndVirtualSampleARAMUpdate");
+
+var _sndVirtualSampleEndPlayback = Module["_sndVirtualSampleEndPlayback"] = makeInvalidEarlyAccess("_sndVirtualSampleEndPlayback");
+
+var _dataInitStack = Module["_dataInitStack"] = makeInvalidEarlyAccess("_dataInitStack");
+
+var _sndSetSampleDataUploadCallback = Module["_sndSetSampleDataUploadCallback"] = makeInvalidEarlyAccess("_sndSetSampleDataUploadCallback");
+
+var _hwSetSaveSampleCallback = Module["_hwSetSaveSampleCallback"] = makeInvalidEarlyAccess("_hwSetSaveSampleCallback");
+
+var _hwTransAddr = Module["_hwTransAddr"] = makeInvalidEarlyAccess("_hwTransAddr");
+
+var _hwSyncSampleMem = Module["_hwSyncSampleMem"] = makeInvalidEarlyAccess("_hwSyncSampleMem");
+
+var _s3dKillEmitterByFXID = Module["_s3dKillEmitterByFXID"] = makeInvalidEarlyAccess("_s3dKillEmitterByFXID");
+
+var _salInitDspCtrl = Module["_salInitDspCtrl"] = makeInvalidEarlyAccess("_salInitDspCtrl");
+
+var _salActivateStudio = Module["_salActivateStudio"] = makeInvalidEarlyAccess("_salActivateStudio");
+
+var _salInitHRTFBuffer = Module["_salInitHRTFBuffer"] = makeInvalidEarlyAccess("_salInitHRTFBuffer");
+
+var _salExitDspCtrl = Module["_salExitDspCtrl"] = makeInvalidEarlyAccess("_salExitDspCtrl");
+
+var _salDeactivateStudio = Module["_salDeactivateStudio"] = makeInvalidEarlyAccess("_salDeactivateStudio");
+
+var _salBuildCommandList = Module["_salBuildCommandList"] = makeInvalidEarlyAccess("_salBuildCommandList");
+
+var _salSynthSendMessage = Module["_salSynthSendMessage"] = makeInvalidEarlyAccess("_salSynthSendMessage");
+
+var _salActivateVoice = Module["_salActivateVoice"] = makeInvalidEarlyAccess("_salActivateVoice");
+
+var _salDeactivateVoice = Module["_salDeactivateVoice"] = makeInvalidEarlyAccess("_salDeactivateVoice");
+
+var _salReconnectVoice = Module["_salReconnectVoice"] = makeInvalidEarlyAccess("_salReconnectVoice");
+
+var _salAddStudioInput = Module["_salAddStudioInput"] = makeInvalidEarlyAccess("_salAddStudioInput");
+
+var _salRemoveStudioInput = Module["_salRemoveStudioInput"] = makeInvalidEarlyAccess("_salRemoveStudioInput");
+
+var _salHandleAuxProcessing = Module["_salHandleAuxProcessing"] = makeInvalidEarlyAccess("_salHandleAuxProcessing");
+
+var _salCalcVolume = Module["_salCalcVolume"] = makeInvalidEarlyAccess("_salCalcVolume");
+
+var _sndAddRoom = Module["_sndAddRoom"] = makeInvalidEarlyAccess("_sndAddRoom");
+
+var _sndRemoveRoom = Module["_sndRemoveRoom"] = makeInvalidEarlyAccess("_sndRemoveRoom");
+
+var _sndUpdateRoom = Module["_sndUpdateRoom"] = makeInvalidEarlyAccess("_sndUpdateRoom");
+
+var _sndAddDoor = Module["_sndAddDoor"] = makeInvalidEarlyAccess("_sndAddDoor");
+
+var _sndRemoveDoor = Module["_sndRemoveDoor"] = makeInvalidEarlyAccess("_sndRemoveDoor");
+
+var _hwChangeStudio = Module["_hwChangeStudio"] = makeInvalidEarlyAccess("_hwChangeStudio");
+
+var _sndAddEmitter = Module["_sndAddEmitter"] = makeInvalidEarlyAccess("_sndAddEmitter");
+
+var _sndAddEmitterEx = Module["_sndAddEmitterEx"] = makeInvalidEarlyAccess("_sndAddEmitterEx");
+
+var _sndAddEmitterPara = Module["_sndAddEmitterPara"] = makeInvalidEarlyAccess("_sndAddEmitterPara");
+
+var _sndAddEmitter2Studio = Module["_sndAddEmitter2Studio"] = makeInvalidEarlyAccess("_sndAddEmitter2Studio");
+
+var _sndAddEmitter2StudioEx = Module["_sndAddEmitter2StudioEx"] = makeInvalidEarlyAccess("_sndAddEmitter2StudioEx");
+
+var _sndAddEmitter2StudioPara = Module["_sndAddEmitter2StudioPara"] = makeInvalidEarlyAccess("_sndAddEmitter2StudioPara");
+
+var _sndAddEmitter2StudioParaEx = Module["_sndAddEmitter2StudioParaEx"] = makeInvalidEarlyAccess("_sndAddEmitter2StudioParaEx");
+
+var _salCrossProduct = Module["_salCrossProduct"] = makeInvalidEarlyAccess("_salCrossProduct");
+
+var _salInvertMatrix = Module["_salInvertMatrix"] = makeInvalidEarlyAccess("_salInvertMatrix");
+
+var _sndAddListener = Module["_sndAddListener"] = makeInvalidEarlyAccess("_sndAddListener");
+
+var _ClearStartList = Module["_ClearStartList"] = makeInvalidEarlyAccess("_ClearStartList");
+
+var _AddRunningEmitter = Module["_AddRunningEmitter"] = makeInvalidEarlyAccess("_AddRunningEmitter");
+
+var _AddStartingEmitter = Module["_AddStartingEmitter"] = makeInvalidEarlyAccess("_AddStartingEmitter");
+
+var _StartContinousEmitters = Module["_StartContinousEmitters"] = makeInvalidEarlyAccess("_StartContinousEmitters");
+
+var _s3dHandle = Module["_s3dHandle"] = makeInvalidEarlyAccess("_s3dHandle");
+
+var _salApplyMatrix = Module["_salApplyMatrix"] = makeInvalidEarlyAccess("_salApplyMatrix");
+
+var _salNormalizeVector = Module["_salNormalizeVector"] = makeInvalidEarlyAccess("_salNormalizeVector");
+
+var _sndSetup3DStudios = Module["_sndSetup3DStudios"] = makeInvalidEarlyAccess("_sndSetup3DStudios");
+
+var _sndGet3DParameters = Module["_sndGet3DParameters"] = makeInvalidEarlyAccess("_sndGet3DParameters");
+
+var _s3dInit = Module["_s3dInit"] = makeInvalidEarlyAccess("_s3dInit");
+
+var _s3dExit = Module["_s3dExit"] = makeInvalidEarlyAccess("_s3dExit");
+
+var _hwInit = Module["_hwInit"] = makeInvalidEarlyAccess("_hwInit");
+
+var _hwExit = Module["_hwExit"] = makeInvalidEarlyAccess("_hwExit");
+
+var _sndSetMaxVoices = Module["_sndSetMaxVoices"] = makeInvalidEarlyAccess("_sndSetMaxVoices");
+
+var _sndGetPlayBackInfo = Module["_sndGetPlayBackInfo"] = makeInvalidEarlyAccess("_sndGetPlayBackInfo");
+
+var _inpSetRPNHi = Module["_inpSetRPNHi"] = makeInvalidEarlyAccess("_inpSetRPNHi");
+
+var _inpSetRPNLo = Module["_inpSetRPNLo"] = makeInvalidEarlyAccess("_inpSetRPNLo");
+
+var _inpSetRPNDec = Module["_inpSetRPNDec"] = makeInvalidEarlyAccess("_inpSetRPNDec");
+
+var _inpSetRPNInc = Module["_inpSetRPNInc"] = makeInvalidEarlyAccess("_inpSetRPNInc");
+
+var _inpTranslateExCtrl = Module["_inpTranslateExCtrl"] = makeInvalidEarlyAccess("_inpTranslateExCtrl");
+
+var _hwInitIrq = Module["_hwInitIrq"] = makeInvalidEarlyAccess("_hwInitIrq");
+
+var _aramGetZeroBuffer = Module["_aramGetZeroBuffer"] = makeInvalidEarlyAccess("_aramGetZeroBuffer");
+
+var _salInitAi = Module["_salInitAi"] = makeInvalidEarlyAccess("_salInitAi");
+
+var _salInitDsp = Module["_salInitDsp"] = makeInvalidEarlyAccess("_salInitDsp");
+
+var _salStartAi = Module["_salStartAi"] = makeInvalidEarlyAccess("_salStartAi");
+
+var _hwIRQEnterCritical = Module["_hwIRQEnterCritical"] = makeInvalidEarlyAccess("_hwIRQEnterCritical");
+
+var _salAiGetDest = Module["_salAiGetDest"] = makeInvalidEarlyAccess("_salAiGetDest");
+
+var _salCtrlDsp = Module["_salCtrlDsp"] = makeInvalidEarlyAccess("_salCtrlDsp");
+
+var _hwIRQLeaveCritical = Module["_hwIRQLeaveCritical"] = makeInvalidEarlyAccess("_hwIRQLeaveCritical");
+
+var _salExitDsp = Module["_salExitDsp"] = makeInvalidEarlyAccess("_salExitDsp");
+
+var _salExitAi = Module["_salExitAi"] = makeInvalidEarlyAccess("_salExitAi");
+
+var _hwExitIrq = Module["_hwExitIrq"] = makeInvalidEarlyAccess("_hwExitIrq");
+
+var _hwSetTimeOffset = Module["_hwSetTimeOffset"] = makeInvalidEarlyAccess("_hwSetTimeOffset");
+
+var _hwSetITDMode = Module["_hwSetITDMode"] = makeInvalidEarlyAccess("_hwSetITDMode");
+
+var _hwIsStudioActive = Module["_hwIsStudioActive"] = makeInvalidEarlyAccess("_hwIsStudioActive");
+
+var _aramUploadData = Module["_aramUploadData"] = makeInvalidEarlyAccess("_aramUploadData");
+
+var _hwPrepareStreamBuffer = Module["_hwPrepareStreamBuffer"] = makeInvalidEarlyAccess("_hwPrepareStreamBuffer");
+
+var _aramInit = Module["_aramInit"] = makeInvalidEarlyAccess("_aramInit");
+
+var _aramExit = Module["_aramExit"] = makeInvalidEarlyAccess("_aramExit");
+
+var _aramSetUploadCallback = Module["_aramSetUploadCallback"] = makeInvalidEarlyAccess("_aramSetUploadCallback");
+
+var _aramRemoveData = Module["_aramRemoveData"] = makeInvalidEarlyAccess("_aramRemoveData");
+
+var _aramSyncTransferQueue = Module["_aramSyncTransferQueue"] = makeInvalidEarlyAccess("_aramSyncTransferQueue");
+
+var _hwEnableHRTF = Module["_hwEnableHRTF"] = makeInvalidEarlyAccess("_hwEnableHRTF");
+
+var _aramStoreData = Module["_aramStoreData"] = makeInvalidEarlyAccess("_aramStoreData");
+
+var _pcMixerGenerate = Module["_pcMixerGenerate"] = makeInvalidEarlyAccess("_pcMixerGenerate");
+
+var _salStartDsp = Module["_salStartDsp"] = makeInvalidEarlyAccess("_salStartDsp");
+
+var _salGetStartDelay = Module["_salGetStartDelay"] = makeInvalidEarlyAccess("_salGetStartDelay");
+
+var _ReverbSTDCallback = Module["_ReverbSTDCallback"] = makeInvalidEarlyAccess("_ReverbSTDCallback");
+
+var _sndAuxCallbackUpdateSettingsReverbSTD = Module["_sndAuxCallbackUpdateSettingsReverbSTD"] = makeInvalidEarlyAccess("_sndAuxCallbackUpdateSettingsReverbSTD");
+
+var _ReverbSTDModify = Module["_ReverbSTDModify"] = makeInvalidEarlyAccess("_ReverbSTDModify");
+
+var _ReverbSTDCreate = Module["_ReverbSTDCreate"] = makeInvalidEarlyAccess("_ReverbSTDCreate");
+
+var _ReverbSTDFree = Module["_ReverbSTDFree"] = makeInvalidEarlyAccess("_ReverbSTDFree");
+
+var _ReverbHICallback = Module["_ReverbHICallback"] = makeInvalidEarlyAccess("_ReverbHICallback");
+
+var _sndAuxCallbackUpdateSettingsReverbHI = Module["_sndAuxCallbackUpdateSettingsReverbHI"] = makeInvalidEarlyAccess("_sndAuxCallbackUpdateSettingsReverbHI");
+
+var _ReverbHIModify = Module["_ReverbHIModify"] = makeInvalidEarlyAccess("_ReverbHIModify");
+
+var _ReverbHICreate = Module["_ReverbHICreate"] = makeInvalidEarlyAccess("_ReverbHICreate");
+
+var _ReverbHIFree = Module["_ReverbHIFree"] = makeInvalidEarlyAccess("_ReverbHIFree");
+
+var _sndAuxCallbackUpdateSettingsDelay = Module["_sndAuxCallbackUpdateSettingsDelay"] = makeInvalidEarlyAccess("_sndAuxCallbackUpdateSettingsDelay");
+
+var _sndAuxCallbackUpdateSettingsChorus = Module["_sndAuxCallbackUpdateSettingsChorus"] = makeInvalidEarlyAccess("_sndAuxCallbackUpdateSettingsChorus");
 
 var _SDL_ExitProcess = Module["_SDL_ExitProcess"] = makeInvalidEarlyAccess("_SDL_ExitProcess");
 
@@ -55422,6 +56312,140 @@ var _tt_default_graphics_state = Module["_tt_default_graphics_state"] = makeInva
 
 var __ZNSt3__219piecewise_constructE = Module["__ZNSt3__219piecewise_constructE"] = makeInvalidEarlyAccess("__ZNSt3__219piecewise_constructE");
 
+var _seqActiveRoot = Module["_seqActiveRoot"] = makeInvalidEarlyAccess("_seqActiveRoot");
+
+var _seqPausedRoot = Module["_seqPausedRoot"] = makeInvalidEarlyAccess("_seqPausedRoot");
+
+var _seqFreeRoot = Module["_seqFreeRoot"] = makeInvalidEarlyAccess("_seqFreeRoot");
+
+var _seqMIDIPriority = Module["_seqMIDIPriority"] = makeInvalidEarlyAccess("_seqMIDIPriority");
+
+var _seqInstance = Module["_seqInstance"] = makeInvalidEarlyAccess("_seqInstance");
+
+var _synthVoice = Module["_synthVoice"] = makeInvalidEarlyAccess("_synthVoice");
+
+var _synthInfo = Module["_synthInfo"] = makeInvalidEarlyAccess("_synthInfo");
+
+var _synthRealTime = Module["_synthRealTime"] = makeInvalidEarlyAccess("_synthRealTime");
+
+var _synthMasterFader = Module["_synthMasterFader"] = makeInvalidEarlyAccess("_synthMasterFader");
+
+var _synthTrackVolume = Module["_synthTrackVolume"] = makeInvalidEarlyAccess("_synthTrackVolume");
+
+var _synthFlags = Module["_synthFlags"] = makeInvalidEarlyAccess("_synthFlags");
+
+var _synthMasterFaderPauseActiveFlags = Module["_synthMasterFaderPauseActiveFlags"] = makeInvalidEarlyAccess("_synthMasterFaderPauseActiveFlags");
+
+var _synthMasterFaderActiveFlags = Module["_synthMasterFaderActiveFlags"] = makeInvalidEarlyAccess("_synthMasterFaderActiveFlags");
+
+var _synthAuxAMIDI = Module["_synthAuxAMIDI"] = makeInvalidEarlyAccess("_synthAuxAMIDI");
+
+var _synthAuxAMIDISet = Module["_synthAuxAMIDISet"] = makeInvalidEarlyAccess("_synthAuxAMIDISet");
+
+var _synthAuxAUser = Module["_synthAuxAUser"] = makeInvalidEarlyAccess("_synthAuxAUser");
+
+var _synthAuxACallback = Module["_synthAuxACallback"] = makeInvalidEarlyAccess("_synthAuxACallback");
+
+var _synthAuxBMIDI = Module["_synthAuxBMIDI"] = makeInvalidEarlyAccess("_synthAuxBMIDI");
+
+var _synthAuxBMIDISet = Module["_synthAuxBMIDISet"] = makeInvalidEarlyAccess("_synthAuxBMIDISet");
+
+var _synthAuxBUser = Module["_synthAuxBUser"] = makeInvalidEarlyAccess("_synthAuxBUser");
+
+var _synthAuxBCallback = Module["_synthAuxBCallback"] = makeInvalidEarlyAccess("_synthAuxBCallback");
+
+var _sndActive = Module["_sndActive"] = makeInvalidEarlyAccess("_sndActive");
+
+var _synthMessageCallback = Module["_synthMessageCallback"] = makeInvalidEarlyAccess("_synthMessageCallback");
+
+var _synthITDDefault = Module["_synthITDDefault"] = makeInvalidEarlyAccess("_synthITDDefault");
+
+var _synthGlobalVariable = Module["_synthGlobalVariable"] = makeInvalidEarlyAccess("_synthGlobalVariable");
+
+var _inpAuxA = Module["_inpAuxA"] = makeInvalidEarlyAccess("_inpAuxA");
+
+var _inpAuxB = Module["_inpAuxB"] = makeInvalidEarlyAccess("_inpAuxB");
+
+var _synthIdleWaitActive = Module["_synthIdleWaitActive"] = makeInvalidEarlyAccess("_synthIdleWaitActive");
+
+var _voiceFxRunning = Module["_voiceFxRunning"] = makeInvalidEarlyAccess("_voiceFxRunning");
+
+var _voiceMusicRunning = Module["_voiceMusicRunning"] = makeInvalidEarlyAccess("_voiceMusicRunning");
+
+var _dspDLSVolTab = Module["_dspDLSVolTab"] = makeInvalidEarlyAccess("_dspDLSVolTab");
+
+var _dspScale2IndexTab = Module["_dspScale2IndexTab"] = makeInvalidEarlyAccess("_dspScale2IndexTab");
+
+var _voicePrioSortVoices = Module["_voicePrioSortVoices"] = makeInvalidEarlyAccess("_voicePrioSortVoices");
+
+var _voicePrioSortVoicesRoot = Module["_voicePrioSortVoicesRoot"] = makeInvalidEarlyAccess("_voicePrioSortVoicesRoot");
+
+var _voicePrioSortRootList = Module["_voicePrioSortRootList"] = makeInvalidEarlyAccess("_voicePrioSortRootList");
+
+var _voicePrioSortRootListRoot = Module["_voicePrioSortRootListRoot"] = makeInvalidEarlyAccess("_voicePrioSortRootListRoot");
+
+var _voiceListRoot = Module["_voiceListRoot"] = makeInvalidEarlyAccess("_voiceListRoot");
+
+var _voiceList = Module["_voiceList"] = makeInvalidEarlyAccess("_voiceList");
+
+var _voiceListInsert = Module["_voiceListInsert"] = makeInvalidEarlyAccess("_voiceListInsert");
+
+var _dspAttenuationTab = Module["_dspAttenuationTab"] = makeInvalidEarlyAccess("_dspAttenuationTab");
+
+var _vs = Module["_vs"] = makeInvalidEarlyAccess("_vs");
+
+var _dspCmdList = Module["_dspCmdList"] = makeInvalidEarlyAccess("_dspCmdList");
+
+var _dspSurround = Module["_dspSurround"] = makeInvalidEarlyAccess("_dspSurround");
+
+var _dspVoice = Module["_dspVoice"] = makeInvalidEarlyAccess("_dspVoice");
+
+var _dspITDBuffer = Module["_dspITDBuffer"] = makeInvalidEarlyAccess("_dspITDBuffer");
+
+var _dspStudio = Module["_dspStudio"] = makeInvalidEarlyAccess("_dspStudio");
+
+var _dspHrtfHistoryBuffer = Module["_dspHrtfHistoryBuffer"] = makeInvalidEarlyAccess("_dspHrtfHistoryBuffer");
+
+var _salMessageCallback = Module["_salMessageCallback"] = makeInvalidEarlyAccess("_salMessageCallback");
+
+var _dspCmdLastLoad = Module["_dspCmdLastLoad"] = makeInvalidEarlyAccess("_dspCmdLastLoad");
+
+var _dspCmdLastBase = Module["_dspCmdLastBase"] = makeInvalidEarlyAccess("_dspCmdLastBase");
+
+var _dspCmdLastSize = Module["_dspCmdLastSize"] = makeInvalidEarlyAccess("_dspCmdLastSize");
+
+var _dspCmdCurBase = Module["_dspCmdCurBase"] = makeInvalidEarlyAccess("_dspCmdCurBase");
+
+var _dspCmdMaxPtr = Module["_dspCmdMaxPtr"] = makeInvalidEarlyAccess("_dspCmdMaxPtr");
+
+var _dspCmdPtr = Module["_dspCmdPtr"] = makeInvalidEarlyAccess("_dspCmdPtr");
+
+var _dspCmdFirstSize = Module["_dspCmdFirstSize"] = makeInvalidEarlyAccess("_dspCmdFirstSize");
+
+var _dspHRTFOn = Module["_dspHRTFOn"] = makeInvalidEarlyAccess("_dspHRTFOn");
+
+var _last_rnd = Module["_last_rnd"] = makeInvalidEarlyAccess("_last_rnd");
+
+var _sndSintab = Module["_sndSintab"] = makeInvalidEarlyAccess("_sndSintab");
+
+var _salAuxFrame = Module["_salAuxFrame"] = makeInvalidEarlyAccess("_salAuxFrame");
+
+var _salFrame = Module["_salFrame"] = makeInvalidEarlyAccess("_salFrame");
+
+var _salMaxStudioNum = Module["_salMaxStudioNum"] = makeInvalidEarlyAccess("_salMaxStudioNum");
+
+var _salNumVoices = Module["_salNumVoices"] = makeInvalidEarlyAccess("_salNumVoices");
+
+var _salTimeOffset = Module["_salTimeOffset"] = makeInvalidEarlyAccess("_salTimeOffset");
+
+var _salHooks = Module["_salHooks"] = makeInvalidEarlyAccess("_salHooks");
+
+var _globalMutex = Module["_globalMutex"] = makeInvalidEarlyAccess("_globalMutex");
+
+var _globalInterrupt = Module["_globalInterrupt"] = makeInvalidEarlyAccess("_globalInterrupt");
+
+var _i2fMagic = Module["_i2fMagic"] = makeInvalidEarlyAccess("_i2fMagic");
+
 var _SDL_object_validation = Module["_SDL_object_validation"] = makeInvalidEarlyAccess("_SDL_object_validation");
 
 var _EMSCRIPTENAUDIO_bootstrap = Module["_EMSCRIPTENAUDIO_bootstrap"] = makeInvalidEarlyAccess("_EMSCRIPTENAUDIO_bootstrap");
@@ -58449,7 +59473,127 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["msmSeSetParam"] != "undefined", "missing Wasm export: msmSeSetParam");
   assert(typeof wasmExports["HuAudSStreamFadeOut"] != "undefined", "missing Wasm export: HuAudSStreamFadeOut");
   assert(typeof wasmExports["GXGetTexBufferSize"] != "undefined", "missing Wasm export: GXGetTexBufferSize");
+  assert(typeof wasmExports["msmFioClose"] != "undefined", "missing Wasm export: msmFioClose");
+  assert(typeof wasmExports["msmFioRead"] != "undefined", "missing Wasm export: msmFioRead");
+  assert(typeof wasmExports["msmFioOpen"] != "undefined", "missing Wasm export: msmFioOpen");
+  assert(typeof wasmExports["msmFioInit"] != "undefined", "missing Wasm export: msmFioInit");
+  assert(typeof wasmExports["msmMemFree"] != "undefined", "missing Wasm export: msmMemFree");
+  assert(typeof wasmExports["msmMemAlloc"] != "undefined", "missing Wasm export: msmMemAlloc");
+  assert(typeof wasmExports["msmMemInit"] != "undefined", "missing Wasm export: msmMemInit");
+  assert(typeof wasmExports["msmMusPeriodicProc"] != "undefined", "missing Wasm export: msmMusPeriodicProc");
+  assert(typeof wasmExports["sndSeqGetValid"] != "undefined", "missing Wasm export: sndSeqGetValid");
+  assert(typeof wasmExports["msmSysCheckBaseGroup"] != "undefined", "missing Wasm export: msmSysCheckBaseGroup");
+  assert(typeof wasmExports["sndSeqPause"] != "undefined", "missing Wasm export: sndSeqPause");
+  assert(typeof wasmExports["sndSeqVolume"] != "undefined", "missing Wasm export: sndSeqVolume");
+  assert(typeof wasmExports["sndSeqStop"] != "undefined", "missing Wasm export: sndSeqStop");
+  assert(typeof wasmExports["msmMusGetMidiCtrl"] != "undefined", "missing Wasm export: msmMusGetMidiCtrl");
+  assert(typeof wasmExports["sndSeqGetMidiCtrl"] != "undefined", "missing Wasm export: sndSeqGetMidiCtrl");
+  assert(typeof wasmExports["msmMusGetNumPlay"] != "undefined", "missing Wasm export: msmMusGetNumPlay");
+  assert(typeof wasmExports["msmMusSetMasterVolume"] != "undefined", "missing Wasm export: msmMusSetMasterVolume");
+  assert(typeof wasmExports["sndMasterVolume"] != "undefined", "missing Wasm export: sndMasterVolume");
+  assert(typeof wasmExports["sndSeqSpeed"] != "undefined", "missing Wasm export: sndSeqSpeed");
+  assert(typeof wasmExports["msmMusPauseAll"] != "undefined", "missing Wasm export: msmMusPauseAll");
+  assert(typeof wasmExports["sndSeqContinue"] != "undefined", "missing Wasm export: sndSeqContinue");
+  assert(typeof wasmExports["msmMusPause"] != "undefined", "missing Wasm export: msmMusPause");
+  assert(typeof wasmExports["msmMusStopAll"] != "undefined", "missing Wasm export: msmMusStopAll");
+  assert(typeof wasmExports["msmMusStop"] != "undefined", "missing Wasm export: msmMusStop");
+  assert(typeof wasmExports["msmSysCheckLoadGroupID"] != "undefined", "missing Wasm export: msmSysCheckLoadGroupID");
+  assert(typeof wasmExports["msmSysGetGroupDataPtr"] != "undefined", "missing Wasm export: msmSysGetGroupDataPtr");
+  assert(typeof wasmExports["sndSeqPlayEx"] != "undefined", "missing Wasm export: sndSeqPlayEx");
+  assert(typeof wasmExports["msmMusInit"] != "undefined", "missing Wasm export: msmMusInit");
+  assert(typeof wasmExports["msmSePeriodicProc"] != "undefined", "missing Wasm export: msmSePeriodicProc");
+  assert(typeof wasmExports["msmSeGetIndexPtr"] != "undefined", "missing Wasm export: msmSeGetIndexPtr");
+  assert(typeof wasmExports["msmSeDelListener"] != "undefined", "missing Wasm export: msmSeDelListener");
+  assert(typeof wasmExports["msmSeUpdataListener"] != "undefined", "missing Wasm export: msmSeUpdataListener");
+  assert(typeof wasmExports["msmSeSetListener"] != "undefined", "missing Wasm export: msmSeSetListener");
+  assert(typeof wasmExports["msmSeGetEntryID"] != "undefined", "missing Wasm export: msmSeGetEntryID");
+  assert(typeof wasmExports["msmSeGetNumPlay"] != "undefined", "missing Wasm export: msmSeGetNumPlay");
+  assert(typeof wasmExports["msmSeGetStatus"] != "undefined", "missing Wasm export: msmSeGetStatus");
+  assert(typeof wasmExports["msmSeSetMasterVolume"] != "undefined", "missing Wasm export: msmSeSetMasterVolume");
+  assert(typeof wasmExports["sndCheckEmitter"] != "undefined", "missing Wasm export: sndCheckEmitter");
+  assert(typeof wasmExports["sndFXCheck"] != "undefined", "missing Wasm export: sndFXCheck");
+  assert(typeof wasmExports["sndUpdateEmitter"] != "undefined", "missing Wasm export: sndUpdateEmitter");
+  assert(typeof wasmExports["sndFXCtrl"] != "undefined", "missing Wasm export: sndFXCtrl");
+  assert(typeof wasmExports["sndRemoveEmitter"] != "undefined", "missing Wasm export: sndRemoveEmitter");
+  assert(typeof wasmExports["sndFXKeyOff"] != "undefined", "missing Wasm export: sndFXKeyOff");
+  assert(typeof wasmExports["sndRemoveListener"] != "undefined", "missing Wasm export: sndRemoveListener");
+  assert(typeof wasmExports["sndUpdateListener"] != "undefined", "missing Wasm export: sndUpdateListener");
+  assert(typeof wasmExports["sndAddListenerEx"] != "undefined", "missing Wasm export: sndAddListenerEx");
+  assert(typeof wasmExports["sndFXCtrl14"] != "undefined", "missing Wasm export: sndFXCtrl14");
+  assert(typeof wasmExports["sndEmitterVoiceID"] != "undefined", "missing Wasm export: sndEmitterVoiceID");
+  assert(typeof wasmExports["sndSendMessage"] != "undefined", "missing Wasm export: sndSendMessage");
+  assert(typeof wasmExports["msmSePauseAll"] != "undefined", "missing Wasm export: msmSePauseAll");
+  assert(typeof wasmExports["msmSeStopAll"] != "undefined", "missing Wasm export: msmSeStopAll");
+  assert(typeof wasmExports["msmSeStop"] != "undefined", "missing Wasm export: msmSeStop");
+  assert(typeof wasmExports["msmSePlay"] != "undefined", "missing Wasm export: msmSePlay");
+  assert(typeof wasmExports["sndAddEmitterParaEx"] != "undefined", "missing Wasm export: sndAddEmitterParaEx");
+  assert(typeof wasmExports["sndFXStartParaInfo"] != "undefined", "missing Wasm export: sndFXStartParaInfo");
+  assert(typeof wasmExports["msmSeInit"] != "undefined", "missing Wasm export: msmSeInit");
+  assert(typeof wasmExports["msmStreamSetMasterVolume"] != "undefined", "missing Wasm export: msmStreamSetMasterVolume");
+  assert(typeof wasmExports["sndStreamMixParameterEx"] != "undefined", "missing Wasm export: sndStreamMixParameterEx");
+  assert(typeof wasmExports["msmStreamStopAll"] != "undefined", "missing Wasm export: msmStreamStopAll");
+  assert(typeof wasmExports["msmSysIrqDisable"] != "undefined", "missing Wasm export: msmSysIrqDisable");
+  assert(typeof wasmExports["msmSysIrqEnable"] != "undefined", "missing Wasm export: msmSysIrqEnable");
+  assert(typeof wasmExports["msmStreamStop"] != "undefined", "missing Wasm export: msmStreamStop");
+  assert(typeof wasmExports["msmStreamPlay"] != "undefined", "missing Wasm export: msmStreamPlay");
+  assert(typeof wasmExports["msmStreamPeriodicProc"] != "undefined", "missing Wasm export: msmStreamPeriodicProc");
+  assert(typeof wasmExports["msmStreamSetOutputMode"] != "undefined", "missing Wasm export: msmStreamSetOutputMode");
+  assert(typeof wasmExports["msmStreamAmemFree"] != "undefined", "missing Wasm export: msmStreamAmemFree");
+  assert(typeof wasmExports["sndStreamFree"] != "undefined", "missing Wasm export: sndStreamFree");
+  assert(typeof wasmExports["msmStreamAmemAlloc"] != "undefined", "missing Wasm export: msmStreamAmemAlloc");
+  assert(typeof wasmExports["sndStreamAllocEx"] != "undefined", "missing Wasm export: sndStreamAllocEx");
+  assert(typeof wasmExports["msmStreamInit"] != "undefined", "missing Wasm export: msmStreamInit");
+  assert(typeof wasmExports["sndStreamARAMUpdate"] != "undefined", "missing Wasm export: sndStreamARAMUpdate");
+  assert(typeof wasmExports["sndStreamDeactivate"] != "undefined", "missing Wasm export: sndStreamDeactivate");
+  assert(typeof wasmExports["sndStreamFrq"] != "undefined", "missing Wasm export: sndStreamFrq");
+  assert(typeof wasmExports["sndStreamADPCMParameter"] != "undefined", "missing Wasm export: sndStreamADPCMParameter");
+  assert(typeof wasmExports["sndStreamActivate"] != "undefined", "missing Wasm export: sndStreamActivate");
+  assert(typeof wasmExports["msmSysSearchGroupStack"] != "undefined", "missing Wasm export: msmSysSearchGroupStack");
+  assert(typeof wasmExports["msmSysGroupInit"] != "undefined", "missing Wasm export: msmSysGroupInit");
+  assert(typeof wasmExports["msmSysGetOutputMode"] != "undefined", "missing Wasm export: msmSysGetOutputMode");
+  assert(typeof wasmExports["msmSysSetOutputMode"] != "undefined", "missing Wasm export: msmSysSetOutputMode");
+  assert(typeof wasmExports["sndOutputMode"] != "undefined", "missing Wasm export: sndOutputMode");
+  assert(typeof wasmExports["OSSetSoundMode"] != "undefined", "missing Wasm export: OSSetSoundMode");
+  assert(typeof wasmExports["msmSysSetAux"] != "undefined", "missing Wasm export: msmSysSetAux");
+  assert(typeof wasmExports["sndSetAuxProcessingCallbacks"] != "undefined", "missing Wasm export: sndSetAuxProcessingCallbacks");
+  assert(typeof wasmExports["sndAuxCallbackShutdownReverbHI"] != "undefined", "missing Wasm export: sndAuxCallbackShutdownReverbHI");
+  assert(typeof wasmExports["sndAuxCallbackShutdownReverbSTD"] != "undefined", "missing Wasm export: sndAuxCallbackShutdownReverbSTD");
+  assert(typeof wasmExports["sndAuxCallbackShutdownChorus"] != "undefined", "missing Wasm export: sndAuxCallbackShutdownChorus");
+  assert(typeof wasmExports["sndAuxCallbackShutdownDelay"] != "undefined", "missing Wasm export: sndAuxCallbackShutdownDelay");
+  assert(typeof wasmExports["sndAuxCallbackReverbSTD"] != "undefined", "missing Wasm export: sndAuxCallbackReverbSTD");
+  assert(typeof wasmExports["sndAuxCallbackPrepareReverbSTD"] != "undefined", "missing Wasm export: sndAuxCallbackPrepareReverbSTD");
+  assert(typeof wasmExports["sndAuxCallbackChorus"] != "undefined", "missing Wasm export: sndAuxCallbackChorus");
+  assert(typeof wasmExports["sndAuxCallbackPrepareChorus"] != "undefined", "missing Wasm export: sndAuxCallbackPrepareChorus");
+  assert(typeof wasmExports["sndAuxCallbackDelay"] != "undefined", "missing Wasm export: sndAuxCallbackDelay");
+  assert(typeof wasmExports["sndAuxCallbackPrepareDelay"] != "undefined", "missing Wasm export: sndAuxCallbackPrepareDelay");
+  assert(typeof wasmExports["sndAuxCallbackReverbHI"] != "undefined", "missing Wasm export: sndAuxCallbackReverbHI");
+  assert(typeof wasmExports["sndAuxCallbackPrepareReverbHI"] != "undefined", "missing Wasm export: sndAuxCallbackPrepareReverbHI");
+  assert(typeof wasmExports["msmSysGetSampSize"] != "undefined", "missing Wasm export: msmSysGetSampSize");
+  assert(typeof wasmExports["msmSysDelGroupAll"] != "undefined", "missing Wasm export: msmSysDelGroupAll");
+  assert(typeof wasmExports["sndPopGroup"] != "undefined", "missing Wasm export: sndPopGroup");
+  assert(typeof wasmExports["msmSysDelGroupBase"] != "undefined", "missing Wasm export: msmSysDelGroupBase");
+  assert(typeof wasmExports["msmSysLoadGroupBase"] != "undefined", "missing Wasm export: msmSysLoadGroupBase");
+  assert(typeof wasmExports["sndPushGroup"] != "undefined", "missing Wasm export: sndPushGroup");
+  assert(typeof wasmExports["msmSysLoadGroupSet"] != "undefined", "missing Wasm export: msmSysLoadGroupSet");
+  assert(typeof wasmExports["msmSysLoadGroup"] != "undefined", "missing Wasm export: msmSysLoadGroup");
+  assert(typeof wasmExports["msmSysCheckInit"] != "undefined", "missing Wasm export: msmSysCheckInit");
+  assert(typeof wasmExports["sndIsInstalled"] != "undefined", "missing Wasm export: sndIsInstalled");
+  assert(typeof wasmExports["msmSysInit"] != "undefined", "missing Wasm export: msmSysInit");
+  assert(typeof wasmExports["ARAlloc"] != "undefined", "missing Wasm export: ARAlloc");
+  assert(typeof wasmExports["ARGetBaseAddress"] != "undefined", "missing Wasm export: ARGetBaseAddress");
+  assert(typeof wasmExports["AIInit"] != "undefined", "missing Wasm export: AIInit");
+  assert(typeof wasmExports["sndSetHooks"] != "undefined", "missing Wasm export: sndSetHooks");
+  assert(typeof wasmExports["sndInit"] != "undefined", "missing Wasm export: sndInit");
+  assert(typeof wasmExports["AIRegisterDMACallback"] != "undefined", "missing Wasm export: AIRegisterDMACallback");
+  assert(typeof wasmExports["sndQuit"] != "undefined", "missing Wasm export: sndQuit");
   assert(typeof wasmExports["OSGetSoundMode"] != "undefined", "missing Wasm export: OSGetSoundMode");
+  assert(typeof wasmExports["sndVolume"] != "undefined", "missing Wasm export: sndVolume");
+  assert(typeof wasmExports["AIInitDMA"] != "undefined", "missing Wasm export: AIInitDMA");
+  assert(typeof wasmExports["AITick"] != "undefined", "missing Wasm export: AITick");
+  assert(typeof wasmExports["fopen"] != "undefined", "missing Wasm export: fopen");
+  assert(typeof wasmExports["fseek"] != "undefined", "missing Wasm export: fseek");
+  assert(typeof wasmExports["fread"] != "undefined", "missing Wasm export: fread");
+  assert(typeof wasmExports["fclose"] != "undefined", "missing Wasm export: fclose");
   assert(typeof wasmExports["HuAudStreamPlay"] != "undefined", "missing Wasm export: HuAudStreamPlay");
   assert(typeof wasmExports["HuAudStreamVolSet"] != "undefined", "missing Wasm export: HuAudStreamVolSet");
   assert(typeof wasmExports["HuAudStreamPauseOn"] != "undefined", "missing Wasm export: HuAudStreamPauseOn");
@@ -58578,12 +59722,6 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["__OSUnmaskInterrupts"] != "undefined", "missing Wasm export: __OSUnmaskInterrupts");
   assert(typeof wasmExports["SISetSamplingRate"] != "undefined", "missing Wasm export: SISetSamplingRate");
   assert(typeof wasmExports["GXUnknownu16"] != "undefined", "missing Wasm export: GXUnknownu16");
-  assert(typeof wasmExports["msmMusSetMasterVolume"] != "undefined", "missing Wasm export: msmMusSetMasterVolume");
-  assert(typeof wasmExports["msmSysGetOutputMode"] != "undefined", "missing Wasm export: msmSysGetOutputMode");
-  assert(typeof wasmExports["msmSeSetListener"] != "undefined", "missing Wasm export: msmSeSetListener");
-  assert(typeof wasmExports["msmSeStopAll"] != "undefined", "missing Wasm export: msmSeStopAll");
-  assert(typeof wasmExports["msmSysSetOutputMode"] != "undefined", "missing Wasm export: msmSysSetOutputMode");
-  assert(typeof wasmExports["OSSetSoundMode"] != "undefined", "missing Wasm export: OSSetSoundMode");
   assert(typeof wasmExports["HuTHPSprCreateVol"] != "undefined", "missing Wasm export: HuTHPSprCreateVol");
   assert(typeof wasmExports["HuTHPSprCreate"] != "undefined", "missing Wasm export: HuTHPSprCreate");
   assert(typeof wasmExports["HuTHP3DCreateVol"] != "undefined", "missing Wasm export: HuTHP3DCreateVol");
@@ -58600,12 +59738,8 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["DVDChangeDir"] != "undefined", "missing Wasm export: DVDChangeDir");
   assert(typeof wasmExports["snprintf"] != "undefined", "missing Wasm export: snprintf");
   assert(typeof wasmExports["realpath"] != "undefined", "missing Wasm export: realpath");
-  assert(typeof wasmExports["fopen"] != "undefined", "missing Wasm export: fopen");
-  assert(typeof wasmExports["fclose"] != "undefined", "missing Wasm export: fclose");
   assert(typeof wasmExports["realloc"] != "undefined", "missing Wasm export: realloc");
-  assert(typeof wasmExports["fseek"] != "undefined", "missing Wasm export: fseek");
   assert(typeof wasmExports["ftell"] != "undefined", "missing Wasm export: ftell");
-  assert(typeof wasmExports["fread"] != "undefined", "missing Wasm export: fread");
   assert(typeof wasmExports["feof"] != "undefined", "missing Wasm export: feof");
   assert(typeof wasmExports["DVDOpenDir"] != "undefined", "missing Wasm export: DVDOpenDir");
   assert(typeof wasmExports["DVDCloseDir"] != "undefined", "missing Wasm export: DVDCloseDir");
@@ -59472,7 +60606,6 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["OSUncachedToPhysical"] != "undefined", "missing Wasm export: OSUncachedToPhysical");
   assert(typeof wasmExports["OSCachedToUncached"] != "undefined", "missing Wasm export: OSCachedToUncached");
   assert(typeof wasmExports["OSUncachedToCached"] != "undefined", "missing Wasm export: OSUncachedToCached");
-  assert(typeof wasmExports["ARAlloc"] != "undefined", "missing Wasm export: ARAlloc");
   assert(typeof wasmExports["ARFree"] != "undefined", "missing Wasm export: ARFree");
   assert(typeof wasmExports["ARGetStorageAddress"] != "undefined", "missing Wasm export: ARGetStorageAddress");
   assert(typeof wasmExports["_ZN6aurora2vi9configureEPK15GXRenderModeObj"] != "undefined", "missing Wasm export: _ZN6aurora2vi9configureEPK15GXRenderModeObj");
@@ -62449,6 +63582,342 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["_ZN4absl12lts_2024072213hash_internal18CityHash64WithSeedEPKcmy"] != "undefined", "missing Wasm export: _ZN4absl12lts_2024072213hash_internal18CityHash64WithSeedEPKcmy");
   assert(typeof wasmExports["_ZN4absl12lts_2024072213hash_internal19CityHash64WithSeedsEPKcmyy"] != "undefined", "missing Wasm export: _ZN4absl12lts_2024072213hash_internal19CityHash64WithSeedsEPKcmyy");
   assert(typeof wasmExports["_ZN4absl12lts_2024072213hash_internal12LowLevelHashEPKvmyPKy"] != "undefined", "missing Wasm export: _ZN4absl12lts_2024072213hash_internal12LowLevelHashEPKvmyPKy");
+  assert(typeof wasmExports["seqGetPrivateId"] != "undefined", "missing Wasm export: seqGetPrivateId");
+  assert(typeof wasmExports["seqStartPlay"] != "undefined", "missing Wasm export: seqStartPlay");
+  assert(typeof wasmExports["seqPause"] != "undefined", "missing Wasm export: seqPause");
+  assert(typeof wasmExports["seqStop"] != "undefined", "missing Wasm export: seqStop");
+  assert(typeof wasmExports["seqKillAllInstances"] != "undefined", "missing Wasm export: seqKillAllInstances");
+  assert(typeof wasmExports["seqKillInstancesByGroupID"] != "undefined", "missing Wasm export: seqKillInstancesByGroupID");
+  assert(typeof wasmExports["seqSpeed"] != "undefined", "missing Wasm export: seqSpeed");
+  assert(typeof wasmExports["seqContinue"] != "undefined", "missing Wasm export: seqContinue");
+  assert(typeof wasmExports["seqMute"] != "undefined", "missing Wasm export: seqMute");
+  assert(typeof wasmExports["seqVolume"] != "undefined", "missing Wasm export: seqVolume");
+  assert(typeof wasmExports["seqCrossFade"] != "undefined", "missing Wasm export: seqCrossFade");
+  assert(typeof wasmExports["seqHandle"] != "undefined", "missing Wasm export: seqHandle");
+  assert(typeof wasmExports["seqInit"] != "undefined", "missing Wasm export: seqInit");
+  assert(typeof wasmExports["synthSetBpm"] != "undefined", "missing Wasm export: synthSetBpm");
+  assert(typeof wasmExports["synthGetTicksPerSecond"] != "undefined", "missing Wasm export: synthGetTicksPerSecond");
+  assert(typeof wasmExports["synthInitPortamento"] != "undefined", "missing Wasm export: synthInitPortamento");
+  assert(typeof wasmExports["synthStartSound"] != "undefined", "missing Wasm export: synthStartSound");
+  assert(typeof wasmExports["synthStartSynthJobHandling"] != "undefined", "missing Wasm export: synthStartSynthJobHandling");
+  assert(typeof wasmExports["synthForceLowPrecisionUpdate"] != "undefined", "missing Wasm export: synthForceLowPrecisionUpdate");
+  assert(typeof wasmExports["synthKeyStateUpdate"] != "undefined", "missing Wasm export: synthKeyStateUpdate");
+  assert(typeof wasmExports["synthHandle"] != "undefined", "missing Wasm export: synthHandle");
+  assert(typeof wasmExports["synthFXGetMaxVoices"] != "undefined", "missing Wasm export: synthFXGetMaxVoices");
+  assert(typeof wasmExports["synthFXStart"] != "undefined", "missing Wasm export: synthFXStart");
+  assert(typeof wasmExports["synthFXSetCtrl"] != "undefined", "missing Wasm export: synthFXSetCtrl");
+  assert(typeof wasmExports["synthFXSetCtrl14"] != "undefined", "missing Wasm export: synthFXSetCtrl14");
+  assert(typeof wasmExports["synthFXCloneMidiSetup"] != "undefined", "missing Wasm export: synthFXCloneMidiSetup");
+  assert(typeof wasmExports["synthSendKeyOff"] != "undefined", "missing Wasm export: synthSendKeyOff");
+  assert(typeof wasmExports["synthGetVolume"] != "undefined", "missing Wasm export: synthGetVolume");
+  assert(typeof wasmExports["synthVolume"] != "undefined", "missing Wasm export: synthVolume");
+  assert(typeof wasmExports["synthIsFadeOutActive"] != "undefined", "missing Wasm export: synthIsFadeOutActive");
+  assert(typeof wasmExports["synthPauseVolume"] != "undefined", "missing Wasm export: synthPauseVolume");
+  assert(typeof wasmExports["synthSetMusicVolumeType"] != "undefined", "missing Wasm export: synthSetMusicVolumeType");
+  assert(typeof wasmExports["synthInit"] != "undefined", "missing Wasm export: synthInit");
+  assert(typeof wasmExports["synthExit"] != "undefined", "missing Wasm export: synthExit");
+  assert(typeof wasmExports["sndSeqCrossFade"] != "undefined", "missing Wasm export: sndSeqCrossFade");
+  assert(typeof wasmExports["sndSeqCrossFadeDone"] != "undefined", "missing Wasm export: sndSeqCrossFadeDone");
+  assert(typeof wasmExports["sndSeqGetLoopCnt"] != "undefined", "missing Wasm export: sndSeqGetLoopCnt");
+  assert(typeof wasmExports["sndSeqGetLoopCntEx"] != "undefined", "missing Wasm export: sndSeqGetLoopCntEx");
+  assert(typeof wasmExports["hwDisableIrq"] != "undefined", "missing Wasm export: hwDisableIrq");
+  assert(typeof wasmExports["macStart"] != "undefined", "missing Wasm export: macStart");
+  assert(typeof wasmExports["vidGetInternalId"] != "undefined", "missing Wasm export: vidGetInternalId");
+  assert(typeof wasmExports["inpGetMidiCtrl"] != "undefined", "missing Wasm export: inpGetMidiCtrl");
+  assert(typeof wasmExports["hwIsActive"] != "undefined", "missing Wasm export: hwIsActive");
+  assert(typeof wasmExports["vidRemoveVoiceReferences"] != "undefined", "missing Wasm export: vidRemoveVoiceReferences");
+  assert(typeof wasmExports["vidMakeNew"] != "undefined", "missing Wasm export: vidMakeNew");
+  assert(typeof wasmExports["voiceSetLastStarted"] != "undefined", "missing Wasm export: voiceSetLastStarted");
+  assert(typeof wasmExports["inpSetMidiLastNote"] != "undefined", "missing Wasm export: inpSetMidiLastNote");
+  assert(typeof wasmExports["dataGetKeymap"] != "undefined", "missing Wasm export: dataGetKeymap");
+  assert(typeof wasmExports["dataGetLayer"] != "undefined", "missing Wasm export: dataGetLayer");
+  assert(typeof wasmExports["vidMakeRoot"] != "undefined", "missing Wasm export: vidMakeRoot");
+  assert(typeof wasmExports["macHandle"] != "undefined", "missing Wasm export: macHandle");
+  assert(typeof wasmExports["sndSin"] != "undefined", "missing Wasm export: sndSin");
+  assert(typeof wasmExports["adsrHandleLowPrecision"] != "undefined", "missing Wasm export: adsrHandleLowPrecision");
+  assert(typeof wasmExports["inpGetPitchBend"] != "undefined", "missing Wasm export: inpGetPitchBend");
+  assert(typeof wasmExports["inpGetModulation"] != "undefined", "missing Wasm export: inpGetModulation");
+  assert(typeof wasmExports["sndGetPitch"] != "undefined", "missing Wasm export: sndGetPitch");
+  assert(typeof wasmExports["sndPitchUpOne"] != "undefined", "missing Wasm export: sndPitchUpOne");
+  assert(typeof wasmExports["inpGetDoppler"] != "undefined", "missing Wasm export: inpGetDoppler");
+  assert(typeof wasmExports["hwSetPitch"] != "undefined", "missing Wasm export: hwSetPitch");
+  assert(typeof wasmExports["inpGetPedal"] != "undefined", "missing Wasm export: inpGetPedal");
+  assert(typeof wasmExports["macSetPedalState"] != "undefined", "missing Wasm export: macSetPedalState");
+  assert(typeof wasmExports["hwStart"] != "undefined", "missing Wasm export: hwStart");
+  assert(typeof wasmExports["hwKeyOff"] != "undefined", "missing Wasm export: hwKeyOff");
+  assert(typeof wasmExports["adsrRelease"] != "undefined", "missing Wasm export: adsrRelease");
+  assert(typeof wasmExports["inpGetTremolo"] != "undefined", "missing Wasm export: inpGetTremolo");
+  assert(typeof wasmExports["inpGetPanning"] != "undefined", "missing Wasm export: inpGetPanning");
+  assert(typeof wasmExports["inpGetSurPanning"] != "undefined", "missing Wasm export: inpGetSurPanning");
+  assert(typeof wasmExports["inpGetVolume"] != "undefined", "missing Wasm export: inpGetVolume");
+  assert(typeof wasmExports["inpGetPreAuxA"] != "undefined", "missing Wasm export: inpGetPreAuxA");
+  assert(typeof wasmExports["inpGetReverb"] != "undefined", "missing Wasm export: inpGetReverb");
+  assert(typeof wasmExports["inpGetPreAuxB"] != "undefined", "missing Wasm export: inpGetPreAuxB");
+  assert(typeof wasmExports["inpGetPostAuxB"] != "undefined", "missing Wasm export: inpGetPostAuxB");
+  assert(typeof wasmExports["hwSetVolume"] != "undefined", "missing Wasm export: hwSetVolume");
+  assert(typeof wasmExports["hwSetPriority"] != "undefined", "missing Wasm export: hwSetPriority");
+  assert(typeof wasmExports["hwGetTimeOffset"] != "undefined", "missing Wasm export: hwGetTimeOffset");
+  assert(typeof wasmExports["inpGetAuxA"] != "undefined", "missing Wasm export: inpGetAuxA");
+  assert(typeof wasmExports["inpGetAuxB"] != "undefined", "missing Wasm export: inpGetAuxB");
+  assert(typeof wasmExports["hwFrameDone"] != "undefined", "missing Wasm export: hwFrameDone");
+  assert(typeof wasmExports["dataGetFX"] != "undefined", "missing Wasm export: dataGetFX");
+  assert(typeof wasmExports["inpSetMidiCtrl"] != "undefined", "missing Wasm export: inpSetMidiCtrl");
+  assert(typeof wasmExports["inpSetMidiCtrl14"] != "undefined", "missing Wasm export: inpSetMidiCtrl14");
+  assert(typeof wasmExports["inpFXCopyCtrl"] != "undefined", "missing Wasm export: inpFXCopyCtrl");
+  assert(typeof wasmExports["macSetExternalKeyoff"] != "undefined", "missing Wasm export: macSetExternalKeyoff");
+  assert(typeof wasmExports["sndConvertMs"] != "undefined", "missing Wasm export: sndConvertMs");
+  assert(typeof wasmExports["salMalloc"] != "undefined", "missing Wasm export: salMalloc");
+  assert(typeof wasmExports["inpInit"] != "undefined", "missing Wasm export: inpInit");
+  assert(typeof wasmExports["macInit"] != "undefined", "missing Wasm export: macInit");
+  assert(typeof wasmExports["vidInit"] != "undefined", "missing Wasm export: vidInit");
+  assert(typeof wasmExports["synthInitAllocationAids"] != "undefined", "missing Wasm export: synthInitAllocationAids");
+  assert(typeof wasmExports["voiceInitLastStarted"] != "undefined", "missing Wasm export: voiceInitLastStarted");
+  assert(typeof wasmExports["hwSetMesgCallback"] != "undefined", "missing Wasm export: hwSetMesgCallback");
+  assert(typeof wasmExports["hwGetVirtualSampleID"] != "undefined", "missing Wasm export: hwGetVirtualSampleID");
+  assert(typeof wasmExports["vsSampleEndNotify"] != "undefined", "missing Wasm export: vsSampleEndNotify");
+  assert(typeof wasmExports["macSampleEndNotify"] != "undefined", "missing Wasm export: macSampleEndNotify");
+  assert(typeof wasmExports["voiceKill"] != "undefined", "missing Wasm export: voiceKill");
+  assert(typeof wasmExports["vsSampleStartNotify"] != "undefined", "missing Wasm export: vsSampleStartNotify");
+  assert(typeof wasmExports["salFree"] != "undefined", "missing Wasm export: salFree");
+  assert(typeof wasmExports["inpResetMidiCtrl"] != "undefined", "missing Wasm export: inpResetMidiCtrl");
+  assert(typeof wasmExports["inpResetChannelDefaults"] != "undefined", "missing Wasm export: inpResetChannelDefaults");
+  assert(typeof wasmExports["voiceKillSound"] != "undefined", "missing Wasm export: voiceKillSound");
+  assert(typeof wasmExports["seqPlaySong"] != "undefined", "missing Wasm export: seqPlaySong");
+  assert(typeof wasmExports["sndSeqMute"] != "undefined", "missing Wasm export: sndSeqMute");
+  assert(typeof wasmExports["hwEnableIrq"] != "undefined", "missing Wasm export: hwEnableIrq");
+  assert(typeof wasmExports["sndSeqLoop"] != "undefined", "missing Wasm export: sndSeqLoop");
+  assert(typeof wasmExports["sndSeqLoopEx"] != "undefined", "missing Wasm export: sndSeqLoopEx");
+  assert(typeof wasmExports["sndSeqGetVolGroup"] != "undefined", "missing Wasm export: sndSeqGetVolGroup");
+  assert(typeof wasmExports["sndSeqAssignVolGroup2Track"] != "undefined", "missing Wasm export: sndSeqAssignVolGroup2Track");
+  assert(typeof wasmExports["sndSeqGetMidiCtrl14"] != "undefined", "missing Wasm export: sndSeqGetMidiCtrl14");
+  assert(typeof wasmExports["sndSeqSetMidiCtrl"] != "undefined", "missing Wasm export: sndSeqSetMidiCtrl");
+  assert(typeof wasmExports["sndSeqSetMidiCtrl14"] != "undefined", "missing Wasm export: sndSeqSetMidiCtrl14");
+  assert(typeof wasmExports["seqGetMIDIPriority"] != "undefined", "missing Wasm export: seqGetMIDIPriority");
+  assert(typeof wasmExports["sndFXStartEx"] != "undefined", "missing Wasm export: sndFXStartEx");
+  assert(typeof wasmExports["sndFXStartPara"] != "undefined", "missing Wasm export: sndFXStartPara");
+  assert(typeof wasmExports["sndReadFlag"] != "undefined", "missing Wasm export: sndReadFlag");
+  assert(typeof wasmExports["sndWriteFlag"] != "undefined", "missing Wasm export: sndWriteFlag");
+  assert(typeof wasmExports["macPostMessage"] != "undefined", "missing Wasm export: macPostMessage");
+  assert(typeof wasmExports["sndSetReceiveMessageCallback"] != "undefined", "missing Wasm export: sndSetReceiveMessageCallback");
+  assert(typeof wasmExports["sndSilence"] != "undefined", "missing Wasm export: sndSilence");
+  assert(typeof wasmExports["s3dKillAllEmitter"] != "undefined", "missing Wasm export: s3dKillAllEmitter");
+  assert(typeof wasmExports["synthKillAllVoices"] != "undefined", "missing Wasm export: synthKillAllVoices");
+  assert(typeof wasmExports["sndIsIdle"] != "undefined", "missing Wasm export: sndIsIdle");
+  assert(typeof wasmExports["hwGlobalActivity"] != "undefined", "missing Wasm export: hwGlobalActivity");
+  assert(typeof wasmExports["sndFXAssignVolGroup2FXId"] != "undefined", "missing Wasm export: sndFXAssignVolGroup2FXId");
+  assert(typeof wasmExports["sndPauseVolume"] != "undefined", "missing Wasm export: sndPauseVolume");
+  assert(typeof wasmExports["hwDisableHRTF"] != "undefined", "missing Wasm export: hwDisableHRTF");
+  assert(typeof wasmExports["streamOutputModeChanged"] != "undefined", "missing Wasm export: streamOutputModeChanged");
+  assert(typeof wasmExports["hwSetAUXProcessingCallbacks"] != "undefined", "missing Wasm export: hwSetAUXProcessingCallbacks");
+  assert(typeof wasmExports["sndUpdateAuxParameter"] != "undefined", "missing Wasm export: sndUpdateAuxParameter");
+  assert(typeof wasmExports["sndSetITDDefault"] != "undefined", "missing Wasm export: sndSetITDDefault");
+  assert(typeof wasmExports["synthActivateStudio"] != "undefined", "missing Wasm export: synthActivateStudio");
+  assert(typeof wasmExports["hwActivateStudio"] != "undefined", "missing Wasm export: hwActivateStudio");
+  assert(typeof wasmExports["sndActivateStudioEx"] != "undefined", "missing Wasm export: sndActivateStudioEx");
+  assert(typeof wasmExports["synthDeactivateStudio"] != "undefined", "missing Wasm export: synthDeactivateStudio");
+  assert(typeof wasmExports["hwOff"] != "undefined", "missing Wasm export: hwOff");
+  assert(typeof wasmExports["hwDeactivateStudio"] != "undefined", "missing Wasm export: hwDeactivateStudio");
+  assert(typeof wasmExports["sndDeactivateStudio"] != "undefined", "missing Wasm export: sndDeactivateStudio");
+  assert(typeof wasmExports["synthChangeStudioMasterMix"] != "undefined", "missing Wasm export: synthChangeStudioMasterMix");
+  assert(typeof wasmExports["hwChangeStudioMix"] != "undefined", "missing Wasm export: hwChangeStudioMix");
+  assert(typeof wasmExports["sndChangeStudioMasterMix"] != "undefined", "missing Wasm export: sndChangeStudioMasterMix");
+  assert(typeof wasmExports["synthAddStudioInput"] != "undefined", "missing Wasm export: synthAddStudioInput");
+  assert(typeof wasmExports["hwAddInput"] != "undefined", "missing Wasm export: hwAddInput");
+  assert(typeof wasmExports["sndAddStudioInput"] != "undefined", "missing Wasm export: sndAddStudioInput");
+  assert(typeof wasmExports["synthRemoveStudioInput"] != "undefined", "missing Wasm export: synthRemoveStudioInput");
+  assert(typeof wasmExports["hwRemoveInput"] != "undefined", "missing Wasm export: hwRemoveInput");
+  assert(typeof wasmExports["sndRemoveStudioInput"] != "undefined", "missing Wasm export: sndRemoveStudioInput");
+  assert(typeof wasmExports["sndDbgGetActiveVoices"] != "undefined", "missing Wasm export: sndDbgGetActiveVoices");
+  assert(typeof wasmExports["streamInit"] != "undefined", "missing Wasm export: streamInit");
+  assert(typeof wasmExports["streamHandle"] != "undefined", "missing Wasm export: streamHandle");
+  assert(typeof wasmExports["streamCorrectLoops"] != "undefined", "missing Wasm export: streamCorrectLoops");
+  assert(typeof wasmExports["streamKill"] != "undefined", "missing Wasm export: streamKill");
+  assert(typeof wasmExports["sndStreamCallbackFrq"] != "undefined", "missing Wasm export: sndStreamCallbackFrq");
+  assert(typeof wasmExports["hwGetStreamPlayBuffer"] != "undefined", "missing Wasm export: hwGetStreamPlayBuffer");
+  assert(typeof wasmExports["hwSetStreamLoopPS"] != "undefined", "missing Wasm export: hwSetStreamLoopPS");
+  assert(typeof wasmExports["hwInitSamplePlayback"] != "undefined", "missing Wasm export: hwInitSamplePlayback");
+  assert(typeof wasmExports["hwFlushStream"] != "undefined", "missing Wasm export: hwFlushStream");
+  assert(typeof wasmExports["hwGetPos"] != "undefined", "missing Wasm export: hwGetPos");
+  assert(typeof wasmExports["voiceUnblock"] != "undefined", "missing Wasm export: voiceUnblock");
+  assert(typeof wasmExports["hwInitStream"] != "undefined", "missing Wasm export: hwInitStream");
+  assert(typeof wasmExports["sndStreamAllocLength"] != "undefined", "missing Wasm export: sndStreamAllocLength");
+  assert(typeof wasmExports["voiceBlock"] != "undefined", "missing Wasm export: voiceBlock");
+  assert(typeof wasmExports["sndStreamAllocStereo"] != "undefined", "missing Wasm export: sndStreamAllocStereo");
+  assert(typeof wasmExports["hwExitStream"] != "undefined", "missing Wasm export: hwExitStream");
+  assert(typeof wasmExports["sndStreamMixParameter"] != "undefined", "missing Wasm export: sndStreamMixParameter");
+  assert(typeof wasmExports["dataInsertKeymap"] != "undefined", "missing Wasm export: dataInsertKeymap");
+  assert(typeof wasmExports["dataRemoveKeymap"] != "undefined", "missing Wasm export: dataRemoveKeymap");
+  assert(typeof wasmExports["dataInsertLayer"] != "undefined", "missing Wasm export: dataInsertLayer");
+  assert(typeof wasmExports["dataRemoveLayer"] != "undefined", "missing Wasm export: dataRemoveLayer");
+  assert(typeof wasmExports["dataInsertCurve"] != "undefined", "missing Wasm export: dataInsertCurve");
+  assert(typeof wasmExports["dataRemoveCurve"] != "undefined", "missing Wasm export: dataRemoveCurve");
+  assert(typeof wasmExports["dataInsertSDir"] != "undefined", "missing Wasm export: dataInsertSDir");
+  assert(typeof wasmExports["dataRemoveSDir"] != "undefined", "missing Wasm export: dataRemoveSDir");
+  assert(typeof wasmExports["dataAddSampleReference"] != "undefined", "missing Wasm export: dataAddSampleReference");
+  assert(typeof wasmExports["dataRemoveSampleReference"] != "undefined", "missing Wasm export: dataRemoveSampleReference");
+  assert(typeof wasmExports["dataInsertFX"] != "undefined", "missing Wasm export: dataInsertFX");
+  assert(typeof wasmExports["dataRemoveFX"] != "undefined", "missing Wasm export: dataRemoveFX");
+  assert(typeof wasmExports["dataInsertMacro"] != "undefined", "missing Wasm export: dataInsertMacro");
+  assert(typeof wasmExports["dataRemoveMacro"] != "undefined", "missing Wasm export: dataRemoveMacro");
+  assert(typeof wasmExports["dataGetMacro"] != "undefined", "missing Wasm export: dataGetMacro");
+  assert(typeof wasmExports["dataGetSample"] != "undefined", "missing Wasm export: dataGetSample");
+  assert(typeof wasmExports["dataGetCurve"] != "undefined", "missing Wasm export: dataGetCurve");
+  assert(typeof wasmExports["hwSaveSample"] != "undefined", "missing Wasm export: hwSaveSample");
+  assert(typeof wasmExports["hwRemoveSample"] != "undefined", "missing Wasm export: hwRemoveSample");
+  assert(typeof wasmExports["sndBSearch"] != "undefined", "missing Wasm export: sndBSearch");
+  assert(typeof wasmExports["dataInit"] != "undefined", "missing Wasm export: dataInit");
+  assert(typeof wasmExports["hwInitSampleMem"] != "undefined", "missing Wasm export: hwInitSampleMem");
+  assert(typeof wasmExports["dataExit"] != "undefined", "missing Wasm export: dataExit");
+  assert(typeof wasmExports["hwExitSampleMem"] != "undefined", "missing Wasm export: hwExitSampleMem");
+  assert(typeof wasmExports["sndConvert32BitSDIRTo64BitSDIR"] != "undefined", "missing Wasm export: sndConvert32BitSDIRTo64BitSDIR");
+  assert(typeof wasmExports["varGet32"] != "undefined", "missing Wasm export: varGet32");
+  assert(typeof wasmExports["varGet"] != "undefined", "missing Wasm export: varGet");
+  assert(typeof wasmExports["varSet32"] != "undefined", "missing Wasm export: varSet32");
+  assert(typeof wasmExports["varSet"] != "undefined", "missing Wasm export: varSet");
+  assert(typeof wasmExports["inpGetExCtrl"] != "undefined", "missing Wasm export: inpGetExCtrl");
+  assert(typeof wasmExports["inpSetExCtrl"] != "undefined", "missing Wasm export: inpSetExCtrl");
+  assert(typeof wasmExports["hwBreak"] != "undefined", "missing Wasm export: hwBreak");
+  assert(typeof wasmExports["inpGetMidiLastNote"] != "undefined", "missing Wasm export: inpGetMidiLastNote");
+  assert(typeof wasmExports["inpGetChannelDefaults"] != "undefined", "missing Wasm export: inpGetChannelDefaults");
+  assert(typeof wasmExports["sndRand"] != "undefined", "missing Wasm export: sndRand");
+  assert(typeof wasmExports["hwSetADSR"] != "undefined", "missing Wasm export: hwSetADSR");
+  assert(typeof wasmExports["voiceIsLastStarted"] != "undefined", "missing Wasm export: voiceIsLastStarted");
+  assert(typeof wasmExports["sndConvertTicks"] != "undefined", "missing Wasm export: sndConvertTicks");
+  assert(typeof wasmExports["hwFrq2Pitch"] != "undefined", "missing Wasm export: hwFrq2Pitch");
+  assert(typeof wasmExports["adsrConvertTimeCents"] != "undefined", "missing Wasm export: adsrConvertTimeCents");
+  assert(typeof wasmExports["adsrSetup"] != "undefined", "missing Wasm export: adsrSetup");
+  assert(typeof wasmExports["voiceSetPriority"] != "undefined", "missing Wasm export: voiceSetPriority");
+  assert(typeof wasmExports["inpAddCtrl"] != "undefined", "missing Wasm export: inpAddCtrl");
+  assert(typeof wasmExports["inpSetGlobalMIDIDirtyFlag"] != "undefined", "missing Wasm export: inpSetGlobalMIDIDirtyFlag");
+  assert(typeof wasmExports["hwSetSRCType"] != "undefined", "missing Wasm export: hwSetSRCType");
+  assert(typeof wasmExports["hwSetPolyPhaseFilter"] != "undefined", "missing Wasm export: hwSetPolyPhaseFilter");
+  assert(typeof wasmExports["voiceFree"] != "undefined", "missing Wasm export: voiceFree");
+  assert(typeof wasmExports["macMakeActive"] != "undefined", "missing Wasm export: macMakeActive");
+  assert(typeof wasmExports["macMakeInactive"] != "undefined", "missing Wasm export: macMakeInactive");
+  assert(typeof wasmExports["voiceAllocate"] != "undefined", "missing Wasm export: voiceAllocate");
+  assert(typeof wasmExports["sndConvert2Ms"] != "undefined", "missing Wasm export: sndConvert2Ms");
+  assert(typeof wasmExports["voiceResetLastStarted"] != "undefined", "missing Wasm export: voiceResetLastStarted");
+  assert(typeof wasmExports["voiceRemovePriority"] != "undefined", "missing Wasm export: voiceRemovePriority");
+  assert(typeof wasmExports["synthKillVoicesByMacroReferences"] != "undefined", "missing Wasm export: synthKillVoicesByMacroReferences");
+  assert(typeof wasmExports["exp2f"] != "undefined", "missing Wasm export: exp2f");
+  assert(typeof wasmExports["salChangeADSRState"] != "undefined", "missing Wasm export: salChangeADSRState");
+  assert(typeof wasmExports["adsrStartRelease"] != "undefined", "missing Wasm export: adsrStartRelease");
+  assert(typeof wasmExports["adsrHandle"] != "undefined", "missing Wasm export: adsrHandle");
+  assert(typeof wasmExports["vsInit"] != "undefined", "missing Wasm export: vsInit");
+  assert(typeof wasmExports["vsNewInstanceID"] != "undefined", "missing Wasm export: vsNewInstanceID");
+  assert(typeof wasmExports["vsAllocateBuffer"] != "undefined", "missing Wasm export: vsAllocateBuffer");
+  assert(typeof wasmExports["vsFreeBuffer"] != "undefined", "missing Wasm export: vsFreeBuffer");
+  assert(typeof wasmExports["aramGetStreamBufferAddress"] != "undefined", "missing Wasm export: aramGetStreamBufferAddress");
+  assert(typeof wasmExports["hwSetVirtualSampleLoopBuffer"] != "undefined", "missing Wasm export: hwSetVirtualSampleLoopBuffer");
+  assert(typeof wasmExports["hwGetSampleID"] != "undefined", "missing Wasm export: hwGetSampleID");
+  assert(typeof wasmExports["hwGetSampleType"] != "undefined", "missing Wasm export: hwGetSampleType");
+  assert(typeof wasmExports["vsUpdateBuffer"] != "undefined", "missing Wasm export: vsUpdateBuffer");
+  assert(typeof wasmExports["vsSampleUpdates"] != "undefined", "missing Wasm export: vsSampleUpdates");
+  assert(typeof wasmExports["hwGetVirtualSampleState"] != "undefined", "missing Wasm export: hwGetVirtualSampleState");
+  assert(typeof wasmExports["hwVoiceInStartup"] != "undefined", "missing Wasm export: hwVoiceInStartup");
+  assert(typeof wasmExports["sndVirtualSampleAllocateBuffers"] != "undefined", "missing Wasm export: sndVirtualSampleAllocateBuffers");
+  assert(typeof wasmExports["aramAllocateStreamBuffer"] != "undefined", "missing Wasm export: aramAllocateStreamBuffer");
+  assert(typeof wasmExports["aramFreeStreamBuffer"] != "undefined", "missing Wasm export: aramFreeStreamBuffer");
+  assert(typeof wasmExports["sndVirtualSampleFreeBuffers"] != "undefined", "missing Wasm export: sndVirtualSampleFreeBuffers");
+  assert(typeof wasmExports["sndVirtualSampleSetCallback"] != "undefined", "missing Wasm export: sndVirtualSampleSetCallback");
+  assert(typeof wasmExports["vsARAMDMACallback"] != "undefined", "missing Wasm export: vsARAMDMACallback");
+  assert(typeof wasmExports["sndVirtualSampleARAMUpdate"] != "undefined", "missing Wasm export: sndVirtualSampleARAMUpdate");
+  assert(typeof wasmExports["sndVirtualSampleEndPlayback"] != "undefined", "missing Wasm export: sndVirtualSampleEndPlayback");
+  assert(typeof wasmExports["dataInitStack"] != "undefined", "missing Wasm export: dataInitStack");
+  assert(typeof wasmExports["sndSetSampleDataUploadCallback"] != "undefined", "missing Wasm export: sndSetSampleDataUploadCallback");
+  assert(typeof wasmExports["hwSetSaveSampleCallback"] != "undefined", "missing Wasm export: hwSetSaveSampleCallback");
+  assert(typeof wasmExports["hwTransAddr"] != "undefined", "missing Wasm export: hwTransAddr");
+  assert(typeof wasmExports["hwSyncSampleMem"] != "undefined", "missing Wasm export: hwSyncSampleMem");
+  assert(typeof wasmExports["s3dKillEmitterByFXID"] != "undefined", "missing Wasm export: s3dKillEmitterByFXID");
+  assert(typeof wasmExports["salInitDspCtrl"] != "undefined", "missing Wasm export: salInitDspCtrl");
+  assert(typeof wasmExports["salActivateStudio"] != "undefined", "missing Wasm export: salActivateStudio");
+  assert(typeof wasmExports["salInitHRTFBuffer"] != "undefined", "missing Wasm export: salInitHRTFBuffer");
+  assert(typeof wasmExports["salExitDspCtrl"] != "undefined", "missing Wasm export: salExitDspCtrl");
+  assert(typeof wasmExports["salDeactivateStudio"] != "undefined", "missing Wasm export: salDeactivateStudio");
+  assert(typeof wasmExports["salBuildCommandList"] != "undefined", "missing Wasm export: salBuildCommandList");
+  assert(typeof wasmExports["salSynthSendMessage"] != "undefined", "missing Wasm export: salSynthSendMessage");
+  assert(typeof wasmExports["salActivateVoice"] != "undefined", "missing Wasm export: salActivateVoice");
+  assert(typeof wasmExports["salDeactivateVoice"] != "undefined", "missing Wasm export: salDeactivateVoice");
+  assert(typeof wasmExports["salReconnectVoice"] != "undefined", "missing Wasm export: salReconnectVoice");
+  assert(typeof wasmExports["salAddStudioInput"] != "undefined", "missing Wasm export: salAddStudioInput");
+  assert(typeof wasmExports["salRemoveStudioInput"] != "undefined", "missing Wasm export: salRemoveStudioInput");
+  assert(typeof wasmExports["salHandleAuxProcessing"] != "undefined", "missing Wasm export: salHandleAuxProcessing");
+  assert(typeof wasmExports["salCalcVolume"] != "undefined", "missing Wasm export: salCalcVolume");
+  assert(typeof wasmExports["sndAddRoom"] != "undefined", "missing Wasm export: sndAddRoom");
+  assert(typeof wasmExports["sndRemoveRoom"] != "undefined", "missing Wasm export: sndRemoveRoom");
+  assert(typeof wasmExports["sndUpdateRoom"] != "undefined", "missing Wasm export: sndUpdateRoom");
+  assert(typeof wasmExports["sndAddDoor"] != "undefined", "missing Wasm export: sndAddDoor");
+  assert(typeof wasmExports["sndRemoveDoor"] != "undefined", "missing Wasm export: sndRemoveDoor");
+  assert(typeof wasmExports["hwChangeStudio"] != "undefined", "missing Wasm export: hwChangeStudio");
+  assert(typeof wasmExports["sndAddEmitter"] != "undefined", "missing Wasm export: sndAddEmitter");
+  assert(typeof wasmExports["sndAddEmitterEx"] != "undefined", "missing Wasm export: sndAddEmitterEx");
+  assert(typeof wasmExports["sndAddEmitterPara"] != "undefined", "missing Wasm export: sndAddEmitterPara");
+  assert(typeof wasmExports["sndAddEmitter2Studio"] != "undefined", "missing Wasm export: sndAddEmitter2Studio");
+  assert(typeof wasmExports["sndAddEmitter2StudioEx"] != "undefined", "missing Wasm export: sndAddEmitter2StudioEx");
+  assert(typeof wasmExports["sndAddEmitter2StudioPara"] != "undefined", "missing Wasm export: sndAddEmitter2StudioPara");
+  assert(typeof wasmExports["sndAddEmitter2StudioParaEx"] != "undefined", "missing Wasm export: sndAddEmitter2StudioParaEx");
+  assert(typeof wasmExports["salCrossProduct"] != "undefined", "missing Wasm export: salCrossProduct");
+  assert(typeof wasmExports["salInvertMatrix"] != "undefined", "missing Wasm export: salInvertMatrix");
+  assert(typeof wasmExports["sndAddListener"] != "undefined", "missing Wasm export: sndAddListener");
+  assert(typeof wasmExports["ClearStartList"] != "undefined", "missing Wasm export: ClearStartList");
+  assert(typeof wasmExports["AddRunningEmitter"] != "undefined", "missing Wasm export: AddRunningEmitter");
+  assert(typeof wasmExports["AddStartingEmitter"] != "undefined", "missing Wasm export: AddStartingEmitter");
+  assert(typeof wasmExports["StartContinousEmitters"] != "undefined", "missing Wasm export: StartContinousEmitters");
+  assert(typeof wasmExports["s3dHandle"] != "undefined", "missing Wasm export: s3dHandle");
+  assert(typeof wasmExports["salApplyMatrix"] != "undefined", "missing Wasm export: salApplyMatrix");
+  assert(typeof wasmExports["salNormalizeVector"] != "undefined", "missing Wasm export: salNormalizeVector");
+  assert(typeof wasmExports["sndSetup3DStudios"] != "undefined", "missing Wasm export: sndSetup3DStudios");
+  assert(typeof wasmExports["sndGet3DParameters"] != "undefined", "missing Wasm export: sndGet3DParameters");
+  assert(typeof wasmExports["s3dInit"] != "undefined", "missing Wasm export: s3dInit");
+  assert(typeof wasmExports["s3dExit"] != "undefined", "missing Wasm export: s3dExit");
+  assert(typeof wasmExports["hwInit"] != "undefined", "missing Wasm export: hwInit");
+  assert(typeof wasmExports["hwExit"] != "undefined", "missing Wasm export: hwExit");
+  assert(typeof wasmExports["sndSetMaxVoices"] != "undefined", "missing Wasm export: sndSetMaxVoices");
+  assert(typeof wasmExports["sndGetPlayBackInfo"] != "undefined", "missing Wasm export: sndGetPlayBackInfo");
+  assert(typeof wasmExports["inpSetRPNHi"] != "undefined", "missing Wasm export: inpSetRPNHi");
+  assert(typeof wasmExports["inpSetRPNLo"] != "undefined", "missing Wasm export: inpSetRPNLo");
+  assert(typeof wasmExports["inpSetRPNDec"] != "undefined", "missing Wasm export: inpSetRPNDec");
+  assert(typeof wasmExports["inpSetRPNInc"] != "undefined", "missing Wasm export: inpSetRPNInc");
+  assert(typeof wasmExports["inpTranslateExCtrl"] != "undefined", "missing Wasm export: inpTranslateExCtrl");
+  assert(typeof wasmExports["hwInitIrq"] != "undefined", "missing Wasm export: hwInitIrq");
+  assert(typeof wasmExports["aramGetZeroBuffer"] != "undefined", "missing Wasm export: aramGetZeroBuffer");
+  assert(typeof wasmExports["salInitAi"] != "undefined", "missing Wasm export: salInitAi");
+  assert(typeof wasmExports["salInitDsp"] != "undefined", "missing Wasm export: salInitDsp");
+  assert(typeof wasmExports["salStartAi"] != "undefined", "missing Wasm export: salStartAi");
+  assert(typeof wasmExports["hwIRQEnterCritical"] != "undefined", "missing Wasm export: hwIRQEnterCritical");
+  assert(typeof wasmExports["salAiGetDest"] != "undefined", "missing Wasm export: salAiGetDest");
+  assert(typeof wasmExports["salCtrlDsp"] != "undefined", "missing Wasm export: salCtrlDsp");
+  assert(typeof wasmExports["hwIRQLeaveCritical"] != "undefined", "missing Wasm export: hwIRQLeaveCritical");
+  assert(typeof wasmExports["salExitDsp"] != "undefined", "missing Wasm export: salExitDsp");
+  assert(typeof wasmExports["salExitAi"] != "undefined", "missing Wasm export: salExitAi");
+  assert(typeof wasmExports["hwExitIrq"] != "undefined", "missing Wasm export: hwExitIrq");
+  assert(typeof wasmExports["hwSetTimeOffset"] != "undefined", "missing Wasm export: hwSetTimeOffset");
+  assert(typeof wasmExports["hwSetITDMode"] != "undefined", "missing Wasm export: hwSetITDMode");
+  assert(typeof wasmExports["hwIsStudioActive"] != "undefined", "missing Wasm export: hwIsStudioActive");
+  assert(typeof wasmExports["aramUploadData"] != "undefined", "missing Wasm export: aramUploadData");
+  assert(typeof wasmExports["hwPrepareStreamBuffer"] != "undefined", "missing Wasm export: hwPrepareStreamBuffer");
+  assert(typeof wasmExports["aramInit"] != "undefined", "missing Wasm export: aramInit");
+  assert(typeof wasmExports["aramExit"] != "undefined", "missing Wasm export: aramExit");
+  assert(typeof wasmExports["aramSetUploadCallback"] != "undefined", "missing Wasm export: aramSetUploadCallback");
+  assert(typeof wasmExports["aramRemoveData"] != "undefined", "missing Wasm export: aramRemoveData");
+  assert(typeof wasmExports["aramSyncTransferQueue"] != "undefined", "missing Wasm export: aramSyncTransferQueue");
+  assert(typeof wasmExports["hwEnableHRTF"] != "undefined", "missing Wasm export: hwEnableHRTF");
+  assert(typeof wasmExports["aramStoreData"] != "undefined", "missing Wasm export: aramStoreData");
+  assert(typeof wasmExports["pcMixerGenerate"] != "undefined", "missing Wasm export: pcMixerGenerate");
+  assert(typeof wasmExports["salStartDsp"] != "undefined", "missing Wasm export: salStartDsp");
+  assert(typeof wasmExports["salGetStartDelay"] != "undefined", "missing Wasm export: salGetStartDelay");
+  assert(typeof wasmExports["ReverbSTDCallback"] != "undefined", "missing Wasm export: ReverbSTDCallback");
+  assert(typeof wasmExports["sndAuxCallbackUpdateSettingsReverbSTD"] != "undefined", "missing Wasm export: sndAuxCallbackUpdateSettingsReverbSTD");
+  assert(typeof wasmExports["ReverbSTDModify"] != "undefined", "missing Wasm export: ReverbSTDModify");
+  assert(typeof wasmExports["ReverbSTDCreate"] != "undefined", "missing Wasm export: ReverbSTDCreate");
+  assert(typeof wasmExports["ReverbSTDFree"] != "undefined", "missing Wasm export: ReverbSTDFree");
+  assert(typeof wasmExports["ReverbHICallback"] != "undefined", "missing Wasm export: ReverbHICallback");
+  assert(typeof wasmExports["sndAuxCallbackUpdateSettingsReverbHI"] != "undefined", "missing Wasm export: sndAuxCallbackUpdateSettingsReverbHI");
+  assert(typeof wasmExports["ReverbHIModify"] != "undefined", "missing Wasm export: ReverbHIModify");
+  assert(typeof wasmExports["ReverbHICreate"] != "undefined", "missing Wasm export: ReverbHICreate");
+  assert(typeof wasmExports["ReverbHIFree"] != "undefined", "missing Wasm export: ReverbHIFree");
+  assert(typeof wasmExports["sndAuxCallbackUpdateSettingsDelay"] != "undefined", "missing Wasm export: sndAuxCallbackUpdateSettingsDelay");
+  assert(typeof wasmExports["sndAuxCallbackUpdateSettingsChorus"] != "undefined", "missing Wasm export: sndAuxCallbackUpdateSettingsChorus");
   assert(typeof wasmExports["SDL_ExitProcess"] != "undefined", "missing Wasm export: SDL_ExitProcess");
   assert(typeof wasmExports["SDL_SetAppMetadata"] != "undefined", "missing Wasm export: SDL_SetAppMetadata");
   assert(typeof wasmExports["SDL_SetAppMetadataProperty"] != "undefined", "missing Wasm export: SDL_SetAppMetadataProperty");
@@ -68253,6 +69722,73 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["ft_grays_raster"] != "undefined", "missing Wasm export: ft_grays_raster");
   assert(typeof wasmExports["tt_default_graphics_state"] != "undefined", "missing Wasm export: tt_default_graphics_state");
   assert(typeof wasmExports["_ZNSt3__219piecewise_constructE"] != "undefined", "missing Wasm export: _ZNSt3__219piecewise_constructE");
+  assert(typeof wasmExports["seqActiveRoot"] != "undefined", "missing Wasm export: seqActiveRoot");
+  assert(typeof wasmExports["seqPausedRoot"] != "undefined", "missing Wasm export: seqPausedRoot");
+  assert(typeof wasmExports["seqFreeRoot"] != "undefined", "missing Wasm export: seqFreeRoot");
+  assert(typeof wasmExports["seqMIDIPriority"] != "undefined", "missing Wasm export: seqMIDIPriority");
+  assert(typeof wasmExports["seqInstance"] != "undefined", "missing Wasm export: seqInstance");
+  assert(typeof wasmExports["synthVoice"] != "undefined", "missing Wasm export: synthVoice");
+  assert(typeof wasmExports["synthInfo"] != "undefined", "missing Wasm export: synthInfo");
+  assert(typeof wasmExports["synthRealTime"] != "undefined", "missing Wasm export: synthRealTime");
+  assert(typeof wasmExports["synthMasterFader"] != "undefined", "missing Wasm export: synthMasterFader");
+  assert(typeof wasmExports["synthTrackVolume"] != "undefined", "missing Wasm export: synthTrackVolume");
+  assert(typeof wasmExports["synthFlags"] != "undefined", "missing Wasm export: synthFlags");
+  assert(typeof wasmExports["synthMasterFaderPauseActiveFlags"] != "undefined", "missing Wasm export: synthMasterFaderPauseActiveFlags");
+  assert(typeof wasmExports["synthMasterFaderActiveFlags"] != "undefined", "missing Wasm export: synthMasterFaderActiveFlags");
+  assert(typeof wasmExports["synthAuxAMIDI"] != "undefined", "missing Wasm export: synthAuxAMIDI");
+  assert(typeof wasmExports["synthAuxAMIDISet"] != "undefined", "missing Wasm export: synthAuxAMIDISet");
+  assert(typeof wasmExports["synthAuxAUser"] != "undefined", "missing Wasm export: synthAuxAUser");
+  assert(typeof wasmExports["synthAuxACallback"] != "undefined", "missing Wasm export: synthAuxACallback");
+  assert(typeof wasmExports["synthAuxBMIDI"] != "undefined", "missing Wasm export: synthAuxBMIDI");
+  assert(typeof wasmExports["synthAuxBMIDISet"] != "undefined", "missing Wasm export: synthAuxBMIDISet");
+  assert(typeof wasmExports["synthAuxBUser"] != "undefined", "missing Wasm export: synthAuxBUser");
+  assert(typeof wasmExports["synthAuxBCallback"] != "undefined", "missing Wasm export: synthAuxBCallback");
+  assert(typeof wasmExports["sndActive"] != "undefined", "missing Wasm export: sndActive");
+  assert(typeof wasmExports["synthMessageCallback"] != "undefined", "missing Wasm export: synthMessageCallback");
+  assert(typeof wasmExports["synthITDDefault"] != "undefined", "missing Wasm export: synthITDDefault");
+  assert(typeof wasmExports["synthGlobalVariable"] != "undefined", "missing Wasm export: synthGlobalVariable");
+  assert(typeof wasmExports["inpAuxA"] != "undefined", "missing Wasm export: inpAuxA");
+  assert(typeof wasmExports["inpAuxB"] != "undefined", "missing Wasm export: inpAuxB");
+  assert(typeof wasmExports["synthIdleWaitActive"] != "undefined", "missing Wasm export: synthIdleWaitActive");
+  assert(typeof wasmExports["voiceFxRunning"] != "undefined", "missing Wasm export: voiceFxRunning");
+  assert(typeof wasmExports["voiceMusicRunning"] != "undefined", "missing Wasm export: voiceMusicRunning");
+  assert(typeof wasmExports["dspDLSVolTab"] != "undefined", "missing Wasm export: dspDLSVolTab");
+  assert(typeof wasmExports["dspScale2IndexTab"] != "undefined", "missing Wasm export: dspScale2IndexTab");
+  assert(typeof wasmExports["voicePrioSortVoices"] != "undefined", "missing Wasm export: voicePrioSortVoices");
+  assert(typeof wasmExports["voicePrioSortVoicesRoot"] != "undefined", "missing Wasm export: voicePrioSortVoicesRoot");
+  assert(typeof wasmExports["voicePrioSortRootList"] != "undefined", "missing Wasm export: voicePrioSortRootList");
+  assert(typeof wasmExports["voicePrioSortRootListRoot"] != "undefined", "missing Wasm export: voicePrioSortRootListRoot");
+  assert(typeof wasmExports["voiceListRoot"] != "undefined", "missing Wasm export: voiceListRoot");
+  assert(typeof wasmExports["voiceList"] != "undefined", "missing Wasm export: voiceList");
+  assert(typeof wasmExports["voiceListInsert"] != "undefined", "missing Wasm export: voiceListInsert");
+  assert(typeof wasmExports["dspAttenuationTab"] != "undefined", "missing Wasm export: dspAttenuationTab");
+  assert(typeof wasmExports["vs"] != "undefined", "missing Wasm export: vs");
+  assert(typeof wasmExports["dspCmdList"] != "undefined", "missing Wasm export: dspCmdList");
+  assert(typeof wasmExports["dspSurround"] != "undefined", "missing Wasm export: dspSurround");
+  assert(typeof wasmExports["dspVoice"] != "undefined", "missing Wasm export: dspVoice");
+  assert(typeof wasmExports["dspITDBuffer"] != "undefined", "missing Wasm export: dspITDBuffer");
+  assert(typeof wasmExports["dspStudio"] != "undefined", "missing Wasm export: dspStudio");
+  assert(typeof wasmExports["dspHrtfHistoryBuffer"] != "undefined", "missing Wasm export: dspHrtfHistoryBuffer");
+  assert(typeof wasmExports["salMessageCallback"] != "undefined", "missing Wasm export: salMessageCallback");
+  assert(typeof wasmExports["dspCmdLastLoad"] != "undefined", "missing Wasm export: dspCmdLastLoad");
+  assert(typeof wasmExports["dspCmdLastBase"] != "undefined", "missing Wasm export: dspCmdLastBase");
+  assert(typeof wasmExports["dspCmdLastSize"] != "undefined", "missing Wasm export: dspCmdLastSize");
+  assert(typeof wasmExports["dspCmdCurBase"] != "undefined", "missing Wasm export: dspCmdCurBase");
+  assert(typeof wasmExports["dspCmdMaxPtr"] != "undefined", "missing Wasm export: dspCmdMaxPtr");
+  assert(typeof wasmExports["dspCmdPtr"] != "undefined", "missing Wasm export: dspCmdPtr");
+  assert(typeof wasmExports["dspCmdFirstSize"] != "undefined", "missing Wasm export: dspCmdFirstSize");
+  assert(typeof wasmExports["dspHRTFOn"] != "undefined", "missing Wasm export: dspHRTFOn");
+  assert(typeof wasmExports["last_rnd"] != "undefined", "missing Wasm export: last_rnd");
+  assert(typeof wasmExports["sndSintab"] != "undefined", "missing Wasm export: sndSintab");
+  assert(typeof wasmExports["salAuxFrame"] != "undefined", "missing Wasm export: salAuxFrame");
+  assert(typeof wasmExports["salFrame"] != "undefined", "missing Wasm export: salFrame");
+  assert(typeof wasmExports["salMaxStudioNum"] != "undefined", "missing Wasm export: salMaxStudioNum");
+  assert(typeof wasmExports["salNumVoices"] != "undefined", "missing Wasm export: salNumVoices");
+  assert(typeof wasmExports["salTimeOffset"] != "undefined", "missing Wasm export: salTimeOffset");
+  assert(typeof wasmExports["salHooks"] != "undefined", "missing Wasm export: salHooks");
+  assert(typeof wasmExports["globalMutex"] != "undefined", "missing Wasm export: globalMutex");
+  assert(typeof wasmExports["globalInterrupt"] != "undefined", "missing Wasm export: globalInterrupt");
+  assert(typeof wasmExports["i2fMagic"] != "undefined", "missing Wasm export: i2fMagic");
   assert(typeof wasmExports["SDL_object_validation"] != "undefined", "missing Wasm export: SDL_object_validation");
   assert(typeof wasmExports["EMSCRIPTENAUDIO_bootstrap"] != "undefined", "missing Wasm export: EMSCRIPTENAUDIO_bootstrap");
   assert(typeof wasmExports["DISKAUDIO_bootstrap"] != "undefined", "missing Wasm export: DISKAUDIO_bootstrap");
@@ -70509,7 +72045,127 @@ function assignWasmExports(wasmExports) {
   _msmSeSetParam = Module["_msmSeSetParam"] = createExportWrapper("msmSeSetParam", 2);
   _HuAudSStreamFadeOut = Module["_HuAudSStreamFadeOut"] = createExportWrapper("HuAudSStreamFadeOut", 2);
   _GXGetTexBufferSize = Module["_GXGetTexBufferSize"] = createExportWrapper("GXGetTexBufferSize", 5);
+  _msmFioClose = Module["_msmFioClose"] = createExportWrapper("msmFioClose", 1);
+  _msmFioRead = Module["_msmFioRead"] = createExportWrapper("msmFioRead", 4);
+  _msmFioOpen = Module["_msmFioOpen"] = createExportWrapper("msmFioOpen", 2);
+  _msmFioInit = Module["_msmFioInit"] = createExportWrapper("msmFioInit", 3);
+  _msmMemFree = Module["_msmMemFree"] = createExportWrapper("msmMemFree", 1);
+  _msmMemAlloc = Module["_msmMemAlloc"] = createExportWrapper("msmMemAlloc", 1);
+  _msmMemInit = Module["_msmMemInit"] = createExportWrapper("msmMemInit", 2);
+  _msmMusPeriodicProc = Module["_msmMusPeriodicProc"] = createExportWrapper("msmMusPeriodicProc", 0);
+  _sndSeqGetValid = Module["_sndSeqGetValid"] = createExportWrapper("sndSeqGetValid", 1);
+  _msmSysCheckBaseGroup = Module["_msmSysCheckBaseGroup"] = createExportWrapper("msmSysCheckBaseGroup", 1);
+  _sndSeqPause = Module["_sndSeqPause"] = createExportWrapper("sndSeqPause", 1);
+  _sndSeqVolume = Module["_sndSeqVolume"] = createExportWrapper("sndSeqVolume", 4);
+  _sndSeqStop = Module["_sndSeqStop"] = createExportWrapper("sndSeqStop", 1);
+  _msmMusGetMidiCtrl = Module["_msmMusGetMidiCtrl"] = createExportWrapper("msmMusGetMidiCtrl", 3);
+  _sndSeqGetMidiCtrl = Module["_sndSeqGetMidiCtrl"] = createExportWrapper("sndSeqGetMidiCtrl", 3);
+  _msmMusGetNumPlay = Module["_msmMusGetNumPlay"] = createExportWrapper("msmMusGetNumPlay", 1);
+  _msmMusSetMasterVolume = Module["_msmMusSetMasterVolume"] = createExportWrapper("msmMusSetMasterVolume", 1);
+  _sndMasterVolume = Module["_sndMasterVolume"] = createExportWrapper("sndMasterVolume", 4);
+  _sndSeqSpeed = Module["_sndSeqSpeed"] = createExportWrapper("sndSeqSpeed", 2);
+  _msmMusPauseAll = Module["_msmMusPauseAll"] = createExportWrapper("msmMusPauseAll", 2);
+  _sndSeqContinue = Module["_sndSeqContinue"] = createExportWrapper("sndSeqContinue", 1);
+  _msmMusPause = Module["_msmMusPause"] = createExportWrapper("msmMusPause", 3);
+  _msmMusStopAll = Module["_msmMusStopAll"] = createExportWrapper("msmMusStopAll", 2);
+  _msmMusStop = Module["_msmMusStop"] = createExportWrapper("msmMusStop", 2);
+  _msmSysCheckLoadGroupID = Module["_msmSysCheckLoadGroupID"] = createExportWrapper("msmSysCheckLoadGroupID", 1);
+  _msmSysGetGroupDataPtr = Module["_msmSysGetGroupDataPtr"] = createExportWrapper("msmSysGetGroupDataPtr", 1);
+  _sndSeqPlayEx = Module["_sndSeqPlayEx"] = createExportWrapper("sndSeqPlayEx", 5);
+  _msmMusInit = Module["_msmMusInit"] = createExportWrapper("msmMusInit", 2);
+  _msmSePeriodicProc = Module["_msmSePeriodicProc"] = createExportWrapper("msmSePeriodicProc", 0);
+  _msmSeGetIndexPtr = Module["_msmSeGetIndexPtr"] = createExportWrapper("msmSeGetIndexPtr", 1);
+  _msmSeDelListener = Module["_msmSeDelListener"] = createExportWrapper("msmSeDelListener", 0);
+  _msmSeUpdataListener = Module["_msmSeUpdataListener"] = createExportWrapper("msmSeUpdataListener", 2);
+  _msmSeSetListener = Module["_msmSeSetListener"] = createExportWrapper("msmSeSetListener", 5);
+  _msmSeGetEntryID = Module["_msmSeGetEntryID"] = createExportWrapper("msmSeGetEntryID", 2);
+  _msmSeGetNumPlay = Module["_msmSeGetNumPlay"] = createExportWrapper("msmSeGetNumPlay", 1);
+  _msmSeGetStatus = Module["_msmSeGetStatus"] = createExportWrapper("msmSeGetStatus", 1);
+  _msmSeSetMasterVolume = Module["_msmSeSetMasterVolume"] = createExportWrapper("msmSeSetMasterVolume", 1);
+  _sndCheckEmitter = Module["_sndCheckEmitter"] = createExportWrapper("sndCheckEmitter", 1);
+  _sndFXCheck = Module["_sndFXCheck"] = createExportWrapper("sndFXCheck", 1);
+  _sndUpdateEmitter = Module["_sndUpdateEmitter"] = createExportWrapper("sndUpdateEmitter", 5);
+  _sndFXCtrl = Module["_sndFXCtrl"] = createExportWrapper("sndFXCtrl", 3);
+  _sndRemoveEmitter = Module["_sndRemoveEmitter"] = createExportWrapper("sndRemoveEmitter", 1);
+  _sndFXKeyOff = Module["_sndFXKeyOff"] = createExportWrapper("sndFXKeyOff", 1);
+  _sndRemoveListener = Module["_sndRemoveListener"] = createExportWrapper("sndRemoveListener", 1);
+  _sndUpdateListener = Module["_sndUpdateListener"] = createExportWrapper("sndUpdateListener", 7);
+  _sndAddListenerEx = Module["_sndAddListenerEx"] = createExportWrapper("sndAddListenerEx", 12);
+  _sndFXCtrl14 = Module["_sndFXCtrl14"] = createExportWrapper("sndFXCtrl14", 3);
+  _sndEmitterVoiceID = Module["_sndEmitterVoiceID"] = createExportWrapper("sndEmitterVoiceID", 1);
+  _sndSendMessage = Module["_sndSendMessage"] = createExportWrapper("sndSendMessage", 2);
+  _msmSePauseAll = Module["_msmSePauseAll"] = createExportWrapper("msmSePauseAll", 2);
+  _msmSeStopAll = Module["_msmSeStopAll"] = createExportWrapper("msmSeStopAll", 2);
+  _msmSeStop = Module["_msmSeStop"] = createExportWrapper("msmSeStop", 2);
+  _msmSePlay = Module["_msmSePlay"] = createExportWrapper("msmSePlay", 2);
+  _sndAddEmitterParaEx = Module["_sndAddEmitterParaEx"] = createExportWrapper("sndAddEmitterParaEx", 12);
+  _sndFXStartParaInfo = Module["_sndFXStartParaInfo"] = createExportWrapper("sndFXStartParaInfo", 5);
+  _msmSeInit = Module["_msmSeInit"] = createExportWrapper("msmSeInit", 2);
+  _msmStreamSetMasterVolume = Module["_msmStreamSetMasterVolume"] = createExportWrapper("msmStreamSetMasterVolume", 1);
+  _sndStreamMixParameterEx = Module["_sndStreamMixParameterEx"] = createExportWrapper("sndStreamMixParameterEx", 6);
+  _msmStreamStopAll = Module["_msmStreamStopAll"] = createExportWrapper("msmStreamStopAll", 1);
+  _msmSysIrqDisable = Module["_msmSysIrqDisable"] = createExportWrapper("msmSysIrqDisable", 0);
+  _msmSysIrqEnable = Module["_msmSysIrqEnable"] = createExportWrapper("msmSysIrqEnable", 0);
+  _msmStreamStop = Module["_msmStreamStop"] = createExportWrapper("msmStreamStop", 2);
+  _msmStreamPlay = Module["_msmStreamPlay"] = createExportWrapper("msmStreamPlay", 2);
+  _msmStreamPeriodicProc = Module["_msmStreamPeriodicProc"] = createExportWrapper("msmStreamPeriodicProc", 0);
+  _msmStreamSetOutputMode = Module["_msmStreamSetOutputMode"] = createExportWrapper("msmStreamSetOutputMode", 1);
+  _msmStreamAmemFree = Module["_msmStreamAmemFree"] = createExportWrapper("msmStreamAmemFree", 0);
+  _sndStreamFree = Module["_sndStreamFree"] = createExportWrapper("sndStreamFree", 1);
+  _msmStreamAmemAlloc = Module["_msmStreamAmemAlloc"] = createExportWrapper("msmStreamAmemAlloc", 0);
+  _sndStreamAllocEx = Module["_sndStreamAllocEx"] = createExportWrapper("sndStreamAllocEx", 14);
+  _msmStreamInit = Module["_msmStreamInit"] = createExportWrapper("msmStreamInit", 1);
+  _sndStreamARAMUpdate = Module["_sndStreamARAMUpdate"] = createExportWrapper("sndStreamARAMUpdate", 5);
+  _sndStreamDeactivate = Module["_sndStreamDeactivate"] = createExportWrapper("sndStreamDeactivate", 1);
+  _sndStreamFrq = Module["_sndStreamFrq"] = createExportWrapper("sndStreamFrq", 2);
+  _sndStreamADPCMParameter = Module["_sndStreamADPCMParameter"] = createExportWrapper("sndStreamADPCMParameter", 2);
+  _sndStreamActivate = Module["_sndStreamActivate"] = createExportWrapper("sndStreamActivate", 1);
+  _msmSysSearchGroupStack = Module["_msmSysSearchGroupStack"] = createExportWrapper("msmSysSearchGroupStack", 2);
+  _msmSysGroupInit = Module["_msmSysGroupInit"] = createExportWrapper("msmSysGroupInit", 1);
+  _msmSysGetOutputMode = Module["_msmSysGetOutputMode"] = createExportWrapper("msmSysGetOutputMode", 0);
+  _msmSysSetOutputMode = Module["_msmSysSetOutputMode"] = createExportWrapper("msmSysSetOutputMode", 1);
+  _sndOutputMode = Module["_sndOutputMode"] = createExportWrapper("sndOutputMode", 1);
+  _OSSetSoundMode = Module["_OSSetSoundMode"] = createExportWrapper("OSSetSoundMode", 1);
+  _msmSysSetAux = Module["_msmSysSetAux"] = createExportWrapper("msmSysSetAux", 2);
+  _sndSetAuxProcessingCallbacks = Module["_sndSetAuxProcessingCallbacks"] = createExportWrapper("sndSetAuxProcessingCallbacks", 9);
+  _sndAuxCallbackShutdownReverbHI = Module["_sndAuxCallbackShutdownReverbHI"] = createExportWrapper("sndAuxCallbackShutdownReverbHI", 1);
+  _sndAuxCallbackShutdownReverbSTD = Module["_sndAuxCallbackShutdownReverbSTD"] = createExportWrapper("sndAuxCallbackShutdownReverbSTD", 1);
+  _sndAuxCallbackShutdownChorus = Module["_sndAuxCallbackShutdownChorus"] = createExportWrapper("sndAuxCallbackShutdownChorus", 1);
+  _sndAuxCallbackShutdownDelay = Module["_sndAuxCallbackShutdownDelay"] = createExportWrapper("sndAuxCallbackShutdownDelay", 1);
+  _sndAuxCallbackReverbSTD = Module["_sndAuxCallbackReverbSTD"] = createExportWrapper("sndAuxCallbackReverbSTD", 3);
+  _sndAuxCallbackPrepareReverbSTD = Module["_sndAuxCallbackPrepareReverbSTD"] = createExportWrapper("sndAuxCallbackPrepareReverbSTD", 1);
+  _sndAuxCallbackChorus = Module["_sndAuxCallbackChorus"] = createExportWrapper("sndAuxCallbackChorus", 3);
+  _sndAuxCallbackPrepareChorus = Module["_sndAuxCallbackPrepareChorus"] = createExportWrapper("sndAuxCallbackPrepareChorus", 1);
+  _sndAuxCallbackDelay = Module["_sndAuxCallbackDelay"] = createExportWrapper("sndAuxCallbackDelay", 3);
+  _sndAuxCallbackPrepareDelay = Module["_sndAuxCallbackPrepareDelay"] = createExportWrapper("sndAuxCallbackPrepareDelay", 1);
+  _sndAuxCallbackReverbHI = Module["_sndAuxCallbackReverbHI"] = createExportWrapper("sndAuxCallbackReverbHI", 3);
+  _sndAuxCallbackPrepareReverbHI = Module["_sndAuxCallbackPrepareReverbHI"] = createExportWrapper("sndAuxCallbackPrepareReverbHI", 1);
+  _msmSysGetSampSize = Module["_msmSysGetSampSize"] = createExportWrapper("msmSysGetSampSize", 1);
+  _msmSysDelGroupAll = Module["_msmSysDelGroupAll"] = createExportWrapper("msmSysDelGroupAll", 0);
+  _sndPopGroup = Module["_sndPopGroup"] = createExportWrapper("sndPopGroup", 0);
+  _msmSysDelGroupBase = Module["_msmSysDelGroupBase"] = createExportWrapper("msmSysDelGroupBase", 1);
+  _msmSysLoadGroupBase = Module["_msmSysLoadGroupBase"] = createExportWrapper("msmSysLoadGroupBase", 2);
+  _sndPushGroup = Module["_sndPushGroup"] = createExportWrapper("sndPushGroup", 5);
+  _msmSysLoadGroupSet = Module["_msmSysLoadGroupSet"] = createExportWrapper("msmSysLoadGroupSet", 2);
+  _msmSysLoadGroup = Module["_msmSysLoadGroup"] = createExportWrapper("msmSysLoadGroup", 2);
+  _msmSysCheckInit = Module["_msmSysCheckInit"] = createExportWrapper("msmSysCheckInit", 0);
+  _sndIsInstalled = Module["_sndIsInstalled"] = createExportWrapper("sndIsInstalled", 0);
+  _msmSysInit = Module["_msmSysInit"] = createExportWrapper("msmSysInit", 2);
+  _ARAlloc = Module["_ARAlloc"] = createExportWrapper("ARAlloc", 1);
+  _ARGetBaseAddress = Module["_ARGetBaseAddress"] = createExportWrapper("ARGetBaseAddress", 0);
+  _AIInit = Module["_AIInit"] = createExportWrapper("AIInit", 1);
+  _sndSetHooks = Module["_sndSetHooks"] = createExportWrapper("sndSetHooks", 1);
+  _sndInit = Module["_sndInit"] = createExportWrapper("sndInit", 6);
+  _AIRegisterDMACallback = Module["_AIRegisterDMACallback"] = createExportWrapper("AIRegisterDMACallback", 1);
+  _sndQuit = Module["_sndQuit"] = createExportWrapper("sndQuit", 0);
   _OSGetSoundMode = Module["_OSGetSoundMode"] = createExportWrapper("OSGetSoundMode", 0);
+  _sndVolume = Module["_sndVolume"] = createExportWrapper("sndVolume", 3);
+  _AIInitDMA = Module["_AIInitDMA"] = createExportWrapper("AIInitDMA", 2);
+  _AITick = Module["_AITick"] = createExportWrapper("AITick", 0);
+  _fopen = Module["_fopen"] = createExportWrapper("fopen", 2);
+  _fseek = Module["_fseek"] = createExportWrapper("fseek", 3);
+  _fread = Module["_fread"] = createExportWrapper("fread", 4);
+  _fclose = Module["_fclose"] = createExportWrapper("fclose", 1);
   _HuAudStreamPlay = Module["_HuAudStreamPlay"] = createExportWrapper("HuAudStreamPlay", 2);
   _HuAudStreamVolSet = Module["_HuAudStreamVolSet"] = createExportWrapper("HuAudStreamVolSet", 1);
   _HuAudStreamPauseOn = Module["_HuAudStreamPauseOn"] = createExportWrapper("HuAudStreamPauseOn", 0);
@@ -70638,12 +72294,6 @@ function assignWasmExports(wasmExports) {
   ___OSUnmaskInterrupts = Module["___OSUnmaskInterrupts"] = createExportWrapper("__OSUnmaskInterrupts", 1);
   _SISetSamplingRate = Module["_SISetSamplingRate"] = createExportWrapper("SISetSamplingRate", 1);
   _GXUnknownu16 = Module["_GXUnknownu16"] = createExportWrapper("GXUnknownu16", 1);
-  _msmMusSetMasterVolume = Module["_msmMusSetMasterVolume"] = createExportWrapper("msmMusSetMasterVolume", 1);
-  _msmSysGetOutputMode = Module["_msmSysGetOutputMode"] = createExportWrapper("msmSysGetOutputMode", 0);
-  _msmSeSetListener = Module["_msmSeSetListener"] = createExportWrapper("msmSeSetListener", 5);
-  _msmSeStopAll = Module["_msmSeStopAll"] = createExportWrapper("msmSeStopAll", 2);
-  _msmSysSetOutputMode = Module["_msmSysSetOutputMode"] = createExportWrapper("msmSysSetOutputMode", 1);
-  _OSSetSoundMode = Module["_OSSetSoundMode"] = createExportWrapper("OSSetSoundMode", 1);
   _HuTHPSprCreateVol = Module["_HuTHPSprCreateVol"] = createExportWrapper("HuTHPSprCreateVol", 4);
   _HuTHPSprCreate = Module["_HuTHPSprCreate"] = createExportWrapper("HuTHPSprCreate", 3);
   _HuTHP3DCreateVol = Module["_HuTHP3DCreateVol"] = createExportWrapper("HuTHP3DCreateVol", 3);
@@ -70660,12 +72310,8 @@ function assignWasmExports(wasmExports) {
   _DVDChangeDir = Module["_DVDChangeDir"] = createExportWrapper("DVDChangeDir", 1);
   _snprintf = Module["_snprintf"] = createExportWrapper("snprintf", 4);
   _realpath = Module["_realpath"] = createExportWrapper("realpath", 2);
-  _fopen = Module["_fopen"] = createExportWrapper("fopen", 2);
-  _fclose = Module["_fclose"] = createExportWrapper("fclose", 1);
   _realloc = createExportWrapper("realloc", 2);
-  _fseek = Module["_fseek"] = createExportWrapper("fseek", 3);
   _ftell = Module["_ftell"] = createExportWrapper("ftell", 1);
-  _fread = Module["_fread"] = createExportWrapper("fread", 4);
   _feof = Module["_feof"] = createExportWrapper("feof", 1);
   _DVDOpenDir = Module["_DVDOpenDir"] = createExportWrapper("DVDOpenDir", 2);
   _DVDCloseDir = Module["_DVDCloseDir"] = createExportWrapper("DVDCloseDir", 1);
@@ -71532,7 +73178,6 @@ function assignWasmExports(wasmExports) {
   _OSUncachedToPhysical = Module["_OSUncachedToPhysical"] = createExportWrapper("OSUncachedToPhysical", 1);
   _OSCachedToUncached = Module["_OSCachedToUncached"] = createExportWrapper("OSCachedToUncached", 1);
   _OSUncachedToCached = Module["_OSUncachedToCached"] = createExportWrapper("OSUncachedToCached", 1);
-  _ARAlloc = Module["_ARAlloc"] = createExportWrapper("ARAlloc", 1);
   _ARFree = Module["_ARFree"] = createExportWrapper("ARFree", 1);
   _ARGetStorageAddress = Module["_ARGetStorageAddress"] = createExportWrapper("ARGetStorageAddress", 0);
   __ZN6aurora2vi9configureEPK15GXRenderModeObj = Module["__ZN6aurora2vi9configureEPK15GXRenderModeObj"] = createExportWrapper("_ZN6aurora2vi9configureEPK15GXRenderModeObj", 1);
@@ -74509,6 +76154,342 @@ function assignWasmExports(wasmExports) {
   __ZN4absl12lts_2024072213hash_internal18CityHash64WithSeedEPKcmy = Module["__ZN4absl12lts_2024072213hash_internal18CityHash64WithSeedEPKcmy"] = createExportWrapper("_ZN4absl12lts_2024072213hash_internal18CityHash64WithSeedEPKcmy", 3);
   __ZN4absl12lts_2024072213hash_internal19CityHash64WithSeedsEPKcmyy = Module["__ZN4absl12lts_2024072213hash_internal19CityHash64WithSeedsEPKcmyy"] = createExportWrapper("_ZN4absl12lts_2024072213hash_internal19CityHash64WithSeedsEPKcmyy", 4);
   __ZN4absl12lts_2024072213hash_internal12LowLevelHashEPKvmyPKy = Module["__ZN4absl12lts_2024072213hash_internal12LowLevelHashEPKvmyPKy"] = createExportWrapper("_ZN4absl12lts_2024072213hash_internal12LowLevelHashEPKvmyPKy", 4);
+  _seqGetPrivateId = Module["_seqGetPrivateId"] = createExportWrapper("seqGetPrivateId", 1);
+  _seqStartPlay = Module["_seqStartPlay"] = createExportWrapper("seqStartPlay", 7);
+  _seqPause = Module["_seqPause"] = createExportWrapper("seqPause", 1);
+  _seqStop = Module["_seqStop"] = createExportWrapper("seqStop", 1);
+  _seqKillAllInstances = Module["_seqKillAllInstances"] = createExportWrapper("seqKillAllInstances", 0);
+  _seqKillInstancesByGroupID = Module["_seqKillInstancesByGroupID"] = createExportWrapper("seqKillInstancesByGroupID", 1);
+  _seqSpeed = Module["_seqSpeed"] = createExportWrapper("seqSpeed", 2);
+  _seqContinue = Module["_seqContinue"] = createExportWrapper("seqContinue", 1);
+  _seqMute = Module["_seqMute"] = createExportWrapper("seqMute", 3);
+  _seqVolume = Module["_seqVolume"] = createExportWrapper("seqVolume", 4);
+  _seqCrossFade = Module["_seqCrossFade"] = createExportWrapper("seqCrossFade", 3);
+  _seqHandle = Module["_seqHandle"] = createExportWrapper("seqHandle", 1);
+  _seqInit = Module["_seqInit"] = createExportWrapper("seqInit", 0);
+  _synthSetBpm = Module["_synthSetBpm"] = createExportWrapper("synthSetBpm", 3);
+  _synthGetTicksPerSecond = Module["_synthGetTicksPerSecond"] = createExportWrapper("synthGetTicksPerSecond", 1);
+  _synthInitPortamento = Module["_synthInitPortamento"] = createExportWrapper("synthInitPortamento", 1);
+  _synthStartSound = Module["_synthStartSound"] = createExportWrapper("synthStartSound", 15);
+  _synthStartSynthJobHandling = Module["_synthStartSynthJobHandling"] = createExportWrapper("synthStartSynthJobHandling", 1);
+  _synthForceLowPrecisionUpdate = Module["_synthForceLowPrecisionUpdate"] = createExportWrapper("synthForceLowPrecisionUpdate", 1);
+  _synthKeyStateUpdate = Module["_synthKeyStateUpdate"] = createExportWrapper("synthKeyStateUpdate", 1);
+  _synthHandle = Module["_synthHandle"] = createExportWrapper("synthHandle", 1);
+  _synthFXGetMaxVoices = Module["_synthFXGetMaxVoices"] = createExportWrapper("synthFXGetMaxVoices", 1);
+  _synthFXStart = Module["_synthFXStart"] = createExportWrapper("synthFXStart", 5);
+  _synthFXSetCtrl = Module["_synthFXSetCtrl"] = createExportWrapper("synthFXSetCtrl", 3);
+  _synthFXSetCtrl14 = Module["_synthFXSetCtrl14"] = createExportWrapper("synthFXSetCtrl14", 3);
+  _synthFXCloneMidiSetup = Module["_synthFXCloneMidiSetup"] = createExportWrapper("synthFXCloneMidiSetup", 2);
+  _synthSendKeyOff = Module["_synthSendKeyOff"] = createExportWrapper("synthSendKeyOff", 1);
+  _synthGetVolume = Module["_synthGetVolume"] = createExportWrapper("synthGetVolume", 1);
+  _synthVolume = Module["_synthVolume"] = createExportWrapper("synthVolume", 5);
+  _synthIsFadeOutActive = Module["_synthIsFadeOutActive"] = createExportWrapper("synthIsFadeOutActive", 1);
+  _synthPauseVolume = Module["_synthPauseVolume"] = createExportWrapper("synthPauseVolume", 3);
+  _synthSetMusicVolumeType = Module["_synthSetMusicVolumeType"] = createExportWrapper("synthSetMusicVolumeType", 2);
+  _synthInit = Module["_synthInit"] = createExportWrapper("synthInit", 2);
+  _synthExit = Module["_synthExit"] = createExportWrapper("synthExit", 0);
+  _sndSeqCrossFade = Module["_sndSeqCrossFade"] = createExportWrapper("sndSeqCrossFade", 2);
+  _sndSeqCrossFadeDone = Module["_sndSeqCrossFadeDone"] = createExportWrapper("sndSeqCrossFadeDone", 1);
+  _sndSeqGetLoopCnt = Module["_sndSeqGetLoopCnt"] = createExportWrapper("sndSeqGetLoopCnt", 1);
+  _sndSeqGetLoopCntEx = Module["_sndSeqGetLoopCntEx"] = createExportWrapper("sndSeqGetLoopCntEx", 2);
+  _hwDisableIrq = Module["_hwDisableIrq"] = createExportWrapper("hwDisableIrq", 0);
+  _macStart = Module["_macStart"] = createExportWrapper("macStart", 16);
+  _vidGetInternalId = Module["_vidGetInternalId"] = createExportWrapper("vidGetInternalId", 1);
+  _inpGetMidiCtrl = Module["_inpGetMidiCtrl"] = createExportWrapper("inpGetMidiCtrl", 3);
+  _hwIsActive = Module["_hwIsActive"] = createExportWrapper("hwIsActive", 1);
+  _vidRemoveVoiceReferences = Module["_vidRemoveVoiceReferences"] = createExportWrapper("vidRemoveVoiceReferences", 1);
+  _vidMakeNew = Module["_vidMakeNew"] = createExportWrapper("vidMakeNew", 2);
+  _voiceSetLastStarted = Module["_voiceSetLastStarted"] = createExportWrapper("voiceSetLastStarted", 1);
+  _inpSetMidiLastNote = Module["_inpSetMidiLastNote"] = createExportWrapper("inpSetMidiLastNote", 3);
+  _dataGetKeymap = Module["_dataGetKeymap"] = createExportWrapper("dataGetKeymap", 1);
+  _dataGetLayer = Module["_dataGetLayer"] = createExportWrapper("dataGetLayer", 2);
+  _vidMakeRoot = Module["_vidMakeRoot"] = createExportWrapper("vidMakeRoot", 1);
+  _macHandle = Module["_macHandle"] = createExportWrapper("macHandle", 1);
+  _sndSin = Module["_sndSin"] = createExportWrapper("sndSin", 1);
+  _adsrHandleLowPrecision = Module["_adsrHandleLowPrecision"] = createExportWrapper("adsrHandleLowPrecision", 3);
+  _inpGetPitchBend = Module["_inpGetPitchBend"] = createExportWrapper("inpGetPitchBend", 1);
+  _inpGetModulation = Module["_inpGetModulation"] = createExportWrapper("inpGetModulation", 1);
+  _sndGetPitch = Module["_sndGetPitch"] = createExportWrapper("sndGetPitch", 2);
+  _sndPitchUpOne = Module["_sndPitchUpOne"] = createExportWrapper("sndPitchUpOne", 1);
+  _inpGetDoppler = Module["_inpGetDoppler"] = createExportWrapper("inpGetDoppler", 1);
+  _hwSetPitch = Module["_hwSetPitch"] = createExportWrapper("hwSetPitch", 2);
+  _inpGetPedal = Module["_inpGetPedal"] = createExportWrapper("inpGetPedal", 1);
+  _macSetPedalState = Module["_macSetPedalState"] = createExportWrapper("macSetPedalState", 2);
+  _hwStart = Module["_hwStart"] = createExportWrapper("hwStart", 2);
+  _hwKeyOff = Module["_hwKeyOff"] = createExportWrapper("hwKeyOff", 1);
+  _adsrRelease = Module["_adsrRelease"] = createExportWrapper("adsrRelease", 1);
+  _inpGetTremolo = Module["_inpGetTremolo"] = createExportWrapper("inpGetTremolo", 1);
+  _inpGetPanning = Module["_inpGetPanning"] = createExportWrapper("inpGetPanning", 1);
+  _inpGetSurPanning = Module["_inpGetSurPanning"] = createExportWrapper("inpGetSurPanning", 1);
+  _inpGetVolume = Module["_inpGetVolume"] = createExportWrapper("inpGetVolume", 1);
+  _inpGetPreAuxA = Module["_inpGetPreAuxA"] = createExportWrapper("inpGetPreAuxA", 1);
+  _inpGetReverb = Module["_inpGetReverb"] = createExportWrapper("inpGetReverb", 1);
+  _inpGetPreAuxB = Module["_inpGetPreAuxB"] = createExportWrapper("inpGetPreAuxB", 1);
+  _inpGetPostAuxB = Module["_inpGetPostAuxB"] = createExportWrapper("inpGetPostAuxB", 1);
+  _hwSetVolume = Module["_hwSetVolume"] = createExportWrapper("hwSetVolume", 7);
+  _hwSetPriority = Module["_hwSetPriority"] = createExportWrapper("hwSetPriority", 2);
+  _hwGetTimeOffset = Module["_hwGetTimeOffset"] = createExportWrapper("hwGetTimeOffset", 0);
+  _inpGetAuxA = Module["_inpGetAuxA"] = createExportWrapper("inpGetAuxA", 4);
+  _inpGetAuxB = Module["_inpGetAuxB"] = createExportWrapper("inpGetAuxB", 4);
+  _hwFrameDone = Module["_hwFrameDone"] = createExportWrapper("hwFrameDone", 0);
+  _dataGetFX = Module["_dataGetFX"] = createExportWrapper("dataGetFX", 1);
+  _inpSetMidiCtrl = Module["_inpSetMidiCtrl"] = createExportWrapper("inpSetMidiCtrl", 4);
+  _inpSetMidiCtrl14 = Module["_inpSetMidiCtrl14"] = createExportWrapper("inpSetMidiCtrl14", 4);
+  _inpFXCopyCtrl = Module["_inpFXCopyCtrl"] = createExportWrapper("inpFXCopyCtrl", 3);
+  _macSetExternalKeyoff = Module["_macSetExternalKeyoff"] = createExportWrapper("macSetExternalKeyoff", 1);
+  _sndConvertMs = Module["_sndConvertMs"] = createExportWrapper("sndConvertMs", 1);
+  _salMalloc = Module["_salMalloc"] = createExportWrapper("salMalloc", 1);
+  _inpInit = Module["_inpInit"] = createExportWrapper("inpInit", 1);
+  _macInit = Module["_macInit"] = createExportWrapper("macInit", 0);
+  _vidInit = Module["_vidInit"] = createExportWrapper("vidInit", 0);
+  _synthInitAllocationAids = Module["_synthInitAllocationAids"] = createExportWrapper("synthInitAllocationAids", 0);
+  _voiceInitLastStarted = Module["_voiceInitLastStarted"] = createExportWrapper("voiceInitLastStarted", 0);
+  _hwSetMesgCallback = Module["_hwSetMesgCallback"] = createExportWrapper("hwSetMesgCallback", 1);
+  _hwGetVirtualSampleID = Module["_hwGetVirtualSampleID"] = createExportWrapper("hwGetVirtualSampleID", 1);
+  _vsSampleEndNotify = Module["_vsSampleEndNotify"] = createExportWrapper("vsSampleEndNotify", 1);
+  _macSampleEndNotify = Module["_macSampleEndNotify"] = createExportWrapper("macSampleEndNotify", 1);
+  _voiceKill = Module["_voiceKill"] = createExportWrapper("voiceKill", 1);
+  _vsSampleStartNotify = Module["_vsSampleStartNotify"] = createExportWrapper("vsSampleStartNotify", 1);
+  _salFree = Module["_salFree"] = createExportWrapper("salFree", 1);
+  _inpResetMidiCtrl = Module["_inpResetMidiCtrl"] = createExportWrapper("inpResetMidiCtrl", 3);
+  _inpResetChannelDefaults = Module["_inpResetChannelDefaults"] = createExportWrapper("inpResetChannelDefaults", 2);
+  _voiceKillSound = Module["_voiceKillSound"] = createExportWrapper("voiceKillSound", 1);
+  _seqPlaySong = Module["_seqPlaySong"] = createExportWrapper("seqPlaySong", 6);
+  _sndSeqMute = Module["_sndSeqMute"] = createExportWrapper("sndSeqMute", 3);
+  _hwEnableIrq = Module["_hwEnableIrq"] = createExportWrapper("hwEnableIrq", 0);
+  _sndSeqLoop = Module["_sndSeqLoop"] = createExportWrapper("sndSeqLoop", 2);
+  _sndSeqLoopEx = Module["_sndSeqLoopEx"] = createExportWrapper("sndSeqLoopEx", 3);
+  _sndSeqGetVolGroup = Module["_sndSeqGetVolGroup"] = createExportWrapper("sndSeqGetVolGroup", 1);
+  _sndSeqAssignVolGroup2Track = Module["_sndSeqAssignVolGroup2Track"] = createExportWrapper("sndSeqAssignVolGroup2Track", 3);
+  _sndSeqGetMidiCtrl14 = Module["_sndSeqGetMidiCtrl14"] = createExportWrapper("sndSeqGetMidiCtrl14", 3);
+  _sndSeqSetMidiCtrl = Module["_sndSeqSetMidiCtrl"] = createExportWrapper("sndSeqSetMidiCtrl", 4);
+  _sndSeqSetMidiCtrl14 = Module["_sndSeqSetMidiCtrl14"] = createExportWrapper("sndSeqSetMidiCtrl14", 4);
+  _seqGetMIDIPriority = Module["_seqGetMIDIPriority"] = createExportWrapper("seqGetMIDIPriority", 2);
+  _sndFXStartEx = Module["_sndFXStartEx"] = createExportWrapper("sndFXStartEx", 4);
+  _sndFXStartPara = Module["_sndFXStartPara"] = createExportWrapper("sndFXStartPara", 6);
+  _sndReadFlag = Module["_sndReadFlag"] = createExportWrapper("sndReadFlag", 1);
+  _sndWriteFlag = Module["_sndWriteFlag"] = createExportWrapper("sndWriteFlag", 2);
+  _macPostMessage = Module["_macPostMessage"] = createExportWrapper("macPostMessage", 2);
+  _sndSetReceiveMessageCallback = Module["_sndSetReceiveMessageCallback"] = createExportWrapper("sndSetReceiveMessageCallback", 1);
+  _sndSilence = Module["_sndSilence"] = createExportWrapper("sndSilence", 0);
+  _s3dKillAllEmitter = Module["_s3dKillAllEmitter"] = createExportWrapper("s3dKillAllEmitter", 0);
+  _synthKillAllVoices = Module["_synthKillAllVoices"] = createExportWrapper("synthKillAllVoices", 1);
+  _sndIsIdle = Module["_sndIsIdle"] = createExportWrapper("sndIsIdle", 0);
+  _hwGlobalActivity = Module["_hwGlobalActivity"] = createExportWrapper("hwGlobalActivity", 0);
+  _sndFXAssignVolGroup2FXId = Module["_sndFXAssignVolGroup2FXId"] = createExportWrapper("sndFXAssignVolGroup2FXId", 2);
+  _sndPauseVolume = Module["_sndPauseVolume"] = createExportWrapper("sndPauseVolume", 3);
+  _hwDisableHRTF = Module["_hwDisableHRTF"] = createExportWrapper("hwDisableHRTF", 0);
+  _streamOutputModeChanged = Module["_streamOutputModeChanged"] = createExportWrapper("streamOutputModeChanged", 0);
+  _hwSetAUXProcessingCallbacks = Module["_hwSetAUXProcessingCallbacks"] = createExportWrapper("hwSetAUXProcessingCallbacks", 5);
+  _sndUpdateAuxParameter = Module["_sndUpdateAuxParameter"] = createExportWrapper("sndUpdateAuxParameter", 3);
+  _sndSetITDDefault = Module["_sndSetITDDefault"] = createExportWrapper("sndSetITDDefault", 3);
+  _synthActivateStudio = Module["_synthActivateStudio"] = createExportWrapper("synthActivateStudio", 3);
+  _hwActivateStudio = Module["_hwActivateStudio"] = createExportWrapper("hwActivateStudio", 3);
+  _sndActivateStudioEx = Module["_sndActivateStudioEx"] = createExportWrapper("sndActivateStudioEx", 3);
+  _synthDeactivateStudio = Module["_synthDeactivateStudio"] = createExportWrapper("synthDeactivateStudio", 1);
+  _hwOff = Module["_hwOff"] = createExportWrapper("hwOff", 1);
+  _hwDeactivateStudio = Module["_hwDeactivateStudio"] = createExportWrapper("hwDeactivateStudio", 1);
+  _sndDeactivateStudio = Module["_sndDeactivateStudio"] = createExportWrapper("sndDeactivateStudio", 1);
+  _synthChangeStudioMasterMix = Module["_synthChangeStudioMasterMix"] = createExportWrapper("synthChangeStudioMasterMix", 2);
+  _hwChangeStudioMix = Module["_hwChangeStudioMix"] = createExportWrapper("hwChangeStudioMix", 2);
+  _sndChangeStudioMasterMix = Module["_sndChangeStudioMasterMix"] = createExportWrapper("sndChangeStudioMasterMix", 2);
+  _synthAddStudioInput = Module["_synthAddStudioInput"] = createExportWrapper("synthAddStudioInput", 2);
+  _hwAddInput = Module["_hwAddInput"] = createExportWrapper("hwAddInput", 2);
+  _sndAddStudioInput = Module["_sndAddStudioInput"] = createExportWrapper("sndAddStudioInput", 2);
+  _synthRemoveStudioInput = Module["_synthRemoveStudioInput"] = createExportWrapper("synthRemoveStudioInput", 2);
+  _hwRemoveInput = Module["_hwRemoveInput"] = createExportWrapper("hwRemoveInput", 2);
+  _sndRemoveStudioInput = Module["_sndRemoveStudioInput"] = createExportWrapper("sndRemoveStudioInput", 2);
+  _sndDbgGetActiveVoices = Module["_sndDbgGetActiveVoices"] = createExportWrapper("sndDbgGetActiveVoices", 0);
+  _streamInit = Module["_streamInit"] = createExportWrapper("streamInit", 0);
+  _streamHandle = Module["_streamHandle"] = createExportWrapper("streamHandle", 0);
+  _streamCorrectLoops = Module["_streamCorrectLoops"] = createExportWrapper("streamCorrectLoops", 0);
+  _streamKill = Module["_streamKill"] = createExportWrapper("streamKill", 1);
+  _sndStreamCallbackFrq = Module["_sndStreamCallbackFrq"] = createExportWrapper("sndStreamCallbackFrq", 1);
+  _hwGetStreamPlayBuffer = Module["_hwGetStreamPlayBuffer"] = createExportWrapper("hwGetStreamPlayBuffer", 1);
+  _hwSetStreamLoopPS = Module["_hwSetStreamLoopPS"] = createExportWrapper("hwSetStreamLoopPS", 2);
+  _hwInitSamplePlayback = Module["_hwInitSamplePlayback"] = createExportWrapper("hwInitSamplePlayback", 8);
+  _hwFlushStream = Module["_hwFlushStream"] = createExportWrapper("hwFlushStream", 6);
+  _hwGetPos = Module["_hwGetPos"] = createExportWrapper("hwGetPos", 1);
+  _voiceUnblock = Module["_voiceUnblock"] = createExportWrapper("voiceUnblock", 1);
+  _hwInitStream = Module["_hwInitStream"] = createExportWrapper("hwInitStream", 1);
+  _sndStreamAllocLength = Module["_sndStreamAllocLength"] = createExportWrapper("sndStreamAllocLength", 2);
+  _voiceBlock = Module["_voiceBlock"] = createExportWrapper("voiceBlock", 1);
+  _sndStreamAllocStereo = Module["_sndStreamAllocStereo"] = createExportWrapper("sndStreamAllocStereo", 17);
+  _hwExitStream = Module["_hwExitStream"] = createExportWrapper("hwExitStream", 1);
+  _sndStreamMixParameter = Module["_sndStreamMixParameter"] = createExportWrapper("sndStreamMixParameter", 5);
+  _dataInsertKeymap = Module["_dataInsertKeymap"] = createExportWrapper("dataInsertKeymap", 2);
+  _dataRemoveKeymap = Module["_dataRemoveKeymap"] = createExportWrapper("dataRemoveKeymap", 1);
+  _dataInsertLayer = Module["_dataInsertLayer"] = createExportWrapper("dataInsertLayer", 3);
+  _dataRemoveLayer = Module["_dataRemoveLayer"] = createExportWrapper("dataRemoveLayer", 1);
+  _dataInsertCurve = Module["_dataInsertCurve"] = createExportWrapper("dataInsertCurve", 2);
+  _dataRemoveCurve = Module["_dataRemoveCurve"] = createExportWrapper("dataRemoveCurve", 1);
+  _dataInsertSDir = Module["_dataInsertSDir"] = createExportWrapper("dataInsertSDir", 2);
+  _dataRemoveSDir = Module["_dataRemoveSDir"] = createExportWrapper("dataRemoveSDir", 1);
+  _dataAddSampleReference = Module["_dataAddSampleReference"] = createExportWrapper("dataAddSampleReference", 1);
+  _dataRemoveSampleReference = Module["_dataRemoveSampleReference"] = createExportWrapper("dataRemoveSampleReference", 1);
+  _dataInsertFX = Module["_dataInsertFX"] = createExportWrapper("dataInsertFX", 3);
+  _dataRemoveFX = Module["_dataRemoveFX"] = createExportWrapper("dataRemoveFX", 1);
+  _dataInsertMacro = Module["_dataInsertMacro"] = createExportWrapper("dataInsertMacro", 2);
+  _dataRemoveMacro = Module["_dataRemoveMacro"] = createExportWrapper("dataRemoveMacro", 1);
+  _dataGetMacro = Module["_dataGetMacro"] = createExportWrapper("dataGetMacro", 1);
+  _dataGetSample = Module["_dataGetSample"] = createExportWrapper("dataGetSample", 2);
+  _dataGetCurve = Module["_dataGetCurve"] = createExportWrapper("dataGetCurve", 1);
+  _hwSaveSample = Module["_hwSaveSample"] = createExportWrapper("hwSaveSample", 2);
+  _hwRemoveSample = Module["_hwRemoveSample"] = createExportWrapper("hwRemoveSample", 2);
+  _sndBSearch = Module["_sndBSearch"] = createExportWrapper("sndBSearch", 5);
+  _dataInit = Module["_dataInit"] = createExportWrapper("dataInit", 2);
+  _hwInitSampleMem = Module["_hwInitSampleMem"] = createExportWrapper("hwInitSampleMem", 2);
+  _dataExit = Module["_dataExit"] = createExportWrapper("dataExit", 0);
+  _hwExitSampleMem = Module["_hwExitSampleMem"] = createExportWrapper("hwExitSampleMem", 0);
+  _sndConvert32BitSDIRTo64BitSDIR = Module["_sndConvert32BitSDIRTo64BitSDIR"] = createExportWrapper("sndConvert32BitSDIRTo64BitSDIR", 1);
+  _varGet32 = Module["_varGet32"] = createExportWrapper("varGet32", 3);
+  _varGet = Module["_varGet"] = createExportWrapper("varGet", 3);
+  _varSet32 = Module["_varSet32"] = createExportWrapper("varSet32", 4);
+  _varSet = Module["_varSet"] = createExportWrapper("varSet", 4);
+  _inpGetExCtrl = Module["_inpGetExCtrl"] = createExportWrapper("inpGetExCtrl", 2);
+  _inpSetExCtrl = Module["_inpSetExCtrl"] = createExportWrapper("inpSetExCtrl", 3);
+  _hwBreak = Module["_hwBreak"] = createExportWrapper("hwBreak", 1);
+  _inpGetMidiLastNote = Module["_inpGetMidiLastNote"] = createExportWrapper("inpGetMidiLastNote", 2);
+  _inpGetChannelDefaults = Module["_inpGetChannelDefaults"] = createExportWrapper("inpGetChannelDefaults", 2);
+  _sndRand = Module["_sndRand"] = createExportWrapper("sndRand", 0);
+  _hwSetADSR = Module["_hwSetADSR"] = createExportWrapper("hwSetADSR", 3);
+  _voiceIsLastStarted = Module["_voiceIsLastStarted"] = createExportWrapper("voiceIsLastStarted", 1);
+  _sndConvertTicks = Module["_sndConvertTicks"] = createExportWrapper("sndConvertTicks", 2);
+  _hwFrq2Pitch = Module["_hwFrq2Pitch"] = createExportWrapper("hwFrq2Pitch", 1);
+  _adsrConvertTimeCents = Module["_adsrConvertTimeCents"] = createExportWrapper("adsrConvertTimeCents", 1);
+  _adsrSetup = Module["_adsrSetup"] = createExportWrapper("adsrSetup", 1);
+  _voiceSetPriority = Module["_voiceSetPriority"] = createExportWrapper("voiceSetPriority", 2);
+  _inpAddCtrl = Module["_inpAddCtrl"] = createExportWrapper("inpAddCtrl", 5);
+  _inpSetGlobalMIDIDirtyFlag = Module["_inpSetGlobalMIDIDirtyFlag"] = createExportWrapper("inpSetGlobalMIDIDirtyFlag", 3);
+  _hwSetSRCType = Module["_hwSetSRCType"] = createExportWrapper("hwSetSRCType", 2);
+  _hwSetPolyPhaseFilter = Module["_hwSetPolyPhaseFilter"] = createExportWrapper("hwSetPolyPhaseFilter", 2);
+  _voiceFree = Module["_voiceFree"] = createExportWrapper("voiceFree", 1);
+  _macMakeActive = Module["_macMakeActive"] = createExportWrapper("macMakeActive", 1);
+  _macMakeInactive = Module["_macMakeInactive"] = createExportWrapper("macMakeInactive", 2);
+  _voiceAllocate = Module["_voiceAllocate"] = createExportWrapper("voiceAllocate", 4);
+  _sndConvert2Ms = Module["_sndConvert2Ms"] = createExportWrapper("sndConvert2Ms", 1);
+  _voiceResetLastStarted = Module["_voiceResetLastStarted"] = createExportWrapper("voiceResetLastStarted", 1);
+  _voiceRemovePriority = Module["_voiceRemovePriority"] = createExportWrapper("voiceRemovePriority", 1);
+  _synthKillVoicesByMacroReferences = Module["_synthKillVoicesByMacroReferences"] = createExportWrapper("synthKillVoicesByMacroReferences", 1);
+  _exp2f = Module["_exp2f"] = createExportWrapper("exp2f", 1);
+  _salChangeADSRState = Module["_salChangeADSRState"] = createExportWrapper("salChangeADSRState", 1);
+  _adsrStartRelease = Module["_adsrStartRelease"] = createExportWrapper("adsrStartRelease", 2);
+  _adsrHandle = Module["_adsrHandle"] = createExportWrapper("adsrHandle", 3);
+  _vsInit = Module["_vsInit"] = createExportWrapper("vsInit", 0);
+  _vsNewInstanceID = Module["_vsNewInstanceID"] = createExportWrapper("vsNewInstanceID", 0);
+  _vsAllocateBuffer = Module["_vsAllocateBuffer"] = createExportWrapper("vsAllocateBuffer", 0);
+  _vsFreeBuffer = Module["_vsFreeBuffer"] = createExportWrapper("vsFreeBuffer", 1);
+  _aramGetStreamBufferAddress = Module["_aramGetStreamBufferAddress"] = createExportWrapper("aramGetStreamBufferAddress", 2);
+  _hwSetVirtualSampleLoopBuffer = Module["_hwSetVirtualSampleLoopBuffer"] = createExportWrapper("hwSetVirtualSampleLoopBuffer", 3);
+  _hwGetSampleID = Module["_hwGetSampleID"] = createExportWrapper("hwGetSampleID", 1);
+  _hwGetSampleType = Module["_hwGetSampleType"] = createExportWrapper("hwGetSampleType", 1);
+  _vsUpdateBuffer = Module["_vsUpdateBuffer"] = createExportWrapper("vsUpdateBuffer", 2);
+  _vsSampleUpdates = Module["_vsSampleUpdates"] = createExportWrapper("vsSampleUpdates", 0);
+  _hwGetVirtualSampleState = Module["_hwGetVirtualSampleState"] = createExportWrapper("hwGetVirtualSampleState", 1);
+  _hwVoiceInStartup = Module["_hwVoiceInStartup"] = createExportWrapper("hwVoiceInStartup", 1);
+  _sndVirtualSampleAllocateBuffers = Module["_sndVirtualSampleAllocateBuffers"] = createExportWrapper("sndVirtualSampleAllocateBuffers", 3);
+  _aramAllocateStreamBuffer = Module["_aramAllocateStreamBuffer"] = createExportWrapper("aramAllocateStreamBuffer", 1);
+  _aramFreeStreamBuffer = Module["_aramFreeStreamBuffer"] = createExportWrapper("aramFreeStreamBuffer", 1);
+  _sndVirtualSampleFreeBuffers = Module["_sndVirtualSampleFreeBuffers"] = createExportWrapper("sndVirtualSampleFreeBuffers", 0);
+  _sndVirtualSampleSetCallback = Module["_sndVirtualSampleSetCallback"] = createExportWrapper("sndVirtualSampleSetCallback", 1);
+  _vsARAMDMACallback = Module["_vsARAMDMACallback"] = createExportWrapper("vsARAMDMACallback", 1);
+  _sndVirtualSampleARAMUpdate = Module["_sndVirtualSampleARAMUpdate"] = createExportWrapper("sndVirtualSampleARAMUpdate", 6);
+  _sndVirtualSampleEndPlayback = Module["_sndVirtualSampleEndPlayback"] = createExportWrapper("sndVirtualSampleEndPlayback", 2);
+  _dataInitStack = Module["_dataInitStack"] = createExportWrapper("dataInitStack", 0);
+  _sndSetSampleDataUploadCallback = Module["_sndSetSampleDataUploadCallback"] = createExportWrapper("sndSetSampleDataUploadCallback", 2);
+  _hwSetSaveSampleCallback = Module["_hwSetSaveSampleCallback"] = createExportWrapper("hwSetSaveSampleCallback", 2);
+  _hwTransAddr = Module["_hwTransAddr"] = createExportWrapper("hwTransAddr", 1);
+  _hwSyncSampleMem = Module["_hwSyncSampleMem"] = createExportWrapper("hwSyncSampleMem", 0);
+  _s3dKillEmitterByFXID = Module["_s3dKillEmitterByFXID"] = createExportWrapper("s3dKillEmitterByFXID", 2);
+  _salInitDspCtrl = Module["_salInitDspCtrl"] = createExportWrapper("salInitDspCtrl", 3);
+  _salActivateStudio = Module["_salActivateStudio"] = createExportWrapper("salActivateStudio", 3);
+  _salInitHRTFBuffer = Module["_salInitHRTFBuffer"] = createExportWrapper("salInitHRTFBuffer", 0);
+  _salExitDspCtrl = Module["_salExitDspCtrl"] = createExportWrapper("salExitDspCtrl", 0);
+  _salDeactivateStudio = Module["_salDeactivateStudio"] = createExportWrapper("salDeactivateStudio", 1);
+  _salBuildCommandList = Module["_salBuildCommandList"] = createExportWrapper("salBuildCommandList", 2);
+  _salSynthSendMessage = Module["_salSynthSendMessage"] = createExportWrapper("salSynthSendMessage", 2);
+  _salActivateVoice = Module["_salActivateVoice"] = createExportWrapper("salActivateVoice", 2);
+  _salDeactivateVoice = Module["_salDeactivateVoice"] = createExportWrapper("salDeactivateVoice", 1);
+  _salReconnectVoice = Module["_salReconnectVoice"] = createExportWrapper("salReconnectVoice", 2);
+  _salAddStudioInput = Module["_salAddStudioInput"] = createExportWrapper("salAddStudioInput", 2);
+  _salRemoveStudioInput = Module["_salRemoveStudioInput"] = createExportWrapper("salRemoveStudioInput", 2);
+  _salHandleAuxProcessing = Module["_salHandleAuxProcessing"] = createExportWrapper("salHandleAuxProcessing", 0);
+  _salCalcVolume = Module["_salCalcVolume"] = createExportWrapper("salCalcVolume", 9);
+  _sndAddRoom = Module["_sndAddRoom"] = createExportWrapper("sndAddRoom", 4);
+  _sndRemoveRoom = Module["_sndRemoveRoom"] = createExportWrapper("sndRemoveRoom", 1);
+  _sndUpdateRoom = Module["_sndUpdateRoom"] = createExportWrapper("sndUpdateRoom", 2);
+  _sndAddDoor = Module["_sndAddDoor"] = createExportWrapper("sndAddDoor", 9);
+  _sndRemoveDoor = Module["_sndRemoveDoor"] = createExportWrapper("sndRemoveDoor", 1);
+  _hwChangeStudio = Module["_hwChangeStudio"] = createExportWrapper("hwChangeStudio", 2);
+  _sndAddEmitter = Module["_sndAddEmitter"] = createExportWrapper("sndAddEmitter", 10);
+  _sndAddEmitterEx = Module["_sndAddEmitterEx"] = createExportWrapper("sndAddEmitterEx", 11);
+  _sndAddEmitterPara = Module["_sndAddEmitterPara"] = createExportWrapper("sndAddEmitterPara", 11);
+  _sndAddEmitter2Studio = Module["_sndAddEmitter2Studio"] = createExportWrapper("sndAddEmitter2Studio", 10);
+  _sndAddEmitter2StudioEx = Module["_sndAddEmitter2StudioEx"] = createExportWrapper("sndAddEmitter2StudioEx", 11);
+  _sndAddEmitter2StudioPara = Module["_sndAddEmitter2StudioPara"] = createExportWrapper("sndAddEmitter2StudioPara", 11);
+  _sndAddEmitter2StudioParaEx = Module["_sndAddEmitter2StudioParaEx"] = createExportWrapper("sndAddEmitter2StudioParaEx", 12);
+  _salCrossProduct = Module["_salCrossProduct"] = createExportWrapper("salCrossProduct", 3);
+  _salInvertMatrix = Module["_salInvertMatrix"] = createExportWrapper("salInvertMatrix", 2);
+  _sndAddListener = Module["_sndAddListener"] = createExportWrapper("sndAddListener", 11);
+  _ClearStartList = Module["_ClearStartList"] = createExportWrapper("ClearStartList", 0);
+  _AddRunningEmitter = Module["_AddRunningEmitter"] = createExportWrapper("AddRunningEmitter", 2);
+  _AddStartingEmitter = Module["_AddStartingEmitter"] = createExportWrapper("AddStartingEmitter", 6);
+  _StartContinousEmitters = Module["_StartContinousEmitters"] = createExportWrapper("StartContinousEmitters", 0);
+  _s3dHandle = Module["_s3dHandle"] = createExportWrapper("s3dHandle", 0);
+  _salApplyMatrix = Module["_salApplyMatrix"] = createExportWrapper("salApplyMatrix", 3);
+  _salNormalizeVector = Module["_salNormalizeVector"] = createExportWrapper("salNormalizeVector", 1);
+  _sndSetup3DStudios = Module["_sndSetup3DStudios"] = createExportWrapper("sndSetup3DStudios", 2);
+  _sndGet3DParameters = Module["_sndGet3DParameters"] = createExportWrapper("sndGet3DParameters", 8);
+  _s3dInit = Module["_s3dInit"] = createExportWrapper("s3dInit", 1);
+  _s3dExit = Module["_s3dExit"] = createExportWrapper("s3dExit", 0);
+  _hwInit = Module["_hwInit"] = createExportWrapper("hwInit", 4);
+  _hwExit = Module["_hwExit"] = createExportWrapper("hwExit", 0);
+  _sndSetMaxVoices = Module["_sndSetMaxVoices"] = createExportWrapper("sndSetMaxVoices", 2);
+  _sndGetPlayBackInfo = Module["_sndGetPlayBackInfo"] = createExportWrapper("sndGetPlayBackInfo", 0);
+  _inpSetRPNHi = Module["_inpSetRPNHi"] = createExportWrapper("inpSetRPNHi", 3);
+  _inpSetRPNLo = Module["_inpSetRPNLo"] = createExportWrapper("inpSetRPNLo", 3);
+  _inpSetRPNDec = Module["_inpSetRPNDec"] = createExportWrapper("inpSetRPNDec", 2);
+  _inpSetRPNInc = Module["_inpSetRPNInc"] = createExportWrapper("inpSetRPNInc", 2);
+  _inpTranslateExCtrl = Module["_inpTranslateExCtrl"] = createExportWrapper("inpTranslateExCtrl", 1);
+  _hwInitIrq = Module["_hwInitIrq"] = createExportWrapper("hwInitIrq", 0);
+  _aramGetZeroBuffer = Module["_aramGetZeroBuffer"] = createExportWrapper("aramGetZeroBuffer", 0);
+  _salInitAi = Module["_salInitAi"] = createExportWrapper("salInitAi", 3);
+  _salInitDsp = Module["_salInitDsp"] = createExportWrapper("salInitDsp", 1);
+  _salStartAi = Module["_salStartAi"] = createExportWrapper("salStartAi", 0);
+  _hwIRQEnterCritical = Module["_hwIRQEnterCritical"] = createExportWrapper("hwIRQEnterCritical", 0);
+  _salAiGetDest = Module["_salAiGetDest"] = createExportWrapper("salAiGetDest", 0);
+  _salCtrlDsp = Module["_salCtrlDsp"] = createExportWrapper("salCtrlDsp", 1);
+  _hwIRQLeaveCritical = Module["_hwIRQLeaveCritical"] = createExportWrapper("hwIRQLeaveCritical", 0);
+  _salExitDsp = Module["_salExitDsp"] = createExportWrapper("salExitDsp", 0);
+  _salExitAi = Module["_salExitAi"] = createExportWrapper("salExitAi", 0);
+  _hwExitIrq = Module["_hwExitIrq"] = createExportWrapper("hwExitIrq", 0);
+  _hwSetTimeOffset = Module["_hwSetTimeOffset"] = createExportWrapper("hwSetTimeOffset", 1);
+  _hwSetITDMode = Module["_hwSetITDMode"] = createExportWrapper("hwSetITDMode", 2);
+  _hwIsStudioActive = Module["_hwIsStudioActive"] = createExportWrapper("hwIsStudioActive", 1);
+  _aramUploadData = Module["_aramUploadData"] = createExportWrapper("aramUploadData", 6);
+  _hwPrepareStreamBuffer = Module["_hwPrepareStreamBuffer"] = createExportWrapper("hwPrepareStreamBuffer", 0);
+  _aramInit = Module["_aramInit"] = createExportWrapper("aramInit", 1);
+  _aramExit = Module["_aramExit"] = createExportWrapper("aramExit", 0);
+  _aramSetUploadCallback = Module["_aramSetUploadCallback"] = createExportWrapper("aramSetUploadCallback", 2);
+  _aramRemoveData = Module["_aramRemoveData"] = createExportWrapper("aramRemoveData", 2);
+  _aramSyncTransferQueue = Module["_aramSyncTransferQueue"] = createExportWrapper("aramSyncTransferQueue", 0);
+  _hwEnableHRTF = Module["_hwEnableHRTF"] = createExportWrapper("hwEnableHRTF", 0);
+  _aramStoreData = Module["_aramStoreData"] = createExportWrapper("aramStoreData", 2);
+  _pcMixerGenerate = Module["_pcMixerGenerate"] = createExportWrapper("pcMixerGenerate", 2);
+  _salStartDsp = Module["_salStartDsp"] = createExportWrapper("salStartDsp", 1);
+  _salGetStartDelay = Module["_salGetStartDelay"] = createExportWrapper("salGetStartDelay", 0);
+  _ReverbSTDCallback = Module["_ReverbSTDCallback"] = createExportWrapper("ReverbSTDCallback", 4);
+  _sndAuxCallbackUpdateSettingsReverbSTD = Module["_sndAuxCallbackUpdateSettingsReverbSTD"] = createExportWrapper("sndAuxCallbackUpdateSettingsReverbSTD", 1);
+  _ReverbSTDModify = Module["_ReverbSTDModify"] = createExportWrapper("ReverbSTDModify", 6);
+  _ReverbSTDCreate = Module["_ReverbSTDCreate"] = createExportWrapper("ReverbSTDCreate", 6);
+  _ReverbSTDFree = Module["_ReverbSTDFree"] = createExportWrapper("ReverbSTDFree", 1);
+  _ReverbHICallback = Module["_ReverbHICallback"] = createExportWrapper("ReverbHICallback", 4);
+  _sndAuxCallbackUpdateSettingsReverbHI = Module["_sndAuxCallbackUpdateSettingsReverbHI"] = createExportWrapper("sndAuxCallbackUpdateSettingsReverbHI", 1);
+  _ReverbHIModify = Module["_ReverbHIModify"] = createExportWrapper("ReverbHIModify", 7);
+  _ReverbHICreate = Module["_ReverbHICreate"] = createExportWrapper("ReverbHICreate", 7);
+  _ReverbHIFree = Module["_ReverbHIFree"] = createExportWrapper("ReverbHIFree", 1);
+  _sndAuxCallbackUpdateSettingsDelay = Module["_sndAuxCallbackUpdateSettingsDelay"] = createExportWrapper("sndAuxCallbackUpdateSettingsDelay", 1);
+  _sndAuxCallbackUpdateSettingsChorus = Module["_sndAuxCallbackUpdateSettingsChorus"] = createExportWrapper("sndAuxCallbackUpdateSettingsChorus", 1);
   _SDL_ExitProcess = Module["_SDL_ExitProcess"] = createExportWrapper("SDL_ExitProcess", 1);
   _SDL_SetAppMetadata = Module["_SDL_SetAppMetadata"] = createExportWrapper("SDL_SetAppMetadata", 3);
   _SDL_SetAppMetadataProperty = Module["_SDL_SetAppMetadataProperty"] = createExportWrapper("SDL_SetAppMetadataProperty", 2);
@@ -80313,6 +82294,73 @@ function assignWasmExports(wasmExports) {
   _ft_grays_raster = Module["_ft_grays_raster"] = (wasmExports["ft_grays_raster"].value) >>> 0;
   _tt_default_graphics_state = Module["_tt_default_graphics_state"] = (wasmExports["tt_default_graphics_state"].value) >>> 0;
   __ZNSt3__219piecewise_constructE = Module["__ZNSt3__219piecewise_constructE"] = (wasmExports["_ZNSt3__219piecewise_constructE"].value) >>> 0;
+  _seqActiveRoot = Module["_seqActiveRoot"] = (wasmExports["seqActiveRoot"].value) >>> 0;
+  _seqPausedRoot = Module["_seqPausedRoot"] = (wasmExports["seqPausedRoot"].value) >>> 0;
+  _seqFreeRoot = Module["_seqFreeRoot"] = (wasmExports["seqFreeRoot"].value) >>> 0;
+  _seqMIDIPriority = Module["_seqMIDIPriority"] = (wasmExports["seqMIDIPriority"].value) >>> 0;
+  _seqInstance = Module["_seqInstance"] = (wasmExports["seqInstance"].value) >>> 0;
+  _synthVoice = Module["_synthVoice"] = (wasmExports["synthVoice"].value) >>> 0;
+  _synthInfo = Module["_synthInfo"] = (wasmExports["synthInfo"].value) >>> 0;
+  _synthRealTime = Module["_synthRealTime"] = (wasmExports["synthRealTime"].value) >>> 0;
+  _synthMasterFader = Module["_synthMasterFader"] = (wasmExports["synthMasterFader"].value) >>> 0;
+  _synthTrackVolume = Module["_synthTrackVolume"] = (wasmExports["synthTrackVolume"].value) >>> 0;
+  _synthFlags = Module["_synthFlags"] = (wasmExports["synthFlags"].value) >>> 0;
+  _synthMasterFaderPauseActiveFlags = Module["_synthMasterFaderPauseActiveFlags"] = (wasmExports["synthMasterFaderPauseActiveFlags"].value) >>> 0;
+  _synthMasterFaderActiveFlags = Module["_synthMasterFaderActiveFlags"] = (wasmExports["synthMasterFaderActiveFlags"].value) >>> 0;
+  _synthAuxAMIDI = Module["_synthAuxAMIDI"] = (wasmExports["synthAuxAMIDI"].value) >>> 0;
+  _synthAuxAMIDISet = Module["_synthAuxAMIDISet"] = (wasmExports["synthAuxAMIDISet"].value) >>> 0;
+  _synthAuxAUser = Module["_synthAuxAUser"] = (wasmExports["synthAuxAUser"].value) >>> 0;
+  _synthAuxACallback = Module["_synthAuxACallback"] = (wasmExports["synthAuxACallback"].value) >>> 0;
+  _synthAuxBMIDI = Module["_synthAuxBMIDI"] = (wasmExports["synthAuxBMIDI"].value) >>> 0;
+  _synthAuxBMIDISet = Module["_synthAuxBMIDISet"] = (wasmExports["synthAuxBMIDISet"].value) >>> 0;
+  _synthAuxBUser = Module["_synthAuxBUser"] = (wasmExports["synthAuxBUser"].value) >>> 0;
+  _synthAuxBCallback = Module["_synthAuxBCallback"] = (wasmExports["synthAuxBCallback"].value) >>> 0;
+  _sndActive = Module["_sndActive"] = (wasmExports["sndActive"].value) >>> 0;
+  _synthMessageCallback = Module["_synthMessageCallback"] = (wasmExports["synthMessageCallback"].value) >>> 0;
+  _synthITDDefault = Module["_synthITDDefault"] = (wasmExports["synthITDDefault"].value) >>> 0;
+  _synthGlobalVariable = Module["_synthGlobalVariable"] = (wasmExports["synthGlobalVariable"].value) >>> 0;
+  _inpAuxA = Module["_inpAuxA"] = (wasmExports["inpAuxA"].value) >>> 0;
+  _inpAuxB = Module["_inpAuxB"] = (wasmExports["inpAuxB"].value) >>> 0;
+  _synthIdleWaitActive = Module["_synthIdleWaitActive"] = (wasmExports["synthIdleWaitActive"].value) >>> 0;
+  _voiceFxRunning = Module["_voiceFxRunning"] = (wasmExports["voiceFxRunning"].value) >>> 0;
+  _voiceMusicRunning = Module["_voiceMusicRunning"] = (wasmExports["voiceMusicRunning"].value) >>> 0;
+  _dspDLSVolTab = Module["_dspDLSVolTab"] = (wasmExports["dspDLSVolTab"].value) >>> 0;
+  _dspScale2IndexTab = Module["_dspScale2IndexTab"] = (wasmExports["dspScale2IndexTab"].value) >>> 0;
+  _voicePrioSortVoices = Module["_voicePrioSortVoices"] = (wasmExports["voicePrioSortVoices"].value) >>> 0;
+  _voicePrioSortVoicesRoot = Module["_voicePrioSortVoicesRoot"] = (wasmExports["voicePrioSortVoicesRoot"].value) >>> 0;
+  _voicePrioSortRootList = Module["_voicePrioSortRootList"] = (wasmExports["voicePrioSortRootList"].value) >>> 0;
+  _voicePrioSortRootListRoot = Module["_voicePrioSortRootListRoot"] = (wasmExports["voicePrioSortRootListRoot"].value) >>> 0;
+  _voiceListRoot = Module["_voiceListRoot"] = (wasmExports["voiceListRoot"].value) >>> 0;
+  _voiceList = Module["_voiceList"] = (wasmExports["voiceList"].value) >>> 0;
+  _voiceListInsert = Module["_voiceListInsert"] = (wasmExports["voiceListInsert"].value) >>> 0;
+  _dspAttenuationTab = Module["_dspAttenuationTab"] = (wasmExports["dspAttenuationTab"].value) >>> 0;
+  _vs = Module["_vs"] = (wasmExports["vs"].value) >>> 0;
+  _dspCmdList = Module["_dspCmdList"] = (wasmExports["dspCmdList"].value) >>> 0;
+  _dspSurround = Module["_dspSurround"] = (wasmExports["dspSurround"].value) >>> 0;
+  _dspVoice = Module["_dspVoice"] = (wasmExports["dspVoice"].value) >>> 0;
+  _dspITDBuffer = Module["_dspITDBuffer"] = (wasmExports["dspITDBuffer"].value) >>> 0;
+  _dspStudio = Module["_dspStudio"] = (wasmExports["dspStudio"].value) >>> 0;
+  _dspHrtfHistoryBuffer = Module["_dspHrtfHistoryBuffer"] = (wasmExports["dspHrtfHistoryBuffer"].value) >>> 0;
+  _salMessageCallback = Module["_salMessageCallback"] = (wasmExports["salMessageCallback"].value) >>> 0;
+  _dspCmdLastLoad = Module["_dspCmdLastLoad"] = (wasmExports["dspCmdLastLoad"].value) >>> 0;
+  _dspCmdLastBase = Module["_dspCmdLastBase"] = (wasmExports["dspCmdLastBase"].value) >>> 0;
+  _dspCmdLastSize = Module["_dspCmdLastSize"] = (wasmExports["dspCmdLastSize"].value) >>> 0;
+  _dspCmdCurBase = Module["_dspCmdCurBase"] = (wasmExports["dspCmdCurBase"].value) >>> 0;
+  _dspCmdMaxPtr = Module["_dspCmdMaxPtr"] = (wasmExports["dspCmdMaxPtr"].value) >>> 0;
+  _dspCmdPtr = Module["_dspCmdPtr"] = (wasmExports["dspCmdPtr"].value) >>> 0;
+  _dspCmdFirstSize = Module["_dspCmdFirstSize"] = (wasmExports["dspCmdFirstSize"].value) >>> 0;
+  _dspHRTFOn = Module["_dspHRTFOn"] = (wasmExports["dspHRTFOn"].value) >>> 0;
+  _last_rnd = Module["_last_rnd"] = (wasmExports["last_rnd"].value) >>> 0;
+  _sndSintab = Module["_sndSintab"] = (wasmExports["sndSintab"].value) >>> 0;
+  _salAuxFrame = Module["_salAuxFrame"] = (wasmExports["salAuxFrame"].value) >>> 0;
+  _salFrame = Module["_salFrame"] = (wasmExports["salFrame"].value) >>> 0;
+  _salMaxStudioNum = Module["_salMaxStudioNum"] = (wasmExports["salMaxStudioNum"].value) >>> 0;
+  _salNumVoices = Module["_salNumVoices"] = (wasmExports["salNumVoices"].value) >>> 0;
+  _salTimeOffset = Module["_salTimeOffset"] = (wasmExports["salTimeOffset"].value) >>> 0;
+  _salHooks = Module["_salHooks"] = (wasmExports["salHooks"].value) >>> 0;
+  _globalMutex = Module["_globalMutex"] = (wasmExports["globalMutex"].value) >>> 0;
+  _globalInterrupt = Module["_globalInterrupt"] = (wasmExports["globalInterrupt"].value) >>> 0;
+  _i2fMagic = Module["_i2fMagic"] = (wasmExports["i2fMagic"].value) >>> 0;
   _SDL_object_validation = Module["_SDL_object_validation"] = (wasmExports["SDL_object_validation"].value) >>> 0;
   _EMSCRIPTENAUDIO_bootstrap = Module["_EMSCRIPTENAUDIO_bootstrap"] = (wasmExports["EMSCRIPTENAUDIO_bootstrap"].value) >>> 0;
   _DISKAUDIO_bootstrap = Module["_DISKAUDIO_bootstrap"] = (wasmExports["DISKAUDIO_bootstrap"].value) >>> 0;

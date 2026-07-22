@@ -780,7 +780,7 @@ s32 msmSysInit(MSM_INIT *init, MSM_ARAM *aram)
     s32 result;
     void *temp;
 
-    SND_HOOKS sndHooks = { msmMemAlloc, msmMemFree };
+    SND_HOOKS sndHooks = { (void *(*)(size_t))msmMemAlloc, msmMemFree };
     DVDFileInfo sp10;
     if (sndIsInstalled() == 1) {
         return MSM_ERR_INSTALLED;
@@ -789,9 +789,19 @@ s32 msmSysInit(MSM_INIT *init, MSM_ARAM *aram)
     sys.irqDepth = 0;
     msmMemInit(init->heap, init->heapSize);
     msmFioInit(init->open, init->read, init->close);
-    sys.msmEntryNum = DVDConvertPathToEntrynum(init->msmPath);
-    if (sys.msmEntryNum < 0) {
-        return MSM_ERR_OPENFAIL;
+    if (init->open != NULL) {
+        // A custom open hook doesn't need a real DVD directory-entry number
+        // (it's whatever the caller's open() wants it to mean, or nothing at
+        // all) -- skip the entrynum lookup/check entirely in that case. See
+        // src/port/audio.c's MsmFileOpen for why this port needs one: the
+        // real DVDConvertPathToEntrynum() requires a mounted disc image,
+        // which doesn't exist here.
+        sys.msmEntryNum = 0;
+    } else {
+        sys.msmEntryNum = DVDConvertPathToEntrynum(init->msmPath);
+        if (sys.msmEntryNum < 0) {
+            return MSM_ERR_OPENFAIL;
+        }
     }
     if (msmFioOpen(sys.msmEntryNum, &sp10) != 1) {
         return MSM_ERR_OPENFAIL;
