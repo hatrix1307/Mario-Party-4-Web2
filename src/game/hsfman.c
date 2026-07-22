@@ -1156,6 +1156,10 @@ void Hu3DCameraCreate(s32 cam) {
     defCamera.viewport_h = RenderMode->efbHeight;
     defCamera.scissor_w = RenderMode->fbWidth;
     defCamera.scissor_h = RenderMode->efbHeight;
+    // defCamera's aspect field above is a compile-time HU_DISP_ASPECT (can't
+    // be a runtime call in a static initializer); override it here with the
+    // current setting before it gets copied into new camera slots below.
+    defCamera.aspect = HuDispAspectGet();
     Hu3DCameraExistF |= cam;
     
     for (i = 0, mask = 1; i < HU3D_CAM_MAX; i++, mask <<= 1) {
@@ -1344,7 +1348,7 @@ BOOL Hu3DModelCameraInfoSet(s16 arg0, u16 arg1) {
                              sp8.x, sp8.y, sp8.z, 
                              obj_copy->camera.pos.x, obj_copy->camera.pos.y, obj_copy->camera.pos.z);
             
-            Hu3DCameraPerspectiveSet(arg1, obj_copy->camera.fov, obj_copy->camera.nnear, obj_copy->camera.ffar, HU_DISP_ASPECT);
+            Hu3DCameraPerspectiveSet(arg1, obj_copy->camera.fov, obj_copy->camera.nnear, obj_copy->camera.ffar, HuDispAspectGet());
             
             temp_r28->unk_01 = arg1;
             temp_r24 = &Hu3DData[arg0];
@@ -1951,7 +1955,7 @@ void Hu3DShadowCreate(f32 arg8, f32 arg9, f32 argA) {
     Hu3DShadowData.camUp.x = -1.0f;
     Hu3DShadowData.camUp.y = 1.0f;
     Hu3DShadowData.camUp.z = 0.0f;
-    C_MTXLightPerspective(Hu3DShadowData.projMtx, arg8, HU_DISP_ASPECT, 0.5f, -0.5f, 0.5f, 0.5f);
+    C_MTXLightPerspective(Hu3DShadowData.projMtx, arg8, HuDispAspectGet(), 0.5f, -0.5f, 0.5f, 0.5f);
     VECNormalize(&Hu3DShadowData.camUp, &Hu3DShadowData.camUp);
     Hu3DShadowData.unk_00 = 0x80;
     Hu3DShadowF = 1;
@@ -1988,7 +1992,7 @@ void Hu3DShadowExec(void) {
 
     Hu3DDrawPreInit();
     GXSetCopyClear(sp14, 0xFFFFFF);
-    C_MTXPerspective(sp18, Hu3DShadowData.unk_08.x, HU_DISP_ASPECT, Hu3DShadowData.unk_08.y, Hu3DShadowData.unk_08.z);
+    C_MTXPerspective(sp18, Hu3DShadowData.unk_08.x, HuDispAspectGet(), Hu3DShadowData.unk_08.y, Hu3DShadowData.unk_08.z);
     GXSetProjection(sp18, GX_PERSPECTIVE);
     if (Hu3DShadowData.unk_02 <= 0xF0) {
         GXSetScissor(2, 2, Hu3DShadowData.unk_02 * 2 - 4, Hu3DShadowData.unk_02 * 2 - 4);
@@ -2120,7 +2124,7 @@ s16 Hu3DProjectionCreate(void *arg0, f32 arg8, f32 arg9, f32 argA) {
     var_r31->unk_2C.x = -1.0f;
     var_r31->unk_2C.y = 1.0f;
     var_r31->unk_2C.z = 0.0f;
-    C_MTXLightPerspective(var_r31->unk_68, arg8, HU_DISP_ASPECT, 0.5f, -0.5f, 0.5f, 0.5f);
+    C_MTXLightPerspective(var_r31->unk_68, arg8, HuDispAspectGet(), 0.5f, -0.5f, 0.5f, 0.5f);
     VECNormalize(&var_r31->unk_2C, &var_r31->unk_2C);
     var_r31->unk_00 = 0x80;
     Hu3DProjectionNum++;

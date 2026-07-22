@@ -1151,7 +1151,7 @@ void BoardCameraInit(void)
     camera->fov = 25;
     camera->nnear = 100;
     camera->ffar = 13000;
-    camera->aspect = HU_DISP_ASPECT;
+    camera->aspect = HuDispAspectGet();
     camera->viewport_x = 0;
     camera->viewport_y = 0;
     camera->viewport_h = HU_FB_HEIGHT;
@@ -1177,7 +1177,7 @@ void BoardCameraInit(void)
     Hu3DCameraCreate(1);
     Hu3DCameraScissorSet(1, camera->viewport_x, camera->viewport_y, camera->viewport_w, camera->viewport_h);
     Hu3DCameraScissorSet(2, 0, 0, 0, 0);
-    Hu3DCameraPerspectiveSet(2, -1, 100, 13000, 1.2);
+    Hu3DCameraPerspectiveSet(2, -1, 100, 13000, HuDispAspectGet());
     cameraObj = omAddObjEx(boardObjMan, 32258, 0, 0, -1, UpdateCamera);
 }
 

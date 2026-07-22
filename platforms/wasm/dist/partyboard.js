@@ -68,7 +68,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpr01nfieg.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmp4ognq5_m.js
 if (!Module["expectedDataFileDownloads"]) Module["expectedDataFileDownloads"] = 0;
 
 Module["expectedDataFileDownloads"]++;
@@ -1942,23 +1942,23 @@ Module["expectedDataFileDownloads"]++;
   });
 })();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmpr01nfieg.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmp3_psgzcc.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmp4ognq5_m.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmp9yf6om5s.js
 // All the pre-js content up to here must remain later on, we need to run
 // it.
 if ((typeof ENVIRONMENT_IS_WASM_WORKER != "undefined" && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != "undefined" && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != "undefined" && ENVIRONMENT_IS_AUDIO_WORKLET)) Module["preRun"] = [];
 
 var necessaryPreJSTasks = Module["preRun"].slice();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmp3_psgzcc.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmp25pynw4b.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmp9yf6om5s.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpbvrtwa1s.js
 if (!Module["preRun"]) throw "Module.preRun should exist because file support used it; did a pre-js delete it?";
 
 necessaryPreJSTasks.forEach(task => {
   if (Module["preRun"].indexOf(task) < 0) throw "All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?";
 });
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmp25pynw4b.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmpbvrtwa1s.js
 var arguments_ = [];
 
 var thisProgram = "./this.program";
@@ -34864,6 +34864,8 @@ var _HuPrcVSleep = Module["_HuPrcVSleep"] = makeInvalidEarlyAccess("_HuPrcVSleep
 
 var _C_VECNormalize = Module["_C_VECNormalize"] = makeInvalidEarlyAccess("_C_VECNormalize");
 
+var _HuDispAspectGet = Module["_HuDispAspectGet"] = makeInvalidEarlyAccess("_HuDispAspectGet");
+
 var _C_MTXLookAt = Module["_C_MTXLookAt"] = makeInvalidEarlyAccess("_C_MTXLookAt");
 
 var _C_MTXMultVec = Module["_C_MTXMultVec"] = makeInvalidEarlyAccess("_C_MTXMultVec");
@@ -35987,6 +35989,12 @@ var __ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_e
 var _puts = Module["_puts"] = makeInvalidEarlyAccess("_puts");
 
 var _OSDumpStopwatch = Module["_OSDumpStopwatch"] = makeInvalidEarlyAccess("_OSDumpStopwatch");
+
+var _HuDispAspectSetWide = Module["_HuDispAspectSetWide"] = makeInvalidEarlyAccess("_HuDispAspectSetWide");
+
+var _SettingsSetKeyButtonBinding = Module["_SettingsSetKeyButtonBinding"] = makeInvalidEarlyAccess("_SettingsSetKeyButtonBinding");
+
+var _SettingsSetKeyAxisBinding = Module["_SettingsSetKeyAxisBinding"] = makeInvalidEarlyAccess("_SettingsSetKeyAxisBinding");
 
 var _DEMOUpdateStats = Module["_DEMOUpdateStats"] = makeInvalidEarlyAccess("_DEMOUpdateStats");
 
@@ -57966,6 +57974,7 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["cos"] != "undefined", "missing Wasm export: cos");
   assert(typeof wasmExports["HuPrcVSleep"] != "undefined", "missing Wasm export: HuPrcVSleep");
   assert(typeof wasmExports["C_VECNormalize"] != "undefined", "missing Wasm export: C_VECNormalize");
+  assert(typeof wasmExports["HuDispAspectGet"] != "undefined", "missing Wasm export: HuDispAspectGet");
   assert(typeof wasmExports["C_MTXLookAt"] != "undefined", "missing Wasm export: C_MTXLookAt");
   assert(typeof wasmExports["C_MTXMultVec"] != "undefined", "missing Wasm export: C_MTXMultVec");
   assert(typeof wasmExports["asinf"] != "undefined", "missing Wasm export: asinf");
@@ -58528,6 +58537,9 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["_ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc"] != "undefined", "missing Wasm export: _ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc");
   assert(typeof wasmExports["puts"] != "undefined", "missing Wasm export: puts");
   assert(typeof wasmExports["OSDumpStopwatch"] != "undefined", "missing Wasm export: OSDumpStopwatch");
+  assert(typeof wasmExports["HuDispAspectSetWide"] != "undefined", "missing Wasm export: HuDispAspectSetWide");
+  assert(typeof wasmExports["SettingsSetKeyButtonBinding"] != "undefined", "missing Wasm export: SettingsSetKeyButtonBinding");
+  assert(typeof wasmExports["SettingsSetKeyAxisBinding"] != "undefined", "missing Wasm export: SettingsSetKeyAxisBinding");
   assert(typeof wasmExports["DEMOUpdateStats"] != "undefined", "missing Wasm export: DEMOUpdateStats");
   assert(typeof wasmExports["DEMOPrintStats"] != "undefined", "missing Wasm export: DEMOPrintStats");
   assert(typeof wasmExports["EXIDeselect"] != "undefined", "missing Wasm export: EXIDeselect");
@@ -70022,6 +70034,7 @@ function assignWasmExports(wasmExports) {
   _cos = Module["_cos"] = createExportWrapper("cos", 1);
   _HuPrcVSleep = Module["_HuPrcVSleep"] = createExportWrapper("HuPrcVSleep", 0);
   _C_VECNormalize = Module["_C_VECNormalize"] = createExportWrapper("C_VECNormalize", 2);
+  _HuDispAspectGet = Module["_HuDispAspectGet"] = createExportWrapper("HuDispAspectGet", 0);
   _C_MTXLookAt = Module["_C_MTXLookAt"] = createExportWrapper("C_MTXLookAt", 4);
   _C_MTXMultVec = Module["_C_MTXMultVec"] = createExportWrapper("C_MTXMultVec", 3);
   _asinf = Module["_asinf"] = createExportWrapper("asinf", 1);
@@ -70584,6 +70597,9 @@ function assignWasmExports(wasmExports) {
   __ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc = Module["__ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc"] = createExportWrapper("_ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc", 2);
   _puts = Module["_puts"] = createExportWrapper("puts", 1);
   _OSDumpStopwatch = Module["_OSDumpStopwatch"] = createExportWrapper("OSDumpStopwatch", 1);
+  _HuDispAspectSetWide = Module["_HuDispAspectSetWide"] = createExportWrapper("HuDispAspectSetWide", 1);
+  _SettingsSetKeyButtonBinding = Module["_SettingsSetKeyButtonBinding"] = createExportWrapper("SettingsSetKeyButtonBinding", 3);
+  _SettingsSetKeyAxisBinding = Module["_SettingsSetKeyAxisBinding"] = createExportWrapper("SettingsSetKeyAxisBinding", 3);
   _DEMOUpdateStats = Module["_DEMOUpdateStats"] = createExportWrapper("DEMOUpdateStats", 1);
   _DEMOPrintStats = Module["_DEMOPrintStats"] = createExportWrapper("DEMOPrintStats", 0);
   _EXIDeselect = Module["_EXIDeselect"] = createExportWrapper("EXIDeselect", 1);

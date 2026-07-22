@@ -83,5 +83,6 @@ set(PORT_FILES
         #        src/port/dvd.c
         src/port/imgui.cpp
         src/port/OS.c
+        src/port/settings.c
         src/port/stubs.c
 )

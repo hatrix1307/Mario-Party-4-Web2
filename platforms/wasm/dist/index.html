@@ -21,9 +21,6 @@
   }
   canvas {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
     background: #000;
     image-rendering: pixelated;
   }
@@ -65,7 +62,7 @@
     background: rgba(40, 40, 40, 0.85);
     border-color: rgba(255, 255, 255, 0.45);
   }
-  #controlsOverlay {
+  #settingsOverlay {
     position: fixed;
     inset: 0;
     display: none;
@@ -73,52 +70,88 @@
     justify-content: center;
     background: rgba(0, 0, 0, 0.75);
     z-index: 30;
+    overflow: auto;
+    padding: 24px 0;
   }
-  #controlsOverlay.open { display: flex; }
-  #controlsPanel {
+  #settingsOverlay.open { display: flex; }
+  #settingsPanel {
     background: #1b1b1f;
     color: #eee;
     border-radius: 12px;
     padding: 24px 28px;
-    max-width: 420px;
+    max-width: 460px;
     width: calc(100% - 48px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
   }
-  #controlsPanel h2 {
+  #settingsPanel h2 {
     margin: 0 0 4px;
     font-size: 18px;
   }
-  #controlsPanel p.hint {
-    margin: 0 0 16px;
+  #settingsPanel h3 {
+    margin: 20px 0 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #999;
+  }
+  #settingsPanel p.hint {
+    margin: 0 0 12px;
     font-size: 13px;
     color: #999;
   }
-  #controlsPanel table {
-    width: 100%;
-    border-collapse: collapse;
+  .settingRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+  }
+  .settingRow label.settingLabel {
     font-size: 14px;
   }
-  #controlsPanel td {
-    padding: 6px 4px;
+  .settingRow select {
+    background: #2e2e35;
+    color: #eee;
+    border: 1px solid #45454f;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+  #bindingsList .settingRow {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
-  #controlsPanel td.key {
-    width: 40%;
-  }
-  kbd {
-    display: inline-block;
-    min-width: 18px;
+  .bindKey {
+    min-width: 90px;
     text-align: center;
-    padding: 2px 7px;
-    border-radius: 5px;
+    padding: 6px 10px;
+    border-radius: 6px;
     background: #2e2e35;
     border: 1px solid #45454f;
     border-bottom-width: 2px;
+    color: #eee;
     font-family: monospace;
     font-size: 13px;
+    cursor: pointer;
   }
-  #controlsClose {
-    margin-top: 18px;
+  .bindKey:hover { background: #383840; }
+  .bindKey.listening {
+    background: #3a6df0;
+    border-color: #5a8bff;
+    color: #fff;
+  }
+  #resetBindings {
+    margin-top: 12px;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #eee;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  #resetBindings:hover { background: rgba(255, 255, 255, 0.12); }
+  #settingsClose {
+    margin-top: 20px;
     width: 100%;
     padding: 10px;
     border: none;
@@ -128,7 +161,7 @@
     font-size: 14px;
     cursor: pointer;
   }
-  #controlsClose:hover { background: #4a7bff; }
+  #settingsClose:hover { background: #4a7bff; }
 </style>
 </head>
 <body>
@@ -138,26 +171,41 @@
 </div>
 
 <div id="toolbar">
-  <button id="controlsBtn" type="button">Controls</button>
+  <button id="settingsBtn" type="button">&#9881; Settings</button>
   <button id="fullscreenBtn" type="button">⛶ Fullscreen</button>
 </div>
 
-<div id="controlsOverlay">
-  <div id="controlsPanel">
-    <h2>Controls</h2>
-    <p class="hint">No gamepad? Here's the default keyboard mapping (click the canvas first so it has focus).</p>
-    <table>
-      <tr><td class="key"><kbd>&uarr;</kbd> <kbd>&darr;</kbd> <kbd>&larr;</kbd> <kbd>&rarr;</kbd></td><td>Stick / D-pad</td></tr>
-      <tr><td class="key"><kbd>Z</kbd></td><td>A</td></tr>
-      <tr><td class="key"><kbd>X</kbd></td><td>B</td></tr>
-      <tr><td class="key"><kbd>A</kbd></td><td>X</td></tr>
-      <tr><td class="key"><kbd>S</kbd></td><td>Y</td></tr>
-      <tr><td class="key"><kbd>Q</kbd></td><td>L</td></tr>
-      <tr><td class="key"><kbd>E</kbd></td><td>R</td></tr>
-      <tr><td class="key"><kbd>Space</kbd></td><td>Z</td></tr>
-      <tr><td class="key"><kbd>Enter</kbd></td><td>Start</td></tr>
-    </table>
-    <button id="controlsClose" type="button">Got it</button>
+<div id="settingsOverlay">
+  <div id="settingsPanel">
+    <h2>Settings</h2>
+    <p class="hint">Click the canvas first so it has keyboard focus.</p>
+
+    <h3>Video</h3>
+    <div class="settingRow">
+      <label class="settingLabel" for="aspectSelect">Aspect ratio</label>
+      <select id="aspectSelect">
+        <option value="4:3">4:3 (original)</option>
+        <option value="16:9">16:9 (widescreen)</option>
+      </select>
+    </div>
+    <div class="settingRow">
+      <label class="settingLabel" for="resolutionSelect">Resolution</label>
+      <select id="resolutionSelect">
+        <option value="0">Match window (sharpest)</option>
+        <option value="1">1&times; (original, ~480p)</option>
+        <option value="1.5">1.5&times;</option>
+        <option value="2">2&times; (~960p)</option>
+        <option value="3">3&times; (~1440p)</option>
+        <option value="4">4&times; (~1920p)</option>
+      </select>
+    </div>
+
+    <h3>Controls</h3>
+    <p class="hint">Click a key, then press the new key for that button. Widescreen affects the 3D camera only &mdash; menus stay laid out for 4:3.</p>
+    <div id="bindingsList"></div>
+    <button id="resetBindings" type="button">Reset controls to defaults</button>
+
+    <button id="settingsClose" type="button">Done</button>
   </div>
 </div>
 
@@ -165,6 +213,38 @@
   var statusEl = document.getElementById('status');
   var stageEl = document.getElementById('stage');
   var canvasEl = document.getElementById('canvas');
+
+  // The canvas is a flex item with no intrinsic size other than its
+  // width/height attributes (640x480), and flex items don't grow to fill
+  // their container by default -- CSS alone (aspect-ratio + max-width/
+  // max-height) can't express "biggest box of ratio R that fits in a flex
+  // container" here, so the displayed box size is computed and applied
+  // directly. This is what SDL's window size (and therefore the game's
+  // render target, see window::get_window_size()) tracks under Emscripten.
+  function computeCanvasSize() {
+    var ratio = (Settings.state.aspect === '16:9') ? 16 / 9 : 4 / 3;
+    var availW = stageEl.clientWidth;
+    var availH = stageEl.clientHeight;
+    var w = availW;
+    var h = w / ratio;
+    if (h > availH) {
+      h = availH;
+      w = h * ratio;
+    }
+    canvasEl.style.width = Math.round(w) + 'px';
+    canvasEl.style.height = Math.round(h) + 'px';
+  }
+  // Real browser window resizes already fire a native 'resize' event, which
+  // SDL's Emscripten backend listens for to re-read the canvas size -- but
+  // programmatic CSS box changes (aspect toggle, fullscreen enter/exit,
+  // initial boot) don't, so those call layoutCanvas(), which also fires a
+  // synthetic 'resize' to nudge SDL into picking up the new size immediately.
+  window.addEventListener('resize', computeCanvasSize);
+  document.addEventListener('fullscreenchange', layoutCanvas);
+  function layoutCanvas() {
+    computeCanvasSize();
+    window.dispatchEvent(new Event('resize'));
+  }
   // partyboard.wasm/.data are too large to reliably serve straight out of
   // the git repo on Vercel: they're Git LFS-tracked, and Vercel's build
   // doesn't reliably run `git lfs pull`, so the deployed files ended up
@@ -188,6 +268,17 @@
     setStatus: function(text) {
       if (!text) {
         statusEl.style.display = 'none';
+        // Loading (including run-dependency resolution, which happens well
+        // after HuPadInit()'s synchronous setup) is done by the time this
+        // first fires empty -- safe point to reapply saved key bindings,
+        // which SetupDefaultKeyboardBindings() would otherwise have reset.
+        Settings.applyControlBindings();
+        // SDL's window (and its 'resize' listener) doesn't exist yet at
+        // onRuntimeInitialized time -- it's created during main(), which by
+        // this point has run. Re-nudge SDL now so it picks up the real CSS
+        // box size set before the module even started loading, instead of
+        // staying at the canvas's initial 640x480 backing store.
+        layoutCanvas();
         return;
       }
       // partyboard.js reports download progress as "Downloading data...
@@ -202,6 +293,11 @@
     },
     monitorRunDependencies: function(left) {
       if (left) statusEl.textContent = 'Loading data files... (' + left + ' remaining)';
+    },
+    onRuntimeInitialized: function() {
+      // Video settings touch plain global state (no game-logic dependency
+      // like pad bindings do), so these are safe to apply immediately.
+      Settings.applyVideoSettings();
     }
   };
 
@@ -224,17 +320,230 @@
     canvasEl.focus();
   });
 
-  var controlsOverlay = document.getElementById('controlsOverlay');
-  document.getElementById('controlsBtn').addEventListener('click', function () {
-    controlsOverlay.classList.add('open');
+  // ---- Settings: persistence, video toggles, live control remapping ----
+  var Settings = (function () {
+    // PAD_BUTTON_*/PAD_AXIS_* values from extern/aurora/include/dolphin/pad.h.
+    var PAD_BUTTON_LEFT = 0x0001, PAD_BUTTON_RIGHT = 0x0002, PAD_BUTTON_DOWN = 0x0004, PAD_BUTTON_UP = 0x0008;
+    var PAD_TRIGGER_Z = 0x0010, PAD_TRIGGER_R = 0x0020, PAD_TRIGGER_L = 0x0040;
+    var PAD_BUTTON_A = 0x0100, PAD_BUTTON_B = 0x0200, PAD_BUTTON_X = 0x0400, PAD_BUTTON_Y = 0x0800;
+    var PAD_BUTTON_START = 0x1000;
+    var PAD_AXIS_LEFT_X_POS = 0, PAD_AXIS_LEFT_X_NEG = 1, PAD_AXIS_LEFT_Y_POS = 2, PAD_AXIS_LEFT_Y_NEG = 3;
+
+    // KeyboardEvent.code -> SDL3 scancode (USB HID usage table; stable across
+    // SDL2/3). Covers the default bindings plus enough alternates for a
+    // reasonable remap UI.
+    var SDL_SCANCODE = {
+      KeyA: 4, KeyB: 5, KeyC: 6, KeyD: 7, KeyE: 8, KeyF: 9, KeyG: 10, KeyH: 11, KeyI: 12, KeyJ: 13,
+      KeyK: 14, KeyL: 15, KeyM: 16, KeyN: 17, KeyO: 18, KeyP: 19, KeyQ: 20, KeyR: 21, KeyS: 22, KeyT: 23,
+      KeyU: 24, KeyV: 25, KeyW: 26, KeyX: 27, KeyY: 28, KeyZ: 29,
+      Digit1: 30, Digit2: 31, Digit3: 32, Digit4: 33, Digit5: 34, Digit6: 35, Digit7: 36, Digit8: 37, Digit9: 38, Digit0: 39,
+      Enter: 40, Escape: 41, Backspace: 42, Tab: 43, Space: 44,
+      Minus: 45, Equal: 46, BracketLeft: 47, BracketRight: 48, Backslash: 49,
+      Semicolon: 51, Quote: 52, Backquote: 53, Comma: 54, Period: 55, Slash: 56,
+      CapsLock: 57,
+      F1: 58, F2: 59, F3: 60, F4: 61, F5: 62, F6: 63, F7: 64, F8: 65, F9: 66, F10: 67, F11: 68, F12: 69,
+      ArrowRight: 79, ArrowLeft: 80, ArrowDown: 81, ArrowUp: 82,
+      ControlLeft: 224, ShiftLeft: 225, AltLeft: 226, MetaLeft: 227,
+      ControlRight: 228, ShiftRight: 229, AltRight: 230, MetaRight: 231
+    };
+
+    // Mirrors SetupDefaultKeyboardBindings() in src/game/pad.c.
+    var ACTIONS = [
+      { id: 'A', label: 'A', padButton: PAD_BUTTON_A, defaultCode: 'KeyZ' },
+      { id: 'B', label: 'B', padButton: PAD_BUTTON_B, defaultCode: 'KeyX' },
+      { id: 'X', label: 'X', padButton: PAD_BUTTON_X, defaultCode: 'KeyA' },
+      { id: 'Y', label: 'Y', padButton: PAD_BUTTON_Y, defaultCode: 'KeyS' },
+      { id: 'Start', label: 'Start', padButton: PAD_BUTTON_START, defaultCode: 'Enter' },
+      { id: 'Z', label: 'Z (trigger)', padButton: PAD_TRIGGER_Z, defaultCode: 'Space' },
+      { id: 'L', label: 'L', padButton: PAD_TRIGGER_L, defaultCode: 'KeyQ' },
+      { id: 'R', label: 'R', padButton: PAD_TRIGGER_R, defaultCode: 'KeyE' },
+      { id: 'Up', label: 'Up', padButton: PAD_BUTTON_UP, padAxis: PAD_AXIS_LEFT_Y_POS, defaultCode: 'ArrowUp' },
+      { id: 'Down', label: 'Down', padButton: PAD_BUTTON_DOWN, padAxis: PAD_AXIS_LEFT_Y_NEG, defaultCode: 'ArrowDown' },
+      { id: 'Left', label: 'Left', padButton: PAD_BUTTON_LEFT, padAxis: PAD_AXIS_LEFT_X_NEG, defaultCode: 'ArrowLeft' },
+      { id: 'Right', label: 'Right', padButton: PAD_BUTTON_RIGHT, padAxis: PAD_AXIS_LEFT_X_POS, defaultCode: 'ArrowRight' }
+    ];
+
+    var STORAGE_KEY = 'mp4-settings-v1';
+    var state = loadState();
+
+    function defaultState() {
+      var bindings = {};
+      ACTIONS.forEach(function (a) { bindings[a.id] = a.defaultCode; });
+      return { aspect: '4:3', resolution: '0', bindings: bindings };
+    }
+
+    function loadState() {
+      var s = defaultState();
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          var saved = JSON.parse(raw);
+          if (saved.aspect === '4:3' || saved.aspect === '16:9') s.aspect = saved.aspect;
+          if (saved.resolution) s.resolution = String(saved.resolution);
+          if (saved.bindings) {
+            ACTIONS.forEach(function (a) {
+              if (typeof saved.bindings[a.id] === 'string') s.bindings[a.id] = saved.bindings[a.id];
+            });
+          }
+        }
+      } catch (e) {
+        console.error('Failed to load saved settings: ' + e);
+      }
+      return s;
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) {
+        console.error('Failed to save settings: ' + e);
+      }
+    }
+
+    function codeLabel(code) {
+      if (!code) return '?';
+      if (code.indexOf('Key') === 0) return code.slice(3);
+      if (code.indexOf('Digit') === 0) return code.slice(5);
+      if (code.indexOf('Arrow') === 0) return code.slice(5);
+      return code;
+    }
+
+    function applyAspectCss() {
+      canvasEl.classList.toggle('aspect-16-9', state.aspect === '16:9');
+      layoutCanvas();
+    }
+
+    function applyVideoSettings() {
+      applyAspectCss();
+      if (!Module._HuDispAspectSetWide || !Module._VISetFrameBufferScale) return;
+      Module._HuDispAspectSetWide(state.aspect === '16:9' ? 1 : 0);
+      Module._VISetFrameBufferScale(parseFloat(state.resolution) || 0);
+    }
+
+    function applyControlBindings() {
+      if (!Module._SettingsSetKeyButtonBinding) return;
+      ACTIONS.forEach(function (a) {
+        var scancode = SDL_SCANCODE[state.bindings[a.id]];
+        if (scancode === undefined) return;
+        Module._SettingsSetKeyButtonBinding(0, a.padButton, scancode);
+        if (a.padAxis !== undefined) {
+          Module._SettingsSetKeyAxisBinding(0, a.padAxis, scancode);
+        }
+      });
+    }
+
+    function renderBindingsList() {
+      var list = document.getElementById('bindingsList');
+      list.innerHTML = '';
+      ACTIONS.forEach(function (a) {
+        var row = document.createElement('div');
+        row.className = 'settingRow';
+        var label = document.createElement('span');
+        label.className = 'settingLabel';
+        label.textContent = a.label;
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'bindKey';
+        btn.textContent = codeLabel(state.bindings[a.id]);
+        btn.addEventListener('click', function () { startListening(a, btn); });
+        row.appendChild(label);
+        row.appendChild(btn);
+        list.appendChild(row);
+      });
+    }
+
+    function startListening(action, btn) {
+      var already = list_querySelectorListening();
+      if (already) already.classList.remove('listening');
+      btn.classList.add('listening');
+      btn.textContent = 'Press a key…';
+      var onKey = function (e) {
+        e.preventDefault();
+        if (e.code === 'Escape') {
+          btn.classList.remove('listening');
+          btn.textContent = codeLabel(state.bindings[action.id]);
+          window.removeEventListener('keydown', onKey, true);
+          return;
+        }
+        if (SDL_SCANCODE[e.code] === undefined) {
+          // Unsupported key for rebinding -- keep listening.
+          return;
+        }
+        state.bindings[action.id] = e.code;
+        btn.classList.remove('listening');
+        btn.textContent = codeLabel(e.code);
+        window.removeEventListener('keydown', onKey, true);
+        saveState();
+        applyControlBindings();
+        canvasEl.focus();
+      };
+      window.addEventListener('keydown', onKey, true);
+    }
+
+    function list_querySelectorListening() {
+      return document.querySelector('#bindingsList .bindKey.listening');
+    }
+
+    function resetBindings() {
+      var d = defaultState();
+      state.bindings = d.bindings;
+      saveState();
+      renderBindingsList();
+      applyControlBindings();
+    }
+
+    function setAspect(value) {
+      state.aspect = value === '16:9' ? '16:9' : '4:3';
+      saveState();
+      applyVideoSettings();
+    }
+
+    function setResolution(value) {
+      state.resolution = String(value);
+      saveState();
+      applyVideoSettings();
+    }
+
+    return {
+      state: state,
+      applyVideoSettings: applyVideoSettings,
+      applyControlBindings: applyControlBindings,
+      renderBindingsList: renderBindingsList,
+      resetBindings: resetBindings,
+      setAspect: setAspect,
+      setResolution: setResolution
+    };
+  })();
+
+  // Reflect saved settings in the UI controls immediately (doesn't need the
+  // wasm module to be ready).
+  canvasEl.classList.toggle('aspect-16-9', Settings.state.aspect === '16:9');
+  layoutCanvas();
+  document.getElementById('aspectSelect').value = Settings.state.aspect;
+  document.getElementById('resolutionSelect').value = Settings.state.resolution;
+  Settings.renderBindingsList();
+
+  document.getElementById('aspectSelect').addEventListener('change', function (e) {
+    Settings.setAspect(e.target.value);
   });
-  document.getElementById('controlsClose').addEventListener('click', function () {
-    controlsOverlay.classList.remove('open');
+  document.getElementById('resolutionSelect').addEventListener('change', function (e) {
+    Settings.setResolution(e.target.value);
+  });
+  document.getElementById('resetBindings').addEventListener('click', function () {
+    Settings.resetBindings();
+  });
+
+  var settingsOverlay = document.getElementById('settingsOverlay');
+  document.getElementById('settingsBtn').addEventListener('click', function () {
+    settingsOverlay.classList.add('open');
+  });
+  document.getElementById('settingsClose').addEventListener('click', function () {
+    settingsOverlay.classList.remove('open');
     canvasEl.focus();
   });
-  controlsOverlay.addEventListener('click', function (e) {
-    if (e.target === controlsOverlay) {
-      controlsOverlay.classList.remove('open');
+  settingsOverlay.addEventListener('click', function (e) {
+    if (e.target === settingsOverlay) {
+      settingsOverlay.classList.remove('open');
       canvasEl.focus();
     }
   });
