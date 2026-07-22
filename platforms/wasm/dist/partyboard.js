@@ -68,7 +68,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\Sonic\AppData\Local\Temp\tmprwblrpx8.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmp1ubjyug2.js
 if (!Module["expectedDataFileDownloads"]) Module["expectedDataFileDownloads"] = 0;
 
 Module["expectedDataFileDownloads"]++;
@@ -1576,389 +1576,389 @@ Module["expectedDataFileDownloads"]++;
     }, {
       "filename": "/rel/E3setupDLL.wasm",
       "start": 254818400,
-      "end": 254932430
+      "end": 254932466
     }, {
       "filename": "/rel/_minigameDLL.wasm",
-      "start": 254932430,
-      "end": 254934617
+      "start": 254932466,
+      "end": 254934653
     }, {
       "filename": "/rel/bootDll.wasm",
-      "start": 254934617,
-      "end": 254979572
+      "start": 254934653,
+      "end": 254979632
     }, {
       "filename": "/rel/instDll.wasm",
-      "start": 254979572,
-      "end": 255078718
+      "start": 254979632,
+      "end": 255078802
     }, {
       "filename": "/rel/m401Dll.wasm",
-      "start": 255078718,
-      "end": 255391105
+      "start": 255078802,
+      "end": 255391225
     }, {
       "filename": "/rel/m402Dll.wasm",
-      "start": 255391105,
-      "end": 255480200
+      "start": 255391225,
+      "end": 255480344
     }, {
       "filename": "/rel/m403Dll.wasm",
-      "start": 255480200,
-      "end": 255619557
+      "start": 255480344,
+      "end": 255619737
     }, {
       "filename": "/rel/m404Dll.wasm",
-      "start": 255619557,
-      "end": 255734857
+      "start": 255619737,
+      "end": 255735061
     }, {
       "filename": "/rel/m405Dll.wasm",
-      "start": 255734857,
-      "end": 255908859
+      "start": 255735061,
+      "end": 255909087
     }, {
       "filename": "/rel/m406Dll.wasm",
-      "start": 255908859,
-      "end": 256255144
+      "start": 255909087,
+      "end": 256255420
     }, {
       "filename": "/rel/m407dll.wasm",
-      "start": 256255144,
-      "end": 256408314
+      "start": 256255420,
+      "end": 256408814
     }, {
       "filename": "/rel/m408Dll.wasm",
-      "start": 256408314,
-      "end": 256736674
+      "start": 256408814,
+      "end": 256737234
     }, {
       "filename": "/rel/m409Dll.wasm",
-      "start": 256736674,
-      "end": 257014935
+      "start": 256737234,
+      "end": 257015531
     }, {
       "filename": "/rel/m410Dll.wasm",
-      "start": 257014935,
-      "end": 257213477
+      "start": 257015531,
+      "end": 257214162
     }, {
       "filename": "/rel/m411Dll.wasm",
-      "start": 257213477,
-      "end": 257396551
+      "start": 257214162,
+      "end": 257397260
     }, {
       "filename": "/rel/m412Dll.wasm",
-      "start": 257396551,
-      "end": 257549468
+      "start": 257397260,
+      "end": 257550201
     }, {
       "filename": "/rel/m413Dll.wasm",
-      "start": 257549468,
-      "end": 257701859
+      "start": 257550201,
+      "end": 257702616
     }, {
       "filename": "/rel/m414Dll.wasm",
-      "start": 257701859,
-      "end": 257862231
+      "start": 257702616,
+      "end": 257863012
     }, {
       "filename": "/rel/m415Dll.wasm",
-      "start": 257862231,
-      "end": 258087553
+      "start": 257863012,
+      "end": 258088358
     }, {
       "filename": "/rel/m416Dll.wasm",
-      "start": 258087553,
-      "end": 258264396
+      "start": 258088358,
+      "end": 258265237
     }, {
       "filename": "/rel/m417Dll.wasm",
-      "start": 258264396,
-      "end": 258459516
+      "start": 258265237,
+      "end": 258460446
     }, {
       "filename": "/rel/m418Dll.wasm",
-      "start": 258459516,
-      "end": 258645532
+      "start": 258460446,
+      "end": 258646486
     }, {
       "filename": "/rel/m419Dll.wasm",
-      "start": 258645532,
-      "end": 258851614
+      "start": 258646486,
+      "end": 258852592
     }, {
       "filename": "/rel/m420dll.wasm",
-      "start": 258851614,
-      "end": 258996370
+      "start": 258852592,
+      "end": 258997437
     }, {
       "filename": "/rel/m421Dll.wasm",
-      "start": 258996370,
-      "end": 259191037
+      "start": 258997437,
+      "end": 259192181
     }, {
       "filename": "/rel/m422Dll.wasm",
-      "start": 259191037,
-      "end": 259312372
+      "start": 259192181,
+      "end": 259313540
     }, {
       "filename": "/rel/m423Dll.wasm",
-      "start": 259312372,
-      "end": 259629995
+      "start": 259313540,
+      "end": 259631187
     }, {
       "filename": "/rel/m424Dll.wasm",
-      "start": 259629995,
-      "end": 259851272
+      "start": 259631187,
+      "end": 259852524
     }, {
       "filename": "/rel/m425Dll.wasm",
-      "start": 259851272,
-      "end": 260124511
+      "start": 259852524,
+      "end": 260125799
     }, {
       "filename": "/rel/m426Dll.wasm",
-      "start": 260124511,
-      "end": 260313708
+      "start": 260125799,
+      "end": 260315020
     }, {
       "filename": "/rel/m427Dll.wasm",
-      "start": 260313708,
-      "end": 260720494
+      "start": 260315020,
+      "end": 260721854
     }, {
       "filename": "/rel/m428Dll.wasm",
-      "start": 260720494,
-      "end": 261057591
+      "start": 260721854,
+      "end": 261058999
     }, {
       "filename": "/rel/m429Dll.wasm",
-      "start": 261057591,
-      "end": 261262320
+      "start": 261058999,
+      "end": 261263752
     }, {
       "filename": "/rel/m430Dll.wasm",
-      "start": 261262320,
-      "end": 261556325
+      "start": 261263752,
+      "end": 261557805
     }, {
       "filename": "/rel/m431Dll.wasm",
-      "start": 261556325,
-      "end": 261781418
+      "start": 261557805,
+      "end": 261782934
     }, {
       "filename": "/rel/m432Dll.wasm",
-      "start": 261781418,
-      "end": 262024124
+      "start": 261782934,
+      "end": 262025664
     }, {
       "filename": "/rel/m433Dll.wasm",
-      "start": 262024124,
-      "end": 262282461
+      "start": 262025664,
+      "end": 262284049
     }, {
       "filename": "/rel/m434Dll.wasm",
-      "start": 262282461,
-      "end": 262476766
+      "start": 262284049,
+      "end": 262478443
     }, {
       "filename": "/rel/m435Dll.wasm",
-      "start": 262476766,
-      "end": 262792080
+      "start": 262478443,
+      "end": 262793822
     }, {
       "filename": "/rel/m436Dll.wasm",
-      "start": 262792080,
-      "end": 263031873
+      "start": 262793822,
+      "end": 263033639
     }, {
       "filename": "/rel/m437Dll.wasm",
-      "start": 263031873,
-      "end": 263300487
+      "start": 263033639,
+      "end": 263302318
     }, {
       "filename": "/rel/m438Dll.wasm",
-      "start": 263300487,
-      "end": 263617213
+      "start": 263302318,
+      "end": 263619080
     }, {
       "filename": "/rel/m439Dll.wasm",
-      "start": 263617213,
-      "end": 263805498
+      "start": 263619080,
+      "end": 263807389
     }, {
       "filename": "/rel/m440Dll.wasm",
-      "start": 263805498,
-      "end": 264048969
+      "start": 263807389,
+      "end": 264050896
     }, {
       "filename": "/rel/m441Dll.wasm",
-      "start": 264048969,
-      "end": 264203259
+      "start": 264050896,
+      "end": 264205210
     }, {
       "filename": "/rel/m442Dll.wasm",
-      "start": 264203259,
-      "end": 264371327
+      "start": 264205210,
+      "end": 264373314
     }, {
       "filename": "/rel/m443Dll.wasm",
-      "start": 264371327,
-      "end": 264535715
+      "start": 264373314,
+      "end": 264537779
     }, {
       "filename": "/rel/m444dll.wasm",
-      "start": 264535715,
-      "end": 264752048
+      "start": 264537779,
+      "end": 264754136
     }, {
       "filename": "/rel/m445Dll.wasm",
-      "start": 264752048,
-      "end": 264893325
+      "start": 264754136,
+      "end": 264895437
     }, {
       "filename": "/rel/m446Dll.wasm",
-      "start": 264893325,
-      "end": 265070788
+      "start": 264895437,
+      "end": 265072924
     }, {
       "filename": "/rel/m447dll.wasm",
-      "start": 265070788,
-      "end": 265277516
+      "start": 265072924,
+      "end": 265279753
     }, {
       "filename": "/rel/m448Dll.wasm",
-      "start": 265277516,
-      "end": 265390794
+      "start": 265279753,
+      "end": 265393055
     }, {
       "filename": "/rel/m449Dll.wasm",
-      "start": 265390794,
-      "end": 265510872
+      "start": 265393055,
+      "end": 265513157
     }, {
       "filename": "/rel/m450Dll.wasm",
-      "start": 265510872,
-      "end": 265999637
+      "start": 265513157,
+      "end": 266001946
     }, {
       "filename": "/rel/m451Dll.wasm",
-      "start": 265999637,
-      "end": 266089773
+      "start": 266001946,
+      "end": 266092106
     }, {
       "filename": "/rel/m453Dll.wasm",
-      "start": 266089773,
-      "end": 266274136
+      "start": 266092106,
+      "end": 266276517
     }, {
       "filename": "/rel/m455Dll.wasm",
-      "start": 266274136,
-      "end": 266469801
+      "start": 266276517,
+      "end": 266472218
     }, {
       "filename": "/rel/m456Dll.wasm",
-      "start": 266469801,
-      "end": 266654184
+      "start": 266472218,
+      "end": 266656637
     }, {
       "filename": "/rel/m457Dll.wasm",
-      "start": 266654184,
-      "end": 266745662
+      "start": 266656637,
+      "end": 266748139
     }, {
       "filename": "/rel/m458Dll.wasm",
-      "start": 266745662,
-      "end": 266829170
+      "start": 266748139,
+      "end": 266831671
     }, {
       "filename": "/rel/m459dll.wasm",
-      "start": 266829170,
-      "end": 266954637
+      "start": 266831671,
+      "end": 266957162
     }, {
       "filename": "/rel/m460Dll.wasm",
-      "start": 266954637,
-      "end": 267124735
+      "start": 266957162,
+      "end": 267127349
     }, {
       "filename": "/rel/m461Dll.wasm",
-      "start": 267124735,
-      "end": 267284866
+      "start": 267127349,
+      "end": 267287504
     }, {
       "filename": "/rel/m462Dll.wasm",
-      "start": 267284866,
-      "end": 267393373
+      "start": 267287504,
+      "end": 267396035
     }, {
       "filename": "/rel/m463Dll.wasm",
-      "start": 267393373,
-      "end": 267484787
+      "start": 267396035,
+      "end": 267487473
     }, {
       "filename": "/rel/mentDll.wasm",
-      "start": 267484787,
-      "end": 267922232
+      "start": 267487473,
+      "end": 267924954
     }, {
       "filename": "/rel/messDll.wasm",
-      "start": 267922232,
-      "end": 267947326
+      "start": 267924954,
+      "end": 267950072
     }, {
       "filename": "/rel/mgmodedll.wasm",
-      "start": 267947326,
-      "end": 268534101
+      "start": 267950072,
+      "end": 268536907
     }, {
       "filename": "/rel/modeltestDll.wasm",
-      "start": 268534101,
-      "end": 268672899
+      "start": 268536907,
+      "end": 268675753
     }, {
       "filename": "/rel/modeseldll.wasm",
-      "start": 268672899,
-      "end": 268863879
+      "start": 268675753,
+      "end": 268866769
     }, {
       "filename": "/rel/mpexDll.wasm",
-      "start": 268863879,
-      "end": 269308922
+      "start": 268866769,
+      "end": 269311860
     }, {
       "filename": "/rel/mstory2Dll.wasm",
-      "start": 269308922,
-      "end": 269717351
+      "start": 269311860,
+      "end": 269720397
     }, {
       "filename": "/rel/mstory3Dll.wasm",
-      "start": 269717351,
-      "end": 270148588
+      "start": 269720397,
+      "end": 270151694
     }, {
       "filename": "/rel/mstory4Dll.wasm",
-      "start": 270148588,
-      "end": 270180757
+      "start": 270151694,
+      "end": 270183887
     }, {
       "filename": "/rel/mstoryDll.wasm",
-      "start": 270180757,
-      "end": 270469005
+      "start": 270183887,
+      "end": 270472219
     }, {
       "filename": "/rel/option.wasm",
-      "start": 270469005,
-      "end": 270681824
+      "start": 270472219,
+      "end": 270685303
     }, {
       "filename": "/rel/present.wasm",
-      "start": 270681824,
-      "end": 270782434
+      "start": 270685303,
+      "end": 270786043
     }, {
       "filename": "/rel/resultDll.wasm",
-      "start": 270782434,
-      "end": 270951830
+      "start": 270786043,
+      "end": 270955475
     }, {
       "filename": "/rel/selmenuDll.wasm",
-      "start": 270951830,
-      "end": 271000550
+      "start": 270955475,
+      "end": 271004219
     }, {
       "filename": "/rel/staffDll.wasm",
-      "start": 271000550,
-      "end": 271033660
+      "start": 271004219,
+      "end": 271037353
     }, {
       "filename": "/rel/subchrselDll.wasm",
-      "start": 271033660,
-      "end": 271044988
+      "start": 271037353,
+      "end": 271048705
     }, {
       "filename": "/rel/w01Dll.wasm",
-      "start": 271044988,
-      "end": 271314761
+      "start": 271048705,
+      "end": 271318526
     }, {
       "filename": "/rel/w02Dll.wasm",
-      "start": 271314761,
-      "end": 271614275
+      "start": 271318526,
+      "end": 271618176
     }, {
       "filename": "/rel/w03Dll.wasm",
-      "start": 271614275,
-      "end": 271912938
+      "start": 271618176,
+      "end": 271916935
     }, {
       "filename": "/rel/w04Dll.wasm",
-      "start": 271912938,
-      "end": 272232582
+      "start": 271916935,
+      "end": 272236663
     }, {
       "filename": "/rel/w05Dll.wasm",
-      "start": 272232582,
-      "end": 272506605
+      "start": 272236663,
+      "end": 272510787
     }, {
       "filename": "/rel/w06Dll.wasm",
-      "start": 272506605,
-      "end": 272750900
+      "start": 272510787,
+      "end": 272755195
     }, {
       "filename": "/rel/w10Dll.wasm",
-      "start": 272750900,
-      "end": 272814250
+      "start": 272755195,
+      "end": 272818569
     }, {
       "filename": "/rel/w20Dll.wasm",
-      "start": 272814250,
-      "end": 272828196
+      "start": 272818569,
+      "end": 272832515
     }, {
       "filename": "/rel/w21Dll.wasm",
-      "start": 272828196,
-      "end": 272839111
+      "start": 272832515,
+      "end": 272843430
     }, {
       "filename": "/rel/ztardll.wasm",
-      "start": 272839111,
-      "end": 273132113
+      "start": 272843430,
+      "end": 273136468
     } ],
-    "remote_package_size": 273132113
+    "remote_package_size": 273136468
   });
 })();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmprwblrpx8.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpc3yklvym.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmp1ubjyug2.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpnrw4nmms.js
 // All the pre-js content up to here must remain later on, we need to run
 // it.
 if ((typeof ENVIRONMENT_IS_WASM_WORKER != "undefined" && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != "undefined" && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != "undefined" && ENVIRONMENT_IS_AUDIO_WORKLET)) Module["preRun"] = [];
 
 var necessaryPreJSTasks = Module["preRun"].slice();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmpc3yklvym.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpnrvks_w4.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmpnrw4nmms.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpwaz_7u0p.js
 if (!Module["preRun"]) throw "Module.preRun should exist because file support used it; did a pre-js delete it?";
 
 necessaryPreJSTasks.forEach(task => {
   if (Module["preRun"].indexOf(task) < 0) throw "All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?";
 });
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmpnrvks_w4.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmpwaz_7u0p.js
 var arguments_ = [];
 
 var thisProgram = "./this.program";
@@ -31836,8 +31836,8 @@ function checkIncomingModuleAPI() {
 }
 
 var ASM_CONSTS = {
-  1081724: () => (typeof wasmOffsetConverter !== "undefined"),
-  1081781: () => {
+  1081788: () => (typeof wasmOffsetConverter !== "undefined"),
+  1081845: () => {
     if (typeof (Module["SDL3"]) === "undefined") {
       Module["SDL3"] = {};
     }
@@ -31853,7 +31853,7 @@ var ASM_CONSTS = {
       };
     }
   },
-  1082095: $0 => {
+  1082159: $0 => {
     var str = UTF8ToString($0) + "\n\n" + "Abort/Retry/Ignore/AlwaysIgnore? [ariA] :";
     var reply = window.prompt(str, "i");
     if (reply === null) {
@@ -31861,13 +31861,13 @@ var ASM_CONSTS = {
     }
     return reply.length === 1 ? reply.charCodeAt(0) : -1;
   },
-  1082310: () => {
+  1082374: () => {
     Module["SDL3"].dummy_audio = {};
     Module["SDL3"].dummy_audio.timers = [];
     Module["SDL3"].dummy_audio.timers[0] = undefined;
     Module["SDL3"].dummy_audio.timers[1] = undefined;
   },
-  1082487: ($0, $1, $2, $3, $4) => {
+  1082551: ($0, $1, $2, $3, $4) => {
     var a = Module["SDL3"].dummy_audio;
     if (a.timers[$0] !== undefined) {
       clearInterval(a.timers[$0]);
@@ -31876,14 +31876,14 @@ var ASM_CONSTS = {
       dynCall("vi", $3, [ $4 ]);
     }, ($1 / $2) * 1e3);
   },
-  1082679: $0 => {
+  1082743: $0 => {
     var a = Module["SDL3"].dummy_audio;
     if (a.timers[$0] !== undefined) {
       clearInterval(a.timers[$0]);
     }
     a.timers[$0] = undefined;
   },
-  1082810: $0 => {
+  1082874: $0 => {
     var parms = new URLSearchParams(window.location.search);
     for (const [key, value] of parms) {
       if (key.startsWith("SDL_")) {
@@ -31897,10 +31897,10 @@ var ASM_CONSTS = {
       }
     }
   },
-  1083151: $0 => {
+  1083215: $0 => {
     window.open(UTF8ToString($0), "_blank");
   },
-  1083191: () => {
+  1083255: () => {
     if (typeof (AudioContext) !== "undefined") {
       return true;
     } else if (typeof (webkitAudioContext) !== "undefined") {
@@ -31908,7 +31908,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  1083338: () => {
+  1083402: () => {
     if ((typeof (navigator.mediaDevices) !== "undefined") && (typeof (navigator.mediaDevices.getUserMedia) !== "undefined")) {
       return true;
     } else if (typeof (navigator.webkitGetUserMedia) !== "undefined") {
@@ -31916,7 +31916,7 @@ var ASM_CONSTS = {
     }
     return false;
   },
-  1083572: () => {
+  1083636: () => {
     var SDL3 = Module["SDL3"];
     if (typeof (SDL3.audio_playback) === "undefined") {
       SDL3.audio_playback = {};
@@ -31938,8 +31938,8 @@ var ASM_CONSTS = {
     }
     return (SDL3.audioContext !== undefined);
   },
-  1084151: () => Module["SDL3"].audioContext.sampleRate,
-  1084202: ($0, $1, $2, $3) => {
+  1084215: () => Module["SDL3"].audioContext.sampleRate,
+  1084266: ($0, $1, $2, $3) => {
     var SDL3 = Module["SDL3"];
     var have_microphone = function(stream) {
       if (SDL3.audio_recording.silenceTimer !== undefined) {
@@ -31981,7 +31981,7 @@ var ASM_CONSTS = {
       }, have_microphone, no_microphone);
     }
   },
-  1086043: ($0, $1, $2, $3) => {
+  1086107: ($0, $1, $2, $3) => {
     var SDL3 = Module["SDL3"];
     SDL3.audio_playback.scriptProcessorNode = SDL3.audioContext["createScriptProcessor"]($1, 0, $0);
     SDL3.audio_playback.scriptProcessorNode["onaudioprocess"] = function(e) {
@@ -32013,7 +32013,7 @@ var ASM_CONSTS = {
       SDL3.audio_playback.silenceTimer = setInterval(silence_callback, ($1 / SDL3.audioContext.sampleRate) * 1e3);
     }
   },
-  1087359: $0 => {
+  1087423: $0 => {
     var SDL3 = Module["SDL3"];
     if ($0) {
       if (SDL3.audio_recording.silenceTimer !== undefined) {
@@ -32047,7 +32047,7 @@ var ASM_CONSTS = {
       SDL3.audioContext = undefined;
     }
   },
-  1088515: ($0, $1) => {
+  1088579: ($0, $1) => {
     var SDL3 = Module["SDL3"];
     var buf = SDL3.CPtrToHeap32Index($0);
     var numChannels = SDL3.audio_playback.currentPlaybackBuffer["numberOfChannels"];
@@ -32061,7 +32061,7 @@ var ASM_CONSTS = {
       }
     }
   },
-  1089048: ($0, $1) => {
+  1089112: ($0, $1) => {
     var SDL3 = Module["SDL3"];
     var numChannels = SDL3.audio_recording.currentRecordingBuffer.numberOfChannels;
     for (var c = 0; c < numChannels; ++c) {
@@ -32080,11 +32080,11 @@ var ASM_CONSTS = {
       }
     }
   },
-  1089675: () => {
+  1089739: () => {
     Module["SDL3"].camera = {};
   },
-  1089707: () => (navigator.mediaDevices === undefined) ? 0 : 1,
-  1089766: ($0, $1, $2, $3, $4) => {
+  1089771: () => (navigator.mediaDevices === undefined) ? 0 : 1,
+  1089830: ($0, $1, $2, $3, $4) => {
     const device = $0;
     const w = $1;
     const h = $2;
@@ -32158,7 +32158,7 @@ var ASM_CONSTS = {
       outcome(device, 0, 0, 0, 0);
     });
   },
-  1092072: () => {
+  1092136: () => {
     const SDL3 = Module["SDL3"];
     if ((typeof (SDL3) === "undefined") || (typeof (SDL3.camera) === "undefined") || (typeof (SDL3.camera.stream) === "undefined")) {
       return;
@@ -32166,7 +32166,7 @@ var ASM_CONSTS = {
     SDL3.camera.stream.getTracks().forEach(track => track.stop());
     SDL3.camera = {};
   },
-  1092323: ($0, $1, $2) => {
+  1092387: ($0, $1, $2) => {
     const w = $0;
     const h = $1;
     const rgba = $2;
@@ -32179,12 +32179,12 @@ var ASM_CONSTS = {
     HEAPU8.set(imgrgba, rgba >>> 0);
     return 1;
   },
-  1092701: () => {
+  1092765: () => {
     if (typeof (Module["SDL3"]) !== "undefined") {
       Module["SDL3"].camera = undefined;
     }
   },
-  1092788: $0 => {
+  1092852: $0 => {
     let gamepad = navigator["getGamepads"]()[$0];
     if (!gamepad) {
       return 0;
@@ -32200,7 +32200,7 @@ var ASM_CONSTS = {
     }
     return 0;
   },
-  1093253: $0 => {
+  1093317: $0 => {
     let gamepad = navigator["getGamepads"]()[$0];
     if (!gamepad) {
       return 0;
@@ -32216,14 +32216,14 @@ var ASM_CONSTS = {
     }
     return 0;
   },
-  1093725: $0 => {
+  1093789: $0 => {
     let gamepad = navigator["getGamepads"]()[$0];
     if (!gamepad) {
       return 0;
     }
     return gamepad["id"]["toLowerCase"]()["indexOf"]("xinput") >= 0;
   },
-  1093868: $0 => {
+  1093932: $0 => {
     let gamepads = navigator["getGamepads"]();
     if (!gamepads) {
       return 0;
@@ -32234,7 +32234,7 @@ var ASM_CONSTS = {
     }
     return 1;
   },
-  1094043: ($0, $1, $2) => {
+  1094107: ($0, $1, $2) => {
     let gamepads = navigator["getGamepads"]();
     if (!gamepads) {
       return 0;
@@ -32251,7 +32251,7 @@ var ASM_CONSTS = {
     });
     return 1;
   },
-  1094379: ($0, $1) => {
+  1094443: ($0, $1) => {
     var buf = $0;
     var buflen = $1;
     var list = undefined;
@@ -32285,7 +32285,7 @@ var ASM_CONSTS = {
       setValue(buf + i, str.charCodeAt(i), "i8");
     }
   },
-  1095087: $0 => {
+  1095151: $0 => {
     var data = $0;
     document.sdlEventHandlerLockKeysCheck = function(event) {
       if ((event.key != "CapsLock") && (event.key != "NumLock") && (event.key != "ScrollLock")) {
@@ -32294,10 +32294,10 @@ var ASM_CONSTS = {
     };
     document.addEventListener("keydown", document.sdlEventHandlerLockKeysCheck);
   },
-  1095514: () => {
+  1095578: () => {
     document.removeEventListener("keydown", document.sdlEventHandlerLockKeysCheck);
   },
-  1095598: $0 => {
+  1095662: $0 => {
     var target = document;
     if (target) {
       target.sdlEventHandlerMouseButtonUpGlobal = function(event) {
@@ -32311,7 +32311,7 @@ var ASM_CONSTS = {
       target.addEventListener("pointerup", target.sdlEventHandlerMouseButtonUpGlobal);
     }
   },
-  1095959: $0 => {
+  1096023: $0 => {
     var SDL3 = Module["SDL3"];
     if (SDL3.makePointerEventCStruct === undefined) {
       SDL3.makePointerEventCStruct = function(left, top, event) {
@@ -32349,7 +32349,7 @@ var ASM_CONSTS = {
       };
     }
   },
-  1096951: $0 => {
+  1097015: $0 => {
     var id = UTF8ToString($0);
     try {
       var canvas = document.querySelector(id);
@@ -32359,23 +32359,23 @@ var ASM_CONSTS = {
     } catch (e) {}
     return false;
   },
-  1097117: () => document.hasFocus(),
-  1097149: () => {
+  1097181: () => document.hasFocus(),
+  1097213: () => {
     var target = document;
     if (target) {
       target.removeEventListener("pointerup", target.sdlEventHandlerMouseButtonUpGlobal);
       target.sdlEventHandlerMouseButtonUpGlobal = undefined;
     }
   },
-  1097331: () => document.body.clientWidth,
-  1097369: () => document.body.clientHeight,
-  1097408: () => window.innerWidth,
-  1097438: () => window.innerHeight,
-  1097469: () => window.outerWidth,
-  1097499: () => window.outerHeight,
-  1097530: () => window.pageXOffset,
-  1097561: () => window.pageYOffset,
-  1097592: ($0, $1) => {
+  1097395: () => document.body.clientWidth,
+  1097433: () => document.body.clientHeight,
+  1097472: () => window.innerWidth,
+  1097502: () => window.innerHeight,
+  1097533: () => window.outerWidth,
+  1097563: () => window.outerHeight,
+  1097594: () => window.pageXOffset,
+  1097625: () => window.pageYOffset,
+  1097656: ($0, $1) => {
     var target = document.querySelector(UTF8ToString($1));
     if (target) {
       var SDL3 = Module["SDL3"];
@@ -32413,7 +32413,7 @@ var ASM_CONSTS = {
       target.addEventListener("pointerup", target.sdlEventHandlerPointerGeneric);
     }
   },
-  1098980: ($0, $1, $2) => {
+  1099044: ($0, $1, $2) => {
     var target = document.querySelector(UTF8ToString($1));
     if (target) {
       var data = $0;
@@ -32493,7 +32493,7 @@ var ASM_CONSTS = {
       target.addEventListener("dragleave", SDL3.eventHandlerDropDragend);
     }
   },
-  1101347: $0 => {
+  1101411: $0 => {
     var target = document.querySelector(UTF8ToString($0));
     if (target) {
       var SDL3 = Module["SDL3"];
@@ -32521,7 +32521,7 @@ var ASM_CONSTS = {
       SDL3.eventHandlerDropDragend = undefined;
     }
   },
-  1102177: $0 => {
+  1102241: $0 => {
     var target = document.querySelector(UTF8ToString($0));
     if (target) {
       target.removeEventListener("pointerenter", target.sdlEventHandlerPointerEnter);
@@ -32536,7 +32536,7 @@ var ASM_CONSTS = {
       target.sdlEventHandlerPointerGeneric = undefined;
     }
   },
-  1102911: ($0, $1, $2, $3) => {
+  1102975: ($0, $1, $2, $3) => {
     var w = $0;
     var h = $1;
     var pixels = $2;
@@ -32567,7 +32567,7 @@ var ASM_CONSTS = {
     SDL3.ctx.putImageData(SDL3.image, 0, 0);
     return true;
   },
-  1103660: () => {
+  1103724: () => {
     var SDL3 = Module["SDL3"];
     SDL3["mouse_x"] = 0;
     SDL3["mouse_y"] = 0;
@@ -32593,7 +32593,7 @@ var ASM_CONSTS = {
       }
     });
   },
-  1104348: ($0, $1, $2, $3, $4) => {
+  1104412: ($0, $1, $2, $3, $4) => {
     var w = $0;
     var h = $1;
     var hot_x = $2;
@@ -32614,20 +32614,20 @@ var ASM_CONSTS = {
     stringToUTF8(url, urlBuf, url.length + 1);
     return urlBuf;
   },
-  1105006: $0 => {
+  1105070: $0 => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = UTF8ToString($0);
     }
   },
-  1105089: () => {
+  1105153: () => {
     if (Module["canvas"]) {
       Module["canvas"].style["cursor"] = "none";
     }
   },
-  1105158: () => Module["SDL3"]["mouse_x"],
-  1105196: () => Module["SDL3"]["mouse_y"],
-  1105234: $0 => Module["SDL3"]["mouse_buttons"][$0],
-  1105282: () => {
+  1105222: () => Module["SDL3"]["mouse_x"],
+  1105260: () => Module["SDL3"]["mouse_y"],
+  1105298: $0 => Module["SDL3"]["mouse_buttons"][$0],
+  1105346: () => {
     if (!window.matchMedia) {
       return -1;
     }
@@ -32639,7 +32639,7 @@ var ASM_CONSTS = {
     }
     return -1;
   },
-  1105491: () => {
+  1105555: () => {
     if (typeof (Module["SDL3"]) !== "undefined") {
       var SDL3 = Module["SDL3"];
       SDL3.themeChangedMatchMedia.removeEventListener("change", SDL3.eventHandlerThemeChanged);
@@ -32647,14 +32647,14 @@ var ASM_CONSTS = {
       SDL3.eventHandlerThemeChanged = undefined;
     }
   },
-  1105744: () => window.innerWidth,
-  1105774: () => window.innerHeight,
-  1105805: $0 => {
+  1105808: () => window.innerWidth,
+  1105838: () => window.innerHeight,
+  1105869: $0 => {
     Module["requestFullscreen"] = function(lockPointer, resizeCanvas) {
       _requestFullscreenThroughSDL($0);
     };
   },
-  1105914: ($0, $1) => {
+  1105978: ($0, $1) => {
     var pngData = HEAPU8.buffer instanceof ArrayBuffer ? HEAPU8.subarray($0 >>> 0, $0 + $1 >>> 0) : HEAPU8.slice($0, $0 + $1);
     var blob = new Blob([ pngData ], {
       type: "image/png"
@@ -32672,12 +32672,12 @@ var ASM_CONSTS = {
     }
     link.href = url;
   },
-  1106407: () => {
+  1106471: () => {
     Module["requestFullscreen"] = function(lockPointer, resizeCanvas) {};
   },
-  1106481: () => window.innerWidth,
-  1106511: () => window.innerHeight,
-  1106542: $0 => {
+  1106545: () => window.innerWidth,
+  1106575: () => window.innerHeight,
+  1106606: $0 => {
     var canvas = document.querySelector(UTF8ToString($0));
     canvas.SDL3_original_position = canvas.style.position;
     canvas.SDL3_original_top = canvas.style.top;
@@ -32698,7 +32698,7 @@ var ASM_CONSTS = {
     canvas.style.top = "0";
     canvas.style.left = "0";
   },
-  1107240: () => {
+  1107304: () => {
     var div = document.getElementById("SDL3_fill_document_background_elements");
     if (div) {
       if (div.SDL3_canvas_nextsib) {
@@ -32715,7 +32715,7 @@ var ASM_CONSTS = {
       div.remove();
     }
   },
-  1107799: () => {
+  1107863: () => {
     if (window.matchMedia) {
       var SDL3 = Module["SDL3"];
       SDL3.eventHandlerThemeChanged = function(event) {
@@ -32725,7 +32725,7 @@ var ASM_CONSTS = {
       SDL3.themeChangedMatchMedia.addEventListener("change", SDL3.eventHandlerThemeChanged);
     }
   },
-  1108121: ($0, $1, $2, $3, $4) => {
+  1108185: ($0, $1, $2, $3, $4) => {
     var title = UTF8ToString($0);
     var message = UTF8ToString($1);
     var background = UTF8ToString($2);
@@ -32745,7 +32745,7 @@ var ASM_CONSTS = {
     dialog.append(p);
     dialog.showModal();
   },
-  1108662: ($0, $1, $2, $3, $4, $5, $6, $7) => {
+  1108726: ($0, $1, $2, $3, $4, $5, $6, $7) => {
     var dialog_id = UTF8ToString($0);
     var text = UTF8ToString($1);
     var responseId = $2;
@@ -32786,7 +32786,7 @@ var ASM_CONSTS = {
     dialog.append(button);
     return true;
   },
-  1109671: $0 => {
+  1109735: $0 => {
     var dialog_id = UTF8ToString($0);
     var dialog = document.getElementById(dialog_id);
     if (!dialog) {
@@ -32794,7 +32794,7 @@ var ASM_CONSTS = {
     }
     return dialog.open;
   },
-  1109809: $0 => {
+  1109873: $0 => {
     var dialog_id = UTF8ToString($0);
     var dialog = document.getElementById(dialog_id);
     if (!dialog) {
@@ -32806,16 +32806,16 @@ var ASM_CONSTS = {
       return 0;
     }
   },
-  1109991: ($0, $1) => {
+  1110055: ($0, $1) => {
     alert(UTF8ToString($0) + "\n\n" + UTF8ToString($1));
   },
-  1110048: $0 => {
+  1110112: $0 => {
     if (!$0) {
       AL.alcErr = 40964;
       return 1;
     }
   },
-  1110096: $0 => {
+  1110160: $0 => {
     if (!AL.currentCtx) {
       err("alGetProcAddress() called without a valid context");
       return 1;

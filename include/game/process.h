@@ -28,6 +28,20 @@ typedef struct process {
     u16 prio;
     s32 sleep_time;
 #ifdef TARGET_PC
+    // Set by HuPrcCreate, cleared the first time HuPrcCall considers this
+    // process. Guards against a freshly created child (e.g.
+    // HuPrcChildCreate called from deep inside another process's own body,
+    // like BoardTutorialInit()/mg_setup.c's ExecMGSetup do) getting
+    // co_switch-ed into for the very first time back-to-back with its
+    // parent's own yield, within the same HuPrcCall pass -- see this
+    // session's fiber-crash investigation notes (extern/libco/emscripten.c).
+    // Reactively-created processes (landing on a board space, etc.) never
+    // hit this path today since they're always created on a calmer, later
+    // pass than their eventual first switch-in; this makes freshly created
+    // ones behave the same way, deferring their first run to the next tick.
+    u8 justCreated;
+#endif
+#ifdef TARGET_PC
     cothread_t thread;
 #else
     uintptr_t base_sp;

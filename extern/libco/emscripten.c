@@ -16,17 +16,33 @@
 #include <emscripten/fiber.h>
 #include <emscripten/emscripten.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#define CO_ASYNCIFY_STACK_SIZE (128 * 1024)
+#define CO_ASYNCIFY_STACK_SIZE (256 * 1024)
 /* Callers size their stack requests for native calling conventions (e.g.
    HuPrcCreate's 16KB default); wasm's calling convention and Asyncify's
    unwind/rewind machinery need more headroom than that per call frame. */
-#define CO_MIN_C_STACK_SIZE (256 * 1024)
+#define CO_MIN_C_STACK_SIZE (512 * 1024)
+
+/* Set to 1 to trace fiber create/entry/switch to the console -- useful for
+   debugging Asyncify+fiber resume issues (e.g. the "function signature
+   mismatch" trap seen entering TutorialProcFunc/minigame setup from a child
+   process created via HuPrcChildCreate: see the investigation notes in this
+   session's history). create/entrypoint alone are low-frequency (once per
+   process lifetime); CO_TRACE_SWITCH fires every co_switch (i.e. every
+   process, every frame) and will flood the console -- only turn it on when
+   actively narrowing down a specific repro. */
+#ifndef CO_TRACE
+#define CO_TRACE 1
+#endif
+#ifndef CO_TRACE_SWITCH
+#define CO_TRACE_SWITCH 0
+#endif
 
 typedef struct {
   emscripten_fiber_t fiber;
@@ -53,6 +69,9 @@ static void co_ensure_primary(void) {
 EMSCRIPTEN_KEEPALIVE
 void co_entrypoint(void* arg) {
   cothread_struct* thread = (cothread_struct*)arg;
+#if CO_TRACE
+  printf("[co_entrypoint] thread=%p coentry=%p\n", (void*)thread, (void*)thread->coentry);
+#endif
   thread->coentry();
   /* libco threads are not expected to return; matches other backends' behavior of
      leaving execution undefined if they do. */
@@ -114,6 +133,10 @@ cothread_t co_create(unsigned int size, void (*coentry)(void)) {
   emscripten_fiber_init(&thread->fiber, co_entrypoint, thread, thread->c_stack, size, thread->asyncify_stack,
                          CO_ASYNCIFY_STACK_SIZE);
 
+#if CO_TRACE
+  printf("[co_create] thread=%p coentry=%p size=%u active=%p\n", (void*)thread, (void*)coentry, size,
+         (void*)co_running);
+#endif
   return (cothread_t)thread;
 }
 
@@ -129,8 +152,15 @@ void co_delete(cothread_t handle) {
 void co_switch(cothread_t handle) {
   cothread_struct* old_thread = co_running;
   cothread_struct* new_thread = (cothread_struct*)handle;
+#if CO_TRACE_SWITCH
+  printf("[co_switch] %p -> %p (new coentry=%p)\n", (void*)old_thread, (void*)new_thread,
+         (void*)new_thread->coentry);
+#endif
   co_running = new_thread;
   emscripten_fiber_swap(&old_thread->fiber, &new_thread->fiber);
+#if CO_TRACE_SWITCH
+  printf("[co_switch] returned to %p\n", (void*)old_thread);
+#endif
 }
 
 int co_serializable(void) {

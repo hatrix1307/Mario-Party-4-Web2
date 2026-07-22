@@ -1,6 +1,7 @@
 #include "game/process.h"
 #include "dolphin/os.h"
 #include "game/memory.h"
+#include <stdio.h>
 
 #ifdef __MWERKS__
 #include "game/jmp.h"
@@ -95,6 +96,7 @@ Process *HuPrcCreate(void (*func)(void), u16 prio, u32 stack_size, s32 extra_siz
     process->sleep_time = 0;
 #ifdef TARGET_PC
     process->thread = co_create(stack_size, func);
+    process->justCreated = 1;
 #else
     process->base_sp = ((uintptr_t)HuMemMemoryAlloc(heap, stack_size, FAKE_RETADDR)) + stack_size - 8;
     gcsetjmp(&process->jump);
@@ -365,6 +367,15 @@ void HuPrcCall(s32 tick)
 #endif
             case EXEC_NORMAL:
 #ifdef TARGET_PC
+                if (process->justCreated) {
+                    // Defer this process's first co_switch to the next
+                    // HuPrcCall pass -- see the justCreated comment in
+                    // include/game/process.h.
+                    process->justCreated = 0;
+                    thread_arg = 1;
+                    ret = 1;
+                    break;
+                }
                 co_switch(process->thread);
 #else
                 gclongjmp(&process->jump, 1);
