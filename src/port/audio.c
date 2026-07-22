@@ -10,6 +10,7 @@
 static int HuSePlay(int seId, MSM_SEPARAM *param);
 
 extern s16 omSysExitReq;
+extern void AudioOutputInit(void); // src/port/audio_output.c
 
 // msmSysInit() (src/msm/msmsys.c) locates its .msm file via
 // DVDConvertPathToEntrynum(), which only works when a real disc image has
@@ -113,11 +114,20 @@ void HuAudInit(void)
         printf("[audio] msmSysInit failed: error code %d -- audio disabled\n", (int)result);
         return;
     }
-    // Not called here: opening the real SDL audio device touches browser
-    // APIs (and browsers refuse to start audio output before a user
-    // gesture), which doesn't mix well with calling it deep inside this
-    // Asyncify-driven boot fiber. index.html calls Module._AudioOutputInit()
-    // itself on first user interaction instead.
+    // Originally deferred to a JS-triggered Module._AudioOutputInit() call
+    // on first user gesture (browsers refuse to start real audio output
+    // before one, and calling SDL from deep inside this Asyncify boot fiber
+    // seemed risky) -- reverted to a direct call here because Emscripten's
+    // JS-glue generation didn't end up producing a Module._AudioOutputInit
+    // wrapper for it (unlike e.g. Module._VISetFrameBufferScale), despite
+    // --export-all correctly exporting it at the wasm level; investigating
+    // that further wasn't worth the time against just calling it directly.
+    // SDL_OpenAudioDeviceStream() itself doesn't require a gesture to
+    // succeed -- only for the resulting AudioContext to leave the browser's
+    // "suspended" autoplay-blocked state, which SDL/the browser handle on
+    // their own once the user interacts with the page; nothing here needs
+    // to wait for that.
+    AudioOutputInit();
     if (OSGetSoundMode() == OS_SOUND_MODE_MONO) {
         msmSysSetOutputMode(SND_OUTPUTMODE_MONO);
     } else {

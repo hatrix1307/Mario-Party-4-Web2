@@ -68,7 +68,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: C:\Users\Sonic\AppData\Local\Temp\tmp1ubjyug2.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpawgmsdu9.js
 if (!Module["expectedDataFileDownloads"]) Module["expectedDataFileDownloads"] = 0;
 
 Module["expectedDataFileDownloads"]++;
@@ -1942,23 +1942,23 @@ Module["expectedDataFileDownloads"]++;
   });
 })();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmp1ubjyug2.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpnrw4nmms.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmpawgmsdu9.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmpxxdprm7n.js
 // All the pre-js content up to here must remain later on, we need to run
 // it.
 if ((typeof ENVIRONMENT_IS_WASM_WORKER != "undefined" && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != "undefined" && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != "undefined" && ENVIRONMENT_IS_AUDIO_WORKLET)) Module["preRun"] = [];
 
 var necessaryPreJSTasks = Module["preRun"].slice();
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmpnrw4nmms.js
-// include: C:\Users\Sonic\AppData\Local\Temp\tmpwaz_7u0p.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmpxxdprm7n.js
+// include: C:\Users\Sonic\AppData\Local\Temp\tmp3u1ljwu_.js
 if (!Module["preRun"]) throw "Module.preRun should exist because file support used it; did a pre-js delete it?";
 
 necessaryPreJSTasks.forEach(task => {
   if (Module["preRun"].indexOf(task) < 0) throw "All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?";
 });
 
-// end include: C:\Users\Sonic\AppData\Local\Temp\tmpwaz_7u0p.js
+// end include: C:\Users\Sonic\AppData\Local\Temp\tmp3u1ljwu_.js
 var arguments_ = [];
 
 var thisProgram = "./this.program";
@@ -36048,6 +36048,8 @@ var _AIInitDMA = Module["_AIInitDMA"] = makeInvalidEarlyAccess("_AIInitDMA");
 
 var _AITick = Module["_AITick"] = makeInvalidEarlyAccess("_AITick");
 
+var _AudioOutputInit = Module["_AudioOutputInit"] = makeInvalidEarlyAccess("_AudioOutputInit");
+
 var _fopen = Module["_fopen"] = makeInvalidEarlyAccess("_fopen");
 
 var _fseek = Module["_fseek"] = makeInvalidEarlyAccess("_fseek");
@@ -36117,6 +36119,20 @@ var _HuAudPlayerVoicePlayPos = Module["_HuAudPlayerVoicePlayPos"] = makeInvalidE
 var _HuAudPlayerVoicePlayEntry = Module["_HuAudPlayerVoicePlayEntry"] = makeInvalidEarlyAccess("_HuAudPlayerVoicePlayEntry");
 
 var _HuAudCharVoicePlayEntry = Module["_HuAudCharVoicePlayEntry"] = makeInvalidEarlyAccess("_HuAudCharVoicePlayEntry");
+
+var _puts = Module["_puts"] = makeInvalidEarlyAccess("_puts");
+
+var _SDL_InitSubSystem = Module["_SDL_InitSubSystem"] = makeInvalidEarlyAccess("_SDL_InitSubSystem");
+
+var _SDL_GetError = Module["_SDL_GetError"] = makeInvalidEarlyAccess("_SDL_GetError");
+
+var _SDL_OpenAudioDeviceStream = Module["_SDL_OpenAudioDeviceStream"] = makeInvalidEarlyAccess("_SDL_OpenAudioDeviceStream");
+
+var _SDL_ResumeAudioStreamDevice = Module["_SDL_ResumeAudioStreamDevice"] = makeInvalidEarlyAccess("_SDL_ResumeAudioStreamDevice");
+
+var _pcMixerGenerate = Module["_pcMixerGenerate"] = makeInvalidEarlyAccess("_pcMixerGenerate");
+
+var _SDL_PutAudioStreamData = Module["_SDL_PutAudioStreamData"] = makeInvalidEarlyAccess("_SDL_PutAudioStreamData");
 
 var __ZdlPvm = Module["__ZdlPvm"] = makeInvalidEarlyAccess("__ZdlPvm");
 
@@ -36225,8 +36241,6 @@ var __ZNSt12length_errorD1Ev = Module["__ZNSt12length_errorD1Ev"] = makeInvalidE
 var __ZNSt11logic_errorC2EPKc = Module["__ZNSt11logic_errorC2EPKc"] = makeInvalidEarlyAccess("__ZNSt11logic_errorC2EPKc");
 
 var __ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc = Module["__ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc"] = makeInvalidEarlyAccess("__ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc");
-
-var _puts = Module["_puts"] = makeInvalidEarlyAccess("_puts");
 
 var _OSDumpStopwatch = Module["_OSDumpStopwatch"] = makeInvalidEarlyAccess("_OSDumpStopwatch");
 
@@ -38264,8 +38278,6 @@ var __ZN6aurora6webgpu10initializeE13AuroraBackend = Module["__ZN6aurora6webgpu1
 
 var __ZN6aurora6window14destroy_windowEv = Module["__ZN6aurora6window14destroy_windowEv"] = makeInvalidEarlyAccess("__ZN6aurora6window14destroy_windowEv");
 
-var _SDL_GetError = Module["_SDL_GetError"] = makeInvalidEarlyAccess("_SDL_GetError");
-
 var __ZN6aurora6Module5fatalIJPKcEEEvN3fmt3v117fstringIJDpT_EE1tEDpOS7_ = Module["__ZN6aurora6Module5fatalIJPKcEEEvN3fmt3v117fstringIJDpT_EE1tEDpOS7_"] = makeInvalidEarlyAccess("__ZN6aurora6Module5fatalIJPKcEEEvN3fmt3v117fstringIJDpT_EE1tEDpOS7_");
 
 var __ZN6aurora6window15create_rendererEv = Module["__ZN6aurora6window15create_rendererEv"] = makeInvalidEarlyAccess("__ZN6aurora6window15create_rendererEv");
@@ -38429,8 +38441,6 @@ var _SDL_DestroyRenderer = Module["_SDL_DestroyRenderer"] = makeInvalidEarlyAcce
 var _SDL_DestroyWindow = Module["_SDL_DestroyWindow"] = makeInvalidEarlyAccess("_SDL_DestroyWindow");
 
 var _SDL_ShowWindow = Module["_SDL_ShowWindow"] = makeInvalidEarlyAccess("_SDL_ShowWindow");
-
-var _SDL_InitSubSystem = Module["_SDL_InitSubSystem"] = makeInvalidEarlyAccess("_SDL_InitSubSystem");
 
 var _SDL_SetHint = Module["_SDL_SetHint"] = makeInvalidEarlyAccess("_SDL_SetHint");
 
@@ -44674,8 +44684,6 @@ var _hwEnableHRTF = Module["_hwEnableHRTF"] = makeInvalidEarlyAccess("_hwEnableH
 
 var _aramStoreData = Module["_aramStoreData"] = makeInvalidEarlyAccess("_aramStoreData");
 
-var _pcMixerGenerate = Module["_pcMixerGenerate"] = makeInvalidEarlyAccess("_pcMixerGenerate");
-
 var _salStartDsp = Module["_salStartDsp"] = makeInvalidEarlyAccess("_salStartDsp");
 
 var _salGetStartDelay = Module["_salGetStartDelay"] = makeInvalidEarlyAccess("_salGetStartDelay");
@@ -45162,8 +45170,6 @@ var _SDL_RecordingAudioThreadSetup = Module["_SDL_RecordingAudioThreadSetup"] = 
 
 var _SDL_RecordingAudioThreadIterate = Module["_SDL_RecordingAudioThreadIterate"] = makeInvalidEarlyAccess("_SDL_RecordingAudioThreadIterate");
 
-var _SDL_PutAudioStreamData = Module["_SDL_PutAudioStreamData"] = makeInvalidEarlyAccess("_SDL_PutAudioStreamData");
-
 var _SDL_RecordingAudioThreadShutdown = Module["_SDL_RecordingAudioThreadShutdown"] = makeInvalidEarlyAccess("_SDL_RecordingAudioThreadShutdown");
 
 var _SDL_GetAudioPlaybackDevices = Module["_SDL_GetAudioPlaybackDevices"] = makeInvalidEarlyAccess("_SDL_GetAudioPlaybackDevices");
@@ -45228,8 +45234,6 @@ var _SDL_UnbindAudioStream = Module["_SDL_UnbindAudioStream"] = makeInvalidEarly
 
 var _SDL_GetAudioStreamDevice = Module["_SDL_GetAudioStreamDevice"] = makeInvalidEarlyAccess("_SDL_GetAudioStreamDevice");
 
-var _SDL_OpenAudioDeviceStream = Module["_SDL_OpenAudioDeviceStream"] = makeInvalidEarlyAccess("_SDL_OpenAudioDeviceStream");
-
 var _SDL_CreateAudioStream = Module["_SDL_CreateAudioStream"] = makeInvalidEarlyAccess("_SDL_CreateAudioStream");
 
 var _SDL_SetAudioStreamPutCallback = Module["_SDL_SetAudioStreamPutCallback"] = makeInvalidEarlyAccess("_SDL_SetAudioStreamPutCallback");
@@ -45237,8 +45241,6 @@ var _SDL_SetAudioStreamPutCallback = Module["_SDL_SetAudioStreamPutCallback"] = 
 var _SDL_SetAudioStreamGetCallback = Module["_SDL_SetAudioStreamGetCallback"] = makeInvalidEarlyAccess("_SDL_SetAudioStreamGetCallback");
 
 var _SDL_PauseAudioStreamDevice = Module["_SDL_PauseAudioStreamDevice"] = makeInvalidEarlyAccess("_SDL_PauseAudioStreamDevice");
-
-var _SDL_ResumeAudioStreamDevice = Module["_SDL_ResumeAudioStreamDevice"] = makeInvalidEarlyAccess("_SDL_ResumeAudioStreamDevice");
 
 var _SDL_AudioStreamDevicePaused = Module["_SDL_AudioStreamDevicePaused"] = makeInvalidEarlyAccess("_SDL_AudioStreamDevicePaused");
 
@@ -59590,6 +59592,7 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["sndVolume"] != "undefined", "missing Wasm export: sndVolume");
   assert(typeof wasmExports["AIInitDMA"] != "undefined", "missing Wasm export: AIInitDMA");
   assert(typeof wasmExports["AITick"] != "undefined", "missing Wasm export: AITick");
+  assert(typeof wasmExports["AudioOutputInit"] != "undefined", "missing Wasm export: AudioOutputInit");
   assert(typeof wasmExports["fopen"] != "undefined", "missing Wasm export: fopen");
   assert(typeof wasmExports["fseek"] != "undefined", "missing Wasm export: fseek");
   assert(typeof wasmExports["fread"] != "undefined", "missing Wasm export: fread");
@@ -59625,6 +59628,13 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["HuAudPlayerVoicePlayPos"] != "undefined", "missing Wasm export: HuAudPlayerVoicePlayPos");
   assert(typeof wasmExports["HuAudPlayerVoicePlayEntry"] != "undefined", "missing Wasm export: HuAudPlayerVoicePlayEntry");
   assert(typeof wasmExports["HuAudCharVoicePlayEntry"] != "undefined", "missing Wasm export: HuAudCharVoicePlayEntry");
+  assert(typeof wasmExports["puts"] != "undefined", "missing Wasm export: puts");
+  assert(typeof wasmExports["SDL_InitSubSystem"] != "undefined", "missing Wasm export: SDL_InitSubSystem");
+  assert(typeof wasmExports["SDL_GetError"] != "undefined", "missing Wasm export: SDL_GetError");
+  assert(typeof wasmExports["SDL_OpenAudioDeviceStream"] != "undefined", "missing Wasm export: SDL_OpenAudioDeviceStream");
+  assert(typeof wasmExports["SDL_ResumeAudioStreamDevice"] != "undefined", "missing Wasm export: SDL_ResumeAudioStreamDevice");
+  assert(typeof wasmExports["pcMixerGenerate"] != "undefined", "missing Wasm export: pcMixerGenerate");
+  assert(typeof wasmExports["SDL_PutAudioStreamData"] != "undefined", "missing Wasm export: SDL_PutAudioStreamData");
   assert(typeof wasmExports["_ZdlPvm"] != "undefined", "missing Wasm export: _ZdlPvm");
   assert(typeof wasmExports["byteswap_vec2f"] != "undefined", "missing Wasm export: byteswap_vec2f");
   assert(typeof wasmExports["_Z5bswapI10hsf_headerEvRT_RS0_"] != "undefined", "missing Wasm export: _Z5bswapI10hsf_headerEvRT_RS0_");
@@ -59679,7 +59689,6 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["_ZNSt12length_errorD1Ev"] != "undefined", "missing Wasm export: _ZNSt12length_errorD1Ev");
   assert(typeof wasmExports["_ZNSt11logic_errorC2EPKc"] != "undefined", "missing Wasm export: _ZNSt11logic_errorC2EPKc");
   assert(typeof wasmExports["_ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc"] != "undefined", "missing Wasm export: _ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc");
-  assert(typeof wasmExports["puts"] != "undefined", "missing Wasm export: puts");
   assert(typeof wasmExports["OSDumpStopwatch"] != "undefined", "missing Wasm export: OSDumpStopwatch");
   assert(typeof wasmExports["HuDispAspectSetWide"] != "undefined", "missing Wasm export: HuDispAspectSetWide");
   assert(typeof wasmExports["SettingsSetKeyButtonBinding"] != "undefined", "missing Wasm export: SettingsSetKeyButtonBinding");
@@ -60698,7 +60707,6 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["_ZN6aurora6window13create_windowE13AuroraBackend"] != "undefined", "missing Wasm export: _ZN6aurora6window13create_windowE13AuroraBackend");
   assert(typeof wasmExports["_ZN6aurora6webgpu10initializeE13AuroraBackend"] != "undefined", "missing Wasm export: _ZN6aurora6webgpu10initializeE13AuroraBackend");
   assert(typeof wasmExports["_ZN6aurora6window14destroy_windowEv"] != "undefined", "missing Wasm export: _ZN6aurora6window14destroy_windowEv");
-  assert(typeof wasmExports["SDL_GetError"] != "undefined", "missing Wasm export: SDL_GetError");
   assert(typeof wasmExports["_ZN6aurora6Module5fatalIJPKcEEEvN3fmt3v117fstringIJDpT_EE1tEDpOS7_"] != "undefined", "missing Wasm export: _ZN6aurora6Module5fatalIJPKcEEEvN3fmt3v117fstringIJDpT_EE1tEDpOS7_");
   assert(typeof wasmExports["_ZN6aurora6window15create_rendererEv"] != "undefined", "missing Wasm export: _ZN6aurora6window15create_rendererEv");
   assert(typeof wasmExports["_ZN6aurora6window11show_windowEv"] != "undefined", "missing Wasm export: _ZN6aurora6window11show_windowEv");
@@ -60781,7 +60789,6 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["SDL_DestroyRenderer"] != "undefined", "missing Wasm export: SDL_DestroyRenderer");
   assert(typeof wasmExports["SDL_DestroyWindow"] != "undefined", "missing Wasm export: SDL_DestroyWindow");
   assert(typeof wasmExports["SDL_ShowWindow"] != "undefined", "missing Wasm export: SDL_ShowWindow");
-  assert(typeof wasmExports["SDL_InitSubSystem"] != "undefined", "missing Wasm export: SDL_InitSubSystem");
   assert(typeof wasmExports["SDL_SetHint"] != "undefined", "missing Wasm export: SDL_SetHint");
   assert(typeof wasmExports["_ZN6aurora6Module5errorIJRA39_KcPS2_EEEvN3fmt3v117fstringIJDpT_EE1tEDpOS9_"] != "undefined", "missing Wasm export: _ZN6aurora6Module5errorIJRA39_KcPS2_EEEvN3fmt3v117fstringIJDpT_EE1tEDpOS9_");
   assert(typeof wasmExports["_ZN6aurora6Module5errorIJRA38_KcPS2_EEEvN3fmt3v117fstringIJDpT_EE1tEDpOS9_"] != "undefined", "missing Wasm export: _ZN6aurora6Module5errorIJRA38_KcPS2_EEEvN3fmt3v117fstringIJDpT_EE1tEDpOS9_");
@@ -63903,7 +63910,6 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["aramSyncTransferQueue"] != "undefined", "missing Wasm export: aramSyncTransferQueue");
   assert(typeof wasmExports["hwEnableHRTF"] != "undefined", "missing Wasm export: hwEnableHRTF");
   assert(typeof wasmExports["aramStoreData"] != "undefined", "missing Wasm export: aramStoreData");
-  assert(typeof wasmExports["pcMixerGenerate"] != "undefined", "missing Wasm export: pcMixerGenerate");
   assert(typeof wasmExports["salStartDsp"] != "undefined", "missing Wasm export: salStartDsp");
   assert(typeof wasmExports["salGetStartDelay"] != "undefined", "missing Wasm export: salGetStartDelay");
   assert(typeof wasmExports["ReverbSTDCallback"] != "undefined", "missing Wasm export: ReverbSTDCallback");
@@ -64147,7 +64153,6 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["SDL_PlaybackAudioThreadShutdown"] != "undefined", "missing Wasm export: SDL_PlaybackAudioThreadShutdown");
   assert(typeof wasmExports["SDL_RecordingAudioThreadSetup"] != "undefined", "missing Wasm export: SDL_RecordingAudioThreadSetup");
   assert(typeof wasmExports["SDL_RecordingAudioThreadIterate"] != "undefined", "missing Wasm export: SDL_RecordingAudioThreadIterate");
-  assert(typeof wasmExports["SDL_PutAudioStreamData"] != "undefined", "missing Wasm export: SDL_PutAudioStreamData");
   assert(typeof wasmExports["SDL_RecordingAudioThreadShutdown"] != "undefined", "missing Wasm export: SDL_RecordingAudioThreadShutdown");
   assert(typeof wasmExports["SDL_GetAudioPlaybackDevices"] != "undefined", "missing Wasm export: SDL_GetAudioPlaybackDevices");
   assert(typeof wasmExports["SDL_GetAudioRecordingDevices"] != "undefined", "missing Wasm export: SDL_GetAudioRecordingDevices");
@@ -64180,12 +64185,10 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports["SDL_UnbindAudioStreams"] != "undefined", "missing Wasm export: SDL_UnbindAudioStreams");
   assert(typeof wasmExports["SDL_UnbindAudioStream"] != "undefined", "missing Wasm export: SDL_UnbindAudioStream");
   assert(typeof wasmExports["SDL_GetAudioStreamDevice"] != "undefined", "missing Wasm export: SDL_GetAudioStreamDevice");
-  assert(typeof wasmExports["SDL_OpenAudioDeviceStream"] != "undefined", "missing Wasm export: SDL_OpenAudioDeviceStream");
   assert(typeof wasmExports["SDL_CreateAudioStream"] != "undefined", "missing Wasm export: SDL_CreateAudioStream");
   assert(typeof wasmExports["SDL_SetAudioStreamPutCallback"] != "undefined", "missing Wasm export: SDL_SetAudioStreamPutCallback");
   assert(typeof wasmExports["SDL_SetAudioStreamGetCallback"] != "undefined", "missing Wasm export: SDL_SetAudioStreamGetCallback");
   assert(typeof wasmExports["SDL_PauseAudioStreamDevice"] != "undefined", "missing Wasm export: SDL_PauseAudioStreamDevice");
-  assert(typeof wasmExports["SDL_ResumeAudioStreamDevice"] != "undefined", "missing Wasm export: SDL_ResumeAudioStreamDevice");
   assert(typeof wasmExports["SDL_AudioStreamDevicePaused"] != "undefined", "missing Wasm export: SDL_AudioStreamDevicePaused");
   assert(typeof wasmExports["SDL_ClosestAudioFormats"] != "undefined", "missing Wasm export: SDL_ClosestAudioFormats");
   assert(typeof wasmExports["SDL_GetAudioFormatName"] != "undefined", "missing Wasm export: SDL_GetAudioFormatName");
@@ -72162,6 +72165,7 @@ function assignWasmExports(wasmExports) {
   _sndVolume = Module["_sndVolume"] = createExportWrapper("sndVolume", 3);
   _AIInitDMA = Module["_AIInitDMA"] = createExportWrapper("AIInitDMA", 2);
   _AITick = Module["_AITick"] = createExportWrapper("AITick", 0);
+  _AudioOutputInit = Module["_AudioOutputInit"] = createExportWrapper("AudioOutputInit", 0);
   _fopen = Module["_fopen"] = createExportWrapper("fopen", 2);
   _fseek = Module["_fseek"] = createExportWrapper("fseek", 3);
   _fread = Module["_fread"] = createExportWrapper("fread", 4);
@@ -72197,6 +72201,13 @@ function assignWasmExports(wasmExports) {
   _HuAudPlayerVoicePlayPos = Module["_HuAudPlayerVoicePlayPos"] = createExportWrapper("HuAudPlayerVoicePlayPos", 3);
   _HuAudPlayerVoicePlayEntry = Module["_HuAudPlayerVoicePlayEntry"] = createExportWrapper("HuAudPlayerVoicePlayEntry", 2);
   _HuAudCharVoicePlayEntry = Module["_HuAudCharVoicePlayEntry"] = createExportWrapper("HuAudCharVoicePlayEntry", 2);
+  _puts = Module["_puts"] = createExportWrapper("puts", 1);
+  _SDL_InitSubSystem = Module["_SDL_InitSubSystem"] = createExportWrapper("SDL_InitSubSystem", 1);
+  _SDL_GetError = Module["_SDL_GetError"] = createExportWrapper("SDL_GetError", 0);
+  _SDL_OpenAudioDeviceStream = Module["_SDL_OpenAudioDeviceStream"] = createExportWrapper("SDL_OpenAudioDeviceStream", 4);
+  _SDL_ResumeAudioStreamDevice = Module["_SDL_ResumeAudioStreamDevice"] = createExportWrapper("SDL_ResumeAudioStreamDevice", 1);
+  _pcMixerGenerate = Module["_pcMixerGenerate"] = createExportWrapper("pcMixerGenerate", 2);
+  _SDL_PutAudioStreamData = Module["_SDL_PutAudioStreamData"] = createExportWrapper("SDL_PutAudioStreamData", 3);
   __ZdlPvm = Module["__ZdlPvm"] = createExportWrapper("_ZdlPvm", 2);
   _byteswap_vec2f = Module["_byteswap_vec2f"] = createExportWrapper("byteswap_vec2f", 1);
   __Z5bswapI10hsf_headerEvRT_RS0_ = Module["__Z5bswapI10hsf_headerEvRT_RS0_"] = createExportWrapper("_Z5bswapI10hsf_headerEvRT_RS0_", 2);
@@ -72251,7 +72262,6 @@ function assignWasmExports(wasmExports) {
   __ZNSt12length_errorD1Ev = Module["__ZNSt12length_errorD1Ev"] = createExportWrapper("_ZNSt12length_errorD1Ev", 1);
   __ZNSt11logic_errorC2EPKc = Module["__ZNSt11logic_errorC2EPKc"] = createExportWrapper("_ZNSt11logic_errorC2EPKc", 2);
   __ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc = Module["__ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc"] = createExportWrapper("_ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_externalEPKc", 2);
-  _puts = Module["_puts"] = createExportWrapper("puts", 1);
   _OSDumpStopwatch = Module["_OSDumpStopwatch"] = createExportWrapper("OSDumpStopwatch", 1);
   _HuDispAspectSetWide = Module["_HuDispAspectSetWide"] = createExportWrapper("HuDispAspectSetWide", 1);
   _SettingsSetKeyButtonBinding = Module["_SettingsSetKeyButtonBinding"] = createExportWrapper("SettingsSetKeyButtonBinding", 3);
@@ -73270,7 +73280,6 @@ function assignWasmExports(wasmExports) {
   __ZN6aurora6window13create_windowE13AuroraBackend = Module["__ZN6aurora6window13create_windowE13AuroraBackend"] = createExportWrapper("_ZN6aurora6window13create_windowE13AuroraBackend", 1);
   __ZN6aurora6webgpu10initializeE13AuroraBackend = Module["__ZN6aurora6webgpu10initializeE13AuroraBackend"] = createExportWrapper("_ZN6aurora6webgpu10initializeE13AuroraBackend", 1);
   __ZN6aurora6window14destroy_windowEv = Module["__ZN6aurora6window14destroy_windowEv"] = createExportWrapper("_ZN6aurora6window14destroy_windowEv", 0);
-  _SDL_GetError = Module["_SDL_GetError"] = createExportWrapper("SDL_GetError", 0);
   __ZN6aurora6Module5fatalIJPKcEEEvN3fmt3v117fstringIJDpT_EE1tEDpOS7_ = Module["__ZN6aurora6Module5fatalIJPKcEEEvN3fmt3v117fstringIJDpT_EE1tEDpOS7_"] = createExportWrapper("_ZN6aurora6Module5fatalIJPKcEEEvN3fmt3v117fstringIJDpT_EE1tEDpOS7_", 3);
   __ZN6aurora6window15create_rendererEv = Module["__ZN6aurora6window15create_rendererEv"] = createExportWrapper("_ZN6aurora6window15create_rendererEv", 0);
   __ZN6aurora6window11show_windowEv = Module["__ZN6aurora6window11show_windowEv"] = createExportWrapper("_ZN6aurora6window11show_windowEv", 0);
@@ -73353,7 +73362,6 @@ function assignWasmExports(wasmExports) {
   _SDL_DestroyRenderer = Module["_SDL_DestroyRenderer"] = createExportWrapper("SDL_DestroyRenderer", 1);
   _SDL_DestroyWindow = Module["_SDL_DestroyWindow"] = createExportWrapper("SDL_DestroyWindow", 1);
   _SDL_ShowWindow = Module["_SDL_ShowWindow"] = createExportWrapper("SDL_ShowWindow", 1);
-  _SDL_InitSubSystem = Module["_SDL_InitSubSystem"] = createExportWrapper("SDL_InitSubSystem", 1);
   _SDL_SetHint = Module["_SDL_SetHint"] = createExportWrapper("SDL_SetHint", 2);
   __ZN6aurora6Module5errorIJRA39_KcPS2_EEEvN3fmt3v117fstringIJDpT_EE1tEDpOS9_ = Module["__ZN6aurora6Module5errorIJRA39_KcPS2_EEEvN3fmt3v117fstringIJDpT_EE1tEDpOS9_"] = createExportWrapper("_ZN6aurora6Module5errorIJRA39_KcPS2_EEEvN3fmt3v117fstringIJDpT_EE1tEDpOS9_", 4);
   __ZN6aurora6Module5errorIJRA38_KcPS2_EEEvN3fmt3v117fstringIJDpT_EE1tEDpOS9_ = Module["__ZN6aurora6Module5errorIJRA38_KcPS2_EEEvN3fmt3v117fstringIJDpT_EE1tEDpOS9_"] = createExportWrapper("_ZN6aurora6Module5errorIJRA38_KcPS2_EEEvN3fmt3v117fstringIJDpT_EE1tEDpOS9_", 4);
@@ -76475,7 +76483,6 @@ function assignWasmExports(wasmExports) {
   _aramSyncTransferQueue = Module["_aramSyncTransferQueue"] = createExportWrapper("aramSyncTransferQueue", 0);
   _hwEnableHRTF = Module["_hwEnableHRTF"] = createExportWrapper("hwEnableHRTF", 0);
   _aramStoreData = Module["_aramStoreData"] = createExportWrapper("aramStoreData", 2);
-  _pcMixerGenerate = Module["_pcMixerGenerate"] = createExportWrapper("pcMixerGenerate", 2);
   _salStartDsp = Module["_salStartDsp"] = createExportWrapper("salStartDsp", 1);
   _salGetStartDelay = Module["_salGetStartDelay"] = createExportWrapper("salGetStartDelay", 0);
   _ReverbSTDCallback = Module["_ReverbSTDCallback"] = createExportWrapper("ReverbSTDCallback", 4);
@@ -76719,7 +76726,6 @@ function assignWasmExports(wasmExports) {
   _SDL_PlaybackAudioThreadShutdown = Module["_SDL_PlaybackAudioThreadShutdown"] = createExportWrapper("SDL_PlaybackAudioThreadShutdown", 1);
   _SDL_RecordingAudioThreadSetup = Module["_SDL_RecordingAudioThreadSetup"] = createExportWrapper("SDL_RecordingAudioThreadSetup", 1);
   _SDL_RecordingAudioThreadIterate = Module["_SDL_RecordingAudioThreadIterate"] = createExportWrapper("SDL_RecordingAudioThreadIterate", 1);
-  _SDL_PutAudioStreamData = Module["_SDL_PutAudioStreamData"] = createExportWrapper("SDL_PutAudioStreamData", 3);
   _SDL_RecordingAudioThreadShutdown = Module["_SDL_RecordingAudioThreadShutdown"] = createExportWrapper("SDL_RecordingAudioThreadShutdown", 1);
   _SDL_GetAudioPlaybackDevices = Module["_SDL_GetAudioPlaybackDevices"] = createExportWrapper("SDL_GetAudioPlaybackDevices", 1);
   _SDL_GetAudioRecordingDevices = Module["_SDL_GetAudioRecordingDevices"] = createExportWrapper("SDL_GetAudioRecordingDevices", 1);
@@ -76752,12 +76758,10 @@ function assignWasmExports(wasmExports) {
   _SDL_UnbindAudioStreams = Module["_SDL_UnbindAudioStreams"] = createExportWrapper("SDL_UnbindAudioStreams", 2);
   _SDL_UnbindAudioStream = Module["_SDL_UnbindAudioStream"] = createExportWrapper("SDL_UnbindAudioStream", 1);
   _SDL_GetAudioStreamDevice = Module["_SDL_GetAudioStreamDevice"] = createExportWrapper("SDL_GetAudioStreamDevice", 1);
-  _SDL_OpenAudioDeviceStream = Module["_SDL_OpenAudioDeviceStream"] = createExportWrapper("SDL_OpenAudioDeviceStream", 4);
   _SDL_CreateAudioStream = Module["_SDL_CreateAudioStream"] = createExportWrapper("SDL_CreateAudioStream", 2);
   _SDL_SetAudioStreamPutCallback = Module["_SDL_SetAudioStreamPutCallback"] = createExportWrapper("SDL_SetAudioStreamPutCallback", 3);
   _SDL_SetAudioStreamGetCallback = Module["_SDL_SetAudioStreamGetCallback"] = createExportWrapper("SDL_SetAudioStreamGetCallback", 3);
   _SDL_PauseAudioStreamDevice = Module["_SDL_PauseAudioStreamDevice"] = createExportWrapper("SDL_PauseAudioStreamDevice", 1);
-  _SDL_ResumeAudioStreamDevice = Module["_SDL_ResumeAudioStreamDevice"] = createExportWrapper("SDL_ResumeAudioStreamDevice", 1);
   _SDL_AudioStreamDevicePaused = Module["_SDL_AudioStreamDevicePaused"] = createExportWrapper("SDL_AudioStreamDevicePaused", 1);
   _SDL_ClosestAudioFormats = Module["_SDL_ClosestAudioFormats"] = createExportWrapper("SDL_ClosestAudioFormats", 1);
   _SDL_GetAudioFormatName = Module["_SDL_GetAudioFormatName"] = createExportWrapper("SDL_GetAudioFormatName", 1);

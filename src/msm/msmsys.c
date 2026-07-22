@@ -4,8 +4,62 @@
 #include "msm/msmmus.h"
 #include "msm/msmse.h"
 #include "msm/msmstream.h"
+#include "port/byteswap.h"
 
 static MSM_SYS sys;
+
+// .msm files are genuine GameCube big-endian data (see game/msm_data.h's
+// MSM_HEADER/MSM_INFO); this whole msm/ layer is otherwise a direct port of
+// hardware-targeted code with no byteswap handling of its own. Swap each
+// struct in place immediately after reading it, before any of its fields
+// get used (as data *or* as offsets/lengths for subsequent reads).
+static void ByteswapMsmHeader(MSM_HEADER *h) {
+    s32 *p = (s32 *)h;
+    u32 i;
+    for (i = 0; i < sizeof(MSM_HEADER) / sizeof(s32); i++) {
+        byteswap_s32(&p[i]);
+    }
+}
+
+static void ByteswapMsmInfo(MSM_INFO *info) {
+    byteswap_s16(&info->musMax);
+    byteswap_s16(&info->seMax);
+    byteswap_s32(&info->minMem);
+    byteswap_s32(&info->aramSize);
+    byteswap_s32(&info->grpBufSizeA);
+    byteswap_s32(&info->grpBufSizeB);
+    byteswap_s32(&info->dummyMusSize);
+    byteswap_s32(&info->unk24);
+}
+
+static void ByteswapMsmGrpInfoArray(MSM_GRP_INFO *arr, s32 size) {
+    s32 count = size / (s32)sizeof(MSM_GRP_INFO);
+    s32 i;
+    for (i = 0; i < count; i++) {
+        byteswap_u16(&arr[i].gid);
+        byteswap_s32(&arr[i].dataOfs);
+        byteswap_s32(&arr[i].dataSize);
+        byteswap_s32(&arr[i].sampOfs);
+        byteswap_s32(&arr[i].sampSize);
+    }
+}
+
+// MSM_AUXPARAM's payload is a union of REVERBHI/REVERBSTD/CHORUS/DELAY, all
+// composed entirely of u32/f32 (4-byte) fields; swap every 4-byte word in
+// the union region (sized to the largest variant, DELAY) rather than
+// picking one variant's field list -- safe regardless of which variant is
+// actually active, since the untouched-variant's slice of that same memory
+// is swapped too but never read as anything meaningful.
+static void ByteswapMsmAuxParamArray(MSM_AUXPARAM *arr, s32 size) {
+    s32 count = size / (s32)sizeof(MSM_AUXPARAM);
+    s32 i, j;
+    for (i = 0; i < count; i++) {
+        u32 *words = (u32 *)&arr[i].delay;
+        for (j = 0; j < (s32)(sizeof(MSM_AUXPARAM_DELAY) / sizeof(u32)); j++) {
+            byteswap_u32(&words[j]);
+        }
+    }
+}
 
 static void msmSysServer(void)
 {
@@ -189,6 +243,7 @@ s32 msmSysGroupInit(DVDFileInfo *file)
     if (msmFioRead(file, sys.grpInfo, sys.header->grpInfoSize, sys.header->grpInfoOfs) < 0) {
         return MSM_ERR_READFAIL;
     }
+    ByteswapMsmGrpInfoArray(sys.grpInfo, sys.header->grpInfoSize);
     if ((sys.grpBufA = msmMemAlloc(sys.info->grpBufSizeA * sys.grpStackAMax)) == NULL) {
         return MSM_ERR_OUTOFMEM;
     }
@@ -814,6 +869,7 @@ s32 msmSysInit(MSM_INIT *init, MSM_ARAM *aram)
         msmFioClose(&sp10);
         return MSM_ERR_READFAIL;
     }
+    ByteswapMsmHeader(sys.header);
     if (sys.header->version != MSM_FILE_VERSION) {
         msmFioClose(&sp10);
         return MSM_ERR_INVALIDFILE;
@@ -826,6 +882,7 @@ s32 msmSysInit(MSM_INIT *init, MSM_ARAM *aram)
         msmFioClose(&sp10);
         return MSM_ERR_READFAIL;
     }
+    ByteswapMsmInfo(sys.info);
     if (aram != NULL) {
         if (aram->skipARInit == 0) {
             ARInit(aram->stackIndex, aram->aramEnd);
@@ -876,6 +933,7 @@ s32 msmSysInit(MSM_INIT *init, MSM_ARAM *aram)
                 result = MSM_ERR_READFAIL;
             }
             else {
+                ByteswapMsmAuxParamArray(sys.auxParam, sys.header->auxParamSize);
                 result = 0;
             }
         }
